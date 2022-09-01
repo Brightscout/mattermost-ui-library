@@ -1,0 +1,40 @@
+$rhs-header-height: 63px;
+$rhs-footer-height: 58px;
+$rhs-toggle-section-height: 60px;
+
+// Font weights
+$font-weights: 100, 200, 300, 400, 500, 600, 700, 800, 900;
+
+// font-sizes
+$font-sizes: 10, 12, 14, 16, 18, 20, 22, 25, 28, 30, 32, 42, 48;
+
+// Spacing
+$spacings: 0, 2, 5, 10, 12, 15, 18, 20, 22, 25, 30, 35, 40, 45, 50;
+
+// Directions - for margins and paddings
+$dirs: 'left', 'right', 'top', 'bottom';
+
+// Text align
+$text-aligns: center, left, right, start, end, justify;
+
+// Cursor
+$cursor: auto, pointer, not-allowed, text;
+
+// Positions
+$positions: static, relative, absolute, sticky, fixed;
+
+// Common display styles (not available in mattermost utils) + flex
+// d-flex is there in mattermost but we don't include the whole _flex.scss file in our build that's why adding the class ".d-flex" in this library as well;
+$display-styles: none, inline-block, inline, block, flex;
+
+// Text transform styles
+$text-transforms: capitalize, uppercase, lowercase, initial;
+
+// Border radius
+$border-radius: 4, 8;
+
+// Delete confirmation dialog button colors
+$delete-confirmation-dialog-btn-bg: '#d9534f';
+$delete-confirmation-dialog-btn-border: '#d43f3a';
+$delete-confirmation-dialog-btn-hover-bg: '#c9302c';
+$delete-confirmation-dialog-btn-hover-border: '#ac2925';

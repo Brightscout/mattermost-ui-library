@@ -1,9 +1,9 @@
 // Used for testing and viewing the components
+import App from 'App';
 import React from 'react';
 
 import ReactDOM from 'react-dom/client';
 
-import Typography from './components/Typography';
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(
@@ -11,8 +11,7 @@ const root = ReactDOM.createRoot(
 );
 root.render(
     <React.StrictMode>
-        {/* Replace the below by the component/container you need to view */}
-        <Typography>{'Mattermost UI Library'}</Typography>
+        <App/>
     </React.StrictMode>,
 );
 
