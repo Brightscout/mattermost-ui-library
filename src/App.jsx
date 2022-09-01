@@ -12,6 +12,7 @@ import SVGIcons from '@Constants/icons';
 import "@Styles/abstract/_cssVariables.scss";
 import "@Styles/base/_flex.scss";
 
+// Mock data for props
 const suggestions = [
     {
         suggestion: 'Suggestion 1',
@@ -33,6 +34,7 @@ const suggestions = [
 const App = () => {
     const [active, setActive] = useState(false);
     const [autoSuggestValue, setAutoSuggestValue] = useState('');
+
     const buttons = [
         {
             text: 'Edit',
@@ -57,12 +59,12 @@ const App = () => {
             <h6>Toggle Switch</h6>
             <ToggleSwitch
                 active={active}
-                onChange={(checked) => setActive(checked)}
+                onChange={setActive}
             />
             <h6>AutoSuggest</h6>
             <AutoSuggest
                 inputValue={autoSuggestValue}
-                onInputValueChange={(value) => setAutoSuggestValue(value)}
+                onInputValueChange={setAutoSuggestValue}
                 placeholder='AutoSuggest Placeholder'
                 suggestionConfig={{
                     suggestions,
@@ -76,7 +78,7 @@ const App = () => {
             <Checkbox
                 checked={active}
                 label='Checkbox Label'
-                onChange={(checked) => setActive(checked)}
+                onChange={setActive}
             />
         </div>
     );
