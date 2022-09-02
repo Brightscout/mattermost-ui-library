@@ -24,7 +24,16 @@
     "noUnusedLocals": true,
     "outDir": "build",
     "declaration": true,
-    "sourceMap": true
+    "sourceMap": true,
+    "plugins": [
+      {
+          "transform": "typescript-transform-paths"
+      },
+      {
+        "transform": "typescript-transform-paths",
+        "afterDeclarations": true,
+      }
+    ]
   },
   "include": [
     "src"
