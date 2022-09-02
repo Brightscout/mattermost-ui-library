@@ -2,12 +2,24 @@
   "name": "mm-ui-library",
   "version": "0.1.0",
   "private": true,
+  "author": "Sooraj Shukla",
+  "main": "build/cjs/index.js",
+  "module": "build/esm/index.js",
+  "files": [
+    "build"
+  ],
   "dependencies": {},
   "scripts": {
     "start": "craco start",
-    "build": "craco build",
+    "build": "rm -rf build && npm run build:esm && npm run build:cjs && npm run copy-dts && npm run copy-scss && npm run build-css",
+    "build:esm": "tsc --module es2015 --target es5 --outDir build/esm",
+    "build:cjs": "tsc --module CommonJS --outDir build/cjs",
     "test": "craco test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "copy-dts": "copyfiles -u 1 \"src/types/**/*.d.ts\" build",
+    "copy-scss": "copyfiles -u 1 \"src/**/*.scss\" build",
+    "build-css": "node-sass src/styles/ -o build/styles/ --output-style compressed && npm run build-postcss",
+    "build-postcss": "postcss build/styles/main.css -o build/styles/main.css --use autoprefixer"
   },
   "eslintConfig": {
     "extends": [
@@ -27,12 +39,15 @@
     "@types/react-dom": "^18.0.6",
     "@typescript-eslint/parser": "^5.33.0",
     "bootstrap": "^5.2.0",
+    "copyfiles": "^2.4.1",
     "craco-alias": "^2.2.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-import-resolver-typescript": "^3.5.0",
     "eslint-plugin-prettier": "^4.2.1",
     "font-awesome": "^4.7.0",
     "node-sass": "^4.14.0",
+    "postcss": "^8.4.16",
+    "postcss-cli": "^10.0.0",
     "prettier": "^2.7.1",
     "react": "^16.13.1",
     "react-bootstrap": "^2.5.0",
