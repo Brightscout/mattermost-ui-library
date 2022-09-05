@@ -56,7 +56,7 @@ const Dropdown = ({
 
     const getOptions = useCallback(() => (customOption ? [...options, {label: customOption.label, value: customOption.value}] : options), [customOption, options]);
 
-    const getLabel = useCallback((optionValue: string | null) => getOptions().find((option) => option.value === optionValue), []);
+    const getLabel = useCallback((optionValue: string | null) => getOptions().find((option) => option.value === optionValue), [getOptions]);
 
     // Close the dropdown popover when the user clicks outside
     useEffect(() => {
@@ -81,7 +81,7 @@ const Dropdown = ({
                     `
                 }
             >
-                {placeholder && <label className={`dropdown__field-text dropdown__field-placeholder margin-0 ${value && 'dropdown__field-placeholder--shifted'}`}>
+                {placeholder && <label className={`dropdown__field-text dropdown__field-placeholder margin-0 wt-400 ${value && 'dropdown__field-placeholder--shifted'}`}>
                     {placeholder}
                     {required && '*'}
                 </label>}

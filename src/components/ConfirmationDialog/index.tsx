@@ -7,19 +7,25 @@ import ModalHeader from '@Components/Modal/subComponents/ModalHeader';
 import ModalLoader from '@Components/Modal/subComponents/ModalLoader';
 
 type ConfirmationDialogProps = {
+    title: string;
+    confirmationMsg: string;
     show: boolean;
     onHide: () => void;
     loading?: boolean;
     onConfirm: () => void;
     className?: string;
+    error?: string | JSX.Element;
 }
 
 const ConfirmationDialog = ({
+    title,
+    confirmationMsg,
     show,
     onHide,
     loading,
     onConfirm,
     className = '',
+    error,
 }: ConfirmationDialogProps) => (
     <Modal
         show={show}
@@ -28,7 +34,7 @@ const ConfirmationDialog = ({
     >
         <>
             <ModalHeader
-                title='Confirm Delete Feed'
+                title={title}
                 onHide={onHide}
                 showCloseIconInHeader={true}
             />
@@ -37,6 +43,8 @@ const ConfirmationDialog = ({
                 loading={loading}
                 onHide={onHide}
                 onConfirm={onConfirm}
+                confirmationMsg={confirmationMsg}
+                error={error}
             />
         </>
     </Modal>

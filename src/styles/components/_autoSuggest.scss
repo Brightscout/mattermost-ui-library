@@ -10,8 +10,7 @@
   }
 
   &__toggle-input{
-    @include positioning(absolute, 0, '', '', 0, 1);
-    position: absolute;
+    @include positioning(absolute, 0, '', '', 0);
     width: 100%;
     height: 100%;
     opacity: 0;
@@ -97,9 +96,7 @@
     .auto-suggest__field {
       border-color: rgba(var(--error-text-color-rgb), 0.5);
     }
-    .auto-suggest__input::placeholder {
-      color: rgba(var(--error-text-color-rgb), 0.8);
-    }
+    .auto-suggest__input::placeholder,
     .auto-suggest__field-angle {
       color: rgba(var(--error-text-color-rgb), 0.8);
     }

@@ -5,6 +5,7 @@
   overflow: hidden;
 
   &__bar {
+    background: var(--button-bg);
     width: 40%;
     height: 5px;
     -webkit-animation: slide-right 1.3s ease-in-out infinite both;
@@ -12,24 +13,13 @@
   }
 }
 
-// @-webkit-keyframes slide-right {
-//   0% {
-//     -webkit-transform: translateX(-150%);
-//     transform: translateX(-150%);
-//   }
-//   100% {
-//     -webkit-transform: translateX(250%);
-//     transform: translateX(250%);
-//   }
-// }
-
-@keyframes slide-right {
+@include keyframes(slide-right) {
   0% {
-    // -webkit-transform: translateX(-150%);
+    -webkit-transform: translateX(-150%);
     transform: translateX(-150%);
   }
   100% {
-    // -webkit-transform: translateX(250%);
+    -webkit-transform: translateX(250%);
     transform: translateX(250%);
   }
 }

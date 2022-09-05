@@ -23,7 +23,7 @@ const Input = ({
     className = '',
 }: InputFieldProps) => (
     <div className={`form-group ${className}`}>
-        {label && <label className='form-group__label'>{label}</label>}
+        {label && <label className='form-group__label wt-400'>{label}</label>}
         <FormControl
             type={type}
             value={value}
