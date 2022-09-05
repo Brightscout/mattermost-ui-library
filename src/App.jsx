@@ -100,7 +100,7 @@ const App = () => {
     );
 };
 
-// Rendering it here since we're using "src/index.tsx" to export library components
+// Rendering the app here since we're using "src/index.tsx" to export library components
 ReactDOM.render(
   <React.StrictMode>
     <App />
