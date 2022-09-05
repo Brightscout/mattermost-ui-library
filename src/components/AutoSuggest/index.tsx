@@ -117,7 +117,11 @@ const AutoSuggest = ({
                     />
                 )}
             </div>
-            {inputValue.length < charThresholdToShowSuggestions && focused && <p className='auto-suggest__get-suggestion-warn font-size-12'>{`Please enter at least ${charThresholdToShowSuggestions} characters to get suggestions.`}</p>}
+            {inputValue.length < charThresholdToShowSuggestions && focused && (
+                <p className='auto-suggest__get-suggestion-warn font-size-12'>
+                    {`Please enter at least ${charThresholdToShowSuggestions} characters to get suggestions.`}
+                </p>
+            )}
             <ul className={`auto-suggest__suggestions padding-0 ${showSuggestions && 'auto-suggest__suggestions--open'}`}>
                 {suggestions.map((suggestion) => (
                     <li
