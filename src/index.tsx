@@ -40,7 +40,6 @@ export {
     ConfirmationPanel,
     Dropdown,
     EmptyState,
-    // Icons,
     InputField,
     CircularLoader,
     LinearLoader,
@@ -58,7 +57,6 @@ export {
     Tabs,
     ToggleSwitch,
     Tooltip,
-    // Icons
     ServiceNowIcon,
     BellIcon,
     UnlinkIcon,
