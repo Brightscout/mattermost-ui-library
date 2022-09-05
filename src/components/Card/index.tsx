@@ -58,19 +58,17 @@ const Card = ({
                 >
                     <h3 className='card-body__section-heading wt-600 font-size-14 margin-bottom-5 text-ellipsis'>{body.sectionHeading}</h3>
                     <ul className='card-body__list padding-0 margin-bottom-10'>
-                        {
-                            body.data.map((listItem) => (
-                                <li
-                                    key={listItem.label as string}
-                                    className='body-item'
-                                >
-                                    <p className='body-item__text font-size-14 text-ellipsis'>
-                                        <span className='body-item__icon margin-right-10'>{listItem.icon}</span>
-                                        <span>{listItem.label}</span>
-                                    </p>
-                                </li>
-                            ))
-                        }
+                        {body.data.map((listItem) => (
+                            <li
+                                key={listItem.label as string}
+                                className='body-item'
+                            >
+                                <p className='body-item__text font-size-14 text-ellipsis'>
+                                    <span className='body-item__icon margin-right-10'>{listItem.icon}</span>
+                                    <span>{listItem.label}</span>
+                                </p>
+                            </li>
+                        ))}
                     </ul>
                 </div>
             ))}

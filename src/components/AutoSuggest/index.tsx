@@ -47,10 +47,8 @@ const AutoSuggest = ({
 
     useEffect(() => {
         if (focused) {
-            // eslint-disable-next-line no-unused-expressions
             textInputFieldRef.current?.focus();
         } else {
-            // eslint-disable-next-line no-unused-expressions
             textInputFieldRef.current?.blur();
         }
     }, [focused]);
@@ -70,7 +68,7 @@ const AutoSuggest = ({
     }, [onOptionClick]);
 
     // Prevent the text input field(which is the field visible in the UI) from blurring if "focused" is set to "true"
-    const handleBlur = useCallback(() => focused && textInputFieldRef.current?.focus(), []);
+    const handleBlur = useCallback(() => focused && textInputFieldRef.current?.focus(), [focused]);
 
     return (
         <div
@@ -93,12 +91,13 @@ const AutoSuggest = ({
             >
                  <input
                     type='checkbox'
-                    className='auto-suggest__toggle-input'
+                    className='auto-suggest__toggle-input cursor-text'
                     checked={focused}
                     disabled={disabled}
                     onClick={() => setFocused(true)}
                 />
                 <input
+                    ref={textInputFieldRef}
                     placeholder={`${placeholder ?? ''}${required ? '*' : ''}`}
                     value={inputValue}
                     onChange={(e) => onInputValueChange(e.target.value)}
@@ -120,18 +119,16 @@ const AutoSuggest = ({
             </div>
             {inputValue.length < charThresholdToShowSuggestions && focused && <p className='auto-suggest__get-suggestion-warn font-size-12'>{`Please enter at least ${charThresholdToShowSuggestions} characters to get suggestions.`}</p>}
             <ul className={`auto-suggest__suggestions padding-0 ${showSuggestions && 'auto-suggest__suggestions--open'}`}>
-                {
-                    suggestions.map((suggestion) => (
-                        <li
-                            key={renderValue(suggestion)}
-                            onClick={() => handleSuggestionClick(suggestion)}
-                            className='auto-suggest__suggestion text-ellipsis cursor-pointer padding-v-10 padding-h-25 margin-0'
-                        >
-                            {renderValue(suggestion)}
-                        </li>
-                    ))
-                }
-                {!suggestions.length && <li className='auto-suggest__suggestion cursor-pointer'>{'Nothing to show'}</li>}
+                {suggestions.map((suggestion) => (
+                    <li
+                        key={renderValue(suggestion)}
+                        onClick={() => handleSuggestionClick(suggestion)}
+                        className='auto-suggest__suggestion text-ellipsis cursor-pointer padding-v-10 padding-h-25 margin-0'
+                    >
+                        {renderValue(suggestion)}
+                    </li>
+                ))}
+                {!suggestions.length && <li className='auto-suggest__suggestion cursor-pointer padding-v-10 padding-h-25 margin-0'>{'Nothing to show'}</li>}
             </ul>
             {typeof error === 'string' && <p className='auto-suggest__err-text error-text margin-top-5 font-size-14'>{error}</p>}
         </div>

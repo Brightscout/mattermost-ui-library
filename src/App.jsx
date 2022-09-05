@@ -35,21 +35,32 @@ const App = () => {
     const [active, setActive] = useState(false);
     const [autoSuggestValue, setAutoSuggestValue] = useState('');
 
+    // Mock data for menu buttons
     const buttons = [
         {
             text: 'Edit',
-            icon: <SVGWrapper
-                width={24}
-                height={24}
-                viewBox='0 0 26 26'
-                >{SVGIcons.edit}</SVGWrapper>,
+            icon: (
+                <SVGWrapper
+                    width={24}
+                    height={24}
+                    viewBox='0 0 26 26'
+                >
+                    {SVGIcons.edit}
+                </SVGWrapper>
+            ),
             onClick: () => '',
         },
         {
             text: 'Delete',
-            icon: <SVGWrapper width={24}
-            height={24}
-            viewBox='0 0 26 26'>{SVGIcons.delete}</SVGWrapper>,
+            icon: (
+                <SVGWrapper
+                    width={24}
+                    height={24}
+                    viewBox='0 0 26 26'
+                >
+                    {SVGIcons.delete}
+                </SVGWrapper>
+            ),
             onClick: () => '',
         }
     ]

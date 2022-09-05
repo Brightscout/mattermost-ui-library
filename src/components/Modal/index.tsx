@@ -5,7 +5,7 @@ import ModalHeader from './subComponents/ModalHeader';
 import ModalLoader from './subComponents/ModalLoader';
 import ModalBody from './subComponents/ModalBody';
 import ModalFooter from './subComponents/ModalFooter';
-import ModalSubTitleAndError from './subComponents/ModalSubtitleAndError';
+import ModalSubtitleAndError from './subComponents/ModalSubtitleAndError';
 
 type ModalProps = {
     show: boolean;
@@ -56,11 +56,11 @@ const Modal = ({
         <ModalLoader loading={loading}/>
         <ModalBody>
             <>
-                <ModalSubTitleAndError
+                <ModalSubtitleAndError
                     subTitle={subTitle}
                 />
                 {children}
-                <ModalSubTitleAndError
+                <ModalSubtitleAndError
                     error={error}
                 />
             </>
