@@ -1,16 +1,21 @@
 import React, {useState} from 'react';
+import ReactDOM from 'react-dom';
 
+// Components
 import AutoSuggest from '@Components/AutoSuggest';
-import MenuButtons from '@Components/buttons/menuButtons';
-import BaseCard from '@Components/card/base';
-import Checkbox from '@Components/checkbox';
-import SVGWrapper from '@Components/svgWrapper';
-import ToggleSwitch from '@Components/toggleSwitch';
+import MenuButtons from '@Components/Buttons/MenuButtons';
+import BaseCard from '@Components/Card/Base';
+import Checkbox from '@Components/Checkbox';
+import SVGWrapper from '@Components/SvgWrapper';
+import ToggleSwitch from '@Components/ToggleSwitch';
+
+// Constants
 import SVGIcons from '@Constants/icons';
 
 // Don't include the below scss files in styles so that it isn't the part of build (as these are the files from mattermost-webapp);
-import "@Styles/abstract/_cssVariables.scss";
-import "@Styles/base/_flex.scss";
+import '@Styles/abstract/_cssVariables.scss';
+import '@Styles/base/_flex.scss';
+import '@Styles/main.scss';
 
 // Mock data for props
 const suggestions = [
@@ -95,4 +100,10 @@ const App = () => {
     );
 };
 
-export default App;
+// Rendering it here since we're using "src/index.tsx" to export library components
+ReactDOM.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>,
+  document.getElementById('root')
+);
