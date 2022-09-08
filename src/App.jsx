@@ -81,7 +81,7 @@ const App = () => {
                     suggestions,
                     renderValue: (s) => s.suggestion,
                 }}
-                onOptionClick={(suggest) => setAutoSuggestValue(suggest.suggestion)}
+                onOptionClick={(option) => setAutoSuggestValue(option.suggestion)}
             />
             <h6>Menu Buttons</h6>
             <MenuButtons buttons={buttons}/>
