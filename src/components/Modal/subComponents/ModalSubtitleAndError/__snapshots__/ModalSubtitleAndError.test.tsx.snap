@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ModalSubtitleAndError Should render correctly and matches snapshot when both subTitle and error props are passed 1`] = `ShallowWrapper {}`;
+
+exports[`ModalSubtitleAndError Should render correctly and matches snapshot when only the error is passed 1`] = `ShallowWrapper {}`;
+
+exports[`ModalSubtitleAndError Should render correctly and matches snapshot when only the subTitle is passed 1`] = `ShallowWrapper {}`;
