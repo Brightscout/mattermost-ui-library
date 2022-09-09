@@ -3,7 +3,7 @@ import React, {useCallback, useEffect, useState, useRef} from 'react';
 // Constants
 import {DefaultCharThresholdToShowSuggestions} from '@Constants';
 
-type AutoSuggestProps = {
+export type AutoSuggestProps = {
     inputValue: string;
     onInputValueChange: (newValue: string) => void;
     onOptionClick: (suggestion: Record<string, string>) => void;
@@ -89,12 +89,13 @@ const AutoSuggest = ({
                     `
                 }
             >
-                 <input
+                <input
                     type='checkbox'
                     className='auto-suggest__toggle-input cursor-text'
                     checked={focused}
                     disabled={disabled}
                     onClick={() => setFocused(true)}
+                    readOnly={true}
                 />
                 <input
                     ref={textInputFieldRef}
@@ -106,7 +107,7 @@ const AutoSuggest = ({
                     disabled={disabled}
                 />
                 {loadingSuggestions ? (
-                    <div className='auto-suggest__loader'/>
+                    <div className='auto-suggest__loader' />
                 ) : (
                     <i
                         className={

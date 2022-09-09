@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AutoSuggest Should render correctly 1`] = `ReactWrapper {}`;
+
+exports[`AutoSuggest Should show the empty state when "suggestions" are empty and character threshold is reached 1`] = `ReactWrapper {}`;
+
+exports[`AutoSuggest Should show the error message when "error" prop is passed 1`] = `ReactWrapper {}`;
+
+exports[`AutoSuggest Should show the loader when "loading" prop is passed 1`] = `ReactWrapper {}`;
+
+exports[`AutoSuggest Should show the suggestions when the input is focused and character threshold is reached 1`] = `ReactWrapper {}`;
+
+exports[`AutoSuggest Shouldn't show the suggestions when the input is focused but character threshold isn't reached 1`] = `ReactWrapper {}`;
