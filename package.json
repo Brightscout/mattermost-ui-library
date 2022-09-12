@@ -10,7 +10,6 @@
   ],
   "dependencies": {},
   "scripts": {
-    "start": "craco start",
     "build": "rm -rf build && npm run build:esm && npm run build:cjs && npm run copy-dts && npm run copy-scss && npm run build-css",
     "build:esm": "ttsc --module es2015 --target es5 --outDir build/esm",
     "build:cjs": "ttsc --module CommonJS --outDir build/cjs",
