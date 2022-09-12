@@ -20,7 +20,7 @@ const ModalHeader = ({
                 {title && <p className='modal__title text-ellipsis font-size-20 wt-500 margin-0'>{title}</p>}
                 {showCloseIconInHeader && (
                     <button
-                        className='style--none header-close-btn'
+                        className='style--none header-close-btn plugin-btn'
                         onClick={onHide}
                     >
                         <i className='icon icon-close modal__close-icon cursor-pointer font-size-20' />

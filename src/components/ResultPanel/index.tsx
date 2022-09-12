@@ -32,10 +32,10 @@ const ResultPanel = forwardRef<HTMLDivElement, ResultPanelProps>(({
         ) : (
             <CheckIcon className='result-panel-icon'/>
         )}
-        <h2 className='font-16 margin-v-25 text-center text-capitalize'>{header}</h2>
+        <h2 className='result-panel-text font-16 margin-v-25 text-center'>{header}</h2>
         {primaryBtn?.onClick && (
             <button
-                className='btn btn-primary'
+                className='btn btn-primary plugin-btn'
                 onClick={primaryBtn.onClick}
             >
                 {primaryBtn.text}
@@ -43,7 +43,7 @@ const ResultPanel = forwardRef<HTMLDivElement, ResultPanelProps>(({
         )}
         {secondaryBtn?.onClick && (
             <button
-                className='btn btn-link margin-top-12 padding-0'
+                className='btn btn-link margin-top-12 padding-0 plugin-btn'
                 onClick={secondaryBtn.onClick}
             >
                 {secondaryBtn.text}

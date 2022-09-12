@@ -53,7 +53,7 @@ const SubscriptionCard = ({
             }
             className='subscription-card__popover'
         >
-            <button className='style--none subscription-card__menu-btn'>
+            <button className='style--none subscription-card__menu-btn plugin-btn'>
                 <i className='fa fa-ellipsis-v'/>
             </button>
         </Popover>

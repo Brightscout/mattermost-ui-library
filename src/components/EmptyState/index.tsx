@@ -32,7 +32,7 @@ const EmptyState = ({
             {buttonConfig?.action && (
                 <button
                     onClick={buttonConfig.action}
-                    className='empty-state__btn btn btn-primary margin-top-25'
+                    className='empty-state__btn btn btn-primary margin-top-25 plugin-btn'
                 >
                     {buttonConfig.text}
                 </button>
