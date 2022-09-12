@@ -5,17 +5,17 @@
     border-radius: 4px;
 
     &--focused {
-        border-color: rgba(var(--center-channel-color-rgb), 0.2);
+      border-color: rgba(var(--center-channel-color-rgb), 0.2);
     }
   }
 
-  &__toggle-input{
+  &__toggle-input {
     @include positioning(absolute, 0, '', '', 0);
     width: 100%;
     height: 100%;
     opacity: 0;
 
-    &:disabled{
+    &:disabled {
       @extend .cursor-not-allowed;
     }
   }
@@ -88,7 +88,7 @@
     max-width: 100%;
 
     &:hover {
-        background: rgba(var(--center-channel-text-rgb), 0.06);
+      background: rgba(var(--center-channel-text-rgb), 0.06);
     }
   }
 
@@ -100,27 +100,5 @@
     .auto-suggest__field-angle {
       color: rgba(var(--error-text-color-rgb), 0.8);
     }
-  }
-}
-
-@-webkit-keyframes rotate-center {
-  0% {
-    -webkit-transform: rotate(0);
-    transform: rotate(0);
-  }
-  100% {
-    -webkit-transform: rotate(360deg);
-    transform: rotate(360deg);
-  }
-}
-
-@keyframes rotate-center {
-  0% {
-    -webkit-transform: rotate(0);
-    transform: rotate(0);
-  }
-  100% {
-    -webkit-transform: rotate(360deg);
-    transform: rotate(360deg);
   }
 }
