@@ -54,7 +54,7 @@ const SubscriptionCard = ({
             className='subscription-card__popover'
         >
             <button className='style--none subscription-card__menu-btn plugin-btn'>
-                <i className='fa fa-ellipsis-v'/>
+                <i className='fa fa-ellipsis-v' />
             </button>
         </Popover>
     ), [onEdit, onDelete]);
@@ -68,13 +68,13 @@ const SubscriptionCard = ({
                 </div>
                 {channel && (
                     <div className='subscription-card__channel margin-bottom-12 padding-h-15 d-flex align-items-center'>
-                        <i className={`channel-icon margin-right-5 ${channel.type === PrivateChannelType ? 'icon icon-lock-outline' : 'icon icon-globe'}`}/>
+                        <i className={`channel-icon margin-right-5 ${channel.type === PrivateChannelType ? 'icon icon-lock-outline' : 'icon icon-globe'}`} />
                         <span className='subscription-card__channel-text font-14 text-ellipsis'>{channel.display_name}</span>
                     </div>
                 )}
-                {label && <div className='subscription-card__label padding-v-2 padding-h-5 text-capitalize font-size-10 wt-600 margin-bottom-10 channel-text d-inline-block border-radius-4'>{label}</div>}
+                {label && <div className='subscription-card__label padding-v-2 padding-h-5 text-capitalize font-10 wt-600 margin-bottom-10 channel-text d-inline-block border-radius-4'>{label}</div>}
                 {(cardBody || description) && (
-                    <ul className='subscription-card__body padding-0 margin-0 font-size-14'>
+                    <ul className='subscription-card__body padding-0 margin-0 font-14'>
                         {cardBody?.list?.map((listItem: string | JSX.Element, index: number) => (
                             <li
                                 key={index}

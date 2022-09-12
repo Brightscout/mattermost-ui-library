@@ -14,11 +14,11 @@ const MenuButtons = ({buttons, className = ''}: MenuButtonProps): JSX.Element =>
         {buttons.map((button) => (
             <button
                 key={button.text}
-                className='button-menu__btn channel-bg channel-text font-size-14 padding-v-12 padding-h-10 d-flex plugin-btn'
+                className='button-menu__btn channel-bg channel-text font-14 padding-v-12 padding-h-10 d-flex plugin-btn'
                 onClick={button.onClick}
             >
                 <span className='button-menu__btn-icon margin-right-10 d-inline-block'>
-                    {typeof button.icon === 'string' ? <i className={button.icon}/> : button.icon}
+                    {typeof button.icon === 'string' ? <i className={button.icon} /> : button.icon}
                 </span>
                 <span className='button-menu__btn-text'>{button.text}</span>
             </button>

@@ -111,7 +111,7 @@ const AutoSuggest = ({
                 ) : (
                     <i
                         className={
-                            `fa fa-angle-down auto-suggest__field-angle font-size-20
+                            `fa fa-angle-down auto-suggest__field-angle font-20
                             ${showSuggestions && 'auto-suggest__field-angle--rotated'}
                             `
                         }
@@ -119,7 +119,7 @@ const AutoSuggest = ({
                 )}
             </div>
             {inputValue.length < charThresholdToShowSuggestions && focused && (
-                <p className='auto-suggest__get-suggestion-warn font-size-12'>
+                <p className='auto-suggest__get-suggestion-warn font-12'>
                     {`Please enter at least ${charThresholdToShowSuggestions} characters to get suggestions.`}
                 </p>
             )}
@@ -135,7 +135,7 @@ const AutoSuggest = ({
                 ))}
                 {!suggestions.length && <li className='auto-suggest__suggestion cursor-pointer padding-v-10 padding-h-25 margin-0'>{'Nothing to show'}</li>}
             </ul>
-            {typeof error === 'string' && <p className='auto-suggest__err-text error-text margin-top-5 font-size-14'>{error}</p>}
+            {typeof error === 'string' && <p className='auto-suggest__err-text error-text margin-top-5 font-14'>{error}</p>}
         </div>
     );
 };

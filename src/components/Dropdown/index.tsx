@@ -85,13 +85,13 @@ const Dropdown = ({
                     {placeholder}
                     {required && '*'}
                 </label>}
-                {value && <p className='plugin-dropdown__field-text font-size-14 wt-500 margin-0 margin-top-15 text-ellipsis'>
+                {value && <p className='plugin-dropdown__field-text font-14 wt-500 margin-0 margin-top-15 text-ellipsis'>
                     {getLabel(value)?.label || getLabel(value)?.value}
                 </p>}
                 {loadingOptions ? (
                     <div className='plugin-dropdown__loader' />
                 ) : (
-                    <i className={`fa fa-angle-down plugin-dropdown__field-angle font-size-20 ${open && 'plugin-dropdown__field-angle--rotated'}`} />
+                    <i className={`fa fa-angle-down plugin-dropdown__field-angle font-20 ${open && 'plugin-dropdown__field-angle--rotated'}`} />
                 )}
                 <input
                     type='checkbox'
@@ -106,7 +106,7 @@ const Dropdown = ({
                     <li
                         key={option.value}
                         onClick={() => !disabled && handleInputChange(option)}
-                        className='plugin-dropdown__option-item text-ellipsis font-size-14 margin-0 padding-v-10 padding-h-25 cursor-pointer'
+                        className='plugin-dropdown__option-item text-ellipsis font-14 margin-0 padding-v-10 padding-h-25 cursor-pointer'
                     >
                         {option.label || option.value}
                     </li>
@@ -121,7 +121,7 @@ const Dropdown = ({
                     </li>
                 )}
             </ul>
-            {typeof error === 'string' && <p className='plugin-dropdown__err-text font-size-14 margin-top-5 error-text'>{error}</p>}
+            {typeof error === 'string' && <p className='plugin-dropdown__err-text font-14 margin-top-5 error-text'>{error}</p>}
         </div>
     );
 };
