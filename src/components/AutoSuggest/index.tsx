@@ -27,7 +27,7 @@ const AutoSuggest = ({
     suggestionConfig,
     loadingSuggestions = false,
     charThresholdToShowSuggestions = DefaultCharThresholdToShowSuggestions,
-    disabled,
+    disabled = false,
     error,
     required,
     className = '',
