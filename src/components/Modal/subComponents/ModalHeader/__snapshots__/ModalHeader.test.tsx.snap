@@ -1,5 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Modal Header Modal Header - title and close button Should match snapshot when rendering title and close button also 1`] = `ReactWrapper {}`;
+exports[`Modal Header - title and close button Should match snapshot when rendering title and close button also 1`] = `ReactWrapper {}`;
 
 exports[`Modal Header Should render correctly and matches snapshot 1`] = `ReactWrapper {}`;

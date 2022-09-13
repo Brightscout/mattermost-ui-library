@@ -23,7 +23,7 @@ const ModalHeader = ({
                         className='style--none header-close-btn'
                         onClick={onHide}
                     >
-                        <i className='icon icon-close modal__close-icon cursor-pointer font-size-20' />
+                        <i className='icon icon-close modal__close-icon cursor-pointer font-size-20'/>
                     </button>
                 )}
             </div>

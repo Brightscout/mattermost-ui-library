@@ -3,9 +3,11 @@ const CracoAlias = require('craco-alias');
 
 module.exports = {
   webpack: {
-    configure: {
-      entry: './src/App.jsx',
-    },
+    alias: {
+      '@Components': path.resolve(__dirname, 'src/components'),
+      '@Styles': path.resolve(__dirname, 'src/styles'),
+      '@Constants': path.resolve(__dirname, 'src/constants'),
+    }
   },
   plugins: [
     {

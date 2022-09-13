@@ -1,5 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Modal Body Modal Loader - loading state Should render correctly and matches snapshot when loading is true 1`] = `ShallowWrapper {}`;
-
 exports[`Modal Body Should render correctly and matches snapshot when loading is false 1`] = `ReactWrapper {}`;
+
+exports[`Modal Loader - loading state Should render correctly and matches snapshot when loading is true 1`] = `ShallowWrapper {}`;
