@@ -42,6 +42,7 @@ const EmptyState = ({
                     target='_blank'
                     rel='noreferrer'
                     href={buttonConfig.link}
+                    download={buttonConfig.download}
                     className='empty-state__btn btn btn-primary margin-top-25'
                 >
                     {buttonConfig.text}
