@@ -5,7 +5,7 @@ import LinearLoader from '.';
 
 describe('Linear Loader', () => {
     it('Should render correctly', () => {
-        const component = shallow(<LinearLoader />);
+        const component = shallow(<LinearLoader/>);
         expect(component).toMatchSnapshot();
     });
 });

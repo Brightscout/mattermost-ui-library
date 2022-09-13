@@ -7,7 +7,7 @@ describe('Skeleton Loader', () => {
     let component: ShallowWrapper<any, Readonly<{}>, React.Component<{}, {}, any>>;
 
     beforeEach(() => {
-        component = shallow(<SkeletonLoader className='skeleton-loader-class' />);
+        component = shallow(<SkeletonLoader className='skeleton-loader-class'/>);
     });
 
     it('Should render correctly', () => {
