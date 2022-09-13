@@ -48,7 +48,7 @@ const Dropdown = ({
             value: customOption?.value as string,
         });
 
-        // Take the action that need to be taken(only if not already taken) to handle when the user chooses custom option
+        // Take the action that needs to be taken(only if not already taken) to handle when the user chooses the custom option
         if (customOption?.onClick && customOption.value !== value) {
             customOption.onClick(customOption.value);
         }
@@ -89,9 +89,9 @@ const Dropdown = ({
                     {getLabel(value)?.label || getLabel(value)?.value}
                 </p>}
                 {loadingOptions ? (
-                    <div className='plugin-dropdown__loader' />
+                    <div className='plugin-dropdown__loader'/>
                 ) : (
-                    <i className={`fa fa-angle-down plugin-dropdown__field-angle font-20 ${open && 'plugin-dropdown__field-angle--rotated'}`} />
+                    <i className={`fa fa-angle-down plugin-dropdown__field-angle font-20 ${open && 'plugin-dropdown__field-angle--rotated'}`}/>
                 )}
                 <input
                     type='checkbox'

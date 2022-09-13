@@ -7,7 +7,7 @@ import MenuButtons from '.';
 const onBtnClick = jest.fn();
 
 // Mock data for props
-const Icon = <i className='icon icon-globe' />
+const Icon = <i className='icon icon-globe'/>;
 const buttons = [{
     text: 'Button Text',
     icon: Icon,
@@ -19,10 +19,15 @@ const buttons = [{
 }];
 
 describe('MenuButtons', () => {
-    let component: ShallowWrapper<any, Readonly<{}>, React.Component<{}, {}, any>>
+    let component: ShallowWrapper<any, Readonly<{}>, React.Component<{}, {}, any>>;
 
     beforeEach(() => {
-        component = shallow(<MenuButtons buttons={buttons} className='menu-btn' />);
+        component = shallow(
+            <MenuButtons
+                buttons={buttons}
+                className='menu-btn'
+            />,
+        );
     });
 
     it('Should render correctly', () => {
@@ -39,9 +44,9 @@ describe('MenuButtons', () => {
 
     it('Should apply the passed className prop', () => {
         expect(component.hasClass('menu-btn')).toBeTruthy();
-    })
+    });
 
     it('Should render all the buttons passed as props', () => {
         expect(component.find('.menu-btn .button-menu__btn')).toHaveLength(2);
-    })
-})
+    });
+});

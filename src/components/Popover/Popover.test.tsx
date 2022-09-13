@@ -6,27 +6,33 @@ import Popover from '.';
 // Mock props data
 const PopoverChildrenClass = 'popover-children-class';
 const PopoverBodyClass = 'popover-body-class';
-const PopoverChildren = <span className={PopoverChildrenClass}>Mock Svg</span>;
+const PopoverChildren = <span className={PopoverChildrenClass}>{'Mock Svg'}</span>;
 const PopoverClassName = 'popover-class';
-const PopoverBody = <span className={PopoverBodyClass}>Popover body</span>;
+const PopoverBody = <span className={PopoverBodyClass}>{'Popover body'}</span>;
 
 describe('Popover', () => {
-    let component: ReactWrapper<any, Readonly<{}>, React.Component<{}, {}, any>>
+    let component: ReactWrapper<any, Readonly<{}>, React.Component<{}, {}, any>>;
 
     beforeEach(() => {
-        component = mount(<Popover className={PopoverClassName} popoverBody={PopoverBody}>{PopoverChildren}</Popover>);
-    })
+        component = mount(
+            <Popover
+                className={PopoverClassName}
+                popoverBody={PopoverBody}
+            >
+                {PopoverChildren}
+            </Popover>,
+        );
+    });
 
     afterEach(() => {
         component.unmount();
-        jest.clearAllTimers();
-    })
+    });
 
-    it('Should render correctly and matches snapshot', () => {
+    it('Should render correctly', () => {
         expect(component).toMatchSnapshot();
-    })
+    });
 
     it('Should render the children correctly', () => {
         expect(component.find(`.${PopoverChildrenClass}`).exists()).toBeTruthy();
-    })
-})
+    });
+});

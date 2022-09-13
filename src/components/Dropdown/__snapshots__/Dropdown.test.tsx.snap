@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Dropdown Should render correctly and matches snapshot 1`] = `ReactWrapper {}`;
+exports[`Dropdown Should render correctly 1`] = `ReactWrapper {}`;
 
 exports[`Dropdown Should render the customOption correctly 1`] = `ReactWrapper {}`;
 
