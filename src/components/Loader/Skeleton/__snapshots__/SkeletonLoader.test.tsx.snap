@@ -1,3 +1,3 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Skeleton Loader Should render correctly and matches snapshot 1`] = `ShallowWrapper {}`;
+exports[`Skeleton Loader Should render correctly 1`] = `ShallowWrapper {}`;

@@ -4,8 +4,8 @@ import {shallow} from 'enzyme';
 import LinearLoader from '.';
 
 describe('Linear Loader', () => {
-    it('Should render correctly and matches snapshot', () => {
+    it('Should render correctly', () => {
         const component = shallow(<LinearLoader />);
         expect(component).toMatchSnapshot();
-    })
-})
+    });
+});
