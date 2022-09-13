@@ -19,7 +19,9 @@
     "copy-dts": "copyfiles -u 1 \"src/types/**/*.d.ts\" build",
     "copy-scss": "copyfiles -u 1 \"src/**/*.scss\" build",
     "build-css": "node-sass src/styles/ -o build/styles/ --output-style compressed && npm run build-postcss",
-    "build-postcss": "postcss build/styles/main.css -o build/styles/main.css --use autoprefixer"
+    "build-postcss": "postcss build/styles/main.css -o build/styles/main.css --use autoprefixer",
+    "lint": "eslint --ext .js --ext .jsx --ext tsx --ext ts . --quiet --cache",
+    "fix": "eslint --ext .js --ext .jsx --ext tsx --ext ts . --quiet --fix --cache"
   },
   "eslintConfig": {
     "extends": [
@@ -39,6 +41,7 @@
     "@types/node": "^16.11.47",
     "@types/react": "^18.0.17",
     "@types/react-dom": "^18.0.6",
+    "@typescript-eslint/eslint-plugin": "^5.37.0",
     "@typescript-eslint/parser": "^5.33.0",
     "bootstrap": "^5.2.0",
     "copyfiles": "^2.4.1",
@@ -46,9 +49,13 @@
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.6",
     "enzyme-to-json": "^3.6.2",
+    "eslint": "^8.23.1",
     "eslint-config-prettier": "^8.5.0",
     "eslint-import-resolver-typescript": "^3.5.0",
+    "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-react": "^7.31.8",
+    "eslint-plugin-react-hooks": "^4.6.0",
     "font-awesome": "^4.7.0",
     "node-sass": "^4.14.0",
     "postcss": "^8.4.16",

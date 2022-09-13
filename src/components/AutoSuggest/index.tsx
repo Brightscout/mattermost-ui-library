@@ -107,7 +107,7 @@ const AutoSuggest = ({
                     disabled={disabled}
                 />
                 {loadingSuggestions ? (
-                    <div className='auto-suggest__loader' />
+                    <div className='auto-suggest__loader'/>
                 ) : (
                     <i
                         className={
