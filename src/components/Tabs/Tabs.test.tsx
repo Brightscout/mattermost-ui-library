@@ -20,7 +20,7 @@ describe('ToggleSwitch', () => {
     let component: ShallowWrapper<any, Readonly<{}>, React.Component<{}, {}, any>>;
 
     beforeEach(() => {
-        component = shallow(<Tabs {...tabsProps} />);
+        component = shallow(<Tabs {...tabsProps}/>);
     });
 
     it('Should render correctly', () => {

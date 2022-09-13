@@ -25,7 +25,7 @@ const EmptyState = ({
     <div className={`empty-state text-center d-flex align-items-center justify-content-center ${className}`}>
         <div className='d-flex flex-column align-items-center'>
             <div className='empty-state__icon margin-bottom-25 d-flex justify-content-center align-items-center'>
-                {icon ?? <i className={iconClass ?? 'fa fa-wifi'} />}
+                {icon ?? <i className={iconClass ?? 'fa fa-wifi'}/>}
             </div>
             <p className='empty-state__title wt-500 font-20'>{title}</p>
             {subTitle && <p className='empty-state__subtitle margin-top-15'>{subTitle}</p>}

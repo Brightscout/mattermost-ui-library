@@ -21,7 +21,7 @@ const Checkbox = ({
             onChange={(e) => onChange(e.target.checked)}
         />
         <div className='checkbox__box d-flex justify-content-between align-items-center'>
-            <i className='fa fa-check checkbox__tick' />
+            <i className='fa fa-check checkbox__tick'/>
         </div>
         {label && <label className='checkbox__label font-14 wt-500 padding-0 margin-left-12 cursor-pointer'>{label}</label>}
     </div>

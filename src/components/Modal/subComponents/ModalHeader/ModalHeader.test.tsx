@@ -16,7 +16,7 @@ describe('Modal Header', () => {
     let component: ReactWrapper<any, Readonly<{}>, React.Component<{}, {}, any>>;
 
     beforeEach(() => {
-        component = mount(<ModalHeader {...ModalHeaderProps} />);
+        component = mount(<ModalHeader {...ModalHeaderProps}/>);
     });
 
     afterEach(() => {

@@ -55,7 +55,7 @@ const SubscriptionCard = ({
             className='subscription-card__popover'
         >
             <button className='style--none subscription-card__menu-btn plugin-btn'>
-                <i className='fa fa-ellipsis-v' />
+                <i className='fa fa-ellipsis-v'/>
             </button>
         </Popover>
     ), [onEdit, onDelete]);
@@ -73,7 +73,7 @@ const SubscriptionCard = ({
                 </div>
                 {channel && (
                     <div className='subscription-card__channel margin-bottom-12 d-flex align-items-center'>
-                        <i className={`channel-icon margin-right-5 ${channel.type === PrivateChannelType ? 'icon icon-lock-outline' : 'icon icon-globe'}`} />
+                        <i className={`channel-icon margin-right-5 ${channel.type === PrivateChannelType ? 'icon icon-lock-outline' : 'icon icon-globe'}`}/>
                         <span className='subscription-card__channel-text font-14 text-ellipsis'>{channel.display_name}</span>
                     </div>
                 )}

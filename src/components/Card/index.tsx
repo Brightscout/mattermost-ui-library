@@ -37,7 +37,7 @@ const Card = ({
                         onClick={onEdit}
                         className='details-card__action-btn padding-0 margin-right-15 plugin-btn'
                     >
-                        {editIcon ?? <EditIcon />}
+                        {editIcon ?? <EditIcon/>}
                     </button>
                 )}
                 {onDelete && (
@@ -45,7 +45,7 @@ const Card = ({
                         onClick={onDelete}
                         className='details-card__action-btn padding-0 plugin-btn'
                     >
-                        {deleteIcon ?? <DeleteIcon />}
+                        {deleteIcon ?? <DeleteIcon/>}
                     </button>
                 )}
             </div>

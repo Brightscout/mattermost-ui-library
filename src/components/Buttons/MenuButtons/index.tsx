@@ -18,7 +18,7 @@ const MenuButtons = ({buttons, className = ''}: MenuButtonProps): JSX.Element =>
                 onClick={button.onClick}
             >
                 <span className='button-menu__btn-icon margin-right-10 d-inline-block'>
-                    {typeof button.icon === 'string' ? <i className={button.icon} /> : button.icon}
+                    {typeof button.icon === 'string' ? <i className={button.icon}/> : button.icon}
                 </span>
                 <span className='button-menu__btn-text'>{button.text}</span>
             </button>

@@ -26,7 +26,7 @@ describe('Result Panel', () => {
     let component: ReactWrapper<any, Readonly<{}>, React.Component<{}, {}, any>>;
 
     beforeEach(() => {
-        component = mount(<ResultPanel {...resultPanelProps} />);
+        component = mount(<ResultPanel {...resultPanelProps}/>);
     });
 
     afterEach(() => {
@@ -61,7 +61,7 @@ describe('Result Panel - skip rendering the buttons', () => {
     let component: ReactWrapper<any, Readonly<{}>, React.Component<{}, {}, any>>;
 
     beforeEach(() => {
-        component = mount(<ResultPanel header={resultPanelProps.header} />);
+        component = mount(<ResultPanel header={resultPanelProps.header}/>);
     });
 
     afterEach(() => {
