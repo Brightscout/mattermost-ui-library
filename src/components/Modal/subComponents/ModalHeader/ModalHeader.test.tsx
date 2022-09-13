@@ -16,7 +16,7 @@ describe('Modal Header', () => {
     let component: ReactWrapper<any, Readonly<{}>, React.Component<{}, {}, any>>;
 
     beforeEach(() => {
-        component = mount(<ModalHeader {...ModalHeaderProps}/>);
+        component = mount(<ModalHeader {...ModalHeaderProps} />);
     });
 
     afterEach(() => {
@@ -24,7 +24,7 @@ describe('Modal Header', () => {
         jest.clearAllMocks();
     });
 
-    it('Should render correctly and matches snapshot', () => {
+    it('Should render correctly', () => {
         expect(component).toMatchSnapshot();
     });
 
@@ -32,7 +32,7 @@ describe('Modal Header', () => {
         expect(component.hasClass(ModalHeaderProps.className)).toBeTruthy();
     });
 
-    it('Shouldn\'t render the cross button in the header if the "showCloseIconHeader" prop isn\'t falsy', () => {
+    it('Should not render the cross button in the header if the "showCloseIconHeader" prop isn\'t falsy', () => {
         expect(component.find('.icon-close.modal__close-icon').exists()).toBeFalsy();
     });
 });

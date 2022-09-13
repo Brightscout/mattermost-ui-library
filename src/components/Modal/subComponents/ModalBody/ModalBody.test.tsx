@@ -18,7 +18,7 @@ describe('Modal Body', () => {
         component.unmount();
     });
 
-    it('Should render correctly and matches snapshot', () => {
+    it('Should render correctly', () => {
         expect(component).toMatchSnapshot();
     });
 

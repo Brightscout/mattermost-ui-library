@@ -21,7 +21,7 @@ describe('Modal Footer', () => {
     let component: ReactWrapper<any, Readonly<{}>, React.Component<{}, {}, any>>;
 
     beforeEach(() => {
-        component = mount(<ModalFooter {...modalFooterProps}/>);
+        component = mount(<ModalFooter {...modalFooterProps} />);
     });
 
     afterEach(() => {
@@ -29,7 +29,7 @@ describe('Modal Footer', () => {
         jest.clearAllMocks();
     });
 
-    it('Should render correctly and matches snapshot', () => {
+    it('Should render correctly', () => {
         expect(component).toMatchSnapshot();
     });
 
@@ -78,12 +78,12 @@ describe('Modal Footer - disabled footer buttons', () => {
         jest.clearAllMocks();
     });
 
-    it('Shouldn\'t call the onClick handler when the confirm button is clicked', () => {
+    it('Should not call the onClick handler when the confirm button is clicked', () => {
         component.find('.modal__confirm-btn').simulate('click');
         expect(confirmHandler).toHaveBeenCalledTimes(0);
     });
 
-    it('Shouldn\'t call the onClick handler when the cancel button is clicked', () => {
+    it('Should not call the onClick handler when the cancel button is clicked', () => {
         component.find('.modal__cancel-btn').simulate('click');
         expect(hideHandler).toHaveBeenCalledTimes(0);
     });
@@ -93,7 +93,7 @@ describe('Modal Footer - skip rendering the buttons', () => {
     let component: ReactWrapper<any, Readonly<{}>, React.Component<{}, {}, any>>;
 
     beforeEach(() => {
-        component = mount(<ModalFooter/>);
+        component = mount(<ModalFooter />);
     });
 
     afterEach(() => {
@@ -101,11 +101,11 @@ describe('Modal Footer - skip rendering the buttons', () => {
         jest.clearAllMocks();
     });
 
-    it('Shouldn\'t render the confirm button when onConfirm prop isn\'t passed', () => {
+    it('Should not render the confirm button when onConfirm prop isn\'t passed', () => {
         expect(component.find('.modal__confirm-btn').exists()).toBeFalsy();
     });
 
-    it('Shouldn\'t render the cancel button when onHide prop isn\'t passed', () => {
+    it('Should not render the cancel button when onHide prop isn\'t passed', () => {
         expect(component.find('.modal__cancel-btn').exists()).toBeFalsy();
     });
 });

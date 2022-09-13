@@ -17,10 +17,10 @@ describe('ToggleSwitch', () => {
     let component: ShallowWrapper<any, Readonly<{}>, React.Component<{}, {}, any>>;
 
     beforeEach(() => {
-        component = shallow(<ToggleSwitch {...toggleSwitchProps}/>);
+        component = shallow(<ToggleSwitch {...toggleSwitchProps} />);
     });
 
-    it('Should render correctly and matches snapshot', () => {
+    it('Should render correctly', () => {
         expect(component).toMatchSnapshot();
     });
 

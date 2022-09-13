@@ -26,7 +26,7 @@ describe('Result Panel', () => {
     let component: ReactWrapper<any, Readonly<{}>, React.Component<{}, {}, any>>;
 
     beforeEach(() => {
-        component = mount(<ResultPanel {...resultPanelProps}/>);
+        component = mount(<ResultPanel {...resultPanelProps} />);
     });
 
     afterEach(() => {
@@ -34,7 +34,7 @@ describe('Result Panel', () => {
         jest.clearAllMocks();
     });
 
-    it('Should render correctly and matches snapshot', () => {
+    it('Should render correctly', () => {
         expect(component).toMatchSnapshot();
     });
 
@@ -61,18 +61,18 @@ describe('Result Panel - skip rendering the buttons', () => {
     let component: ReactWrapper<any, Readonly<{}>, React.Component<{}, {}, any>>;
 
     beforeEach(() => {
-        component = mount(<ResultPanel header={resultPanelProps.header}/>);
+        component = mount(<ResultPanel header={resultPanelProps.header} />);
     });
 
     afterEach(() => {
         component.unmount();
     });
 
-    it('Shouldn\'t render the primary button when "primaryBtn" prop isn\'t passed', () => {
+    it('Should not render the primary button when "primaryBtn" prop isn\'t passed', () => {
         expect(component.find('.btn-primary').exists()).toBeFalsy();
     });
 
-    it('Shouldn\'t render the secondary button when "secondaryBtn" prop isn\'t passed', () => {
+    it('Should not render the secondary button when "secondaryBtn" prop isn\'t passed', () => {
         expect(component.find('.btn-link').exists()).toBeFalsy();
     });
 });

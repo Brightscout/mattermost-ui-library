@@ -26,10 +26,9 @@ describe('Popover', () => {
 
     afterEach(() => {
         component.unmount();
-        jest.clearAllTimers();
     });
 
-    it('Should render correctly and matches snapshot', () => {
+    it('Should render correctly', () => {
         expect(component).toMatchSnapshot();
     });
 

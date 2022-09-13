@@ -14,7 +14,7 @@ describe('SvgWrapper', () => {
         component = shallow(<SvgWrapper className={svgWrapperClassName}>{svgWrapperChildren}</SvgWrapper>);
     });
 
-    it('Should render correctly and matches snapshot', () => {
+    it('Should render correctly', () => {
         expect(component).toMatchSnapshot();
     });
 

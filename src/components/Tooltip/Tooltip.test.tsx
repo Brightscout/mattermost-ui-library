@@ -24,11 +24,7 @@ describe('Tooltip', () => {
         );
     });
 
-    afterAll(() => {
-        jest.clearAllTimers();
-    });
-
-    it('Should render correctly and matches snapshot', () => {
+    it('Should render correctly', () => {
         expect(component).toMatchSnapshot();
     });
 
