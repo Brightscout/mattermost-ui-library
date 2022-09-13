@@ -4,6 +4,7 @@ import React, {useMemo} from 'react';
 import BaseCard from '@Components/Card/Base';
 import Popover from '@Components/Popover';
 import MenuButtons from '@Components/Buttons/MenuButtons';
+import Tooltip from '@Components/Tooltip';
 
 // Constants
 import {PrivateChannelType} from '@Constants';
@@ -63,7 +64,11 @@ const SubscriptionCard = ({
         <BaseCard className={`subscription-card margin-bottom-15 ${className}`}>
             <>
                 <div className='margin-bottom-10 d-flex justify-content-between'>
-                    <p className='margin-0 wt-500'>{header}</p>
+                    <Tooltip tooltipContent={header}>
+                        <p className='margin-0 wt-500 text-ellipsis'>
+                            {header}
+                        </p>
+                    </Tooltip>
                     {buttonMenuPopover}
                 </div>
                 {channel && (
