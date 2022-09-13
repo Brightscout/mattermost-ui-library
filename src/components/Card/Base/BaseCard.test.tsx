@@ -4,10 +4,10 @@ import {shallow, ShallowWrapper} from 'enzyme';
 import BaseCard from '.';
 
 // Mock data for props
-const BaseCardChildren = <div>Base card children</div>
+const BaseCardChildren = <div>{'Base card children'}</div>;
 
 describe('BaseCard', () => {
-    let component: ShallowWrapper<any, Readonly<{}>, React.Component<{}, {}, any>>
+    let component: ShallowWrapper<any, Readonly<{}>, React.Component<{}, {}, any>>;
 
     beforeEach(() => {
         component = shallow(<BaseCard className='base-card'>{BaseCardChildren}</BaseCard>);
@@ -23,5 +23,5 @@ describe('BaseCard', () => {
 
     it('Should apply the passed className prop', () => {
         expect(component.hasClass('base-card')).toBeTruthy();
-    })
-})
+    });
+});

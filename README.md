@@ -18,7 +18,7 @@ $ cd mattermost-ui-library
 
 ## 2. Use the correct node version
 
-Once you've moved into the folder in which you've cloned the repo, run the following command to check the node version (you need to install nvm before proceeding further)
+Once you've moved into the folder where you've cloned the repo, run the following command to check the node version (you need to [install nvm](https://github.com/nvm-sh/nvm/tree/v0.39.1#installing-and-updating) before proceeding further)
 
 ```sh
 $ nvm which
@@ -38,7 +38,7 @@ $ nvm use
 
 ## 3. Install the dependencies
 
-Now run the following command to install the dependencies
+Run the following command to install the dependencies
 
 ```sh
 $ npm install
@@ -61,6 +61,7 @@ Builds the app for production to the `build` folder.\
 It correctly bundles React in production mode and optimizes the build for the best performance.
 
 ## 5. Folder Structure
+
 ```
 .
 ├── public

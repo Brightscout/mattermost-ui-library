@@ -48,7 +48,7 @@ const Dropdown = ({
             value: customOption?.value as string,
         });
 
-        // Take the action that need to be taken(only if not already taken) to handle when the user chooses custom option
+        // Take the action that needs to be taken(only if not already taken) to handle when the user chooses the custom option
         if (customOption?.onClick && customOption.value !== value) {
             customOption.onClick(customOption.value);
         }
