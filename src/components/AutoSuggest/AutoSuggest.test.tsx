@@ -84,7 +84,7 @@ describe('AutoSuggest', () => {
         expect(textField.is(':focus')).toBe(true);
     });
 
-    it('Shouldn\'t show the suggestions when the input is focused but character threshold isn\'t reached', () => {
+    it('Should not show the suggestions when the input is focused but character threshold isn\'t reached', () => {
         const wrapper = mount(<AutoSuggestComponent charThresholdToShowSuggestions={8}/>);
         clickAutoSuggest(wrapper);
         expect(wrapper.find('ul.auto-suggest__suggestions').hasClass('auto-suggest__suggestions--open')).toBeFalsy();
