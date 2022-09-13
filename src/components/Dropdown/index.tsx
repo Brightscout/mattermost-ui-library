@@ -89,9 +89,9 @@ const Dropdown = ({
                     {getLabel(value)?.label || getLabel(value)?.value}
                 </p>}
                 {loadingOptions ? (
-                    <div className='dropdown__loader' />
+                    <div className='dropdown__loader'/>
                 ) : (
-                    <i className={`fa fa-angle-down dropdown__field-angle font-size-20 ${open && 'dropdown__field-angle--rotated'}`} />
+                    <i className={`fa fa-angle-down dropdown__field-angle font-size-20 ${open && 'dropdown__field-angle--rotated'}`}/>
                 )}
                 <input
                     type='checkbox'
