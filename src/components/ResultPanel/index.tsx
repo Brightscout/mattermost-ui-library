@@ -24,10 +24,10 @@ const ResultPanel = forwardRef<HTMLDivElement, ResultPanelProps>(({
     iconClass,
 }: ResultPanelProps, resultPanelRef): JSX.Element => (
     <div
-        className={`modal__body padding-v-15 modal-body wizard__secondary-panel ${className}`}
+        className={`modal__body modal-body wizard__secondary-panel ${className}`}
         ref={resultPanelRef}
     >
-        <div className='padding-h-12 d-flex align-items-center justify-content-center flex-column'>
+        <div className='padding-h-12 padding-v-15 d-flex align-items-center justify-content-center flex-column'>
             {iconClass ? (
                 <i className={`fa result-panel-icon ${iconClass ?? 'fa-check-circle-o'}`}/>
             ) : (
