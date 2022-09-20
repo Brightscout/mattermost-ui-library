@@ -10,7 +10,7 @@ export type AutoSuggestProps = {
     placeholder?: string;
     suggestionConfig: {
         suggestions: Record<string, string>[],
-        renderValue: (suggestion: Record<string, string>) => string;
+        renderValue: (suggestion: Record<string, string>) => string | JSX.Element;
     };
     loadingSuggestions?: boolean;
     charThresholdToShowSuggestions?: number;
@@ -126,7 +126,7 @@ const AutoSuggest = ({
             <ul className={`auto-suggest__suggestions padding-0 ${showSuggestions && 'auto-suggest__suggestions--open'}`}>
                 {suggestions.map((suggestion) => (
                     <li
-                        key={renderValue(suggestion)}
+                        key={String(renderValue(suggestion))}
                         onClick={() => handleSuggestionClick(suggestion)}
                         className='auto-suggest__suggestion text-ellipsis cursor-pointer padding-v-10 padding-h-25 margin-0'
                     >
