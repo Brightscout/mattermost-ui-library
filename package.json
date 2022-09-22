@@ -80,5 +80,8 @@
     "react": "^16.13.1",
     "react-dom": "^16.10.2",
     "typescript": "^3.9.10"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/@Brightscout"
   }
 }

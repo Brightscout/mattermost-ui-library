@@ -42,5 +42,6 @@
     "node_modules",
     "src/setupTests.ts",
     "src/reportWebVitals.ts",
+    "src/components/**/*.test.tsx"
   ]
 }
