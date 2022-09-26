@@ -8,7 +8,7 @@ import AutoSuggest, {AutoSuggestProps} from '.';
 // Mock data
 
 type AutoSuggestComponentProps = Omit<AutoSuggestProps, 'inputValue' | 'onInputValueChange' | 'onChangeSelectedSuggestion' | 'suggestionConfig'> & {
-    emptySuggestions?: boolean
+    emptySuggestions?: boolean;
 };
 
 const AutoSuggestComponent = ({emptySuggestions, ...props}: AutoSuggestComponentProps) => (
