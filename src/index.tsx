@@ -27,7 +27,7 @@ import ToggleSwitch from '@Components/ToggleSwitch';
 import Tooltip from '@Components/Tooltip';
 
 // Icons
-import { ServiceNowIcon, BellIcon, UnlinkIcon, LinkIcon, EditIcon, DeleteIcon, CheckIcon, UserIcon } from '@Components/Icons';
+import {ServiceNowIcon, BellIcon, UnlinkIcon, LinkIcon, EditIcon, DeleteIcon, CheckIcon, UserIcon} from '@Components/Icons';
 
 export {
     AutoSuggest,
@@ -64,5 +64,5 @@ export {
     EditIcon,
     DeleteIcon,
     CheckIcon,
-    UserIcon
-}
+    UserIcon,
+};

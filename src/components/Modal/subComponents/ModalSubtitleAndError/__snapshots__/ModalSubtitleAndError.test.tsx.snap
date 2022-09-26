@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ModalSubtitleAndError Should render correctly when both subTitle and error props are passed 1`] = `
+<Fragment>
+  <p
+    className="modal__subtitle margin-0 margin-bottom-15"
+  >
+    Modal subtitle
+  </p>
+  <p
+    className="modal__error margin-0 margin-bottom-10 error-text text-center text-capitalize"
+  >
+    Modal error
+  </p>
+</Fragment>
+`;
+
+exports[`ModalSubtitleAndError Should render correctly when only the error is passed 1`] = `
+<Fragment>
+  <p
+    className="modal__error margin-0 margin-bottom-10 error-text text-center text-capitalize"
+  >
+    Modal error
+  </p>
+</Fragment>
+`;
+
+exports[`ModalSubtitleAndError Should render correctly when only the subTitle is passed 1`] = `
+<Fragment>
+  <p
+    className="modal__subtitle margin-0 margin-bottom-15"
+  >
+    Modal subtitle
+  </p>
+</Fragment>
+`;

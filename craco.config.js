@@ -1,4 +1,5 @@
 const path = require('path');
+const CracoAlias = require('craco-alias');
 
 module.exports = {
   webpack: {
@@ -8,14 +9,14 @@ module.exports = {
       '@Constants': path.resolve(__dirname, 'src/constants'),
     }
   },
-  jest: {
-    configure: {
-      rootDir: '.',
-      moduleNameMapper: {
-        '/^@Components(.*)$/': '<rootDir>/src/components/$1',
-        '/^@Constants(.*)$/': '<rootDir>/src/constants/$1',
-        '/^@Styles(.*)$/': '<rootDir>/src/components/$1',
+  plugins: [
+    {
+      plugin: CracoAlias,
+      options: {
+        source: 'tsconfig',
+        baseUrl: './src',
+        tsConfigPath: './tsconfig.paths.json',
       },
     },
-  },
+  ],
 };

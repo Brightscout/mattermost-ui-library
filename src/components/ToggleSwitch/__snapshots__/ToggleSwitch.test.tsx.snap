@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ToggleSwitch Should render correctly 1`] = `
+<div
+  className="toggle-switch-container margin-bottom-20 padding-bottom-10 d-flex align-items-center false"
+>
+  <span
+    className="toggle-switch-label--left margin-right-10"
+  >
+    Toggle switch label
+  </span>
+  <label
+    className="toggle-switch position-relative d-inline-block margin-0 cursor-pointer"
+  >
+    <input
+      checked={true}
+      className="toggle-switch__input"
+      onChange={[Function]}
+      type="checkbox"
+    />
+    <span
+      className="toggle-switch__slider position-absolute cursor-pointer"
+    />
+  </label>
+</div>
+`;

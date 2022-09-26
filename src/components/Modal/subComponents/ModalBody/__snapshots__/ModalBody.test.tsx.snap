@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Modal Body Should render correctly 1`] = `
+<ModalBody
+  className="modal-body-class"
+>
+  <ModalBody
+    className="modal__body padding-v-15 padding-h-12 modal-body-class"
+  >
+    <div
+      className="modal__body padding-v-15 padding-h-12 modal-body-class modal-body"
+    >
+      <div>
+        Modal Body Children
+      </div>
+    </div>
+  </ModalBody>
+</ModalBody>
+`;
