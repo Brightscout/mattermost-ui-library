@@ -6,7 +6,7 @@ import Popover from '@Components/Popover';
 import MenuButtons from '@Components/Buttons/MenuButtons';
 
 // Constants
-import {PrivateChannelType} from '@Constants';
+import {General as MMConstants} from 'mattermost-redux/constants';
 
 type SubscriptionCardProps = {
     header: string | JSX.Element;
@@ -68,7 +68,7 @@ const SubscriptionCard = ({
                 </div>
                 {channel && (
                     <div className='subscription-card__channel margin-bottom-12 padding-h-15 d-flex align-items-center'>
-                        <i className={`channel-icon margin-right-5 ${channel.type === PrivateChannelType ? 'icon icon-lock-outline' : 'icon icon-globe'}`}/>
+                        <i className={`channel-icon margin-right-5 ${channel.type === MMConstants.PRIVATE_CHANNEL ? 'icon icon-lock-outline' : 'icon icon-globe'}`}/>
                         <span className='subscription-card__channel-text font-14 text-ellipsis'>{channel.display_name}</span>
                     </div>
                 )}
