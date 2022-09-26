@@ -1,7 +1,7 @@
 import React from 'react';
 
 type BaseCardProps = {
-    children: JSX.Element,
+    children: JSX.Element;
     className?: string;
 }
 
