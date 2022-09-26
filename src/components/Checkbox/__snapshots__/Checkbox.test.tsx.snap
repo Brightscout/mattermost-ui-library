@@ -18,7 +18,7 @@ exports[`Checkbox Should render correctly 1`] = `
     />
   </div>
   <label
-    className="checkbox__label font-size-14 wt-500 padding-0 margin-left-12 cursor-pointer"
+    className="checkbox__label font-14 wt-500 padding-0 margin-left-12 cursor-pointer"
   >
     Checkbox Label
   </label>

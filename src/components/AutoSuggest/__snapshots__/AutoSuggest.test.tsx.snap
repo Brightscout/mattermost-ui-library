@@ -7,8 +7,8 @@ exports[`AutoSuggest Should not show the suggestions when the input is focused b
   <AutoSuggest
     charThresholdToShowSuggestions={8}
     inputValue="Label"
+    onChangeSelectedSuggestion={[MockFunction]}
     onInputValueChange={[MockFunction]}
-    onOptionClick={[MockFunction]}
     suggestionConfig={
       Object {
         "renderValue": [Function],
@@ -59,13 +59,13 @@ exports[`AutoSuggest Should not show the suggestions when the input is focused b
           value="Label"
         />
         <i
-          className="fa fa-angle-down auto-suggest__field-angle font-size-20
+          className="fa fa-angle-down auto-suggest__field-angle font-20
                             false
                             "
         />
       </div>
       <p
-        className="auto-suggest__get-suggestion-warn font-size-12"
+        className="auto-suggest__get-suggestion-warn font-12"
       >
         Please enter at least 8 characters to get suggestions.
       </p>
@@ -74,21 +74,21 @@ exports[`AutoSuggest Should not show the suggestions when the input is focused b
       >
         <li
           className="auto-suggest__suggestion text-ellipsis cursor-pointer padding-v-10 padding-h-25 margin-0"
-          key="Label 1"
+          key="0"
           onClick={[Function]}
         >
           Label 1
         </li>
         <li
           className="auto-suggest__suggestion text-ellipsis cursor-pointer padding-v-10 padding-h-25 margin-0"
-          key="Label 2"
+          key="1"
           onClick={[Function]}
         >
           Label 2
         </li>
         <li
           className="auto-suggest__suggestion text-ellipsis cursor-pointer padding-v-10 padding-h-25 margin-0"
-          key="Label 3"
+          key="2"
           onClick={[Function]}
         >
           Label 3
@@ -103,8 +103,8 @@ exports[`AutoSuggest Should render correctly 1`] = `
 <AutoSuggestComponent>
   <AutoSuggest
     inputValue="Label"
+    onChangeSelectedSuggestion={[MockFunction]}
     onInputValueChange={[MockFunction]}
-    onOptionClick={[MockFunction]}
     suggestionConfig={
       Object {
         "renderValue": [Function],
@@ -155,7 +155,7 @@ exports[`AutoSuggest Should render correctly 1`] = `
           value="Label"
         />
         <i
-          className="fa fa-angle-down auto-suggest__field-angle font-size-20
+          className="fa fa-angle-down auto-suggest__field-angle font-20
                             false
                             "
         />
@@ -165,21 +165,21 @@ exports[`AutoSuggest Should render correctly 1`] = `
       >
         <li
           className="auto-suggest__suggestion text-ellipsis cursor-pointer padding-v-10 padding-h-25 margin-0"
-          key="Label 1"
+          key="0"
           onClick={[Function]}
         >
           Label 1
         </li>
         <li
           className="auto-suggest__suggestion text-ellipsis cursor-pointer padding-v-10 padding-h-25 margin-0"
-          key="Label 2"
+          key="1"
           onClick={[Function]}
         >
           Label 2
         </li>
         <li
           className="auto-suggest__suggestion text-ellipsis cursor-pointer padding-v-10 padding-h-25 margin-0"
-          key="Label 3"
+          key="2"
           onClick={[Function]}
         >
           Label 3
@@ -196,8 +196,8 @@ exports[`AutoSuggest Should show the empty state when "suggestions" are empty an
 >
   <AutoSuggest
     inputValue="Label"
+    onChangeSelectedSuggestion={[MockFunction]}
     onInputValueChange={[MockFunction]}
-    onOptionClick={[MockFunction]}
     suggestionConfig={
       Object {
         "renderValue": [Function],
@@ -235,7 +235,7 @@ exports[`AutoSuggest Should show the empty state when "suggestions" are empty an
           value="Label"
         />
         <i
-          className="fa fa-angle-down auto-suggest__field-angle font-size-20
+          className="fa fa-angle-down auto-suggest__field-angle font-20
                             auto-suggest__field-angle--rotated
                             "
         />
@@ -261,8 +261,8 @@ exports[`AutoSuggest Should show the error message when "error" prop is passed 1
   <AutoSuggest
     error="Error Message"
     inputValue="Label"
+    onChangeSelectedSuggestion={[MockFunction]}
     onInputValueChange={[MockFunction]}
-    onOptionClick={[MockFunction]}
     suggestionConfig={
       Object {
         "renderValue": [Function],
@@ -313,7 +313,7 @@ exports[`AutoSuggest Should show the error message when "error" prop is passed 1
           value="Label"
         />
         <i
-          className="fa fa-angle-down auto-suggest__field-angle font-size-20
+          className="fa fa-angle-down auto-suggest__field-angle font-20
                             false
                             "
         />
@@ -323,28 +323,33 @@ exports[`AutoSuggest Should show the error message when "error" prop is passed 1
       >
         <li
           className="auto-suggest__suggestion text-ellipsis cursor-pointer padding-v-10 padding-h-25 margin-0"
-          key="Label 1"
+          key="0"
           onClick={[Function]}
         >
           Label 1
         </li>
         <li
           className="auto-suggest__suggestion text-ellipsis cursor-pointer padding-v-10 padding-h-25 margin-0"
-          key="Label 2"
+          key="1"
           onClick={[Function]}
         >
           Label 2
         </li>
         <li
           className="auto-suggest__suggestion text-ellipsis cursor-pointer padding-v-10 padding-h-25 margin-0"
-          key="Label 3"
+          key="2"
           onClick={[Function]}
         >
           Label 3
         </li>
       </ul>
       <p
-        className="auto-suggest__err-text error-text margin-top-5 font-size-14"
+        className="
+                        auto-suggest__err-text
+                        error-text
+                        margin-top-5
+                        font-14
+                    "
       >
         Error Message
       </p>
@@ -360,8 +365,8 @@ exports[`AutoSuggest Should show the loader when "loading" prop is passed 1`] = 
   <AutoSuggest
     inputValue="Label"
     loadingSuggestions={true}
+    onChangeSelectedSuggestion={[MockFunction]}
     onInputValueChange={[MockFunction]}
-    onOptionClick={[MockFunction]}
     suggestionConfig={
       Object {
         "renderValue": [Function],
@@ -420,21 +425,21 @@ exports[`AutoSuggest Should show the loader when "loading" prop is passed 1`] = 
       >
         <li
           className="auto-suggest__suggestion text-ellipsis cursor-pointer padding-v-10 padding-h-25 margin-0"
-          key="Label 1"
+          key="0"
           onClick={[Function]}
         >
           Label 1
         </li>
         <li
           className="auto-suggest__suggestion text-ellipsis cursor-pointer padding-v-10 padding-h-25 margin-0"
-          key="Label 2"
+          key="1"
           onClick={[Function]}
         >
           Label 2
         </li>
         <li
           className="auto-suggest__suggestion text-ellipsis cursor-pointer padding-v-10 padding-h-25 margin-0"
-          key="Label 3"
+          key="2"
           onClick={[Function]}
         >
           Label 3
@@ -449,8 +454,8 @@ exports[`AutoSuggest Should show the suggestions when the input is focused and c
 <AutoSuggestComponent>
   <AutoSuggest
     inputValue="Label"
+    onChangeSelectedSuggestion={[MockFunction]}
     onInputValueChange={[MockFunction]}
-    onOptionClick={[MockFunction]}
     suggestionConfig={
       Object {
         "renderValue": [Function],
@@ -501,7 +506,7 @@ exports[`AutoSuggest Should show the suggestions when the input is focused and c
           value="Label"
         />
         <i
-          className="fa fa-angle-down auto-suggest__field-angle font-size-20
+          className="fa fa-angle-down auto-suggest__field-angle font-20
                             auto-suggest__field-angle--rotated
                             "
         />
@@ -511,21 +516,21 @@ exports[`AutoSuggest Should show the suggestions when the input is focused and c
       >
         <li
           className="auto-suggest__suggestion text-ellipsis cursor-pointer padding-v-10 padding-h-25 margin-0"
-          key="Label 1"
+          key="0"
           onClick={[Function]}
         >
           Label 1
         </li>
         <li
           className="auto-suggest__suggestion text-ellipsis cursor-pointer padding-v-10 padding-h-25 margin-0"
-          key="Label 2"
+          key="1"
           onClick={[Function]}
         >
           Label 2
         </li>
         <li
           className="auto-suggest__suggestion text-ellipsis cursor-pointer padding-v-10 padding-h-25 margin-0"
-          key="Label 3"
+          key="2"
           onClick={[Function]}
         >
           Label 3

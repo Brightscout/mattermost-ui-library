@@ -10,20 +10,20 @@ exports[`Modal Footer Should render correctly 1`] = `
   onHide={[MockFunction]}
 >
   <ModalFooter
-    className="modal__footer d-flex flex-column justify-content-center align-items-center modal-footer-class"
+    className="modal__footer d-flex flex-row-reverse align-items-center modal-footer-class padding-h-12 padding-v-15"
   >
     <div
-      className="modal__footer d-flex flex-column justify-content-center align-items-center modal-footer-class modal-footer"
+      className="modal__footer d-flex flex-row-reverse align-items-center modal-footer-class padding-h-12 padding-v-15 modal-footer"
     >
       <button
-        className="btn modal__confirm-btn margin-bottom-25 confirm-btn-class"
+        className="btn modal__confirm-btn margin-left-10 confirm-btn-class plugin-btn"
         disabled={false}
         onClick={[MockFunction]}
       >
         Confirm
       </button>
       <button
-        className="btn btn-link modal__cancel-btn margin-0 padding-0"
+        className="btn btn-link modal__cancel-btn margin-0 padding-0 plugin-btn"
         disabled={false}
         onClick={[MockFunction]}
       >

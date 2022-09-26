@@ -160,6 +160,7 @@ const AutoSuggest = ({
                     <button
                         className='style--none padding-0 margin-0'
                         onClick={handleResetSelectedOption}
+                        name='cancel selected option'
                     >
                         <i className='icon icon-close'/>
                     </button>
