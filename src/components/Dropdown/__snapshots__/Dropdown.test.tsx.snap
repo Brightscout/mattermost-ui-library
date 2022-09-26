@@ -24,49 +24,49 @@ exports[`Dropdown Should render correctly 1`] = `
     value={null}
   >
     <div
-      className="dropdown undefined position-relative "
+      className="plugin-dropdown undefined position-relative "
     >
       <div
-        className="dropdown__field d-flex align-items-center justify-content-between
+        className="plugin-dropdown__field d-flex align-items-center justify-content-between
                     padding-h-15 border-radius-4 cursor-pointer
                     false
                     undefined
                     "
       >
         <label
-          className="dropdown__field-text dropdown__field-placeholder margin-0 wt-400 null"
+          className="plugin-dropdown__field-text plugin-dropdown__field-placeholder margin-0 wt-400 null"
         >
           Dropdown placeholder
         </label>
         <i
-          className="fa fa-angle-down dropdown__field-angle font-size-20 false"
+          className="fa fa-angle-down plugin-dropdown__field-angle font-20 false"
         />
         <input
           checked={false}
-          className="dropdown__field-input cursor-pointer"
+          className="plugin-dropdown__field-input cursor-pointer"
           onChange={[Function]}
           type="checkbox"
         />
       </div>
       <ul
-        className="dropdown__options-list channel-bg padding-0 border-radius-4 false"
+        className="plugin-dropdown__options-list channel-bg padding-0 border-radius-4 false"
       >
         <li
-          className="dropdown__option-item text-ellipsis font-size-14 margin-0 padding-v-10 padding-h-25 cursor-pointer"
+          className="plugin-dropdown__option-item text-ellipsis font-14 margin-0 padding-v-10 padding-h-25 cursor-pointer"
           key="Dropdown value 1"
           onClick={[Function]}
         >
           Dropdown label 1
         </li>
         <li
-          className="dropdown__option-item text-ellipsis font-size-14 margin-0 padding-v-10 padding-h-25 cursor-pointer"
+          className="plugin-dropdown__option-item text-ellipsis font-14 margin-0 padding-v-10 padding-h-25 cursor-pointer"
           key="Dropdown value 2"
           onClick={[Function]}
         >
           Dropdown label 2
         </li>
         <li
-          className="dropdown__option-item text-ellipsis font-size-14 margin-0 padding-v-10 padding-h-25 cursor-pointer"
+          className="plugin-dropdown__option-item text-ellipsis font-14 margin-0 padding-v-10 padding-h-25 cursor-pointer"
           key="Dropdown value 3"
           onClick={[Function]}
         >
@@ -155,56 +155,56 @@ exports[`Dropdown Should render the customOption correctly 1`] = `
     value={null}
   >
     <div
-      className="dropdown undefined position-relative "
+      className="plugin-dropdown undefined position-relative "
     >
       <div
-        className="dropdown__field d-flex align-items-center justify-content-between
+        className="plugin-dropdown__field d-flex align-items-center justify-content-between
                     padding-h-15 border-radius-4 cursor-pointer
                     false
                     undefined
                     "
       >
         <label
-          className="dropdown__field-text dropdown__field-placeholder margin-0 wt-400 null"
+          className="plugin-dropdown__field-text plugin-dropdown__field-placeholder margin-0 wt-400 null"
         >
           Dropdown placeholder
         </label>
         <i
-          className="fa fa-angle-down dropdown__field-angle font-size-20 false"
+          className="fa fa-angle-down plugin-dropdown__field-angle font-20 false"
         />
         <input
           checked={false}
-          className="dropdown__field-input cursor-pointer"
+          className="plugin-dropdown__field-input cursor-pointer"
           onChange={[Function]}
           type="checkbox"
         />
       </div>
       <ul
-        className="dropdown__options-list channel-bg padding-0 border-radius-4 false"
+        className="plugin-dropdown__options-list channel-bg padding-0 border-radius-4 false"
       >
         <li
-          className="dropdown__option-item text-ellipsis font-size-14 margin-0 padding-v-10 padding-h-25 cursor-pointer"
+          className="plugin-dropdown__option-item text-ellipsis font-14 margin-0 padding-v-10 padding-h-25 cursor-pointer"
           key="Dropdown value 1"
           onClick={[Function]}
         >
           Dropdown label 1
         </li>
         <li
-          className="dropdown__option-item text-ellipsis font-size-14 margin-0 padding-v-10 padding-h-25 cursor-pointer"
+          className="plugin-dropdown__option-item text-ellipsis font-14 margin-0 padding-v-10 padding-h-25 cursor-pointer"
           key="Dropdown value 2"
           onClick={[Function]}
         >
           Dropdown label 2
         </li>
         <li
-          className="dropdown__option-item text-ellipsis font-size-14 margin-0 padding-v-10 padding-h-25 cursor-pointer"
+          className="plugin-dropdown__option-item text-ellipsis font-14 margin-0 padding-v-10 padding-h-25 cursor-pointer"
           key="Dropdown value 3"
           onClick={[Function]}
         >
           Dropdown label 3
         </li>
         <li
-          className="dropdown__option-item dropdown__custom-option text-ellipsis"
+          className="plugin-dropdown__option-item plugin-dropdown__custom-option text-ellipsis"
           onClick={[Function]}
         >
           Custom option label
@@ -226,35 +226,35 @@ exports[`Dropdown Should show the empty state when "options" are empty 1`] = `
     value={null}
   >
     <div
-      className="dropdown undefined position-relative "
+      className="plugin-dropdown undefined position-relative "
     >
       <div
-        className="dropdown__field d-flex align-items-center justify-content-between
+        className="plugin-dropdown__field d-flex align-items-center justify-content-between
                     padding-h-15 border-radius-4 cursor-pointer
-                    dropdown__field--open
+                    plugin-dropdown__field--open
                     undefined
                     "
       >
         <label
-          className="dropdown__field-text dropdown__field-placeholder margin-0 wt-400 null"
+          className="plugin-dropdown__field-text plugin-dropdown__field-placeholder margin-0 wt-400 null"
         >
           Dropdown placeholder
         </label>
         <i
-          className="fa fa-angle-down dropdown__field-angle font-size-20 dropdown__field-angle--rotated"
+          className="fa fa-angle-down plugin-dropdown__field-angle font-20 plugin-dropdown__field-angle--rotated"
         />
         <input
           checked={true}
-          className="dropdown__field-input cursor-pointer"
+          className="plugin-dropdown__field-input cursor-pointer"
           onChange={[Function]}
           type="checkbox"
         />
       </div>
       <ul
-        className="dropdown__options-list channel-bg padding-0 border-radius-4 dropdown__options-list--open"
+        className="plugin-dropdown__options-list channel-bg padding-0 border-radius-4 plugin-dropdown__options-list--open"
       >
         <li
-          className="dropdown__option-item text-ellipsis"
+          className="plugin-dropdown__option-item text-ellipsis"
         >
           Nothing to show
         </li>
@@ -291,49 +291,49 @@ exports[`Dropdown Should show the error message when "error" prop is passed 1`] 
     value={null}
   >
     <div
-      className="dropdown dropdown--error position-relative "
+      className="plugin-dropdown plugin-dropdown--error position-relative "
     >
       <div
-        className="dropdown__field d-flex align-items-center justify-content-between
+        className="plugin-dropdown__field d-flex align-items-center justify-content-between
                     padding-h-15 border-radius-4 cursor-pointer
                     false
                     undefined
                     "
       >
         <label
-          className="dropdown__field-text dropdown__field-placeholder margin-0 wt-400 null"
+          className="plugin-dropdown__field-text plugin-dropdown__field-placeholder margin-0 wt-400 null"
         >
           Dropdown placeholder
         </label>
         <i
-          className="fa fa-angle-down dropdown__field-angle font-size-20 false"
+          className="fa fa-angle-down plugin-dropdown__field-angle font-20 false"
         />
         <input
           checked={false}
-          className="dropdown__field-input cursor-pointer"
+          className="plugin-dropdown__field-input cursor-pointer"
           onChange={[Function]}
           type="checkbox"
         />
       </div>
       <ul
-        className="dropdown__options-list channel-bg padding-0 border-radius-4 false"
+        className="plugin-dropdown__options-list channel-bg padding-0 border-radius-4 false"
       >
         <li
-          className="dropdown__option-item text-ellipsis font-size-14 margin-0 padding-v-10 padding-h-25 cursor-pointer"
+          className="plugin-dropdown__option-item text-ellipsis font-14 margin-0 padding-v-10 padding-h-25 cursor-pointer"
           key="Dropdown value 1"
           onClick={[Function]}
         >
           Dropdown label 1
         </li>
         <li
-          className="dropdown__option-item text-ellipsis font-size-14 margin-0 padding-v-10 padding-h-25 cursor-pointer"
+          className="plugin-dropdown__option-item text-ellipsis font-14 margin-0 padding-v-10 padding-h-25 cursor-pointer"
           key="Dropdown value 2"
           onClick={[Function]}
         >
           Dropdown label 2
         </li>
         <li
-          className="dropdown__option-item text-ellipsis font-size-14 margin-0 padding-v-10 padding-h-25 cursor-pointer"
+          className="plugin-dropdown__option-item text-ellipsis font-14 margin-0 padding-v-10 padding-h-25 cursor-pointer"
           key="Dropdown value 3"
           onClick={[Function]}
         >
@@ -341,7 +341,7 @@ exports[`Dropdown Should show the error message when "error" prop is passed 1`] 
         </li>
       </ul>
       <p
-        className="dropdown__err-text font-size-14 margin-top-5 error-text"
+        className="plugin-dropdown__err-text font-14 margin-top-5 error-text"
       >
         Error Message
       </p>
@@ -377,49 +377,49 @@ exports[`Dropdown Should show the loader when "loadingOptions" prop is passed 1`
     value={null}
   >
     <div
-      className="dropdown undefined position-relative "
+      className="plugin-dropdown undefined position-relative "
     >
       <div
-        className="dropdown__field d-flex align-items-center justify-content-between
+        className="plugin-dropdown__field d-flex align-items-center justify-content-between
                     padding-h-15 border-radius-4 cursor-pointer
                     false
                     undefined
                     "
       >
         <label
-          className="dropdown__field-text dropdown__field-placeholder margin-0 wt-400 null"
+          className="plugin-dropdown__field-text plugin-dropdown__field-placeholder margin-0 wt-400 null"
         >
           Dropdown placeholder
         </label>
         <div
-          className="dropdown__loader"
+          className="plugin-dropdown__loader"
         />
         <input
           checked={false}
-          className="dropdown__field-input cursor-pointer"
+          className="plugin-dropdown__field-input cursor-pointer"
           onChange={[Function]}
           type="checkbox"
         />
       </div>
       <ul
-        className="dropdown__options-list channel-bg padding-0 border-radius-4 false"
+        className="plugin-dropdown__options-list channel-bg padding-0 border-radius-4 false"
       >
         <li
-          className="dropdown__option-item text-ellipsis font-size-14 margin-0 padding-v-10 padding-h-25 cursor-pointer"
+          className="plugin-dropdown__option-item text-ellipsis font-14 margin-0 padding-v-10 padding-h-25 cursor-pointer"
           key="Dropdown value 1"
           onClick={[Function]}
         >
           Dropdown label 1
         </li>
         <li
-          className="dropdown__option-item text-ellipsis font-size-14 margin-0 padding-v-10 padding-h-25 cursor-pointer"
+          className="plugin-dropdown__option-item text-ellipsis font-14 margin-0 padding-v-10 padding-h-25 cursor-pointer"
           key="Dropdown value 2"
           onClick={[Function]}
         >
           Dropdown label 2
         </li>
         <li
-          className="dropdown__option-item text-ellipsis font-size-14 margin-0 padding-v-10 padding-h-25 cursor-pointer"
+          className="plugin-dropdown__option-item text-ellipsis font-14 margin-0 padding-v-10 padding-h-25 cursor-pointer"
           key="Dropdown value 3"
           onClick={[Function]}
         >
@@ -455,49 +455,49 @@ exports[`Dropdown Should toggle showing the options when clicked 1`] = `
     value={null}
   >
     <div
-      className="dropdown undefined position-relative "
+      className="plugin-dropdown undefined position-relative "
     >
       <div
-        className="dropdown__field d-flex align-items-center justify-content-between
+        className="plugin-dropdown__field d-flex align-items-center justify-content-between
                     padding-h-15 border-radius-4 cursor-pointer
-                    dropdown__field--open
+                    plugin-dropdown__field--open
                     undefined
                     "
       >
         <label
-          className="dropdown__field-text dropdown__field-placeholder margin-0 wt-400 null"
+          className="plugin-dropdown__field-text plugin-dropdown__field-placeholder margin-0 wt-400 null"
         >
           Dropdown placeholder
         </label>
         <i
-          className="fa fa-angle-down dropdown__field-angle font-size-20 dropdown__field-angle--rotated"
+          className="fa fa-angle-down plugin-dropdown__field-angle font-20 plugin-dropdown__field-angle--rotated"
         />
         <input
           checked={true}
-          className="dropdown__field-input cursor-pointer"
+          className="plugin-dropdown__field-input cursor-pointer"
           onChange={[Function]}
           type="checkbox"
         />
       </div>
       <ul
-        className="dropdown__options-list channel-bg padding-0 border-radius-4 dropdown__options-list--open"
+        className="plugin-dropdown__options-list channel-bg padding-0 border-radius-4 plugin-dropdown__options-list--open"
       >
         <li
-          className="dropdown__option-item text-ellipsis font-size-14 margin-0 padding-v-10 padding-h-25 cursor-pointer"
+          className="plugin-dropdown__option-item text-ellipsis font-14 margin-0 padding-v-10 padding-h-25 cursor-pointer"
           key="Dropdown value 1"
           onClick={[Function]}
         >
           Dropdown label 1
         </li>
         <li
-          className="dropdown__option-item text-ellipsis font-size-14 margin-0 padding-v-10 padding-h-25 cursor-pointer"
+          className="plugin-dropdown__option-item text-ellipsis font-14 margin-0 padding-v-10 padding-h-25 cursor-pointer"
           key="Dropdown value 2"
           onClick={[Function]}
         >
           Dropdown label 2
         </li>
         <li
-          className="dropdown__option-item text-ellipsis font-size-14 margin-0 padding-v-10 padding-h-25 cursor-pointer"
+          className="plugin-dropdown__option-item text-ellipsis font-14 margin-0 padding-v-10 padding-h-25 cursor-pointer"
           key="Dropdown value 3"
           onClick={[Function]}
         >

@@ -5,7 +5,7 @@ exports[`MenuButtons Should render correctly 1`] = `
   className="button-menu d-flex flex-column menu-btn"
 >
   <button
-    className="button-menu__btn channel-bg channel-text font-size-14 padding-v-12 padding-h-10 d-flex"
+    className="button-menu__btn channel-bg channel-text font-14 padding-v-12 padding-h-10 d-flex plugin-btn"
     key="Button Text"
     onClick={[MockFunction]}
   >
@@ -23,7 +23,7 @@ exports[`MenuButtons Should render correctly 1`] = `
     </span>
   </button>
   <button
-    className="button-menu__btn channel-bg channel-text font-size-14 padding-v-12 padding-h-10 d-flex"
+    className="button-menu__btn channel-bg channel-text font-14 padding-v-12 padding-h-10 d-flex plugin-btn"
     key="Button Text 2"
     onClick={[MockFunction]}
   >

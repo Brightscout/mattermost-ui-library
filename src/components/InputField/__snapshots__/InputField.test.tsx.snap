@@ -1,3 +1,26 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`InputField Should render correctly 1`] = `ShallowWrapper {}`;
+exports[`InputField Should render correctly 1`] = `
+<div
+  className="form-group input-field-class"
+>
+  <label
+    className="form-group__label wt-400"
+  >
+    Input Label
+  </label>
+  <FormControl
+    className="form-group__control border-radius-4 form-group__control--err error-text"
+    disabled={false}
+    onChange={[Function]}
+    placeholder="Input Placeholder"
+    type="text"
+    value="InputValue"
+  />
+  <p
+    className="form-group__err-text error-text font-14 margin-top-5"
+  >
+    Input field error
+  </p>
+</div>
+`;

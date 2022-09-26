@@ -59,13 +59,13 @@ exports[`AutoSuggest Should not show the suggestions when the input is focused b
           value="Label"
         />
         <i
-          className="fa fa-angle-down auto-suggest__field-angle font-size-20
+          className="fa fa-angle-down auto-suggest__field-angle font-20
                             false
                             "
         />
       </div>
       <p
-        className="auto-suggest__get-suggestion-warn font-size-12"
+        className="auto-suggest__get-suggestion-warn font-12"
       >
         Please enter at least 8 characters to get suggestions.
       </p>
@@ -155,7 +155,7 @@ exports[`AutoSuggest Should render correctly 1`] = `
           value="Label"
         />
         <i
-          className="fa fa-angle-down auto-suggest__field-angle font-size-20
+          className="fa fa-angle-down auto-suggest__field-angle font-20
                             false
                             "
         />
@@ -235,7 +235,7 @@ exports[`AutoSuggest Should show the empty state when "suggestions" are empty an
           value="Label"
         />
         <i
-          className="fa fa-angle-down auto-suggest__field-angle font-size-20
+          className="fa fa-angle-down auto-suggest__field-angle font-20
                             auto-suggest__field-angle--rotated
                             "
         />
@@ -313,7 +313,7 @@ exports[`AutoSuggest Should show the error message when "error" prop is passed 1
           value="Label"
         />
         <i
-          className="fa fa-angle-down auto-suggest__field-angle font-size-20
+          className="fa fa-angle-down auto-suggest__field-angle font-20
                             false
                             "
         />
@@ -344,7 +344,7 @@ exports[`AutoSuggest Should show the error message when "error" prop is passed 1
         </li>
       </ul>
       <p
-        className="auto-suggest__err-text error-text margin-top-5 font-size-14"
+        className="auto-suggest__err-text error-text margin-top-5 font-14"
       >
         Error Message
       </p>
@@ -501,7 +501,7 @@ exports[`AutoSuggest Should show the suggestions when the input is focused and c
           value="Label"
         />
         <i
-          className="fa fa-angle-down auto-suggest__field-angle font-size-20
+          className="fa fa-angle-down auto-suggest__field-angle font-20
                             auto-suggest__field-angle--rotated
                             "
         />
