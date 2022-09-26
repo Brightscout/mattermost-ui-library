@@ -14,7 +14,7 @@ describe('Skeleton Loader', () => {
         expect(component).toMatchSnapshot();
     });
 
-    it('Should apply the passed className prop', () => {
+    it('Should apply the passed "className" prop', () => {
         expect(component.hasClass('skeleton-loader-class')).toBeTruthy();
     });
 });

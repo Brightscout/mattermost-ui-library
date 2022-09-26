@@ -1,10 +1,10 @@
 import React from 'react';
 import {shallow, ShallowWrapper} from 'enzyme';
 
-import BaseCard from '.';
+// Mock data
+import {BaseCardChildren} from '@Constants/mockData/card';
 
-// Mock data for props
-const BaseCardChildren = <div>{'Base card children'}</div>;
+import BaseCard from '.';
 
 describe('BaseCard', () => {
     let component: ShallowWrapper<any, Readonly<{}>, React.Component<{}, {}, any>>;
@@ -21,7 +21,7 @@ describe('BaseCard', () => {
         expect(component.containsMatchingElement(BaseCardChildren)).toBeTruthy();
     });
 
-    it('Should apply the passed className prop', () => {
+    it('Should apply the passed "className" prop', () => {
         expect(component.hasClass('base-card')).toBeTruthy();
     });
 });

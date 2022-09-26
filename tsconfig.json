@@ -18,7 +18,7 @@
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "noEmit": true,
+    "noEmit": false,
     "jsx": "react",
     "noImplicitAny": true,
     "noUnusedLocals": true,
@@ -42,5 +42,6 @@
     "node_modules",
     "src/setupTests.ts",
     "src/reportWebVitals.ts",
+    "src/components/**/*.test.tsx"
   ]
 }

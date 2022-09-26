@@ -1,16 +1,10 @@
 import React from 'react';
 import {mount, ReactWrapper} from 'enzyme';
 
-import ModalHeader from '.';
+// Mock data
+import {modalHeaderHideHandler as hideHandler, ModalTitle, ModalHeaderProps} from '@Constants/mockData/modal';
 
-// Mock props data
-const hideHandler = jest.fn();
-const ModalTitle = 'Modal header';
-const ModalHeaderProps = {
-    onHide: hideHandler,
-    showCloseIconInHeader: false,
-    className: 'modal-header-class',
-};
+import ModalHeader from '.';
 
 describe('Modal Header', () => {
     let component: ReactWrapper<any, Readonly<{}>, React.Component<{}, {}, any>>;
@@ -24,15 +18,15 @@ describe('Modal Header', () => {
         jest.clearAllMocks();
     });
 
-    it('Should render correctly and matches snapshot', () => {
+    it('Should render correctly', () => {
         expect(component).toMatchSnapshot();
     });
 
-    it('Should apply the passed className prop', () => {
+    it('Should apply the passed "className" prop', () => {
         expect(component.hasClass(ModalHeaderProps.className)).toBeTruthy();
     });
 
-    it('Shouldn\'t render the cross button in the header if the "showCloseIconHeader" prop isn\'t falsy', () => {
+    it('Should not render the cross button in the header if the "showCloseIconInHeader" prop is falsy', () => {
         expect(component.find('.icon-close.modal__close-icon').exists()).toBeFalsy();
     });
 });

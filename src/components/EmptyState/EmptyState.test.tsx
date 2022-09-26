@@ -1,22 +1,10 @@
 import React from 'react';
 import {shallow, ShallowWrapper} from 'enzyme';
 
-import EmptyState from '.';
+// Mock data
+import {buttonActionHandler, emptyStateProps} from '@Constants/mockData/emtpyState';
 
-// Mock props data
-const buttonActionHandler = jest.fn();
-const emptyStateProps = {
-    title: 'Empty state title',
-    subTitle: 'Empty state subtitle',
-    buttonConfig: {
-        text: 'Button Text',
-        link: 'button link',
-        download: true,
-        action: buttonActionHandler,
-    },
-    icon: <i className='fa fa-link'/>,
-    className: 'empty-state-class',
-};
+import EmptyState from '.';
 
 describe('EmptyState', () => {
     let component: ShallowWrapper<any, Readonly<{}>, React.Component<{}, {}, any>>;
@@ -29,7 +17,7 @@ describe('EmptyState', () => {
         expect(component).toMatchSnapshot();
     });
 
-    it('Should apply the passed className prop', () => {
+    it('Should apply the passed "className" prop', () => {
         expect(component.hasClass(emptyStateProps.className)).toBeTruthy();
     });
 

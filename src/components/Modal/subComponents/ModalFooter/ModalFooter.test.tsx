@@ -1,21 +1,16 @@
 import React from 'react';
 import {mount, ReactWrapper} from 'enzyme';
 
-import ModalFooter from '.';
+// Mock data
+import {
+    modalFooterConfirmHandler as confirmHandler,
+    modalFooterHideHandler as hideHandler,
+    confirmBtnText,
+    cancelBtnText,
+    modalFooterProps,
+} from '@Constants/mockData/modal';
 
-// Mock props data
-const confirmHandler = jest.fn();
-const hideHandler = jest.fn();
-const confirmBtnText = 'Confirm Btn';
-const cancelBtnText = 'Cancel Btn';
-const modalFooterProps = {
-    onConfirm: confirmHandler,
-    onHide: hideHandler,
-    className: 'modal-footer-class',
-    confirmDisabled: false,
-    cancelDisabled: false,
-    confirmBtnClassName: 'confirm-btn-class',
-};
+import ModalFooter from '.';
 
 describe('Modal Footer', () => {
     let component: ReactWrapper<any, Readonly<{}>, React.Component<{}, {}, any>>;
@@ -29,11 +24,11 @@ describe('Modal Footer', () => {
         jest.clearAllMocks();
     });
 
-    it('Should render correctly and matches snapshot', () => {
+    it('Should render correctly', () => {
         expect(component).toMatchSnapshot();
     });
 
-    it('Should apply the passed className prop', () => {
+    it('Should apply the passed "className" prop', () => {
         expect(component.hasClass(modalFooterProps.className)).toBeTruthy();
     });
 
@@ -49,12 +44,12 @@ describe('Modal Footer', () => {
         expect(component.find('.modal__confirm-btn').hasClass(modalFooterProps.confirmBtnClassName)).toBeTruthy();
     });
 
-    it('Should call the onClick handler when the confirm button is clicked', () => {
+    it('Should call the "onClick" handler when the confirm button is clicked', () => {
         component.find('.modal__confirm-btn').simulate('click');
         expect(confirmHandler).toHaveBeenCalledTimes(1);
     });
 
-    it('Should call the onClick handler when the cancel button is clicked', () => {
+    it('Should call the "onClick" handler when the cancel button is clicked', () => {
         component.find('.modal__cancel-btn').simulate('click');
         expect(hideHandler).toHaveBeenCalledTimes(1);
     });
@@ -78,12 +73,12 @@ describe('Modal Footer - disabled footer buttons', () => {
         jest.clearAllMocks();
     });
 
-    it('Shouldn\'t call the onClick handler when the confirm button is clicked', () => {
+    it('Should not call the "onClick" handler when the confirm button is clicked', () => {
         component.find('.modal__confirm-btn').simulate('click');
         expect(confirmHandler).toHaveBeenCalledTimes(0);
     });
 
-    it('Shouldn\'t call the onClick handler when the cancel button is clicked', () => {
+    it('Should not call the "onClick" handler when the cancel button is clicked', () => {
         component.find('.modal__cancel-btn').simulate('click');
         expect(hideHandler).toHaveBeenCalledTimes(0);
     });
@@ -101,11 +96,11 @@ describe('Modal Footer - skip rendering the buttons', () => {
         jest.clearAllMocks();
     });
 
-    it('Shouldn\'t render the confirm button when onConfirm prop isn\'t passed', () => {
+    it('Should not render the confirm button when "onConfirm" prop isn\'t passed', () => {
         expect(component.find('.modal__confirm-btn').exists()).toBeFalsy();
     });
 
-    it('Shouldn\'t render the cancel button when onHide prop isn\'t passed', () => {
+    it('Should not render the cancel button when "onHide" prop isn\'t passed', () => {
         expect(component.find('.modal__cancel-btn').exists()).toBeFalsy();
     });
 });

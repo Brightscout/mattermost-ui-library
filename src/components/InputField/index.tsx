@@ -32,7 +32,7 @@ const Input = ({
             disabled={disabled}
             className={`form-group__control border-radius-4 ${error && 'form-group__control--err error-text'}`}
         />
-        {(error && typeof error === 'string') && <p className='form-group__err-text error-text font-size-14 margin-top-5'>{error}</p>}
+        {(error && typeof error === 'string') && <p className='form-group__err-text error-text font-14 margin-top-5'>{error}</p>}
     </div>
 );
 

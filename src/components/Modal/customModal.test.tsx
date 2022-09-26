@@ -1,16 +1,10 @@
 import React from 'react';
 import {mount, ReactWrapper} from 'enzyme';
 
-import CustomModal from '.';
+// Mock data
+import {customModalChildrenClass, customModalChildren, customModalProps} from '@Constants/mockData/modal';
 
-// Mock props data
-const customModalChildrenClass = 'custom-modal-children';
-const customModalChildren = <div className={customModalChildrenClass}>{'Custom Modal'}</div>;
-const customModalProps = {
-    show: true,
-    onHide: jest.fn,
-    className: 'custom-modal-class',
-};
+import CustomModal from '.';
 
 describe('CustomModal', () => {
     let component: ReactWrapper<any, Readonly<{}>, React.Component<{}, {}, any>>;
@@ -23,11 +17,11 @@ describe('CustomModal', () => {
         component.unmount();
     });
 
-    it('Should render correctly and matches snapshot', () => {
+    it('Should render correctly', () => {
         expect(component).toMatchSnapshot();
     });
 
-    it('Should apply the passed className prop', () => {
+    it('Should apply the passed "className" prop', () => {
         expect(component.hasClass(customModalProps.className)).toBeTruthy();
     });
 
