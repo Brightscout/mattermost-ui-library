@@ -6,7 +6,7 @@ import {DefaultCharThresholdToShowSuggestions} from '@Constants';
 export type AutoSuggestProps = {
     inputValue: string;
     onInputValueChange: (newValue: string) => void;
-    onOptionClick: (suggestion: Record<string, string>) => void;
+    onChangeSelectedSuggestion: (suggestion: Record<string, string> | null) => void;
     placeholder?: string;
     suggestionConfig: {
         suggestions: Record<string, string>[];
@@ -31,12 +31,13 @@ const AutoSuggest = ({
     error,
     required,
     className = '',
-    onOptionClick,
+    onChangeSelectedSuggestion,
 }: AutoSuggestProps) => {
     const [showSuggestions, setShowSuggestions] = useState(false);
     const [focused, setFocused] = useState(false);
     const textInputFieldRef = useRef<HTMLInputElement>(null);
     const autoSuggestRef = useRef<HTMLDivElement>(null);
+    const [selectedOption, setSelectedOption] = useState<Record<string, string> | null>(null);
 
     const {suggestions, renderValue} = suggestionConfig;
 
@@ -44,6 +45,13 @@ const AutoSuggest = ({
     useEffect(() => {
         setShowSuggestions(inputValue.length >= charThresholdToShowSuggestions && focused);
     }, [charThresholdToShowSuggestions, focused, inputValue]);
+
+    // When the auto-suggest's input value is reset for any reason, the selected suggestion should be reset
+    useEffect(() => {
+        if (!inputValue) {
+            setSelectedOption(null);
+        }
+    }, [inputValue]);
 
     useEffect(() => {
         if (focused) {
@@ -63,12 +71,22 @@ const AutoSuggest = ({
     }, []);
 
     const handleSuggestionClick = useCallback((suggestedValue: Record<string, string>) => {
-        onOptionClick(suggestedValue);
+        onChangeSelectedSuggestion(suggestedValue);
         setFocused(false);
-    }, [onOptionClick]);
+
+        // Render the selected option
+        setSelectedOption(suggestedValue);
+    }, [onChangeSelectedSuggestion]);
 
     // Prevent the text input field(which is the field visible in the UI) from blurring if "focused" is set to "true"
     const handleBlur = useCallback(() => focused && textInputFieldRef.current?.focus(), [focused]);
+
+    // Handles resetting the selected suggestion
+    const handleResetSelectedOption = useCallback(() => {
+        setSelectedOption(null);
+        onChangeSelectedSuggestion(null);
+        onInputValueChange('');
+    }, [onChangeSelectedSuggestion, onInputValueChange]);
 
     return (
         <div
@@ -124,9 +142,10 @@ const AutoSuggest = ({
                 </p>
             )}
             <ul className={`auto-suggest__suggestions padding-0 ${showSuggestions && 'auto-suggest__suggestions--open'}`}>
-                {suggestions.map((suggestion) => (
+                {suggestions.map((suggestion, index) => (
                     <li
-                        key={String(renderValue(suggestion))}
+                        // eslint-disable-next-line react/no-array-index-key
+                        key={index}
                         onClick={() => handleSuggestionClick(suggestion)}
                         className='auto-suggest__suggestion text-ellipsis cursor-pointer padding-v-10 padding-h-25 margin-0'
                     >
@@ -135,7 +154,30 @@ const AutoSuggest = ({
                 ))}
                 {!suggestions.length && <li className='auto-suggest__suggestion padding-v-10 padding-h-25 margin-0'>{'Nothing to show'}</li>}
             </ul>
-            {typeof error === 'string' && <p className='auto-suggest__err-text error-text margin-top-5 font-14'>{error}</p>}
+            {selectedOption && (
+                <div className='d-flex align-items-center justify-content-between auto-suggest__selected-option-container padding-h-20 channel-bg'>
+                    <div className='auto-suggest__selected-option-value text-ellipsis'>{renderValue(selectedOption)}</div>
+                    <button
+                        className='style--none padding-0 margin-0'
+                        onClick={handleResetSelectedOption}
+                        name='cancel selected option'
+                    >
+                        <i className='icon icon-close'/>
+                    </button>
+                </div>
+            )}
+            {typeof error === 'string' && (
+                <p
+                    className={`
+                        auto-suggest__err-text
+                        error-text
+                        ${inputValue.length < charThresholdToShowSuggestions && focused ? 'margin-top-15' : 'margin-top-5'}
+                        font-14
+                    `}
+                >
+                    {error}
+                </p>
+            )}
         </div>
     );
 };

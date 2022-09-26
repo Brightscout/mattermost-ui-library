@@ -101,4 +101,21 @@
       color: rgba(var(--error-text-color-rgb), 0.8);
     }
   }
+
+  &__selected-option-container {
+    @include positioning(absolute, 1px, 1px, 1px, 1px, 1);
+    border-radius: 4px;
+
+    .icon-close::before {
+      @extend .margin-0;
+    }
+  }
+
+  &__selected-option-value {
+    max-width: calc(100% - 12px);
+
+    & > * {
+      @extend .d-inline;
+    }
+  }
 }
