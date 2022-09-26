@@ -1,5 +1,5 @@
 import React from 'react';
-import {shallow, ShallowWrapper} from 'enzyme';
+import {ReactWrapper, mount} from 'enzyme';
 
 // Mock data
 import {inputFieldProps} from '@Constants/mockData/inputField';
@@ -7,15 +7,19 @@ import {inputFieldProps} from '@Constants/mockData/inputField';
 import InputField from '.';
 
 describe('InputField', () => {
-    let component: ShallowWrapper<any, Readonly<{}>, React.Component<{}, {}, any>>;
+    let component: ReactWrapper<any, Readonly<{}>, React.Component<{}, {}, any>>;
 
     beforeEach(() => {
-        component = shallow(
+        component = mount(
             <InputField
                 type='text'
                 {...inputFieldProps}
             />,
         );
+    });
+
+    afterEach(() => {
+        component.unmount();
     });
 
     it('Should render correctly', () => {
