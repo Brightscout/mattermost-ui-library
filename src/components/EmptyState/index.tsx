@@ -1,9 +1,9 @@
 import React from 'react';
 
 type EmptyStatePropTypes = {
-    title: string,
-    subTitle?: string,
-    buttonConfig?: {
+    title: string;
+    subTitle?: string;
+    buttonConfig?:{
         text: string;
         link?: string;
         download?: boolean;

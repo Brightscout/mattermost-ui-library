@@ -1,13 +1,14 @@
 import React, {useMemo} from 'react';
 
 // Components
+import {PrivateChannelType} from '@Constants';
+
 import BaseCard from '@Components/Card/Base';
 import Popover from '@Components/Popover';
 import MenuButtons from '@Components/Buttons/MenuButtons';
 import Tooltip from '@Components/Tooltip';
 
 // Constants
-import {PrivateChannelType} from '@Constants';
 
 type SubscriptionCardProps = {
     header: string | JSX.Element;

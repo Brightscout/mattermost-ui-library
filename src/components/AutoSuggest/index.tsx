@@ -9,8 +9,8 @@ export type AutoSuggestProps = {
     onChangeSelectedSuggestion: (suggestion: Record<string, string> | null) => void;
     placeholder?: string;
     suggestionConfig: {
-        suggestions: Record<string, string>[],
-        renderValue: (suggestion: Record<string, string>) => string | JSX.Element;
+        suggestions: Record<string, string>[];
+        renderValue: (suggestion: Record<string, string>) => string,
     };
     loadingSuggestions?: boolean;
     charThresholdToShowSuggestions?: number;
@@ -125,7 +125,7 @@ const AutoSuggest = ({
                     disabled={disabled}
                 />
                 {loadingSuggestions ? (
-                    <div className='auto-suggest__loader'/>
+                    <div className='auto-suggest__loader' />
                 ) : (
                     <i
                         className={
@@ -152,7 +152,7 @@ const AutoSuggest = ({
                         {renderValue(suggestion)}
                     </li>
                 ))}
-                {!suggestions.length && <li className='auto-suggest__suggestion cursor-pointer padding-v-10 padding-h-25 margin-0'>{'Nothing to show'}</li>}
+                {!suggestions.length && <li className='auto-suggest__suggestion padding-v-10 padding-h-25 margin-0'>{'Nothing to show'}</li>}
             </ul>
             {selectedOption && (
                 <div className='d-flex align-items-center justify-content-between auto-suggest__selected-option-container padding-h-20 channel-bg'>

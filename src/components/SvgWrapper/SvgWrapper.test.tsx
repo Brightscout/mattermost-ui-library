@@ -1,11 +1,10 @@
 import React from 'react';
 import {shallow, ShallowWrapper} from 'enzyme';
 
-import SvgWrapper from '.';
+// Mock data
+import {svgWrapperChildren, svgWrapperClassName} from '@Constants/mockData/svgWrapper';
 
-// Mock props data
-const svgWrapperChildren = <span>{'Mock Svg'}</span>;
-const svgWrapperClassName = 'svg-wrapper-class';
+import SvgWrapper from '.';
 
 describe('SvgWrapper', () => {
     let component: ShallowWrapper<any, Readonly<{}>, React.Component<{}, {}, any>>;
@@ -18,7 +17,7 @@ describe('SvgWrapper', () => {
         expect(component).toMatchSnapshot();
     });
 
-    it('Should apply the passed className prop', () => {
+    it('Should apply the passed "className" prop', () => {
         expect(component.hasClass(svgWrapperClassName)).toBeTruthy();
     });
 

@@ -7,7 +7,7 @@ export type DropdownProps = {
     options: DropdownOptionType[];
     customOption?: DropdownOptionType & {
         onClick: (customOptionValue: string) => void;
-    }
+    };
     loadingOptions?: boolean;
     disabled?: boolean;
     required?: boolean;
@@ -42,7 +42,7 @@ const Dropdown = ({
 
     // Handles when someone clicks on the custom option
     const handleCustomOptionClick = useCallback(() => {
-        // Update the value on the input to indicate custom options has been chosen
+        // Update the value on the input to indicate custom option has been chosen
         handleInputChange({
             label: customOption?.label,
             value: customOption?.value as string,

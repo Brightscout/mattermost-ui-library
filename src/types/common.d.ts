@@ -47,7 +47,7 @@ type ToggleSwitchLabelPositioning = 'left' | 'right';
 
 type SubscriptionCardBody = {
     list?: Array<string | JSX.Element>;
-    labelValuePairs?: Array<{label: string, value: string}>;
+    labelValuePairs?: Array<{label: string; value: string}>;
 }
 
 type PopoverPlacement = 'top' | 'right' | 'bottom' | 'left';

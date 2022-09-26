@@ -2,7 +2,7 @@ import React from 'react';
 
 type MenuButtonProps = {
     buttons: {
-        text: string,
+        text: string;
         icon: string | JSX.Element;
         onClick: (e: React.MouseEvent<HTMLButtonElement>) => void;
     }[];
