@@ -1,8 +1,7 @@
 {
-  "name": "mm-ui-library",
+  "name": "@brightscout/mm-ui-library",
   "version": "0.1.0",
-  "private": true,
-  "author": "Sooraj Shukla",
+  "author": "Brightscout, Inc.",
   "main": "build/cjs/index.js",
   "module": "build/esm/index.js",
   "files": [
@@ -86,5 +85,8 @@
     "react": "~16.13.1",
     "react-dom": "~16.10.2",
     "typescript": "~3.9.10"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/@Brightscout"
   }
 }
