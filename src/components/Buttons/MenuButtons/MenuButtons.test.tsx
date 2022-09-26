@@ -1,22 +1,10 @@
 import React from 'react';
 import {shallow, ShallowWrapper} from 'enzyme';
 
+// Mock data
+import {Icon, buttons} from '@Constants/mockData/ButtonMenu';
+
 import MenuButtons from '.';
-
-// Mock functions
-const onBtnClick = jest.fn();
-
-// Mock data for props
-const Icon = <i className='icon icon-globe'/>;
-const buttons = [{
-    text: 'Button Text',
-    icon: Icon,
-    onClick: onBtnClick,
-}, {
-    text: 'Button Text 2',
-    icon: Icon,
-    onClick: onBtnClick,
-}];
 
 describe('MenuButtons', () => {
     let component: ShallowWrapper<any, Readonly<{}>, React.Component<{}, {}, any>>;
@@ -42,7 +30,7 @@ describe('MenuButtons', () => {
         expect(component.text().includes('Button Text')).toBeTruthy();
     });
 
-    it('Should apply the passed className prop', () => {
+    it('Should apply the passed "className" prop', () => {
         expect(component.hasClass('menu-btn')).toBeTruthy();
     });
 

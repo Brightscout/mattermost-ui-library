@@ -7,7 +7,7 @@ export type DropdownProps = {
     options: DropdownOptionType[];
     customOption?: DropdownOptionType & {
         onClick: (customOptionValue: string) => void;
-    }
+    };
     loadingOptions?: boolean;
     disabled?: boolean;
     required?: boolean;

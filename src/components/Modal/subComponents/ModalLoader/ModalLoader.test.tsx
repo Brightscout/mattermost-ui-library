@@ -3,10 +3,10 @@ import {mount, ReactWrapper, shallow, ShallowWrapper} from 'enzyme';
 
 import LinearLoader from '@Components/Loader/Linear';
 
-import ModalLoader from '.';
+// Mock data
+import {ModalLoaderClassName} from '@Constants/mockData/modal';
 
-// Mock props data
-const ModalLoaderClassName = 'modal-loader-class';
+import ModalLoader from '.';
 
 describe('Modal Body', () => {
     let component: ReactWrapper<any, Readonly<{}>, React.Component<{}, {}, any>>;
@@ -23,7 +23,7 @@ describe('Modal Body', () => {
         expect(component).toMatchSnapshot();
     });
 
-    it('Should apply the passed className prop', () => {
+    it('Should apply the passed "className" prop', () => {
         expect(component.hasClass(ModalLoaderClassName)).toBeTruthy();
     });
 });
@@ -35,11 +35,11 @@ describe('Modal Loader - loading state', () => {
         shallowRenderedComponent = shallow(<ModalLoader loading={true} />);
     });
 
-    it('Should render correctly when loading is true', () => {
+    it('Should render correctly when "loading" is true', () => {
         expect(shallowRenderedComponent).toMatchSnapshot();
     });
 
-    it('Should render the linear loader when loading is true', () => {
+    it('Should render the linear loader when "loading" is true', () => {
         expect(shallowRenderedComponent.contains(<LinearLoader />)).toBeTruthy();
     });
 });

@@ -1,11 +1,10 @@
 import React from 'react';
 import {shallow, ShallowWrapper} from 'enzyme';
 
-import Checkbox from '.';
+// Mock data
+import {checkboxLabel, changeHandler} from '@Constants/mockData/checkbox';
 
-// Mock props data
-const checkboxLabel = 'Checkbox Label';
-const changeHandler = jest.fn();
+import Checkbox from '.';
 
 describe('Checkbox', () => {
     let component: ShallowWrapper<any, Readonly<{}>, React.Component<{}, {}, any>>;
@@ -25,7 +24,7 @@ describe('Checkbox', () => {
         expect(component).toMatchSnapshot();
     });
 
-    it('Should apply the passed className prop', () => {
+    it('Should apply the passed "className" prop', () => {
         expect(component.hasClass('custom-checkbox-class')).toBeTruthy();
     });
 

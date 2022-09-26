@@ -2,4 +2,4 @@
 
 exports[`Modal Body Should render correctly when loading is false 1`] = `ReactWrapper {}`;
 
-exports[`Modal Loader - loading state Should render correctly when loading is true 1`] = `ShallowWrapper {}`;
+exports[`Modal Loader - loading state Should render correctly when "loading" is true 1`] = `ShallowWrapper {}`;

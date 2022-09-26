@@ -9,8 +9,8 @@ export type AutoSuggestProps = {
     onOptionClick: (suggestion: Record<string, string>) => void;
     placeholder?: string;
     suggestionConfig: {
-        suggestions: Record<string, string>[],
-        renderValue: (suggestion: Record<string, string>) => string,
+        suggestions: Record<string, string>[];
+        renderValue: (suggestion: Record<string, string>) => string;
     };
     loadingSuggestions?: boolean;
     charThresholdToShowSuggestions?: number;

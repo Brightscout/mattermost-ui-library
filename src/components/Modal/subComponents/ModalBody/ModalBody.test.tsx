@@ -1,11 +1,10 @@
 import React from 'react';
 import {mount, ReactWrapper} from 'enzyme';
 
-import ModalBody from '.';
+// Mock data
+import {modalBodyChildren, modalBodyClassName} from '@Constants/mockData/modal';
 
-// Mock props data
-const modalBodyChildren = <div>{'Modal Body Children'}</div>;
-const modalBodyClassName = 'modal-body-class';
+import ModalBody from '.';
 
 describe('Modal Body', () => {
     let component: ReactWrapper<any, Readonly<{}>, React.Component<{}, {}, any>>;
@@ -22,7 +21,7 @@ describe('Modal Body', () => {
         expect(component).toMatchSnapshot();
     });
 
-    it('Should apply the passed className prop', () => {
+    it('Should apply the passed "className" prop', () => {
         expect(component.hasClass(modalBodyClassName)).toBeTruthy();
     });
 

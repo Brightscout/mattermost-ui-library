@@ -4,10 +4,10 @@ type EmptyStatePropTypes = {
     title: string;
     subTitle?: string;
     buttonConfig?:{
-        text: string,
-        link?: string,
-        download?: boolean,
-        action?: (event: React.MouseEvent<HTMLButtonElement>) => void,
+        text: string;
+        link?: string;
+        download?: boolean;
+        action?: (event: React.MouseEvent<HTMLButtonElement>) => void;
     } | null;
     iconClass?: string;
     icon?: JSX.Element;

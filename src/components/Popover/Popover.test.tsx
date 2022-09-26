@@ -1,14 +1,10 @@
 import React from 'react';
 import {ReactWrapper, mount} from 'enzyme';
 
-import Popover from '.';
+// Mock data
+import {PopoverChildrenClass, PopoverChildren, PopoverClassName, PopoverBody} from '@Constants/mockData/popover'
 
-// Mock props data
-const PopoverChildrenClass = 'popover-children-class';
-const PopoverBodyClass = 'popover-body-class';
-const PopoverChildren = <span className={PopoverChildrenClass}>{'Mock Svg'}</span>;
-const PopoverClassName = 'popover-class';
-const PopoverBody = <span className={PopoverBodyClass}>{'Popover body'}</span>;
+import Popover from '.';
 
 describe('Popover', () => {
     let component: ReactWrapper<any, Readonly<{}>, React.Component<{}, {}, any>>;

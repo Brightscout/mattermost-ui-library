@@ -1,14 +1,14 @@
 import React from 'react';
 import {shallow, ShallowWrapper} from 'enzyme';
 
-import Tooltip from '.';
+// Mock data
+import {
+    TooltipChildren,
+    TooltipContent,
+    TooltipClassName
+} from '@Constants/mockData/tooltip';
 
-// Mock props data
-const TooltipChildrenClass = 'tooltip-children-class';
-const TooltipContentClass = 'tooltip-content-class';
-const TooltipChildren = <span className={TooltipChildrenClass}>{'Tooltip Children'}</span>;
-const TooltipClassName = 'tooltip-class';
-const TooltipContent = <span className={TooltipContentClass}>{'Tooltip content'}</span>;
+import Tooltip from '.';
 
 describe('Tooltip', () => {
     let component: ShallowWrapper<any, Readonly<{}>, React.Component<{}, {}, any>>;

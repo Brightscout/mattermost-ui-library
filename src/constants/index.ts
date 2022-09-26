@@ -6,3 +6,5 @@ export enum ToggleSwitchLabelPositioningValues {
 }
 
 export const TooltipDefaultPlacement = 'top';
+
+export const PrivateChannelType = 'P';
