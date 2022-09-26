@@ -1,0 +1,100 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Popover Should render correctly 1`] = `
+<Popover
+  className="popover-class"
+  popoverBody={
+    <span
+      className="popover-body-class"
+    >
+      Popover body
+    </span>
+  }
+>
+  <OverlayTrigger
+    defaultShow={false}
+    delay={300}
+    overlay={
+      <ForwardRef
+        className="popover-class"
+        placement="right"
+      >
+        <span
+          className="popover-body-class"
+        >
+          Popover body
+        </span>
+      </ForwardRef>
+    }
+    placement="bottom"
+    trigger="focus"
+  >
+    <span
+      className="popover-children-class"
+      onBlur={[Function]}
+      onFocus={[Function]}
+    >
+      Mock Svg
+    </span>
+    <Overlay
+      flip={false}
+      onHide={[Function]}
+      placement="bottom"
+      popperConfig={Object {}}
+      rootClose={false}
+      show={false}
+      target={null}
+      transition={
+        Object {
+          "$$typeof": Symbol(react.forward_ref),
+          "defaultProps": Object {
+            "appear": false,
+            "in": false,
+            "mountOnEnter": false,
+            "timeout": 300,
+            "unmountOnExit": false,
+          },
+          "displayName": "Fade",
+          "render": [Function],
+        }
+      }
+    >
+      <Overlay
+        flip={false}
+        onHide={[Function]}
+        placement="bottom"
+        popperConfig={
+          Object {
+            "modifiers": Array [
+              Object {
+                "name": "offset",
+                "options": Object {
+                  "offset": [Function],
+                },
+              },
+            ],
+            "onFirstUpdate": [Function],
+          }
+        }
+        rootClose={false}
+        show={false}
+        target={null}
+        transition={
+          Object {
+            "$$typeof": Symbol(react.forward_ref),
+            "defaultProps": Object {
+              "appear": false,
+              "in": false,
+              "mountOnEnter": false,
+              "timeout": 300,
+              "unmountOnExit": false,
+            },
+            "displayName": "Fade",
+            "render": [Function],
+          }
+        }
+      />
+    </Overlay>
+  </OverlayTrigger>
+</Popover>
+`;

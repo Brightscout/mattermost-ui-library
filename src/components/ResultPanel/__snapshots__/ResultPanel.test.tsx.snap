@@ -1,0 +1,54 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Result Panel Should render correctly 1`] = `
+<ForwardRef
+  className="result-panel-class"
+  header="Result Panel Header"
+  iconClass="icon-class"
+  primaryBtn={
+    Object {
+      "onClick": [MockFunction],
+      "text": "Primary Button",
+    }
+  }
+  secondaryBtn={
+    Object {
+      "onClick": [MockFunction],
+      "text": "Secondary Button",
+    }
+  }
+>
+  <div
+    className="modal__body modal-body wizard__secondary-panel result-panel-class"
+  >
+    <div
+      className="padding-h-12 padding-v-15 d-flex align-items-center justify-content-center flex-column"
+    >
+      <i
+        className="fa result-panel-icon icon-class"
+      />
+      <h2
+        className="result-panel-text font-16 margin-v-25 text-center"
+      >
+        Result Panel Header
+      </h2>
+    </div>
+    <div
+      className="modal-footer d-flex flex-row-reverse padding-h-12 padding-v-15"
+    >
+      <button
+        className="btn btn-primary plugin-btn"
+        onClick={[MockFunction]}
+      >
+        Primary Button
+      </button>
+      <button
+        className="btn btn-link padding-0 plugin-btn margin-right-10"
+        onClick={[MockFunction]}
+      >
+        Secondary Button
+      </button>
+    </div>
+  </div>
+</ForwardRef>
+`;

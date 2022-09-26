@@ -1,0 +1,42 @@
+.toggle-switch-container {
+  border-bottom: 1px solid rgba(var(--center-channel-color-rgb), 0.2);
+}
+
+.toggle-switch {
+  width: 44px;
+  height: 24px;
+
+  &__slider {
+    @include positioning(absolute, 0, 0, 0, 0);
+    background: rgba(var(--center-channel-color-rgb), 0.2);
+    transition: 0.4s;
+    border-radius: 34px;
+
+    &::before {
+      @include positioning(absolute, '', '', 3px, 4px);
+      content: '';
+      height: 18px;
+      width: 18px;
+      background: white;
+      transition: 0.4s;
+      border-radius: 50%;
+    }
+  }
+
+  &__input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+
+    &:checked {
+      & + .toggle-switch__slider {
+        background: var(--button-bg);
+
+        &:before {
+          transform: translateX(18px);
+          background: var(--center-channel-bg);
+        }
+      }
+    }
+  }
+}

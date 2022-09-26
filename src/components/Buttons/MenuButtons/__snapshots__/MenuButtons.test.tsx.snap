@@ -1,0 +1,44 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MenuButtons Should render correctly 1`] = `
+<div
+  className="button-menu d-flex flex-column menu-btn"
+>
+  <button
+    className="button-menu__btn channel-bg channel-text font-14 padding-v-12 padding-h-10 d-flex plugin-btn"
+    key="Button Text"
+    onClick={[MockFunction]}
+  >
+    <span
+      className="button-menu__btn-icon margin-right-10 d-inline-block"
+    >
+      <i
+        className="icon icon-globe"
+      />
+    </span>
+    <span
+      className="button-menu__btn-text"
+    >
+      Button Text
+    </span>
+  </button>
+  <button
+    className="button-menu__btn channel-bg channel-text font-14 padding-v-12 padding-h-10 d-flex plugin-btn"
+    key="Button Text 2"
+    onClick={[MockFunction]}
+  >
+    <span
+      className="button-menu__btn-icon margin-right-10 d-inline-block"
+    >
+      <i
+        className="icon icon-globe"
+      />
+    </span>
+    <span
+      className="button-menu__btn-text"
+    >
+      Button Text 2
+    </span>
+  </button>
+</div>
+`;

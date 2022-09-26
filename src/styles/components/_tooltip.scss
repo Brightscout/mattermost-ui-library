@@ -1,0 +1,6 @@
+.tooltip {
+    z-index: 2000;
+    * {
+        color: $tooltip-text-color;
+    }
+}

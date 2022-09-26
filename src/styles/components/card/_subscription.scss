@@ -1,0 +1,31 @@
+.subscription-card {
+  &__menu-btn {
+    min-width: 10px;
+  }
+
+  &__label {
+    background: rgba(var(--center-channel-color-rgb), 0.1);
+  }
+
+  &__body {
+    list-style-type: none;
+  }
+
+  &__body-item {
+    &--list {
+      list-style: disc;
+    }
+
+    &:last-child {
+      margin-bottom: 0 !important;
+    }
+  }
+
+  &__popover {
+    transform: translateX(-5px);
+  }
+
+  &__channel-text {
+    max-width: calc(100% - 20px) !important;
+  }
+}
