@@ -2,7 +2,7 @@ import React from 'react';
 import {Tabs as ReactBootstrapTabs, Tab} from 'react-bootstrap';
 
 type TabsProps = {
-    tabs: TabData[]
+    tabs: TabData[];
     tabsClassName?: string;
 }
 
