@@ -2,7 +2,7 @@ import React from 'react';
 import {ReactWrapper, mount} from 'enzyme';
 
 // Mock data
-import {PopoverChildrenClass, PopoverChildren, PopoverClassName, PopoverBody} from '@Constants/mockData/popover'
+import {PopoverChildrenClass, PopoverChildren, PopoverClassName, PopoverBody} from '@Constants/mockData/popover';
 
 import Popover from '.';
 

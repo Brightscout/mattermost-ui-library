@@ -2,7 +2,7 @@ import React from 'react';
 import {mount, ReactWrapper} from 'enzyme';
 
 // Mock data
-import { onChangeHandler, dropdownOptions, dropdownPlaceholder } from '@Constants/mockData/dropdown';
+import {onChangeHandler, dropdownOptions, dropdownPlaceholder} from '@Constants/mockData/dropdown';
 
 import Dropdown, {DropdownProps} from '.';
 

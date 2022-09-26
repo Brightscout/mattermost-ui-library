@@ -1,13 +1,537 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`AutoSuggest Should not show the suggestions when the input is focused but character threshold isn't reached 1`] = `ReactWrapper {}`;
+exports[`AutoSuggest Should not show the suggestions when the input is focused but character threshold isn't reached 1`] = `
+<AutoSuggestComponent
+  charThresholdToShowSuggestions={8}
+>
+  <AutoSuggest
+    charThresholdToShowSuggestions={8}
+    inputValue="Label"
+    onInputValueChange={[MockFunction]}
+    onOptionClick={[MockFunction]}
+    suggestionConfig={
+      Object {
+        "renderValue": [Function],
+        "suggestions": Array [
+          Object {
+            "label": "Label 1",
+            "value": "Value 1",
+          },
+          Object {
+            "label": "Label 2",
+            "value": "Value 2",
+          },
+          Object {
+            "label": "Label 3",
+            "value": "Value 3",
+          },
+        ],
+      }
+    }
+  >
+    <div
+      className="auto-suggest position-relative margin-bottom-25
+                false
+                undefined
+                
+                "
+    >
+      <div
+        className="auto-suggest__field padding-h-20 cursor-pointer d-flex align-items-center justify-content-between
+                    auto-suggest__field--focused
+                    false
+                    "
+      >
+        <input
+          checked={true}
+          className="auto-suggest__toggle-input cursor-text"
+          disabled={false}
+          onClick={[Function]}
+          readOnly={true}
+          type="checkbox"
+        />
+        <input
+          className="auto-suggest__input padding-0 false"
+          disabled={false}
+          onBlur={[Function]}
+          onChange={[Function]}
+          placeholder=""
+          value="Label"
+        />
+        <i
+          className="fa fa-angle-down auto-suggest__field-angle font-size-20
+                            false
+                            "
+        />
+      </div>
+      <p
+        className="auto-suggest__get-suggestion-warn font-size-12"
+      >
+        Please enter at least 8 characters to get suggestions.
+      </p>
+      <ul
+        className="auto-suggest__suggestions padding-0 false"
+      >
+        <li
+          className="auto-suggest__suggestion text-ellipsis cursor-pointer padding-v-10 padding-h-25 margin-0"
+          key="Label 1"
+          onClick={[Function]}
+        >
+          Label 1
+        </li>
+        <li
+          className="auto-suggest__suggestion text-ellipsis cursor-pointer padding-v-10 padding-h-25 margin-0"
+          key="Label 2"
+          onClick={[Function]}
+        >
+          Label 2
+        </li>
+        <li
+          className="auto-suggest__suggestion text-ellipsis cursor-pointer padding-v-10 padding-h-25 margin-0"
+          key="Label 3"
+          onClick={[Function]}
+        >
+          Label 3
+        </li>
+      </ul>
+    </div>
+  </AutoSuggest>
+</AutoSuggestComponent>
+`;
 
-exports[`AutoSuggest Should render correctly 1`] = `ReactWrapper {}`;
+exports[`AutoSuggest Should render correctly 1`] = `
+<AutoSuggestComponent>
+  <AutoSuggest
+    inputValue="Label"
+    onInputValueChange={[MockFunction]}
+    onOptionClick={[MockFunction]}
+    suggestionConfig={
+      Object {
+        "renderValue": [Function],
+        "suggestions": Array [
+          Object {
+            "label": "Label 1",
+            "value": "Value 1",
+          },
+          Object {
+            "label": "Label 2",
+            "value": "Value 2",
+          },
+          Object {
+            "label": "Label 3",
+            "value": "Value 3",
+          },
+        ],
+      }
+    }
+  >
+    <div
+      className="auto-suggest position-relative margin-bottom-25
+                false
+                undefined
+                
+                "
+    >
+      <div
+        className="auto-suggest__field padding-h-20 cursor-pointer d-flex align-items-center justify-content-between
+                    false
+                    false
+                    "
+      >
+        <input
+          checked={false}
+          className="auto-suggest__toggle-input cursor-text"
+          disabled={false}
+          onClick={[Function]}
+          readOnly={true}
+          type="checkbox"
+        />
+        <input
+          className="auto-suggest__input padding-0 false"
+          disabled={false}
+          onBlur={[Function]}
+          onChange={[Function]}
+          placeholder=""
+          value="Label"
+        />
+        <i
+          className="fa fa-angle-down auto-suggest__field-angle font-size-20
+                            false
+                            "
+        />
+      </div>
+      <ul
+        className="auto-suggest__suggestions padding-0 false"
+      >
+        <li
+          className="auto-suggest__suggestion text-ellipsis cursor-pointer padding-v-10 padding-h-25 margin-0"
+          key="Label 1"
+          onClick={[Function]}
+        >
+          Label 1
+        </li>
+        <li
+          className="auto-suggest__suggestion text-ellipsis cursor-pointer padding-v-10 padding-h-25 margin-0"
+          key="Label 2"
+          onClick={[Function]}
+        >
+          Label 2
+        </li>
+        <li
+          className="auto-suggest__suggestion text-ellipsis cursor-pointer padding-v-10 padding-h-25 margin-0"
+          key="Label 3"
+          onClick={[Function]}
+        >
+          Label 3
+        </li>
+      </ul>
+    </div>
+  </AutoSuggest>
+</AutoSuggestComponent>
+`;
 
-exports[`AutoSuggest Should show the empty state when "suggestions" are empty and character threshold is reached 1`] = `ReactWrapper {}`;
+exports[`AutoSuggest Should show the empty state when "suggestions" are empty and character threshold is reached 1`] = `
+<AutoSuggestComponent
+  emptySuggestions={true}
+>
+  <AutoSuggest
+    inputValue="Label"
+    onInputValueChange={[MockFunction]}
+    onOptionClick={[MockFunction]}
+    suggestionConfig={
+      Object {
+        "renderValue": [Function],
+        "suggestions": Array [],
+      }
+    }
+  >
+    <div
+      className="auto-suggest position-relative margin-bottom-25
+                false
+                undefined
+                
+                "
+    >
+      <div
+        className="auto-suggest__field padding-h-20 cursor-pointer d-flex align-items-center justify-content-between
+                    auto-suggest__field--focused
+                    false
+                    "
+      >
+        <input
+          checked={true}
+          className="auto-suggest__toggle-input cursor-text"
+          disabled={false}
+          onClick={[Function]}
+          readOnly={true}
+          type="checkbox"
+        />
+        <input
+          className="auto-suggest__input padding-0 false"
+          disabled={false}
+          onBlur={[Function]}
+          onChange={[Function]}
+          placeholder=""
+          value="Label"
+        />
+        <i
+          className="fa fa-angle-down auto-suggest__field-angle font-size-20
+                            auto-suggest__field-angle--rotated
+                            "
+        />
+      </div>
+      <ul
+        className="auto-suggest__suggestions padding-0 auto-suggest__suggestions--open"
+      >
+        <li
+          className="auto-suggest__suggestion padding-v-10 padding-h-25 margin-0"
+        >
+          Nothing to show
+        </li>
+      </ul>
+    </div>
+  </AutoSuggest>
+</AutoSuggestComponent>
+`;
 
-exports[`AutoSuggest Should show the error message when "error" prop is passed 1`] = `ReactWrapper {}`;
+exports[`AutoSuggest Should show the error message when "error" prop is passed 1`] = `
+<AutoSuggestComponent
+  error="Error Message"
+>
+  <AutoSuggest
+    error="Error Message"
+    inputValue="Label"
+    onInputValueChange={[MockFunction]}
+    onOptionClick={[MockFunction]}
+    suggestionConfig={
+      Object {
+        "renderValue": [Function],
+        "suggestions": Array [
+          Object {
+            "label": "Label 1",
+            "value": "Value 1",
+          },
+          Object {
+            "label": "Label 2",
+            "value": "Value 2",
+          },
+          Object {
+            "label": "Label 3",
+            "value": "Value 3",
+          },
+        ],
+      }
+    }
+  >
+    <div
+      className="auto-suggest position-relative margin-bottom-25
+                false
+                auto-suggest--error
+                
+                "
+    >
+      <div
+        className="auto-suggest__field padding-h-20 cursor-pointer d-flex align-items-center justify-content-between
+                    false
+                    false
+                    "
+      >
+        <input
+          checked={false}
+          className="auto-suggest__toggle-input cursor-text"
+          disabled={false}
+          onClick={[Function]}
+          readOnly={true}
+          type="checkbox"
+        />
+        <input
+          className="auto-suggest__input padding-0 false"
+          disabled={false}
+          onBlur={[Function]}
+          onChange={[Function]}
+          placeholder=""
+          value="Label"
+        />
+        <i
+          className="fa fa-angle-down auto-suggest__field-angle font-size-20
+                            false
+                            "
+        />
+      </div>
+      <ul
+        className="auto-suggest__suggestions padding-0 false"
+      >
+        <li
+          className="auto-suggest__suggestion text-ellipsis cursor-pointer padding-v-10 padding-h-25 margin-0"
+          key="Label 1"
+          onClick={[Function]}
+        >
+          Label 1
+        </li>
+        <li
+          className="auto-suggest__suggestion text-ellipsis cursor-pointer padding-v-10 padding-h-25 margin-0"
+          key="Label 2"
+          onClick={[Function]}
+        >
+          Label 2
+        </li>
+        <li
+          className="auto-suggest__suggestion text-ellipsis cursor-pointer padding-v-10 padding-h-25 margin-0"
+          key="Label 3"
+          onClick={[Function]}
+        >
+          Label 3
+        </li>
+      </ul>
+      <p
+        className="auto-suggest__err-text error-text margin-top-5 font-size-14"
+      >
+        Error Message
+      </p>
+    </div>
+  </AutoSuggest>
+</AutoSuggestComponent>
+`;
 
-exports[`AutoSuggest Should show the loader when "loading" prop is passed 1`] = `ReactWrapper {}`;
+exports[`AutoSuggest Should show the loader when "loading" prop is passed 1`] = `
+<AutoSuggestComponent
+  loadingSuggestions={true}
+>
+  <AutoSuggest
+    inputValue="Label"
+    loadingSuggestions={true}
+    onInputValueChange={[MockFunction]}
+    onOptionClick={[MockFunction]}
+    suggestionConfig={
+      Object {
+        "renderValue": [Function],
+        "suggestions": Array [
+          Object {
+            "label": "Label 1",
+            "value": "Value 1",
+          },
+          Object {
+            "label": "Label 2",
+            "value": "Value 2",
+          },
+          Object {
+            "label": "Label 3",
+            "value": "Value 3",
+          },
+        ],
+      }
+    }
+  >
+    <div
+      className="auto-suggest position-relative margin-bottom-25
+                false
+                undefined
+                
+                "
+    >
+      <div
+        className="auto-suggest__field padding-h-20 cursor-pointer d-flex align-items-center justify-content-between
+                    false
+                    false
+                    "
+      >
+        <input
+          checked={false}
+          className="auto-suggest__toggle-input cursor-text"
+          disabled={false}
+          onClick={[Function]}
+          readOnly={true}
+          type="checkbox"
+        />
+        <input
+          className="auto-suggest__input padding-0 false"
+          disabled={false}
+          onBlur={[Function]}
+          onChange={[Function]}
+          placeholder=""
+          value="Label"
+        />
+        <div
+          className="auto-suggest__loader"
+        />
+      </div>
+      <ul
+        className="auto-suggest__suggestions padding-0 false"
+      >
+        <li
+          className="auto-suggest__suggestion text-ellipsis cursor-pointer padding-v-10 padding-h-25 margin-0"
+          key="Label 1"
+          onClick={[Function]}
+        >
+          Label 1
+        </li>
+        <li
+          className="auto-suggest__suggestion text-ellipsis cursor-pointer padding-v-10 padding-h-25 margin-0"
+          key="Label 2"
+          onClick={[Function]}
+        >
+          Label 2
+        </li>
+        <li
+          className="auto-suggest__suggestion text-ellipsis cursor-pointer padding-v-10 padding-h-25 margin-0"
+          key="Label 3"
+          onClick={[Function]}
+        >
+          Label 3
+        </li>
+      </ul>
+    </div>
+  </AutoSuggest>
+</AutoSuggestComponent>
+`;
 
-exports[`AutoSuggest Should show the suggestions when the input is focused and character threshold is reached 1`] = `ReactWrapper {}`;
+exports[`AutoSuggest Should show the suggestions when the input is focused and character threshold is reached 1`] = `
+<AutoSuggestComponent>
+  <AutoSuggest
+    inputValue="Label"
+    onInputValueChange={[MockFunction]}
+    onOptionClick={[MockFunction]}
+    suggestionConfig={
+      Object {
+        "renderValue": [Function],
+        "suggestions": Array [
+          Object {
+            "label": "Label 1",
+            "value": "Value 1",
+          },
+          Object {
+            "label": "Label 2",
+            "value": "Value 2",
+          },
+          Object {
+            "label": "Label 3",
+            "value": "Value 3",
+          },
+        ],
+      }
+    }
+  >
+    <div
+      className="auto-suggest position-relative margin-bottom-25
+                false
+                undefined
+                
+                "
+    >
+      <div
+        className="auto-suggest__field padding-h-20 cursor-pointer d-flex align-items-center justify-content-between
+                    auto-suggest__field--focused
+                    false
+                    "
+      >
+        <input
+          checked={true}
+          className="auto-suggest__toggle-input cursor-text"
+          disabled={false}
+          onClick={[Function]}
+          readOnly={true}
+          type="checkbox"
+        />
+        <input
+          className="auto-suggest__input padding-0 false"
+          disabled={false}
+          onBlur={[Function]}
+          onChange={[Function]}
+          placeholder=""
+          value="Label"
+        />
+        <i
+          className="fa fa-angle-down auto-suggest__field-angle font-size-20
+                            auto-suggest__field-angle--rotated
+                            "
+        />
+      </div>
+      <ul
+        className="auto-suggest__suggestions padding-0 auto-suggest__suggestions--open"
+      >
+        <li
+          className="auto-suggest__suggestion text-ellipsis cursor-pointer padding-v-10 padding-h-25 margin-0"
+          key="Label 1"
+          onClick={[Function]}
+        >
+          Label 1
+        </li>
+        <li
+          className="auto-suggest__suggestion text-ellipsis cursor-pointer padding-v-10 padding-h-25 margin-0"
+          key="Label 2"
+          onClick={[Function]}
+        >
+          Label 2
+        </li>
+        <li
+          className="auto-suggest__suggestion text-ellipsis cursor-pointer padding-v-10 padding-h-25 margin-0"
+          key="Label 3"
+          onClick={[Function]}
+        >
+          Label 3
+        </li>
+      </ul>
+    </div>
+  </AutoSuggest>
+</AutoSuggestComponent>
+`;

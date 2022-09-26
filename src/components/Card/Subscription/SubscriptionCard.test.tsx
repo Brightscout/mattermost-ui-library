@@ -2,7 +2,7 @@ import React from 'react';
 import {shallow, ShallowWrapper} from 'enzyme';
 
 // Mock data
-import { subscriptionCardBody as cardBody, subscriptionCardProps } from '@Constants/mockData/card';
+import {subscriptionCardBody as cardBody, subscriptionCardProps} from '@Constants/mockData/card';
 
 import SubscriptionCard from '.';
 

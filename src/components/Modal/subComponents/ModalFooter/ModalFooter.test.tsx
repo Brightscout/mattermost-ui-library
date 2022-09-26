@@ -16,7 +16,7 @@ describe('Modal Footer', () => {
     let component: ReactWrapper<any, Readonly<{}>, React.Component<{}, {}, any>>;
 
     beforeEach(() => {
-        component = mount(<ModalFooter {...modalFooterProps} />);
+        component = mount(<ModalFooter {...modalFooterProps}/>);
     });
 
     afterEach(() => {
@@ -88,7 +88,7 @@ describe('Modal Footer - skip rendering the buttons', () => {
     let component: ReactWrapper<any, Readonly<{}>, React.Component<{}, {}, any>>;
 
     beforeEach(() => {
-        component = mount(<ModalFooter />);
+        component = mount(<ModalFooter/>);
     });
 
     afterEach(() => {

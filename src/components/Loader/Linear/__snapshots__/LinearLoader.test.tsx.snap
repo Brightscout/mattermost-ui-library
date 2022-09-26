@@ -1,3 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Linear Loader Should render correctly 1`] = `ShallowWrapper {}`;
+exports[`Linear Loader Should render correctly 1`] = `
+<div
+  className="linear-loader border-radius-4"
+>
+  <div
+    className="linear-loader__bar border-radius-4"
+  />
+</div>
+`;

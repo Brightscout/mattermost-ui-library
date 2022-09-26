@@ -1,3 +1,35 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Modal Footer Should render correctly 1`] = `ReactWrapper {}`;
+exports[`Modal Footer Should render correctly 1`] = `
+<ModalFooter
+  cancelDisabled={false}
+  className="modal-footer-class"
+  confirmBtnClassName="confirm-btn-class"
+  confirmDisabled={false}
+  onConfirm={[MockFunction]}
+  onHide={[MockFunction]}
+>
+  <ModalFooter
+    className="modal__footer d-flex flex-column justify-content-center align-items-center modal-footer-class"
+  >
+    <div
+      className="modal__footer d-flex flex-column justify-content-center align-items-center modal-footer-class modal-footer"
+    >
+      <button
+        className="btn modal__confirm-btn margin-bottom-25 confirm-btn-class"
+        disabled={false}
+        onClick={[MockFunction]}
+      >
+        Confirm
+      </button>
+      <button
+        className="btn btn-link modal__cancel-btn margin-0 padding-0"
+        disabled={false}
+        onClick={[MockFunction]}
+      >
+        Cancel
+      </button>
+    </div>
+  </ModalFooter>
+</ModalFooter>
+`;

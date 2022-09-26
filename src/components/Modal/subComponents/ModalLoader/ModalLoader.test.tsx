@@ -12,7 +12,7 @@ describe('Modal Body', () => {
     let component: ReactWrapper<any, Readonly<{}>, React.Component<{}, {}, any>>;
 
     beforeEach(() => {
-        component = mount(<ModalLoader className={ModalLoaderClassName} />);
+        component = mount(<ModalLoader className={ModalLoaderClassName}/>);
     });
 
     afterEach(() => {
@@ -32,7 +32,7 @@ describe('Modal Loader - loading state', () => {
     let shallowRenderedComponent: ShallowWrapper<any, Readonly<{}>, React.Component<{}, {}, any>>;
 
     beforeEach(() => {
-        shallowRenderedComponent = shallow(<ModalLoader loading={true} />);
+        shallowRenderedComponent = shallow(<ModalLoader loading={true}/>);
     });
 
     it('Should render correctly when "loading" is true', () => {
@@ -40,6 +40,6 @@ describe('Modal Loader - loading state', () => {
     });
 
     it('Should render the linear loader when "loading" is true', () => {
-        expect(shallowRenderedComponent.contains(<LinearLoader />)).toBeTruthy();
+        expect(shallowRenderedComponent.contains(<LinearLoader/>)).toBeTruthy();
     });
 });

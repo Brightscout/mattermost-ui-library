@@ -11,6 +11,6 @@ export const emptyStateProps = {
         download: true,
         action: buttonActionHandler,
     },
-    icon: <i className='fa fa-link' />,
+    icon: <i className='fa fa-link'/>,
     className: 'empty-state-class',
 };
