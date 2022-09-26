@@ -1,3 +1,33 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Tabs Should render correctly 1`] = `ShallowWrapper {}`;
+exports[`Tabs Should render correctly 1`] = `
+<Tabs
+  className="tabs tabs-class"
+  mountOnEnter={false}
+  unmountOnExit={false}
+  variant="tabs"
+>
+  <Tab
+    eventKey={0}
+    key="Tab 1"
+    title="Tab 1"
+  >
+    <div
+      className="tab-panel-class"
+    >
+      tab-panel-1
+    </div>
+  </Tab>
+  <Tab
+    eventKey={1}
+    key="Tab 2"
+    title="Tab 2"
+  >
+    <div
+      className="tab-panel-class"
+    >
+      tab-panel-2
+    </div>
+  </Tab>
+</Tabs>
+`;

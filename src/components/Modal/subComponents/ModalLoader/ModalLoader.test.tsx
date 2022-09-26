@@ -40,6 +40,6 @@ describe('Modal Loader - loading state', () => {
     });
 
     it('Should render the linear loader when "loading" is true', () => {
-        expect(shallowRenderedComponent.contains(<LinearLoader />)).toBeTruthy();
+        expect(shallowRenderedComponent.contains(<LinearLoader/>)).toBeTruthy();
     });
 });

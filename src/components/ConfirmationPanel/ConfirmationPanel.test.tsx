@@ -14,7 +14,7 @@ describe('ConfirmationPanel', () => {
     let component: ShallowWrapper<any, Readonly<{}>, React.Component<{}, {}, any>>;
 
     beforeEach(() => {
-        component = shallow(<ConfirmationPanel {...confirmationPanelProps} />);
+        component = shallow(<ConfirmationPanel {...confirmationPanelProps}/>);
     });
 
     it('Should render correctly', () => {
@@ -35,7 +35,7 @@ describe('ConfirmationPanel', () => {
 
     it('Should render the error correctly', () => {
         expect(component.contains(
-            <ModalSubtitleAndError error={confirmationPanelProps.error} />,
+            <ModalSubtitleAndError error={confirmationPanelProps.error}/>,
         )).toBeTruthy();
     });
 

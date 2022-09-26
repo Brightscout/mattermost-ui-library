@@ -73,7 +73,12 @@
     "typescript": "~3.9.10",
     "typescript-transform-paths": "~3.3.1",
     "web-vitals": "~2.1.4",
-    "webpack-dev-server": "~3.2.1"
+    "webpack-dev-server": "~3.11.0"
+  },
+  "jest": {
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ]
   },
   "peerDependencies": {
     "bootstrap": "~5.2.0",
