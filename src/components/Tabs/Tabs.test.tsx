@@ -1,22 +1,12 @@
 import React from 'react';
 import {shallow, ShallowWrapper} from 'enzyme';
 
+// Mock data
+import {tabPanelClass, tabsProps} from '@Constants/mockData/tabs';
+
 import Tabs from '.';
 
-// Mock props data
-const tabPanelClass = 'tab-panel-class';
-const tabsProps = {
-    tabs: [{
-        title: 'Tab 1',
-        tabPanel: <div className={tabPanelClass}>{'tab-panel-1'}</div>,
-    }, {
-        title: 'Tab 2',
-        tabPanel: <div className={tabPanelClass}>{'tab-panel-2'}</div>,
-    }],
-    tabsClassName: 'tabs-class',
-};
-
-describe('ToggleSwitch', () => {
+describe('Tabs', () => {
     let component: ShallowWrapper<any, Readonly<{}>, React.Component<{}, {}, any>>;
 
     beforeEach(() => {
@@ -27,7 +17,7 @@ describe('ToggleSwitch', () => {
         expect(component).toMatchSnapshot();
     });
 
-    it('Should apply the passed className prop', () => {
+    it('Should apply the passed "className" prop', () => {
         expect(component.hasClass(tabsProps.tabsClassName)).toBeTruthy();
     });
 

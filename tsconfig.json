@@ -41,6 +41,6 @@
   "exclude": [
     "node_modules",
     "src/setupTests.ts",
-    "src/reportWebVitals.ts",
+    "src/reportWebVitals.ts"
   ]
 }

@@ -9,10 +9,10 @@ type IconProps = {
 }
 
 type IconParamsType = {
-    width: number,
-    height: number,
-    viewBox: string,
-    className: string,
+    width: number;
+    height: number;
+    viewBox: string;
+    className: string;
 }
 
 const getIconParams = (size: number, className: string): IconParamsType => ({

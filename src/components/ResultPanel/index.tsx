@@ -7,13 +7,13 @@ type ResultPanelProps = {
     header: string | null;
     className?: string;
     primaryBtn?: {
-        text: string,
+        text: string;
         onClick: (() => void) | null;
-    }
+    };
     secondaryBtn?: {
         text: string;
         onClick: (() => void) | null;
-    }
+    };
 };
 
 const ResultPanel = forwardRef<HTMLDivElement, ResultPanelProps>(({

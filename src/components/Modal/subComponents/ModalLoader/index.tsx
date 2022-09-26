@@ -4,7 +4,7 @@ import LinearLoader from '@Components/Loader/Linear';
 
 type ModalLoaderProps = {
     loading?: boolean;
-    className?: string,
+    className?: string;
 }
 
 const ModalLoader = ({loading, className = ''}: ModalLoaderProps): JSX.Element => (

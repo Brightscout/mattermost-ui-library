@@ -1,23 +1,10 @@
 import React from 'react';
 import {mount, ReactWrapper} from 'enzyme';
 
+// Mock data
+import { onChangeHandler, dropdownOptions, dropdownPlaceholder } from '@Constants/mockData/dropdown';
+
 import Dropdown, {DropdownProps} from '.';
-
-// Mock functions
-const onChangeHandler = jest.fn();
-
-// Mock props data
-const dropdownOptions = [{
-    label: 'Dropdown label 1',
-    value: 'Dropdown value 1',
-}, {
-    label: 'Dropdown label 2',
-    value: 'Dropdown value 2',
-}, {
-    label: 'Dropdown label 3',
-    value: 'Dropdown value 3',
-}];
-const dropdownPlaceholder = 'Dropdown placeholder';
 
 type DropdownComponentProps = Omit<DropdownProps, 'value' | 'placeholder' | 'onChange' | 'options'> & {
     provideOptions?: boolean;

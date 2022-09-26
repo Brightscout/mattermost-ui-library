@@ -1,17 +1,10 @@
 import React from 'react';
 import {shallow, ShallowWrapper} from 'enzyme';
 
-import ToggleSwitch from '.';
+// Mock data
+import {toggleSwitchOnChangeHandler as onChangeHandler, toggleSwitchProps} from '@Constants/mockData/toggleSwitch';
 
-// Mock props data
-const onChangeHandler = jest.fn();
-const toggleSwitchLabel = 'Toggle switch label';
-const toggleSwitchProps = {
-    active: true,
-    onChange: onChangeHandler,
-    label: toggleSwitchLabel,
-    labelPositioning: 'left' as ToggleSwitchLabelPositioning,
-};
+import ToggleSwitch from '.';
 
 describe('ToggleSwitch', () => {
     let component: ShallowWrapper<any, Readonly<{}>, React.Component<{}, {}, any>>;
