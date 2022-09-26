@@ -5,7 +5,7 @@ import {shallow, ShallowWrapper} from 'enzyme';
 import {
     TooltipChildren,
     TooltipContent,
-    TooltipClassName
+    TooltipClassName,
 } from '@Constants/mockData/tooltip';
 
 import Tooltip from '.';

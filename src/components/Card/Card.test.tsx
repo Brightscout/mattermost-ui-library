@@ -10,7 +10,7 @@ describe('Card', () => {
     let component: ShallowWrapper<any, Readonly<{}>, React.Component<{}, {}, any>>;
 
     beforeEach(() => {
-        component = shallow(<Card {...cardProps} />);
+        component = shallow(<Card {...cardProps}/>);
     });
 
     it('Should render correctly', () => {

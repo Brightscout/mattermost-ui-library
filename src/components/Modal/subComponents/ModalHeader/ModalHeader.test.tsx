@@ -2,7 +2,7 @@ import React from 'react';
 import {mount, ReactWrapper} from 'enzyme';
 
 // Mock data
-import {modalHeaderHideHandler as hideHandler, ModalTitle, ModalHeaderProps} from '@Constants/mockData/modal'
+import {modalHeaderHideHandler as hideHandler, ModalTitle, ModalHeaderProps} from '@Constants/mockData/modal';
 
 import ModalHeader from '.';
 

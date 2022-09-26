@@ -14,7 +14,7 @@ describe('ConfirmationDialog', () => {
     let component: ShallowWrapper<any, Readonly<{}>, React.Component<{}, {}, any>>;
 
     beforeEach(() => {
-        component = shallow(<ConfirmationDialog {...confirmationDialogProps} />);
+        component = shallow(<ConfirmationDialog {...confirmationDialogProps}/>);
     });
 
     it('Should render correctly', () => {
@@ -48,6 +48,6 @@ describe('ConfirmationDialog', () => {
     });
 
     it('Should show the loader when "loading" prop is true', () => {
-        expect(component.contains(<ModalLoader loading={confirmationDialogProps.loading} />)).toBeTruthy();
+        expect(component.contains(<ModalLoader loading={confirmationDialogProps.loading}/>)).toBeTruthy();
     });
 });

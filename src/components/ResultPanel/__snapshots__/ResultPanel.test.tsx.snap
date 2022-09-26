@@ -1,3 +1,46 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Result Panel Should render correctly 1`] = `ReactWrapper {}`;
+exports[`Result Panel Should render correctly 1`] = `
+<ForwardRef
+  className="result-panel-class"
+  header="Result Panel Header"
+  iconClass="icon-class"
+  primaryBtn={
+    Object {
+      "onClick": [MockFunction],
+      "text": "Primary Button",
+    }
+  }
+  secondaryBtn={
+    Object {
+      "onClick": [MockFunction],
+      "text": "Secondary Button",
+    }
+  }
+>
+  <div
+    className="modal__body modal-body d-flex align-items-center justify-content-center flex-column wizard__secondary-panel result-panel-class"
+  >
+    <i
+      className="fa result-panel-icon icon-class"
+    />
+    <h2
+      className="font-16 margin-v-25 text-center text-capitalize"
+    >
+      Result Panel Header
+    </h2>
+    <button
+      className="btn btn-primary"
+      onClick={[MockFunction]}
+    >
+      Primary Button
+    </button>
+    <button
+      className="btn btn-link margin-top-12 padding-0"
+      onClick={[MockFunction]}
+    >
+      Secondary Button
+    </button>
+  </div>
+</ForwardRef>
+`;

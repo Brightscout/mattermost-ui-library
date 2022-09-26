@@ -10,7 +10,7 @@ export type AutoSuggestProps = {
     placeholder?: string;
     suggestionConfig: {
         suggestions: Record<string, string>[];
-        renderValue: (suggestion: Record<string, string>) => string,
+        renderValue: (suggestion: Record<string, string>) => string;
     };
     loadingSuggestions?: boolean;
     charThresholdToShowSuggestions?: number;
@@ -125,7 +125,7 @@ const AutoSuggest = ({
                     disabled={disabled}
                 />
                 {loadingSuggestions ? (
-                    <div className='auto-suggest__loader' />
+                    <div className='auto-suggest__loader'/>
                 ) : (
                     <i
                         className={

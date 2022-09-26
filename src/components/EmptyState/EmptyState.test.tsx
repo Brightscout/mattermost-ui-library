@@ -10,7 +10,7 @@ describe('EmptyState', () => {
     let component: ShallowWrapper<any, Readonly<{}>, React.Component<{}, {}, any>>;
 
     beforeEach(() => {
-        component = shallow(<EmptyState {...emptyStateProps} />);
+        component = shallow(<EmptyState {...emptyStateProps}/>);
     });
 
     it('Should render correctly', () => {

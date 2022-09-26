@@ -1,10 +1,11 @@
 import React from 'react';
 import {mount, ReactWrapper} from 'enzyme';
 
+import {suggestionConfig, onInputValueChange, onOptionClick} from '@Constants/mockData/AutoSuggest';
+
 import AutoSuggest, {AutoSuggestProps} from '.';
 
 // Mock data
-import {suggestionConfig, onInputValueChange, onOptionClick} from '@Constants/mockData/AutoSuggest';
 
 type AutoSuggestComponentProps = Omit<AutoSuggestProps, 'inputValue' | 'onInputValueChange' | 'onChangeSelectedSuggestion' | 'suggestionConfig'> & {
     emptySuggestions?: boolean
@@ -26,7 +27,7 @@ describe('AutoSuggest', () => {
     let component: ReactWrapper<any, Readonly<{}>, React.Component<{}, {}, any>>;
 
     beforeEach(() => {
-        component = mount(<AutoSuggestComponent />);
+        component = mount(<AutoSuggestComponent/>);
     });
 
     afterEach(() => {
@@ -38,7 +39,7 @@ describe('AutoSuggest', () => {
     });
 
     it('Should show the loader when "loading" prop is passed', () => {
-        const wrapper = mount(<AutoSuggestComponent loadingSuggestions={true} />);
+        const wrapper = mount(<AutoSuggestComponent loadingSuggestions={true}/>);
         expect(wrapper.find('.auto-suggest__loader').exists()).toBeTruthy();
         expect(wrapper).toMatchSnapshot();
         wrapper.unmount();
@@ -46,7 +47,7 @@ describe('AutoSuggest', () => {
 
     it('Should show the error message when "error" prop is passed', () => {
         const errorMsg = 'Error Message';
-        const wrapper = mount(<AutoSuggestComponent error={errorMsg} />);
+        const wrapper = mount(<AutoSuggestComponent error={errorMsg}/>);
         expect(wrapper.find('.auto-suggest__err-text').text().includes(errorMsg)).toBeTruthy();
         expect(wrapper).toMatchSnapshot();
         wrapper.unmount();
@@ -57,7 +58,7 @@ describe('AutoSuggest', () => {
     });
 
     it('Should hide the character threshold warning when the input isn\'t focused', () => {
-        const wrapper = mount(<AutoSuggestComponent charThresholdToShowSuggestions={8} />);
+        const wrapper = mount(<AutoSuggestComponent charThresholdToShowSuggestions={8}/>);
         expect(wrapper.find('.auto-suggest__get-suggestion-warn').exists()).toBeFalsy();
         wrapper.unmount();
     });
@@ -69,7 +70,7 @@ describe('AutoSuggest', () => {
     });
 
     it('Should not show the suggestions when the input is focused but character threshold isn\'t reached', () => {
-        const wrapper = mount(<AutoSuggestComponent charThresholdToShowSuggestions={8} />);
+        const wrapper = mount(<AutoSuggestComponent charThresholdToShowSuggestions={8}/>);
         clickAutoSuggest(wrapper);
         expect(wrapper.find('ul.auto-suggest__suggestions').hasClass('auto-suggest__suggestions--open')).toBeFalsy();
         expect(wrapper.find('.auto-suggest__get-suggestion-warn').exists()).toBeTruthy();
@@ -86,7 +87,7 @@ describe('AutoSuggest', () => {
     });
 
     it('Should show the empty state when "suggestions" are empty and character threshold is reached', () => {
-        const wrapper = mount(<AutoSuggestComponent emptySuggestions={true} />);
+        const wrapper = mount(<AutoSuggestComponent emptySuggestions={true}/>);
         clickAutoSuggest(wrapper);
         expect(wrapper.find('ul.auto-suggest__suggestions').hasClass('auto-suggest__suggestions--open')).toBeTruthy();
         expect(wrapper.find('.auto-suggest__suggestion').exists()).toBeTruthy();

@@ -1,3 +1,32 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Tooltip Should render correctly 1`] = `ShallowWrapper {}`;
+exports[`Tooltip Should render correctly 1`] = `
+<OverlayTrigger
+  defaultShow={false}
+  overlay={
+    <ForwardRef
+      className="tooltip tooltip-class"
+      placement="top"
+    >
+      <span
+        className="tooltip-content-class"
+      >
+        Tooltip content
+      </span>
+    </ForwardRef>
+  }
+  placement="top"
+  trigger={
+    Array [
+      "hover",
+      "focus",
+    ]
+  }
+>
+  <span
+    className="tooltip-children-class"
+  >
+    Tooltip Children
+  </span>
+</OverlayTrigger>
+`;

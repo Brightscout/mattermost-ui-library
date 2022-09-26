@@ -17,9 +17,11 @@ export const subscriptionCardBody = {
         {label: 'Label 4', value: 'Value 4'},
     ],
 };
+
 // Mock Icons
-export const EditIcon = <i className='fa fa-edit' />;
-export const DeleteIcon = <i className='fa fa-delete' />;
+export const EditIcon = <i className='fa fa-edit'/>;
+export const DeleteIcon = <i className='fa fa-delete'/>;
+
 // Mock channel data
 export const channelData = {
     create_at: 19304124124,
@@ -64,10 +66,10 @@ export const subscriptionCardProps = {
 export const cardBody = [{
     sectionHeading: 'Section Heading',
     data: [{
-        icon: <i className='fa fa-edit' />,
+        icon: <i className='fa fa-edit'/>,
         label: 'Label 1',
     }, {
-        icon: <i className='fa fa-link' />,
+        icon: <i className='fa fa-link'/>,
         label: 'Label 2',
     }],
 }];
