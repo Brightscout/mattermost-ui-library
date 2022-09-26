@@ -38,8 +38,8 @@ type DropdownOptionType = {
 type CardBody = {
     sectionHeading: string | JSX.Element;
     data: Array<{
-        icon: JSX.Element;
-        label: string | JSX.Element;
+        icon: JSX.Element,
+        label: string | JSX.Element,
     }>;
 }
 

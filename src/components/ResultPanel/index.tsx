@@ -8,11 +8,11 @@ type ResultPanelProps = {
     className?: string;
     primaryBtn?: {
         text: string,
-        onClick: (() => void) | null;
+        onClick: (() => void) | null,
     }
     secondaryBtn?: {
-        text: string;
-        onClick: (() => void) | null;
+        text: string,
+        onClick: (() => void) | null,
     }
 };
 

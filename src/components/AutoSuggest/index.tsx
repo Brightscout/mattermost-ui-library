@@ -10,7 +10,7 @@ export type AutoSuggestProps = {
     placeholder?: string;
     suggestionConfig: {
         suggestions: Record<string, string>[],
-        renderValue: (suggestion: Record<string, string>) => string;
+        renderValue: (suggestion: Record<string, string>) => string,
     };
     loadingSuggestions?: boolean;
     charThresholdToShowSuggestions?: number;
@@ -133,7 +133,7 @@ const AutoSuggest = ({
                         {renderValue(suggestion)}
                     </li>
                 ))}
-                {!suggestions.length && <li className='auto-suggest__suggestion cursor-pointer padding-v-10 padding-h-25 margin-0'>{'Nothing to show'}</li>}
+                {!suggestions.length && <li className='auto-suggest__suggestion padding-v-10 padding-h-25 margin-0'>{'Nothing to show'}</li>}
             </ul>
             {typeof error === 'string' && <p className='auto-suggest__err-text error-text margin-top-5 font-size-14'>{error}</p>}
         </div>
