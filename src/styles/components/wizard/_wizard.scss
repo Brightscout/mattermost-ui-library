@@ -1,0 +1,21 @@
+.wizard {
+  .modal-dialog {
+    @extend .position-relative;
+  }
+
+  .modal-content {
+    overflow: hidden;
+  }
+
+  .modal__body {
+    overflow: auto !important;
+  }
+
+  .modal__error {
+    @extend .text-center, .margin-bottom-0;
+  }
+
+  .modal__footer {
+    @extend .padding-h-0, .padding-v-15;
+  }
+}

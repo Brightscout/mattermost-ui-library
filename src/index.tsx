@@ -1,19 +1,15 @@
 // Used for testing and viewing the components
 import React from 'react';
+import ReactDOM from 'react-dom';
 
-import ReactDOM from 'react-dom/client';
-
-import Typography from './components/Typography';
+import App from './App';
 import reportWebVitals from './reportWebVitals';
 
-const root = ReactDOM.createRoot(
-    document.getElementById('root') as HTMLElement,
-);
-root.render(
+ReactDOM.render(
     <React.StrictMode>
-        {/* Replace the below by the component/container you need to view */}
-        <Typography>{'Mattermost UI Library'}</Typography>
+        <App />
     </React.StrictMode>,
+    document.getElementById('root') as HTMLElement
 );
 
 // If you want to start measuring performance in your app, pass a function

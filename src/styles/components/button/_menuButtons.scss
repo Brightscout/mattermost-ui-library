@@ -1,0 +1,22 @@
+.button-menu {
+  border-radius: 4px;
+  overflow: hidden;
+
+  &__btn {
+    width: 100%;
+    min-width: 120px;
+    border: none;
+
+    &:hover,
+    &:focus,
+    &:active {
+      outline: none;
+      background: rgba(var(--center-channel-color-rgb), 0.05);
+    }
+  }
+
+  &__btn-icon {
+    width: 24px;
+    height: 24px;
+  }
+}

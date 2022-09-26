@@ -1,0 +1,14 @@
+.wizard {
+  .result-panel-icon {
+    font-size: 58px;
+    color: var(--button-bg);
+
+    path {
+      fill: var(--button-bg);
+    }
+
+    &--error {
+      color: var(--error-text);
+    }
+  }
+}

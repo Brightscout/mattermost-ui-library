@@ -1,0 +1,49 @@
+/// This mixin can be used for truncating the single line with ellipses
+/// @param {string} $truncate-boundary - width of the line
+/// @throws $truncate-boundary is required and will throw an error if it is not provided;
+@mixin truncate($truncate-boundary) {
+  max-width: $truncate-boundary;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/// This mixin can be used for positioning the elements
+/// @param {string} $position - position of the element
+/// @param {number | string} $top - top position
+/// @param {number | string} $right - right position
+/// @param {number | string} $bottom - bottom position
+/// @param {number | string} $left - left position
+/// @param {number} $z-index - z index
+@mixin positioning($position: 'relative', $top: '', $right: '', $bottom: '', $left: '', $z-index: 0) {
+  position: $position;
+
+  @if $top != '' {
+    top: $top;
+  }
+
+  @if $right != '' {
+    right: $right;
+  }
+
+  @if $bottom != '' {
+    bottom: $bottom;
+  }
+
+  @if $left != '' {
+    left: $left;
+  }
+
+  @if $z-index != 0 {
+    z-index: $z-index;
+  }
+}
+
+@mixin keyframes($name) {
+  @-webkit-keyframes #{$name} {
+    @content;
+  }
+  @keyframes #{$name} {
+    @content;
+  }
+}
