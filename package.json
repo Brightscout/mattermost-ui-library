@@ -1,5 +1,5 @@
 {
-  "name": "mm-ui-library",
+  "name": "@Brightscout/mm-ui-library",
   "version": "0.1.0",
   "author": "Brightscout, Inc.",
   "main": "build/cjs/index.js",
