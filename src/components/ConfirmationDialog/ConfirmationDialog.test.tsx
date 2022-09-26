@@ -5,21 +5,10 @@ import ModalLoader from '@Components/Modal/subComponents/ModalLoader';
 import ModalHeader from '@Components/Modal/subComponents/ModalHeader';
 import ConfirmationPanel from '@Components/ConfirmationPanel';
 
-import ConfirmationDialog from '.';
+// Mock data
+import {confirmHandler, hideHandler, confirmationDialogProps} from '@Constants/mockData/confirmationDialog';
 
-// Mock props data
-const hideHandler = jest.fn();
-const confirmHandler = jest.fn();
-const confirmationDialogProps = {
-    title: 'Dialog Title',
-    confirmationMsg: 'Dialog Message',
-    show: true,
-    onHide: hideHandler,
-    loading: true,
-    onConfirm: confirmHandler,
-    className: 'confirmation-dialog-class',
-    error: 'Dialog error',
-};
+import ConfirmationDialog from '.';
 
 describe('ConfirmationDialog', () => {
     let component: ShallowWrapper<any, Readonly<{}>, React.Component<{}, {}, any>>;
@@ -32,7 +21,7 @@ describe('ConfirmationDialog', () => {
         expect(component).toMatchSnapshot();
     });
 
-    it('Should apply the passed className prop', () => {
+    it('Should apply the passed "className" prop', () => {
         expect(component.hasClass(confirmationDialogProps.className)).toBeTruthy();
     });
 

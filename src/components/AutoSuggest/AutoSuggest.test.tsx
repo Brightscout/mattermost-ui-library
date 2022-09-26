@@ -1,29 +1,14 @@
 import React from 'react';
 import {mount, ReactWrapper} from 'enzyme';
 
+import {suggestionConfig, onInputValueChange, onOptionClick} from '@Constants/mockData/AutoSuggest';
+
 import AutoSuggest, {AutoSuggestProps} from '.';
 
-// Mock functions
-const onInputValueChange = jest.fn();
-const onOptionClick = jest.fn();
-
 // Mock data
-const suggestionConfig = {
-    suggestions: [{
-        label: 'Label 1',
-        value: 'Value 1',
-    }, {
-        label: 'Label 2',
-        value: 'Value 2',
-    }, {
-        label: 'Label 3',
-        value: 'Value 3',
-    }],
-    renderValue: (suggestion: Record<string, string>) => suggestion.label,
-};
 
-type AutoSuggestComponentProps = Omit<AutoSuggestProps, 'inputValue' | 'onInputValueChange' | 'onOptionClick' | 'suggestionConfig'> & {
-    emptySuggestions?: boolean
+type AutoSuggestComponentProps = Omit<AutoSuggestProps, 'inputValue' | 'onInputValueChange' | 'onChangeSelectedSuggestion' | 'suggestionConfig'> & {
+    emptySuggestions?: boolean;
 };
 
 const AutoSuggestComponent = ({emptySuggestions, ...props}: AutoSuggestComponentProps) => (
@@ -31,7 +16,7 @@ const AutoSuggestComponent = ({emptySuggestions, ...props}: AutoSuggestComponent
         {...props}
         inputValue='Label'
         onInputValueChange={onInputValueChange}
-        onOptionClick={onOptionClick}
+        onChangeSelectedSuggestion={onOptionClick}
         suggestionConfig={emptySuggestions ? {suggestions: [], renderValue: () => ''} : suggestionConfig}
     />
 );

@@ -98,3 +98,7 @@ It correctly bundles React in production mode and optimizes the build for the be
 ├── README.md
 └── tsconfig.json
 ```
+
+---
+
+Made with &#9829; by [Brightscout](https://www.brightscout.com)

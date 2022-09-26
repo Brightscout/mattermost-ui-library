@@ -1,25 +1,16 @@
 import React from 'react';
-import {shallow, ShallowWrapper} from 'enzyme';
+import {ReactWrapper, mount} from 'enzyme';
+
+// Mock data
+import {inputFieldProps} from '@Constants/mockData/inputField';
 
 import InputField from '.';
 
-// Mock props data
-const inputChangeHandler = jest.fn();
-const inputFieldProps = {
-    label: 'Input Label',
-    placeholder: 'Input Placeholder',
-    value: 'InputValue',
-    className: 'input-field-class',
-    disabled: false,
-    error: 'Input field error',
-    onChange: inputChangeHandler,
-};
-
 describe('InputField', () => {
-    let component: ShallowWrapper<any, Readonly<{}>, React.Component<{}, {}, any>>;
+    let component: ReactWrapper<any, Readonly<{}>, React.Component<{}, {}, any>>;
 
     beforeEach(() => {
-        component = shallow(
+        component = mount(
             <InputField
                 type='text'
                 {...inputFieldProps}
@@ -27,11 +18,15 @@ describe('InputField', () => {
         );
     });
 
+    afterEach(() => {
+        component.unmount();
+    });
+
     it('Should render correctly', () => {
         expect(component).toMatchSnapshot();
     });
 
-    it('Should apply the passed className prop', () => {
+    it('Should apply the passed "className" prop', () => {
         expect(component.hasClass(inputFieldProps.className)).toBeTruthy();
     });
 

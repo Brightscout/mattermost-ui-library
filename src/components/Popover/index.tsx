@@ -20,7 +20,6 @@ const Popover = ({
         delay={300}
         overlay={
             <BootstrapPopover
-                id='popover'
                 className={className}
             >
                 {popoverBody}

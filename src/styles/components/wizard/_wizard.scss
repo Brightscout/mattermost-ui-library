@@ -8,14 +8,11 @@
   }
 
   .modal__body {
+    @extend .padding-0;
     overflow: auto !important;
   }
 
   .modal__error {
     @extend .text-center, .margin-bottom-0;
-  }
-
-  .modal__footer {
-    @extend .padding-h-0, .padding-v-15;
   }
 }

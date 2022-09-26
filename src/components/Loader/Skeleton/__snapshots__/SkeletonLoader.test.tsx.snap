@@ -1,3 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Skeleton Loader Should render correctly 1`] = `ShallowWrapper {}`;
+exports[`Skeleton Loader Should render correctly 1`] = `
+<div
+  className="skeleton-loader d-block skeleton-loader-class"
+  style={
+    Object {
+      "height": undefined,
+      "width": undefined,
+    }
+  }
+/>
+`;
