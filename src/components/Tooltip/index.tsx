@@ -6,9 +6,9 @@ import {OverlayTrigger, Tooltip as ReactTooltip} from 'react-bootstrap';
 import {TooltipDefaultPlacement} from '@Constants';
 
 type TooltipProps = {
-    tooltipContent: JSX.Element | string
-    children: JSX.Element
-    placement?: Placement
+    tooltipContent: JSX.Element | string;
+    children: JSX.Element;
+    placement?: Placement;
     className?: string;
 }
 

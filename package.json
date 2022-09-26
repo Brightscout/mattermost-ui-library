@@ -7,7 +7,8 @@
     "start": "craco start",
     "build": "craco build",
     "test": "craco test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "lint": "eslint '**/*.ts' '**/*.tsx'"
   },
   "eslintConfig": {
     "extends": [
@@ -32,6 +33,7 @@
     "eslint-import-resolver-typescript": "^3.5.0",
     "eslint-plugin-prettier": "^4.2.1",
     "font-awesome": "^4.7.0",
+    "mattermost-redux": "^5.27.0",
     "node-sass": "^4.14.0",
     "prettier": "^2.7.1",
     "react": "^16.13.1",
