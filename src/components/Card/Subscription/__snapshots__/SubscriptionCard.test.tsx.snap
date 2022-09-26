@@ -1,3 +1,158 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`SubscriptionCard Should render correctly 1`] = `ShallowWrapper {}`;
+exports[`SubscriptionCard Should render correctly 1`] = `
+<BaseCard
+  className="subscription-card margin-bottom-15 subscription-card-custom-class"
+>
+  <div
+    className="margin-bottom-10 d-flex justify-content-between"
+  >
+    <Tooltip
+      tooltipContent="Subscription Card Header"
+    >
+      <p
+        className="margin-0 wt-500 text-ellipsis"
+      >
+        Subscription Card Header
+      </p>
+    </Tooltip>
+    <Popover
+      className="subscription-card__popover"
+      popoverBody={
+        <MenuButtons
+          buttons={
+            Array [
+              Object {
+                "icon": <i
+                  className="fa fa-edit"
+                />,
+                "onClick": [MockFunction],
+                "text": "Edit",
+              },
+              Object {
+                "icon": <i
+                  className="fa fa-delete"
+                />,
+                "onClick": [MockFunction],
+                "text": "Delete",
+              },
+            ]
+          }
+        />
+      }
+    >
+      <button
+        className="style--none subscription-card__menu-btn plugin-btn"
+      >
+        <i
+          className="fa fa-ellipsis-v"
+        />
+      </button>
+    </Popover>
+  </div>
+  <div
+    className="subscription-card__channel margin-bottom-12 d-flex align-items-center"
+  >
+    <i
+      className="channel-icon margin-right-5 icon icon-lock-outline"
+    />
+    <span
+      className="subscription-card__channel-text font-14 text-ellipsis"
+    >
+      Channel Display Name
+    </span>
+  </div>
+  <div
+    className="subscription-card__label padding-v-2 padding-h-5 text-capitalize font-10 wt-600 margin-bottom-10 channel-text d-inline-block border-radius-4"
+  >
+    Label
+  </div>
+  <ul
+    className="subscription-card__body padding-0 margin-0 font-14"
+  >
+    <li
+      className="subscription-card__body-item margin-bottom-5 margin-left-15 subscription-card__body-item--list font-12"
+      key="0"
+    >
+      List Item 1
+    </li>
+    <li
+      className="subscription-card__body-item margin-bottom-5 margin-left-15 subscription-card__body-item--list font-12"
+      key="1"
+    >
+      List Item 2
+    </li>
+    <li
+      className="subscription-card__body-item margin-bottom-5 margin-left-15 subscription-card__body-item--list font-12"
+      key="2"
+    >
+      List Item 3
+    </li>
+    <li
+      className="text-ellipsis subscription-card__body-item margin-bottom-10 margin-top-15"
+      key="Label 1"
+    >
+      <span
+        className="subscription-card__body-header wt-600 margin-right-10"
+      >
+        Label 1:
+      </span>
+      <span
+        className="subscription-card__body-text"
+      >
+        Value 1
+      </span>
+    </li>
+    <li
+      className="text-ellipsis subscription-card__body-item margin-bottom-10 false"
+      key="Label 2"
+    >
+      <span
+        className="subscription-card__body-header wt-600 margin-right-10"
+      >
+        Label 2:
+      </span>
+      <span
+        className="subscription-card__body-text"
+      >
+        Value 2
+      </span>
+    </li>
+    <li
+      className="text-ellipsis subscription-card__body-item margin-bottom-10 false"
+      key="Label 3"
+    >
+      <span
+        className="subscription-card__body-header wt-600 margin-right-10"
+      >
+        Label 3:
+      </span>
+      <span
+        className="subscription-card__body-text"
+      >
+        Value 3
+      </span>
+    </li>
+    <li
+      className="text-ellipsis subscription-card__body-item margin-bottom-10 false"
+      key="Label 4"
+    >
+      <span
+        className="subscription-card__body-header wt-600 margin-right-10"
+      >
+        Label 4:
+      </span>
+      <span
+        className="subscription-card__body-text"
+      >
+        Value 4
+      </span>
+    </li>
+    <li
+      className="subscription-card__body-item"
+    >
+      Description
+    </li>
+  </ul>
+</BaseCard>
+`;

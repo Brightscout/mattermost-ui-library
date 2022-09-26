@@ -1,39 +1,10 @@
 import React from 'react';
 import {shallow, ShallowWrapper} from 'enzyme';
 
+// Mock data
+import {cardBody, EditIcon, DeleteIcon, cardProps} from '@Constants/mockData/card';
+
 import Card from '.';
-
-// Mock functions
-const editHandler = jest.fn();
-const deleteHandler = jest.fn();
-
-// Mock data for cardBody props
-const cardBody = [{
-    sectionHeading: 'Section Heading',
-    data: [{
-        icon: <i className='fa fa-edit'/>,
-        label: 'Label 1',
-    }, {
-        icon: <i className='fa fa-link'/>,
-        label: 'Label 2',
-    }],
-}];
-
-// Mock Icons
-const EditIcon = <i className='fa fa-edit'/>;
-const DeleteIcon = <i className='fa fa-delete'/>;
-
-// Mock Props
-const cardProps = {
-    cardHeader: 'Card Header',
-    cardSubHeader: 'Card sub header',
-    cardBody,
-    onEdit: editHandler,
-    onDelete: deleteHandler,
-    editIcon: EditIcon,
-    deleteIcon: DeleteIcon,
-    className: 'card-custom-class',
-};
 
 describe('Card', () => {
     let component: ShallowWrapper<any, Readonly<{}>, React.Component<{}, {}, any>>;
@@ -46,7 +17,7 @@ describe('Card', () => {
         expect(component).toMatchSnapshot();
     });
 
-    it('Should apply the passed className prop', () => {
+    it('Should apply the passed "className" prop', () => {
         expect(component.hasClass(cardProps.className)).toBeTruthy();
     });
 

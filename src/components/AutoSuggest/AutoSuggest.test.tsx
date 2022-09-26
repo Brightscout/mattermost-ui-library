@@ -1,29 +1,14 @@
 import React from 'react';
 import {mount, ReactWrapper} from 'enzyme';
 
+import {suggestionConfig, onInputValueChange, onOptionClick} from '@Constants/mockData/AutoSuggest';
+
 import AutoSuggest, {AutoSuggestProps} from '.';
 
-// Mock functions
-const onInputValueChange = jest.fn();
-const onOptionClick = jest.fn();
-
 // Mock data
-const suggestionConfig = {
-    suggestions: [{
-        label: 'Label 1',
-        value: 'Value 1',
-    }, {
-        label: 'Label 2',
-        value: 'Value 2',
-    }, {
-        label: 'Label 3',
-        value: 'Value 3',
-    }],
-    renderValue: (suggestion: Record<string, string>) => suggestion.label,
-};
 
-type AutoSuggestComponentProps = Omit<AutoSuggestProps, 'inputValue' | 'onInputValueChange' | 'onOptionClick' | 'suggestionConfig'> & {
-    emptySuggestions?: boolean
+type AutoSuggestComponentProps = Omit<AutoSuggestProps, 'inputValue' | 'onInputValueChange' | 'onChangeSelectedSuggestion' | 'suggestionConfig'> & {
+    emptySuggestions?: boolean;
 };
 
 const AutoSuggestComponent = ({emptySuggestions, ...props}: AutoSuggestComponentProps) => (
@@ -31,7 +16,7 @@ const AutoSuggestComponent = ({emptySuggestions, ...props}: AutoSuggestComponent
         {...props}
         inputValue='Label'
         onInputValueChange={onInputValueChange}
-        onOptionClick={onOptionClick}
+        onChangeSelectedSuggestion={onOptionClick}
         suggestionConfig={emptySuggestions ? {suggestions: [], renderValue: () => ''} : suggestionConfig}
     />
 );
@@ -84,7 +69,7 @@ describe('AutoSuggest', () => {
         expect(textField.is(':focus')).toBe(true);
     });
 
-    it('Shouldn\'t show the suggestions when the input is focused but character threshold isn\'t reached', () => {
+    it('Should not show the suggestions when the input is focused but character threshold isn\'t reached', () => {
         const wrapper = mount(<AutoSuggestComponent charThresholdToShowSuggestions={8}/>);
         clickAutoSuggest(wrapper);
         expect(wrapper.find('ul.auto-suggest__suggestions').hasClass('auto-suggest__suggestions--open')).toBeFalsy();

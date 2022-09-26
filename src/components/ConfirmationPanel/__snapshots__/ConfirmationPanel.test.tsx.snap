@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ConfirmationPanel Should render correctly 1`] = `
+<div
+  className="confirmation-panel primary-panel confirmation-dialog-class"
+>
+  <ModalBody>
+    <p
+      className="margin-top-10 margin-h-0 margin-bottom-15"
+    >
+      Dialog Message
+    </p>
+  </ModalBody>
+  <ModalSubtitleAndError
+    error="Dialog error"
+  />
+  <ModalFooter
+    cancelBtnText="Cancel"
+    cancelDisabled={true}
+    className="padding-v-12 padding-h-15"
+    confirmBtnText="Delete"
+    confirmDisabled={true}
+    onConfirm={[MockFunction]}
+    onHide={[MockFunction]}
+  />
+</div>
+`;

@@ -1,8 +1,7 @@
 {
-  "name": "mm-ui-library",
-  "version": "0.1.0",
-  "private": true,
-  "author": "Sooraj Shukla",
+  "name": "@Brightscout/mm-ui-library",
+  "version": "0.1.2",
+  "author": "Brightscout, Inc.",
   "main": "build/cjs/index.js",
   "module": "build/esm/index.js",
   "files": [
@@ -48,7 +47,7 @@
     "enzyme": "~3.11.0",
     "enzyme-adapter-react-16": "~1.15.6",
     "enzyme-to-json": "~3.6.2",
-    "eslint": "~8.23.1",
+    "eslint": "~6.1.0",
     "eslint-config-prettier": "~8.5.0",
     "eslint-import-resolver-typescript": "~3.5.0",
     "eslint-plugin-import": "~2.26.0",
@@ -75,12 +74,22 @@
     "web-vitals": "~2.1.4",
     "webpack-dev-server": "~3.11.0"
   },
+  "jest": {
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ]
+  },
   "peerDependencies": {
     "bootstrap": "~5.2.0",
     "font-awesome": "~4.7.0",
     "react": "~16.13.1",
     "react-dom": "~16.10.2",
-    "typescript": "~3.9.10",
-    "mattermost-redux": "~5.27.0"
+    "typescript": "~3.9.10"
+  },
+  "repository": {
+    "url": "https://github.com/Brightscout/mattermost-ui-library.git"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/@Brightscout"
   }
 }

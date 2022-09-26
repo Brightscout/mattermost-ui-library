@@ -8,9 +8,3 @@
   animation: shine 1s infinite;
   background-color: rgba(var(--center-channel-color-rgb), 0.15);
 }
-
-@keyframes shine {
-  to {
-    background-position: 130% 0;
-  }
-}
