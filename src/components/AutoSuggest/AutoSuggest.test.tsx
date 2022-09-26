@@ -7,7 +7,7 @@ import AutoSuggest, {AutoSuggestProps} from '.';
 
 // Mock data
 
-type AutoSuggestComponentProps = Omit<AutoSuggestProps, 'inputValue' | 'onInputValueChange' | 'onOptionClick' | 'suggestionConfig'> & {
+type AutoSuggestComponentProps = Omit<AutoSuggestProps, 'inputValue' | 'onInputValueChange' | 'onChangeSelectedSuggestion' | 'suggestionConfig'> & {
     emptySuggestions?: boolean;
 };
 
@@ -16,7 +16,7 @@ const AutoSuggestComponent = ({emptySuggestions, ...props}: AutoSuggestComponent
         {...props}
         inputValue='Label'
         onInputValueChange={onInputValueChange}
-        onOptionClick={onOptionClick}
+        onChangeSelectedSuggestion={onOptionClick}
         suggestionConfig={emptySuggestions ? {suggestions: [], renderValue: () => ''} : suggestionConfig}
     />
 );

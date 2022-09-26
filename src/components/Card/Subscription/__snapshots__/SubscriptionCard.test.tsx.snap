@@ -7,11 +7,15 @@ exports[`SubscriptionCard Should render correctly 1`] = `
   <div
     className="margin-bottom-10 d-flex justify-content-between"
   >
-    <p
-      className="margin-0 wt-500"
+    <Tooltip
+      tooltipContent="Subscription Card Header"
     >
-      Subscription Card Header
-    </p>
+      <p
+        className="margin-0 wt-500 text-ellipsis"
+      >
+        Subscription Card Header
+      </p>
+    </Tooltip>
     <Popover
       className="subscription-card__popover"
       popoverBody={
@@ -38,7 +42,7 @@ exports[`SubscriptionCard Should render correctly 1`] = `
       }
     >
       <button
-        className="style--none subscription-card__menu-btn"
+        className="style--none subscription-card__menu-btn plugin-btn"
       >
         <i
           className="fa fa-ellipsis-v"
@@ -47,7 +51,7 @@ exports[`SubscriptionCard Should render correctly 1`] = `
     </Popover>
   </div>
   <div
-    className="subscription-card__channel margin-bottom-12 padding-h-15 d-flex align-items-center"
+    className="subscription-card__channel margin-bottom-12 d-flex align-items-center"
   >
     <i
       className="channel-icon margin-right-5 icon icon-lock-outline"
@@ -59,12 +63,12 @@ exports[`SubscriptionCard Should render correctly 1`] = `
     </span>
   </div>
   <div
-    className="subscription-card__label padding-v-2 padding-h-5 text-capitalize font-size-10 wt-600 margin-bottom-10 channel-text d-inline-block border-radius-4"
+    className="subscription-card__label padding-v-2 padding-h-5 text-capitalize font-10 wt-600 margin-bottom-10 channel-text d-inline-block border-radius-4"
   >
     Label
   </div>
   <ul
-    className="subscription-card__body padding-0 margin-0 font-size-14"
+    className="subscription-card__body padding-0 margin-0 font-14"
   >
     <li
       className="subscription-card__body-item margin-bottom-5 margin-left-15 subscription-card__body-item--list font-12"

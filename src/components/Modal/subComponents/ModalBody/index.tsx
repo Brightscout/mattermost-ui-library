@@ -12,7 +12,7 @@ const ModalBody = ({
 }: ModalBodyProps) : JSX.Element => (
     <>
         {children && (
-            <RBModal.Body className={`modal__body ${className}`}>
+            <RBModal.Body className={`modal__body padding-v-15 padding-h-12 ${className}`}>
                 {children}
             </RBModal.Body>
         )}

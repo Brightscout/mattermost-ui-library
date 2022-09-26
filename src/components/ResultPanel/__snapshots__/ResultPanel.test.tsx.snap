@@ -19,28 +19,36 @@ exports[`Result Panel Should render correctly 1`] = `
   }
 >
   <div
-    className="modal__body modal-body d-flex align-items-center justify-content-center flex-column wizard__secondary-panel result-panel-class"
+    className="modal__body modal-body wizard__secondary-panel result-panel-class"
   >
-    <i
-      className="fa result-panel-icon icon-class"
-    />
-    <h2
-      className="font-16 margin-v-25 text-center text-capitalize"
+    <div
+      className="padding-h-12 padding-v-15 d-flex align-items-center justify-content-center flex-column"
     >
-      Result Panel Header
-    </h2>
-    <button
-      className="btn btn-primary"
-      onClick={[MockFunction]}
+      <i
+        className="fa result-panel-icon icon-class"
+      />
+      <h2
+        className="result-panel-text font-16 margin-v-25 text-center"
+      >
+        Result Panel Header
+      </h2>
+    </div>
+    <div
+      className="modal-footer d-flex flex-row-reverse padding-h-12 padding-v-15"
     >
-      Primary Button
-    </button>
-    <button
-      className="btn btn-link margin-top-12 padding-0"
-      onClick={[MockFunction]}
-    >
-      Secondary Button
-    </button>
+      <button
+        className="btn btn-primary plugin-btn"
+        onClick={[MockFunction]}
+      >
+        Primary Button
+      </button>
+      <button
+        className="btn btn-link padding-0 plugin-btn margin-right-10"
+        onClick={[MockFunction]}
+      >
+        Secondary Button
+      </button>
+    </div>
   </div>
 </ForwardRef>
 `;

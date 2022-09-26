@@ -14,7 +14,7 @@ const MenuButtons = ({buttons, className = ''}: MenuButtonProps): JSX.Element =>
         {buttons.map((button) => (
             <button
                 key={button.text}
-                className='button-menu__btn channel-bg channel-text font-size-14 padding-v-12 padding-h-10 d-flex'
+                className='button-menu__btn channel-bg channel-text font-14 padding-v-12 padding-h-10 d-flex plugin-btn'
                 onClick={button.onClick}
             >
                 <span className='button-menu__btn-icon margin-right-10 d-inline-block'>
