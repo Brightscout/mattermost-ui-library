@@ -10,7 +10,7 @@ export type AutoSuggestProps = {
     placeholder?: string;
     suggestionConfig: {
         suggestions: Record<string, string>[];
-        renderValue: (suggestion: Record<string, string>) => string;
+        renderValue: (suggestion: Record<string, string>) => string | JSX.Element;
     };
     loadingSuggestions?: boolean;
     charThresholdToShowSuggestions?: number;
