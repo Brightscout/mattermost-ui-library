@@ -1,6 +1,6 @@
 {
-  "name": "@Brightscout/mm-ui-library",
-  "version": "0.1.2",
+  "name": "@brightscout/mattermost-ui-library",
+  "version": "1.0.1",
   "author": "Brightscout, Inc.",
   "main": "build/cjs/index.js",
   "module": "build/esm/index.js",
