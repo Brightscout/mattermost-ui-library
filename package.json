@@ -1,6 +1,6 @@
 {
-  "name": "@brightscout/mattermost-ui-library",
-  "version": "1.0.5",
+  "name": "mattermost-ui-lib",
+  "version": "1.0.1",
   "author": "Brightscout, Inc.",
   "main": "build/cjs/index.js",
   "module": "build/esm/index.js",
@@ -87,9 +87,7 @@
     "typescript": "~3.9.10"
   },
   "repository": {
-    "url": "https://github.com/Brightscout/mattermost-ui-library.git"
-  },
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com/@Brightscout"
+    "type": "git",
+    "url": "git+https://github.com/Brightscout/mm-ui-library.git"
   }
 }
