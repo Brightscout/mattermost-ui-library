@@ -1,22 +1,10 @@
-# Mattermost-UI-Library
+# Mattermost UI Library
 
-# How to run the project
+React and react-bootstrap based UI library for mattermost plugins
 
-## 1. Clone it to your local machine
+# How to use
 
-You need to clone (download) it to local machine using
-
-```sh
-$ git clone git@github.com:Brightscout/mattermost-ui-library.git
-```
-
-> This makes a local copy of the repository in your machine. Now cd into the directory using the following command...
-
-```sh
-$ cd mattermost-ui-library
-```
-
-## 2. Use the correct node version
+## 1. Use the correct node version
 
 Once you've moved into the folder where you've cloned the repo, run the following command to check the node version (you need to [install nvm](https://github.com/nvm-sh/nvm/tree/v0.39.1#installing-and-updating) before proceeding further)
 
@@ -36,31 +24,73 @@ Now run the following command to start using the above node version
 $ nvm use
 ```
 
-## 3. Install the dependencies
+## 2. Installation
 
-Run the following command to install the dependencies
+Run the following command to install the library
 
 ```sh
-$ npm install
+$ npm install mattermost-ui-library
 ```
 
-The following are the available scripts:
+> The library has the following peer dependencies
+```
+"bootstrap": "~5.2.0",
+"font-awesome": "~4.7.0",
+"react": "~16.13.1",
+"react-dom": "~16.10.2",
+"typescript": "~3.9.10"
+```
 
-## 4. Available Scripts
+## 3. Import the styles from the library
 
-In the project directory, you can run:
+```
+@import "mattermost-ui-library/build/styles/main.scss";
+```
 
-### `npm start`
+## 3. Available Components
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+~~~
+ 1. AutoSuggest
+ 2. Buttons
+    1. MenuButtons
+ 3. Card
+    1. BaseCard
+    2. Subscription
+    3. Card
+ 4. Checkbox
+ 5. ConfirmationDialog
+ 6. ConfirmationPanel
+ 7. Dropdown
+ 8. EmptyState
+ 9. Icons
+ 10. InputField
+ 11. Loader
+    1. Circular
+    2. Linear
+    3. Skeleton
+ 12. Modal
+    1. subComponents
+       1. ModalBody
+       2. ModalFooter
+       3. ModalHeader
+       4. ModalLoader
+       5. ModalSubtitleAndError
+     2. CustomModal
+ 13. Popover
+ 14. ResultPanel
+ 15. SvgWrapper
+ 16. Tabs
+ 17. ToggleSwitch
+ 18. Tooltip
+~~~
 
-### `npm run build`
+## 4. Importing the components
+~~~
+import {ModalSubtitleAndError, ModalFooter, AutoSuggest} from 'mattermost-ui-library';
+import {SkeletonLoader, EditIcon, DeleteIcon, UnlinkIcon, Modal} from 'mattermost-ui-library';
+~~~
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-## 5. Folder Structure
+## 4. Folder Structure
 
 ```
 .

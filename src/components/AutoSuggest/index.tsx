@@ -18,6 +18,9 @@ export type AutoSuggestProps = {
     error?: boolean | string;
     required?: boolean;
     className?: string;
+
+    // The suggestion to be shown as the input value by default
+    defaultValue?: Record<string, string>;
 }
 
 const AutoSuggest = ({
@@ -32,6 +35,7 @@ const AutoSuggest = ({
     required,
     className = '',
     onChangeSelectedSuggestion,
+    defaultValue,
 }: AutoSuggestProps) => {
     const [showSuggestions, setShowSuggestions] = useState(false);
     const [focused, setFocused] = useState(false);
@@ -40,6 +44,13 @@ const AutoSuggest = ({
     const [selectedOption, setSelectedOption] = useState<Record<string, string> | null>(null);
 
     const {suggestions, renderValue} = suggestionConfig;
+
+    // Set the default value
+    useEffect(() => {
+        if (defaultValue) {
+            setSelectedOption(defaultValue);
+        }
+    }, [defaultValue]);
 
     // Show suggestions depending on the input value, number of characters and whether the input is in focused state
     useEffect(() => {

@@ -22,7 +22,7 @@ const ModalFooter = ({
     cancelDisabled,
     confirmBtnClassName = '',
 }: ModalFooterProps) : JSX.Element => (
-    <RBModal.Footer className={`modal__footer d-flex flex-column align-items-center ${className} padding-h-12 padding-v-15`}>
+    <RBModal.Footer className={`modal__footer d-flex flex-row-reverse align-items-center ${className} padding-h-12 padding-v-15`}>
         {onConfirm && (
             <button
                 className={`btn modal__confirm-btn margin-left-10 ${confirmBtnClassName || 'btn-primary'} plugin-btn`}
