@@ -1,3 +1,6 @@
 node_modules
 build
-craco.config.js
+.storybook
+src/setupTests.ts,
+src/reportWebVitals.ts,
+src/components/**/*.test.tsx
