@@ -29,7 +29,8 @@
     "sourceMap": true,
   },
   "include": [
-    "src"
+    "src", 
+    ".storybook/main.js"  
   ],
   "exclude": [
     "node_modules",
