@@ -32,7 +32,7 @@ Run the following command to install the library
 $ npm install mattermost-ui-library
 ```
 
-> The library has the following peer dependencies
+The library has the following peer dependencies
 ```
 "bootstrap": "~5.2.0",
 "font-awesome": "~4.7.0",
@@ -55,7 +55,7 @@ $ npm install mattermost-ui-library
     1. MenuButtons
  3. Card
     1. BaseCard
-    2. Subscription
+    2. SubscriptionCard
     3. Card
  4. Checkbox
  5. ConfirmationDialog
@@ -128,6 +128,26 @@ import {SkeletonLoader, EditIcon, DeleteIcon, UnlinkIcon, Modal} from 'mattermos
 ├── README.md
 └── tsconfig.json
 ```
+
+## 5. Local Development
+
+To use package locally, follow the following steps:
+
+  - Run the following commands in the root directory of the library:
+
+  ```
+  npm run build
+  npm link
+  ```
+
+  - In any plugin, where you want to use the library, first cd into the webapp folder of the plugin and run the following command:
+
+  ```
+  npm link mattermost-ui-library
+  ```
+
+  - Now, after making any changes in the components of the UI Library, run the `npm run build` command again to create the new build for the library.
+
 
 ---
 
