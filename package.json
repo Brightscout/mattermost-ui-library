@@ -1,6 +1,6 @@
 {
-  "name": "@brightscout/mattermost-ui-library",
-  "version": "1.0.5",
+  "name": "mattermost-ui-library",
+  "version": "0.0.3",
   "author": "Brightscout, Inc.",
   "main": "build/cjs/index.js",
   "module": "build/esm/index.js",
@@ -72,7 +72,7 @@
     "typescript": "~3.9.10",
     "typescript-transform-paths": "~3.3.1",
     "web-vitals": "~2.1.4",
-    "webpack-dev-server": "~3.11.0"
+    "webpack-dev-server": "~3.2.1"
   },
   "jest": {
     "snapshotSerializers": [
@@ -87,9 +87,7 @@
     "typescript": "~3.9.10"
   },
   "repository": {
-    "url": "https://github.com/Brightscout/mattermost-ui-library.git"
-  },
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com/@Brightscout"
+    "type": "git",
+    "url": "git+https://github.com/Brightscout/mm-ui-library.git"
   }
 }
