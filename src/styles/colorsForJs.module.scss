@@ -3,4 +3,15 @@
 // export scss variable to use in js file
 :export {
   iconColor: var(--default-icon-color);
+  buttonBgColor:var(--button-bg-primary);
+  buttonBgColorSecondary:var(--button-bg-secondary);
+  buttonColorPrimary:var(--button-color);
+  buttonDisabledColor:var(--button-disabled-color);
+  buttonDisabledBgColor:var(--button-disabled-bg);
+  buttonFocusBorder:var(--button-focus-border);
+  buttonPrimaryHover:var(--button-primary-hover);
+  buttonPrimaryActive:var(--button-primary-active);
+  buttonSecondaryHover:rgba(var(--button-bg-rgb),0.08);
+  buttonSecondaryActive:rgba(var(--button-bg-rgb),0.16);
+  buttonTertiaryHover:rgba(var(--button-bg-rgb),0.12);
 }

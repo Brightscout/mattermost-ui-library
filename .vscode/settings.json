@@ -1,0 +1,5 @@
+{
+	"prettier.bracketSpacing": false,
+	"typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": false,
+	"javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": false
+}
