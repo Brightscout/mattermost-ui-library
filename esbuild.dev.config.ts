@@ -1,13 +1,12 @@
-const esbuild = require("esbuild");
+const { serve } = require("esbuild");
 const inlineImage = require("esbuild-plugin-inline-image");
 const { sassPlugin } = require("esbuild-sass-plugin");
 const postcss = require('postcss');
 const autoprefixer = require('autoprefixer');
-const { dependencies } = require("./package.json");
 const {REACT_APP_PORT = 8000} = process.env
+const svgrPlugin = require('esbuild-plugin-svgr');
 
-esbuild
-  .serve(
+serve(
     {
       servedir: "public",
       port: REACT_APP_PORT,
@@ -17,12 +16,13 @@ esbuild
       entryPoints: ["./src/index.tsx"],
       outfile: "public/script.js",
       sourcemap: true,
-      external: [...Object.keys(dependencies), 'react/jsx-runtime'],
+      external: ['react/jsx-runtime'],
       plugins: [
+        svgrPlugin({ exportType: 'named' }),
         inlineImage(),
         sassPlugin({
           async transform(source) {
-            const { css } = await postcss([autoprefixer]).process(source);
+            const { css } = await postcss([autoprefixer]).process(source, { from: undefined });
             return css;
           },
         }),

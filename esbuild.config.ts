@@ -3,14 +3,13 @@ const inlineImage = require("esbuild-plugin-inline-image");
 const { sassPlugin } = require("esbuild-sass-plugin");
 const postcss = require('postcss');
 const autoprefixer = require('autoprefixer');
-const { dependencies } = require("./package.json");
 const svgrPlugin = require('esbuild-plugin-svgr');
 
 const entryFile = "src/index.tsx";
 const shared = {
   bundle: true,
   entryPoints: [entryFile],
-  external: ['react/jsx-runtime'],
+  external: ['react', 'react-dom', 'styled-components', 'react/jsx-runtime'],
   logLevel: "info",
   minify: true,
   sourcemap: true,
