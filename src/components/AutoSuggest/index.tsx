@@ -135,16 +135,8 @@ const AutoSuggest = ({
                     className={`auto-suggest__input padding-0 ${disabled && 'cursor-not-allowed'}`}
                     disabled={disabled}
                 />
-                {loadingSuggestions ? (
+                {loadingSuggestions && (
                     <div className='auto-suggest__loader'/>
-                ) : (
-                    <i
-                        className={
-                            `fa fa-angle-down auto-suggest__field-angle font-20
-                            ${showSuggestions && 'auto-suggest__field-angle--rotated'}
-                            `
-                        }
-                    />
                 )}
             </div>
             {inputValue.length < charThresholdToShowSuggestions && focused && (
