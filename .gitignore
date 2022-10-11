@@ -9,3 +9,4 @@
 storybook-static
 build-storybook.log
 .npmrc
+.env.development.local

@@ -4,12 +4,13 @@ const { sassPlugin } = require("esbuild-sass-plugin");
 const postcss = require('postcss');
 const autoprefixer = require('autoprefixer');
 const { dependencies } = require("./package.json");
+const {REACT_APP_PORT = 8000} = process.env
 
 esbuild
   .serve(
     {
       servedir: "public",
-      port: 8000,
+      port: REACT_APP_PORT,
     },
     {
       bundle: true,
@@ -28,4 +29,5 @@ esbuild
       ],
     }
   )
+  .then((response) => console.log('Listening on PORT:', response.port))
   .catch(() => process.exit());
