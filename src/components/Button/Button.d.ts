@@ -58,18 +58,12 @@ export interface StyledButtonProps {
 /**
  * Interface for Button Component
  */
-export interface ButtonProps {
+export interface ButtonProps extends StyledButtonProps {
 
     /**
 	 * The content of the component
 	 */
     children: React.ReactNode;
-
-    /**
-	 * The variant of the Button component
-	 * @default tertiary
-	 */
-    variant: VariantType;
 
     /**
 	 * If 'true' the component is disabled
@@ -81,24 +75,6 @@ export interface ButtonProps {
 	 * Name of the icon to use in component
 	 */
     iconName?: IconType | undefined;
-
-    /**
-	 * Position of the Icon
-	 * @default start
-	 */
-    iconPosition?: IconPositionType;
-
-    /**
-	 * width of the Button
-	 * @default fit-content
-	 */
-    width?: string | number;
-
-    /**
-	 * if 'true' Button occupies full width
-	 * @default false
-	 */
-    fullWidth?: boolean;
 
     /**
 	 * Perform action on the Button Click

@@ -8,15 +8,13 @@ import {StyledButtonContainer} from './Button.styles';
 /**
  * Display the icon in button
  * @param name - name of icon
- * @param size - size of icon
  * @param iconPosition - position of icon either start or end
  * @param children - children of the button
  * @returns {Object} - icon and children placed according to position
  */
-const displayIcon = (name:IconType, size:number, iconPosition:IconPositionType, children:ReactNode) => {
+const displayIcon = (name:IconType, iconPosition:IconPositionType, children:ReactNode) => {
     const icon = (<Icon
         name={name}
-        size={size}
     />);
     return iconPosition === 'start' ? <>{icon}{children}</> : <>{children}{icon}</>;
 };
@@ -45,7 +43,7 @@ export const Button = (props:ButtonProps) => {
         fullWidth,
     } = props;
 
-    const content = (iconName && <>{displayIcon(iconName, 20, iconPosition, children)}</>) || children;
+    const content = iconName ? displayIcon(iconName, iconPosition, children) : children;
 
     return (
         <StyledButtonContainer

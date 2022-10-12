@@ -21,5 +21,5 @@ Default.args = {
 export const IconButton = ButtonTemplate.bind({});
 IconButton.args = {
     children: 'Button',
-    iconName: 'Delete',
+    iconName: 'User',
 };
