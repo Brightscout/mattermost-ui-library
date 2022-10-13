@@ -22,4 +22,7 @@
   buttonPrimaryHover:var(--button-primary-hover);
   buttonPrimaryActive:var(--button-primary-active);
   buttonFocusBorder:var(--sidebar-text-active-border);
+  checkboxBorderColor:rgba(var(--center-channel-text-rgb),0.24);
+  checkboxHoverBorderColor:rgba(var(--center-channel-text-rgb),0.6);
+  checkboxErrorBorderColor:var(--error-text);
 }
