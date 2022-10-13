@@ -1,6 +1,6 @@
-const { serve } = require("esbuild");
+const {serve} = require("esbuild");
 const inlineImage = require("esbuild-plugin-inline-image");
-const { sassPlugin } = require("esbuild-sass-plugin");
+const {sassPlugin} = require("esbuild-sass-plugin");
 const postcss = require('postcss');
 const autoprefixer = require('autoprefixer');
 const {REACT_APP_PORT = 8000} = process.env
@@ -18,11 +18,11 @@ serve(
       sourcemap: true,
       external: ['react/jsx-runtime'],
       plugins: [
-        svgrPlugin({ exportType: 'named' }),
+        svgrPlugin({exportType: 'named'}),
         inlineImage(),
         sassPlugin({
           async transform(source) {
-            const { css } = await postcss([autoprefixer]).process(source, { from: undefined });
+            const {css} = await postcss([autoprefixer]).process(source, {from: undefined});
             return css;
           },
         }),

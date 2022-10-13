@@ -23,7 +23,7 @@ const generateIconMapContent = () => {
 			.split('_')
 			.map((name) => name[0].toUpperCase() + name.substring(1))
 			.join('');
-		importContent += `import { ReactComponent as ${componentName} } from '@Assets/icons/${file}';\n`;
+		importContent += `import {ReactComponent as ${componentName}} from '@Assets/icons/${file}';\n`;
 		exportContent += `\t${componentName},\n`;
 	});
 

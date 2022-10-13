@@ -1,6 +1,6 @@
-const { build } = require("esbuild");
+const {build} = require("esbuild");
 const inlineImage = require("esbuild-plugin-inline-image");
-const { sassPlugin } = require("esbuild-sass-plugin");
+const {sassPlugin} = require("esbuild-sass-plugin");
 const postcss = require('postcss');
 const autoprefixer = require('autoprefixer');
 const svgrPlugin = require('esbuild-plugin-svgr');
@@ -14,11 +14,11 @@ const shared = {
   minify: true,
   sourcemap: true,
   plugins: [
-    svgrPlugin({ exportType: 'named' }),
+    svgrPlugin({exportType: 'named'}),
     inlineImage(),
     sassPlugin({
       async transform(source) {
-        const { css } = await postcss([autoprefixer]).process(source, { from: undefined });
+        const {css} = await postcss([autoprefixer]).process(source, {from: undefined});
         return css;
       },
     }),
