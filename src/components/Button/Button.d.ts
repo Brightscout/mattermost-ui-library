@@ -26,31 +26,37 @@ export type VariantType = 'primary' | 'secondary' | 'tertiary' | 'quaternary';
 export type IconPositionType = 'start' | 'end';
 
 /**
+ * Type for Button State
+ */
+export type ButtonState = 'default' | 'hover' | 'active' | 'disabled';
+
+/**
+ * Type for Button Color Map
+ */
+export type ButtonColorMap = Record<VariantType, Record<ButtonState, string>>;
+
+/**
  * Interface for Styled Button Component
  */
 export interface StyledButtonProps {
 
     /**
-	 * The variant of the Button component
-	 */
+		 * The variant of the Button component
+		 */
     variant: VariantType;
 
     /**
-	* Position of the Icon
-	* @default start
-	*/
+		* Position of the Icon
+		*
+		* @default start
+		*/
     iconPosition?: IconPositionType;
 
     /**
-	* width of the Button
-	* @default fit-content
-	*/
-    width?: string | number;
-
-    /**
-	* if 'true' Button occupies full width
-	* @default false
-	*/
+		* if 'true' Button occupies full width
+		*
+		* @default false
+		*/
     fullWidth?:boolean;
 
 }
@@ -58,26 +64,39 @@ export interface StyledButtonProps {
 /**
  * Interface for Button Component
  */
-export interface ButtonProps extends StyledButtonProps {
+export interface ButtonProps extends Omit<StyledButtonProps, 'variant'> {
 
     /**
-	 * The content of the component
-	 */
+		 * The variant of the Button component
+		 *
+		 * @default primary
+		 */
+    variant?: VariantType;
+
+    /**
+		 * The content of the component
+		 */
     children: React.ReactNode;
 
     /**
-	 * If 'true' the component is disabled
-	 * @default false
-	 */
+		 * If 'true' the component is disabled
+		 *
+		 * @default false
+		 */
     disabled?: boolean;
 
     /**
-	 * Name of the icon to use in component
-	 */
-    iconName?: IconType | undefined;
+		 * Name of the icon to use in component
+		 */
+    iconName?: IconType;
 
     /**
-	 * Perform action on the Button Click
-	 */
+		 * To override or extend the styles applied to the component
+		 */
+    className?: string;
+
+    /**
+		 * Perform action on the Button Click
+		 */
     onClick?: React.MouseEventHandler<HTMLButtonElement>;
 }

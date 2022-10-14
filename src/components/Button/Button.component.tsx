@@ -1,57 +1,71 @@
-import React, {ReactNode} from 'react';
+import React from 'react';
 
-import {Icon, IconType} from '@Components/Icon';
+import {Icon} from '@Components/Icon';
 
-import {ButtonProps, IconPositionType} from './Button';
+import {ButtonProps} from './Button';
 import {StyledButtonContainer} from './Button.styles';
 
 /**
- * Display the icon in button
- * @param name - name of icon
- * @param iconPosition - position of icon either start or end
- * @param children - children of the button
- * @returns {Object} - icon and children placed according to position
+ * Display the icon and text in button
  */
-const displayIcon = (name:IconType, iconPosition:IconPositionType, children:ReactNode) => {
-    const icon = (<Icon
-        name={name}
-    />);
-    return iconPosition === 'start' ? <>{icon}{children}</> : <>{children}{icon}</>;
+const DisplayContent = ({iconName, iconPosition, children}: ButtonProps) => {
+    // Checks if iconName is undefined or not
+    // if yes then place the icon according to the icon-position given
+    // and return children with icon
+    // else return childer without icon
+    if (iconName) {
+        const icon = (
+            <Icon
+                name={iconName}
+                size={16}
+            />
+        );
+        if (iconPosition === 'start') {
+            return <>{icon}{children}</>;
+        }
+
+        return <>{children}{icon}</>;
+    }
+
+    return <>{children}</>;
 };
 
 /**
  * Button Component
  *
- * @example Correct usage with default size and color
+ * @example Correct usage
+ *
  * ```ts
  * <Button>Button</Button>
  * ```
  *
- * @example Using custom Button with icon and default icon position
+ * @example Correct usage of Button with icon
+ *
  * ```ts
  * <Button iconName="Delete">Button</Button>
  * ```
  */
 export const Button = (props:ButtonProps) => {
     const {
-        disabled,
-        variant = 'primary',
         children,
         iconName,
         iconPosition = 'start',
-        width = 'fit-content',
-        fullWidth,
+        variant = 'primary',
+        className = '',
+        ...restProps
     } = props;
-
-    const content = iconName ? displayIcon(iconName, iconPosition, children) : children;
 
     return (
         <StyledButtonContainer
             iconPosition={iconPosition}
-            width={width}
-            fullWidth={fullWidth}
-            disabled={disabled}
             variant={variant}
-        >{content}</StyledButtonContainer>
+            className={`mm-button ${className}`}
+            {...restProps}
+        >
+            <DisplayContent
+                iconName={iconName}
+                iconPosition={iconPosition}
+            >{children}</DisplayContent>
+        </StyledButtonContainer>
     );
 };

@@ -2,135 +2,96 @@ import styled from 'styled-components';
 
 import colors from '@Styles/colorsForJs.module.scss';
 
-import {StyledButtonProps} from './Button';
-
-/**
- * Apply styles according to variant
- * @param variant -  variant of the Button
- * @returns {Object} - styles according to the variant
- */
-const variantStyles = (variant:string) => {
-    switch (variant) {
-    case 'primary':
-        return {
-            color: colors.buttonColorPrimary,
-            backgroundColor: colors.buttonBgColor,
-            '& path , & rect': {
-                fill: colors.buttonColorPrimary,
-            },
-            ':hover:enabled': {
-                cursor: 'pointer',
-                backgroundColor: colors.buttonPrimaryHover,
-            },
-            ':active:enabled': {
-                backgroundColor: colors.buttonPrimaryActive,
-            },
-            ':disabled': {
-                backgroundColor: colors.buttonDisabledBgColor,
-                '& path , & rect': {
-                    fill: colors.buttonDisabledBgColor,
-                },
-            },
-        };
-    case 'secondary':
-        return {
-            backgroundColor: 'transparent',
-            border: `1px solid ${colors.buttonBgColor}`,
-            ':hover:enabled': {
-                cursor: 'pointer',
-                backgroundColor: colors.buttonSecondaryHover,
-            },
-            ':active:enabled': {
-                backgroundColor: colors.buttonSecondaryActive,
-            },
-        };
-    case 'tertiary':
-        return {
-            backgroundColor: colors.buttonBgColorSecondary,
-            ':hover:enabled': {
-                cursor: 'pointer',
-                backgroundColor: colors.buttonTertiaryHover,
-            },
-            ':active:enabled': {
-                backgroundColor: colors.buttonSecondaryActive,
-            },
-            ':disabled': {
-                color: colors.buttonDisabledColor,
-                backgroundColor: colors.buttonDisabledBgColor,
-                '& path , & rect': {
-                    fill: colors.buttonDisabledColor,
-                },
-            },
-        };
-    case 'quaternary':
-        return {
-            backgroundColor: 'transparent',
-            ':hover:enabled': {
-                cursor: 'pointer',
-                backgroundColor: colors.buttonSecondaryHover,
-            },
-            ':active:enabled': {
-                backgroundColor: colors.buttonTertiaryHover,
-            },
-            ':focus:enabled': {
-                backgroundColor: colors.buttonSecondaryActive,
-                borderColor: 'transparent',
-            },
-            ':disabled': {
-                color: colors.buttonDisabledColor,
-                borderColor: 'transparent',
-                '& path , & rect': {
-                    fill: colors.buttonDisabledColor,
-                },
-            },
-        };
-    default:
-        return {};
-    }
-};
+import {ButtonColorMap, StyledButtonProps} from './Button';
 
 /**
  * Styled container for the Button to configure according to props
  */
-export const StyledButtonContainer = styled.button<StyledButtonProps>(({variant, fullWidth, width, iconPosition}) => {
-    const variantStyle = variantStyles(variant);
+export const StyledButtonContainer = styled.button<StyledButtonProps>(({variant, fullWidth, iconPosition}) => {
+    const colorMap: ButtonColorMap = {
+        primary: {
+            default: colors.primary,
+            hover: colors.buttonPrimaryHover,
+            active: colors.buttonPrimaryActive,
+            disabled: colors.centerChannel_8,
+        },
+        secondary: {
+            default: 'transparent',
+            hover: colors.primary_8,
+            active: colors.primary_16,
+            disabled: 'transparent',
+        },
+        tertiary: {
+            default: colors.primary_8,
+            hover: colors.primary_12,
+            active: colors.primary_16,
+            disabled: colors.centerChannel_8,
+        },
+        quaternary: {
+            default: 'transparent',
+            hover: colors.primary_8,
+            active: colors.primary_12,
+            disabled: 'transparent',
+        },
+    };
+
     return {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        padding: '11px 24px',
-        borderRadius: '4px',
+        width: fullWidth ? '100%' : 'fit-content',
+        boxSizing: 'border-box',
+        cursor: 'pointer',
         lineHeight: '16px',
         fontSize: '14px',
         fontWeight: '600',
         height: '40px',
-        borderStyle: 'solid',
-        borderColor: 'transparent',
-        width: fullWidth ? '100%' : width,
-        color: colors.buttonBgColor,
-        '& div': {
+        borderRadius: '4px',
+
+        // Styles based on variant
+        border: variant === 'secondary' ? `1px solid ${colors.primary}` : 'none',
+        padding: variant === 'secondary' ? '11px 19px' : '12px 20px',
+        color: variant === 'primary' ? colors.primaryText : colors.primary,
+        backgroundColor: colorMap[variant].default,
+
+        // Style for button icon
+        '& .mm-icon': {
             display: 'inline',
-            marginInline: iconPosition === 'start' ? '0 10px' : '10px 0',
-            height: '16px',
-            '& svg': {
-                height: '16px',
-                width: '16px',
-            },
-        },
-        '& path , & rect': {
-            fill: colors.buttonBgColor,
-        },
-        ':focus:enabled': {
-            border: `2px solid ${colors.buttonFocusBorder}`,
-        },
-        ':disabled': {
-            color: colors.buttonDisabledColor,
-            borderColor: colors.buttonDisabledColor,
+            marginInline: iconPosition === 'start' ? '0 8px' : '8px 0',
             '& path , & rect': {
-                fill: colors.buttonDisabledBgColor,
+                fill: variant === 'primary' ? colors.primaryText : colors.primary,
             },
         },
-        ...variantStyle,
+
+        // Style on hover
+        ':hover': {
+            backgroundColor: colorMap[variant].hover,
+        },
+
+        // Style when button is active
+        ':active': {
+            backgroundColor: colorMap[variant].active,
+        },
+
+        // Style when button is focused
+        ':focus': variant === 'quaternary' ? {backgroundColor: colors.primary_16} : {
+            border: `2px solid ${colors.buttonFocusBorder}`,
+            backgroundColor: colorMap[variant].default,
+            padding: '10px 18px',
+        },
+
+        // Style when button is disabled
+        ':disabled': {
+            color: colors.centerChannel_32,
+            background: colorMap[variant].disabled,
+            borderColor: colors.centerChannel_32,
+            pointerEvents: 'none',
+            cursor: 'default',
+
+            '& .mm-icon path': {
+                fill: colors.centerChannel_32,
+            },
+        },
     };
 });
 

@@ -9,17 +9,45 @@ export default {
     component: Button,
 } as Meta;
 
-const ButtonTemplate :Story<ButtonProps> = (args) => <Button {...args}/>;
+const ButtonTemplate :Story<ButtonProps> = (args) => <Button {...args}>{'Button'}</Button>;
 
 //Default Button
 export const Default = ButtonTemplate.bind({});
-Default.args = {
-    children: 'Button',
+
+//Secondary Button
+export const SecondaryButton = ButtonTemplate.bind({});
+SecondaryButton.args = {
+    variant: 'secondary',
+};
+
+//Tertiary Button
+export const TertiaryButton = ButtonTemplate.bind({});
+TertiaryButton.args = {
+    variant: 'tertiary',
+};
+
+//Quatenary Button
+export const QuatenaryButton = ButtonTemplate.bind({});
+QuatenaryButton.args = {
+    variant: 'quaternary',
 };
 
 // Button with icon
 export const IconButton = ButtonTemplate.bind({});
 IconButton.args = {
-    children: 'Button',
     iconName: 'User',
+};
+
+// Disabled Button
+export const DisabledButton = ButtonTemplate.bind({});
+DisabledButton.args = {
+    iconName: 'User',
+    disabled: true,
+};
+
+// Full-width Button
+export const FullWidthButton = ButtonTemplate.bind({});
+FullWidthButton.args = {
+    iconName: 'User',
+    fullWidth: true,
 };

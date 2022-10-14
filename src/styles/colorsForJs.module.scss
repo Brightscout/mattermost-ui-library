@@ -3,15 +3,23 @@
 // export scss variable to use in js file
 :export {
   iconColor: var(--default-icon-color);
-  buttonBgColor:var(--button-bg-primary);
-  buttonBgColorSecondary:var(--button-bg-secondary);
-  buttonColorPrimary:var(--button-color);
-  buttonDisabledColor:var(--button-disabled-color);
-  buttonDisabledBgColor:var(--button-disabled-bg);
-  buttonFocusBorder:var(--button-focus-border);
+  primary: var(--button-bg);
+  primary_4: var(--button-bg-04);
+  primary_8: var(--button-bg-08);
+  primary_12:rgba(var(--button-bg-rgb),0.12);
+  primary_16: var(--button-bg-16);
+  primaryText:var(--button-color);
+  centerChannelBg: var(--center-channel-bg);
+  centerChannel: var(--center-channel-color);
+  centerChannel_64: var(--center-channel-color-64);
+  centerChannel_48: var(--center-channel-color-48);
+  centerChannel_32: var(--center-channel-color-32);
+  centerChannel_16: var(--center-channel-color-16);
+  centerChannel_8: var(--center-channel-color-08);
+  centerChannel_4: var(--center-channel-color-04);
+  error: var(--error-text);
+  
   buttonPrimaryHover:var(--button-primary-hover);
   buttonPrimaryActive:var(--button-primary-active);
-  buttonSecondaryHover:rgba(var(--button-bg-rgb),0.08);
-  buttonSecondaryActive:rgba(var(--button-bg-rgb),0.16);
-  buttonTertiaryHover:rgba(var(--button-bg-rgb),0.12);
+  buttonFocusBorder:var(--sidebar-text-active-border);
 }
