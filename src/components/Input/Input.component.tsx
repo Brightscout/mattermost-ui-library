@@ -1,19 +1,30 @@
+/* eslint-disable @typescript-eslint/indent */
 import React from 'react';
 
 import {Icon} from '@Components/Icon';
+import {extendClassname} from '@Utils';
 
 import {StyledInput, StyledFieldSet, StyledInputContainer} from './Input.styles';
 import {InputProps} from './Input';
 
-const DisplayFieldSet = (props: InputProps) => {
-    const {value, error, label} = props;
-
+/**
+ * DisplayFieldSet - sub-component
+ *
+ * Displays fieldset for input component
+ */
+const DisplayFieldSet = ({value, error, label}: InputProps) => {
     return (
         <StyledFieldSet
-            className={`input_label ${value === '' ? '' : 'visible_label-border'} ${error ? 'input_error' : ''}`}
+            className={`input_label ${extendClassname({
+                'visible_label-border': Boolean(value),
+                input_error: Boolean(error),
+            })}`
+            }
             error={error}
         >
-            <legend className={value === '' ? '' : 'visible_label'}>{label}</legend>
+            <legend className={extendClassname({visible_label: Boolean(value)})}>
+                {label}
+            </legend>
         </StyledFieldSet>
     );
 };
@@ -32,12 +43,12 @@ const DisplayFieldSet = (props: InputProps) => {
  * ```
  */
 export const Input = (props: InputProps) => {
-    const {label, iconName, classname = '', fullWidth, ...restProps} = props;
+    const {label, iconName, className = '', fullWidth, ...restProps} = props;
     const {readOnly, error, value = ''} = restProps;
 
     return (
         <StyledInputContainer
-            className={`mm-input ${classname}`}
+            className={`mm-input ${className}`}
             fullWidth={fullWidth}
         >
             {iconName &&

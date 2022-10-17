@@ -53,7 +53,7 @@ export interface InputProps {
     /**
 		 * To override or extend the styles applied to the component
 		 */
-    classname?: string;
+    className?: string;
 
     /**
 		 * The name applied to the input element
@@ -61,12 +61,6 @@ export interface InputProps {
 		 * @default 'text'
 		 */
     type?: string;
-
-    /**
-		 * If `true`,  the input element is required
-		 * @default false
-		 */
-    required?: boolean;
 
     /**
 		 * It prevents the user from changing the value of the field
