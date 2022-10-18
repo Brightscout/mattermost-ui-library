@@ -32,6 +32,14 @@ InputWithType.args = {
     type: 'password',
 };
 
+// Input with value
+export const InputWithValue = InputTemplate.bind({});
+InputWithValue.args = {
+    label: 'Label',
+    iconName: 'Globe',
+    value: 'input value',
+};
+
 // Read-only Input
 export const ReadOnlyInput = InputTemplate.bind({});
 ReadOnlyInput.args = {
@@ -41,12 +49,12 @@ ReadOnlyInput.args = {
     value: 'input value',
 };
 
-// Input with value
-export const InputWithValue = InputTemplate.bind({});
-InputWithValue.args = {
-    label: 'Label',
+// Required Input
+export const RequiredInput = InputTemplate.bind({});
+RequiredInput.args = {
+    label: 'Required',
     iconName: 'Globe',
-    value: 'input value',
+    required: true,
 };
 
 // Input with auto focus

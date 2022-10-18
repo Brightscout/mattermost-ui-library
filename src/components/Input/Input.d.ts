@@ -69,6 +69,12 @@ export interface InputProps {
     readOnly?: boolean;
 
     /**
+		 * If `true`,  the input element is required
+		 * @default false
+		 */
+    required?: boolean;
+
+    /**
 		 * The value of the input field
 		 */
     value?: string | number;

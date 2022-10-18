@@ -44,7 +44,9 @@ const DisplayFieldSet = ({value, error, label}: InputProps) => {
  */
 export const Input = (props: InputProps) => {
     const {label, iconName, className = '', fullWidth, ...restProps} = props;
-    const {readOnly, error, value = ''} = restProps;
+    const {readOnly, error, required, value = ''} = restProps;
+
+    const inputLabel = required ? `${label} *` : label;
 
     return (
         <StyledInputContainer
@@ -58,7 +60,7 @@ export const Input = (props: InputProps) => {
                 />
             }
             <StyledInput
-                placeholder={label}
+                placeholder={inputLabel}
                 onFocus={(event: React.ChangeEvent<HTMLInputElement>) => {
                     if (!readOnly) {
                         event.target.placeholder = '';
@@ -66,14 +68,14 @@ export const Input = (props: InputProps) => {
                 }}
                 onBlur={(event: React.ChangeEvent<HTMLInputElement>) => {
                     if (!readOnly) {
-                        event.target.placeholder = label;
+                        event.target.placeholder = inputLabel;
                     }
                 }}
                 {...restProps}
             />
             <DisplayFieldSet
                 value={value}
-                label={label}
+                label={inputLabel}
                 error={error}
             />
         </StyledInputContainer>
