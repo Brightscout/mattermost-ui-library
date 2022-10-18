@@ -2,22 +2,38 @@ import React from 'react';
 import {Story, Meta} from '@storybook/react';
 
 import {CheckBoxProps} from './CheckBox';
-import {CheckBox} from './CheckBox.component';
+import {Checkbox} from './CheckBox.component';
 
 export default {
-    title: 'Component/CheckBox',
-    component: CheckBox,
+    title: 'Component/Checkbox',
+    component: Checkbox,
 } as Meta;
 
-const CheckboxTemplate:Story<CheckBoxProps> = (args) => <CheckBox {...args}/>;
+const CheckboxTemplate:Story<CheckBoxProps> = (args) => <Checkbox {...args}/>;
 
-/**
- * Default checkbox
- */
+// Default checkbox
 export const Default = CheckboxTemplate.bind({});
 Default.args = {
-    id: 'item',
-    name: 'Male',
-    value: 'Male',
     label: 'Label',
+};
+
+// Checked checkbox
+export const Checked = CheckboxTemplate.bind({});
+Checked.args = {
+    label: 'Label',
+    checked: true,
+};
+
+// Disabled checkbox
+export const Disabled = CheckboxTemplate.bind({});
+Disabled.args = {
+    label: 'Label',
+    disabled: true,
+};
+
+// Error checkbox
+export const Error = CheckboxTemplate.bind({});
+Error.args = {
+    label: 'Label',
+    error: true,
 };

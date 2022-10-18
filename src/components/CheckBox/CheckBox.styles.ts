@@ -1,92 +1,90 @@
 import styled from 'styled-components';
+import {Form} from 'react-bootstrap';
 
 import colors from '@Styles/colorsForJs.module.scss';
-
-import {
-    StyledCheckBoxContainerProps,
-    StyledCheckBoxProps,
-    StyledSelectorProps,
-} from './CheckBox';
 
 /**
  * Styled container to hold the checkbox and label for component
  */
-export const StyledCheckBoxContainer = styled.label<StyledCheckBoxContainerProps>(({disabled, checked}) => {
-    const disabledStyles = disabled ? ({
-        color: `${colors.buttonDisabledColor}`,
-    } as React.CSSProperties) : null;
+export const StyledCheckbox = styled(Form.Check)({
+    display: 'inline-flex',
+    alignItems: 'center',
+    padding: 0,
+    margin: 0,
+    minHeight: 'fit-content',
 
-    return {
-        display: 'inline-flex',
-        alignItems: 'center',
+    // Style for checkbox
+    '& input.form-check-input': {
         cursor: 'pointer',
-        fontSize: '14px',
-        lineHeight: '20px',
-        ':hover span': {
-            borderColor:
-				checked || disabled ? 'transparent' : `${colors.checkboxHoverBorderColor}`,
+        width: 16,
+        height: 16,
+        padding: 0,
+        margin: 0,
+        borderRadius: 4,
+        border: `1px solid ${colors.centerChannel_24}`,
+        background: colors.centerChannelBg,
+
+        '&:hover': {
+            borderColor: colors.centerChannel_40,
         },
-        ...disabledStyles,
-    };
-});
 
-/**
- * Styled input of type checkbox
- */
-export const StyledCheckBox = styled.input.attrs({
-    type: 'checkbox',
-})<StyledCheckBoxProps>({
-    visibility: 'hidden',
-    marginRight: '10px',
-});
+        '&:active': {
+            borderColor: colors.centerChannel_48,
+            filter: 'none',
+        },
 
-/**
- * Styled selector for checkbox
- */
-export const StyledSelector = styled.span<StyledSelectorProps>(
-    ({checked, error}) => {
-        const checkedStyles = checked ? ({
-            backgroundColor: `${colors.buttonBgColor}`,
-            borderColor: `${colors.buttonBgColor}`,
-            '&::after': {
-                content: '""',
-                height: '100%',
-                position: 'absolute',
-                transition: 'all 0.2s ease-in-out ',
-                transform: 'scale(1)',
-                width: '100%',
-                background: 'white',
-                clipPath:
-							'polygon(20% 50%, 38% 69%, 85% 28%, 90% 34%, 37% 80%, 14% 55%)',
-            },
-        } as React.CSSProperties) : null;
-
-        return {
-            position: 'absolute',
-            display: 'block',
-            height: '16px',
-            width: '16px',
-            borderRadius: '2px',
-            transition: 'all 0.2s ease-in-out ',
-            backgroundColor: `${colors.buttonColorPrimary}`,
-            border: `1px solid ${
-                error && !checked ? colors.checkboxErrorBorderColor : colors.checkboxBorderColor
-            }`,
-            ':hover:enabled': {
-                borderColor: checked ? 'transparent' : `${colors.checkboxHoverBorderColor}`,
-            },
-            '&::after': {
-                content: '""',
-                height: '100%',
-                position: 'absolute',
-                transition: 'all 0.2s  ease-in-out',
-                transform: 'scale(0)',
-                width: '100%',
-                background: 'white',
-                clipPath:
-					'polygon(20% 50%, 38% 69%, 85% 28%, 90% 34%, 37% 80%, 14% 55%)',
-            },
-            ...checkedStyles,
-        };
+        '&:focus': {
+            borderColor: colors.primary,
+            boxShadow: 'none',
+        },
     },
-);
+
+    // Style for checkbox label
+    '& label.form-check-label': {
+        fontSize: 14,
+        lineHeight: '16px',
+        marginLeft: 10,
+        color: colors.centerChannel,
+    },
+
+    // Style applied when checkbox is checked
+    '& input.form-check-input:checked': {
+        border: 'none',
+        backgroundColor: colors.primary,
+        backgroundImage: 'url("data:image/svg+xml,%3csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 20 20\'%3e%3cpath fill=\'none\' stroke=\'%23fff\' stroke-width=\'2\' d=\'m6 10 3 3 6-6\'/%3e%3c/svg%3e")',
+
+        '&:hover': {
+            backgroundColor: colors.buttonPrimaryHover,
+        },
+
+        '&:active': {
+            backgroundColor: colors.buttonPrimaryActive,
+        },
+    },
+
+    // Style applied when checkbox is disabled
+    '& input.form-check-input:disabled': {
+        borderColor: colors.centerChannel_24,
+
+        '& ~ .form-check-label': {
+            color: colors.centerChannel_40,
+        },
+
+        '&:checked': {
+            opacity: '32%',
+        },
+    },
+
+    // Style applied on error
+    '& input.form-check-input.is-invalid': {
+        borderColor: colors.error,
+
+        '& ~ .form-check-label': {
+            color: colors.centerChannel,
+        },
+
+        '&:checked': {
+            backgroundColor: colors.error,
+        },
+    },
+});

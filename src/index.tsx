@@ -1,8 +1,10 @@
-// New components
+// New Components
 import {Icon} from '@Components/Icon';
 import {Button} from '@Components/Button';
+import {Checkbox} from '@Components/CheckBox';
 
 export {
-    Icon,
     Button,
+    Checkbox,
+    Icon,
 };

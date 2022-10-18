@@ -1,47 +1,34 @@
-import React, {useState} from 'react';
+import React from 'react';
+import {Form} from 'react-bootstrap';
 
 import {CheckBoxProps} from './CheckBox';
-import {StyledCheckBox, StyledCheckBoxContainer, StyledSelector} from './CheckBox.styles';
+import {StyledCheckbox} from './CheckBox.styles';
 
 /**
- * CheckBox Component
+ * Checkbox Component
  *
  * @example Correct usage with default props
+ *
  * ```ts
- * <CheckBox id="cb_one" name="Male" value="Male" label="Male"/>
- *```
+ *  <Checkbox label="Label"/>
+ * ```
  */
-export const CheckBox = (props:CheckBoxProps) => {
-    const [ischecked, setIsChecked] = useState(false);
+export const Checkbox = (props:CheckBoxProps) => {
+    const {className = '', id, label, error, ...restProps} = props;
 
-    const {
-        id,
-        name,
-        value,
-        label,
-        disabled,
-        checked,
-        error,
-    } = props;
     return (
-        <StyledCheckBoxContainer
-            checked={checked || ischecked}
-            disabled={disabled}
+        <StyledCheckbox
+            type='checkbox'
+            className={`mm-checkbox ${className}`}
+            id={id}
         >
-            <StyledCheckBox
-                id={id}
-                name={name}
-                value={value}
-                disabled={disabled}
-                checked={checked || ischecked}
-                onClick={() => setIsChecked(!ischecked)}
+            <Form.Check.Input
+                type='checkbox'
+                className='mm-checkbox_input'
+                isInvalid={error}
+                {...restProps}
             />
-            <StyledSelector
-                checked={checked || ischecked}
-                error={error}
-            />
-            {label}
-        </StyledCheckBoxContainer>
-
+            <Form.Check.Label>{label}</Form.Check.Label>
+        </StyledCheckbox>
     );
 };

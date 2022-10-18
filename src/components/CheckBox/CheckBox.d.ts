@@ -1,62 +1,56 @@
 /**
- * Interface for styled selector
- */
-export interface StyledSelectorProps {
-
-    /**
-     * if 'true' input is checked
-     * @default false
-     */
-    checked?:boolean;
-
-    /**
-     * if 'true' checkbox is in error state
-     * @default false
-     */
-    error?:boolean;
-}
-
-/**
- * Interface for styled checkbox container
- */
-export interface StyledCheckBoxContainerProps extends StyledSelectorProps{
-
-    /**
-    * if 'true' checkbox is disabled
-    * @default false
-    */
-    disabled?:boolean;
-}
-
-/**
- * Interface for styled input of type checkbox
- */
-export interface StyledCheckBoxProps extends StyledCheckBoxContainerProps {
-
-    /**
-     * The id for current checkbox
-     */
-    id:string;
-
-    /**
-     * name for the current checkbox
-     */
-    name:string;
-
-    /**
-     * value associated with current checkbox
-     */
-    value:string;
-}
-
-/**
  * Interface for CheckBox Component
  */
 export interface CheckBoxProps extends StyledCheckBoxProps{
 
     /**
-     * Label associated with current checkbox
+     * A unique id for checkbox
      */
-    label:string;
-}
+    id?: string;
 
+    /**
+     * The name for the checkbox
+     */
+    name?: string;
+
+    /**
+     * The value associated with the checkbox
+     */
+    value?: string;
+
+    /**
+     * The label for the checkbox
+     */
+    label: string;
+
+    /**
+     * If `true`, checkbox is disabled
+     *
+     * @default false
+     */
+    disabled?: boolean;
+
+    /**
+     * if `true`, checkbox is checked
+     *
+     * @default false
+     */
+    checked?: boolean;
+
+    /**
+     * if `true`, checkbox is in error state
+     *
+     * @default false
+     */
+    error?: boolean;
+
+    /**
+     * To override or extend the styles applied to the component
+     */
+    className?: string;
+
+    /**
+     * Handler that's called when there is a change in the value of the checkbox
+     */
+    onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
+}
