@@ -42,7 +42,7 @@ export const StyledSwitch = styled(Form.Check)<StyledSwitchContainerProps>(({ful
     },
 
     // Style for switch
-    '&.form-switch input.form-check-input': {
+    '& input.form-check-input': {
         cursor: 'pointer',
         padding: 0,
         margin: 0,
@@ -52,6 +52,7 @@ export const StyledSwitch = styled(Form.Check)<StyledSwitchContainerProps>(({ful
         borderRadius: 10,
         backgroundColor: colors.centerChannel_32,
         backgroundImage: 'url("data:image/svg+xml,%3csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'-4 -4 8 8\'%3e%3ccircle r=\'4\' fill=\'%23fff\'/%3e%3c/svg%3e")',
+        backgroundPosition: 'left center',
 
         '&:hover': {
             backgroundColor: colors.centerChannel_40,
@@ -69,7 +70,7 @@ export const StyledSwitch = styled(Form.Check)<StyledSwitchContainerProps>(({ful
     },
 
     // Style applied when Switch is disabled
-    '&.form-switch input.form-check-input:disabled': {
+    '& input.form-check-input:disabled': {
         borderColor: 'transparent',
         backgroundColor: colors.centerChannel_24,
 
@@ -83,9 +84,11 @@ export const StyledSwitch = styled(Form.Check)<StyledSwitchContainerProps>(({ful
     },
 
     // Style for switch when checked
-    '&.form-switch input.form-check-input:checked': {
+    '& input.form-check-input:checked': {
         border: `2px solid ${colors.primary}`,
         backgroundColor: colors.primary,
+        backgroundImage: 'url("data:image/svg+xml,%3csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'-4 -4 8 8\'%3e%3ccircle r=\'4\' fill=\'%23fff\'/%3e%3c/svg%3e")',
+        backgroundPosition: 'right center',
 
         '&:hover': {
             backgroundColor: colors.buttonPrimaryHover,
@@ -103,7 +106,7 @@ export const StyledSwitch = styled(Form.Check)<StyledSwitchContainerProps>(({ful
     },
 
     // Style applied on error
-    '&.form-switch input.form-check-input.is-invalid': {
+    '& input.form-check-input.is-invalid': {
         borderColor: colors.error,
 
         '&:checked': {

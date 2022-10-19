@@ -25,7 +25,6 @@ export const Switch = (props: SwitchProps) => {
 
     return (
         <StyledSwitch
-            type='switch'
             className={`mm-switch ${className}`}
             id={id}
             fullWidth={fullWidth}
