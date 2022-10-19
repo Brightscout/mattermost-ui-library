@@ -1,69 +1,69 @@
 // Copied from mattermost-webapp
 
 :root {
-  // Default Hex values to be replaced by applyTheme()
-  // these are define to prevent flashes of unstyled content
-  --away-indicator: #ffbc1f;
-  --button-bg: #1c58d9;
-  --button-color: #ffffff;
-  --center-channel-bg: #ffffff;
-  --center-channel-color: #3f4350;
-  --dnd-indicator: #d24b4e;
-  --error-text: #d24b4e;
-  --link-color: #386fe5;
-  --mention-bg: #ffffff;
-  --mention-color: #1e325c;
-  --mention-highlight-bg: #ffd470;
-  --mention-highlight-link: #1b1d22;
-  --new-message-separator: #cc8f00;
-  --online-indicator: #3db887;
-  --sidebar-bg: #1e325c;
-  --sidebar-header-bg: #192a4d;
-  --sidebar-header-text-color: #ffffff;
-  --sidebar-text: #ffffff;
-  --sidebar-text-active-border: #5d89ea;
-  --sidebar-text-active-color: #ffffff;
-  --sidebar-text-hover-bg: #28427b;
-  --sidebar-unread-text: #ffffff;
-  --sidebar-teambar-bg: #14213e;
-  --sidebar-team-background: #0b428c;
-  --secondary-blue: #22406d;
-  --denim-status-online: #3db887;
-  --center-channel-text: #3f4350;
+    // Default Hex values to be replaced by applyTheme()
+    // these are define to prevent flashes of unstyled content
+    --away-indicator: #ffbc1f;
+    --button-bg: #1c58d9;
+    --button-color: #ffffff;
+    --center-channel-bg: #ffffff;
+    --center-channel-color: #3f4350;
+    --dnd-indicator: #d24b4e;
+    --error-text: #d24b4e;
+    --link-color: #386fe5;
+    --mention-bg: #ffffff;
+    --mention-color: #1e325c;
+    --mention-highlight-bg: #ffd470;
+    --mention-highlight-link: #1b1d22;
+    --new-message-separator: #cc8f00;
+    --online-indicator: #3db887;
+    --sidebar-bg: #1e325c;
+    --sidebar-header-bg: #192a4d;
+    --sidebar-header-text-color: #ffffff;
+    --sidebar-text: #ffffff;
+    --sidebar-text-active-border: #5d89ea;
+    --sidebar-text-active-color: #ffffff;
+    --sidebar-text-hover-bg: #28427b;
+    --sidebar-unread-text: #ffffff;
+    --sidebar-teambar-bg: #14213e;
+    --sidebar-team-background: #0b428c;
+    --secondary-blue: #22406d;
+    --denim-status-online: #3db887;
+    --center-channel-text: #3f4350;
 
-  // Default RGB values to be replaced by applyTheme() (do not add opacity mutations here)
-  // these are define to prevent flashes of unstyled content
-  --away-indicator-rgb: 255, 188, 31;
-  --button-bg-rgb: 28, 88, 217;
-  --button-color-rgb: 255, 255, 255;
-  --center-channel-bg-rgb: 255, 255, 255;
-  --center-channel-color-rgb: 63, 67, 80;
-  --dnd-indicator-rgb: 210, 75, 78;
-  --error-text-color-rgb: 210, 75, 78;
-  --link-color-rgb: 56, 111, 229;
-  --mention-bg-rgb: 255, 255, 255;
-  --mention-color-rgb: 30, 50, 92;
-  --mention-highlight-bg-rgb: 255, 212, 112;
-  --mention-highlight-link-rgb: 27, 29, 34;
-  --mention-highlight-bg-mixed-rgb: 255,233,183;
-  --pinned-highlight-bg-mixed-rgb: 255,244,220;
-  --own-highlight-bg-rgb: 245,204,110;
-  --new-message-separator-rgb: 204, 143, 0;
-  --online-indicator-rgb: 61, 184, 135;
-  --sidebar-bg-rgb: 30, 50, 92;
-  --sidebar-header-bg-rgb: 25, 42, 77;
-  --sidebar-teambar-bg-rgb: 20, 33, 62;
-  --sidebar-header-text-color-rgb: 255, 255, 255;
-  --sidebar-text-rgb: 255, 255, 255;
-  --sidebar-text-active-border-rgb: 93, 137, 234;
-  --sidebar-text-active-color-rgb: 255, 255, 255;
-  --sidebar-text-hover-bg-rgb: 40, 66, 123;
-  --sidebar-unread-text-rgb: 255, 255, 255;
-  --error-box-background: 197, 67, 72;
-  --sidebar-team-background-rgb: 11, 66, 140;
-  --secondary-blue-rgb: 34, 64, 109;
-  --denim-status-online-rgb: 61, 184, 135;
-  --center-channel-text-rgb: 63, 67, 80;
+    // Default RGB values to be replaced by applyTheme() (do not add opacity mutations here)
+    // these are define to prevent flashes of unstyled content
+    --away-indicator-rgb: 255, 188, 31;
+    --button-bg-rgb: 28, 88, 217;
+    --button-color-rgb: 255, 255, 255;
+    --center-channel-bg-rgb: 255, 255, 255;
+    --center-channel-color-rgb: 63, 67, 80;
+    --dnd-indicator-rgb: 210, 75, 78;
+    --error-text-color-rgb: 210, 75, 78;
+    --link-color-rgb: 56, 111, 229;
+    --mention-bg-rgb: 255, 255, 255;
+    --mention-color-rgb: 30, 50, 92;
+    --mention-highlight-bg-rgb: 255, 212, 112;
+    --mention-highlight-link-rgb: 27, 29, 34;
+    --mention-highlight-bg-mixed-rgb: 255, 233, 183;
+    --pinned-highlight-bg-mixed-rgb: 255, 244, 220;
+    --own-highlight-bg-rgb: 245, 204, 110;
+    --new-message-separator-rgb: 204, 143, 0;
+    --online-indicator-rgb: 61, 184, 135;
+    --sidebar-bg-rgb: 30, 50, 92;
+    --sidebar-header-bg-rgb: 25, 42, 77;
+    --sidebar-teambar-bg-rgb: 20, 33, 62;
+    --sidebar-header-text-color-rgb: 255, 255, 255;
+    --sidebar-text-rgb: 255, 255, 255;
+    --sidebar-text-active-border-rgb: 93, 137, 234;
+    --sidebar-text-active-color-rgb: 255, 255, 255;
+    --sidebar-text-hover-bg-rgb: 40, 66, 123;
+    --sidebar-unread-text-rgb: 255, 255, 255;
+    --error-box-background: 197, 67, 72;
+    --sidebar-team-background-rgb: 11, 66, 140;
+    --secondary-blue-rgb: 34, 64, 109;
+    --denim-status-online-rgb: 61, 184, 135;
+    --center-channel-text-rgb: 63, 67, 80;
 
   --sidebar-text-08: rgba(255,255,255,0.08);
   --sidebar-text-16: rgba(255,255,255,0.16);
@@ -140,24 +140,24 @@
   // the color specified here is the new hard-coded color from the compass design system
   --offline-indicator: rgba(175, 179, 192, 0.64);
 
-  // Elevation values used for box shadows.
-  // Defined as CSS variables so that both sass and JS can use them.
-  --elevation-1: 0 2px 3px 0 rgba(0, 0, 0, 0.08);
-  --elevation-2: 0 4px 6px 0 rgba(0, 0, 0, 0.12);
-  --elevation-3: 0 6px 14px 0 rgba(0, 0, 0, 0.12);
-  --elevation-4: 0 8px 24px 0 rgba(0, 0, 0, 0.12);
-  --elevation-5: 0 12px 32px 0 rgba(0, 0, 0, 0.12);
-  --elevation-6: 0 20px 32px 0 rgba(0, 0, 0, 0.12);
+    // Elevation values used for box shadows.
+    // Defined as CSS variables so that both sass and JS can use them.
+    --elevation-1: 0 2px 3px 0 rgba(0, 0, 0, 0.08);
+    --elevation-2: 0 4px 6px 0 rgba(0, 0, 0, 0.12);
+    --elevation-3: 0 6px 14px 0 rgba(0, 0, 0, 0.12);
+    --elevation-4: 0 8px 24px 0 rgba(0, 0, 0, 0.12);
+    --elevation-5: 0 12px 32px 0 rgba(0, 0, 0, 0.12);
+    --elevation-6: 0 20px 32px 0 rgba(0, 0, 0, 0.12);
 
-  // Global Header variables
-  --global-header-background: var(--sidebar-teambar-bg);
-  --global-header-text: var(--sidebar-header-text-color);
-  --global-header-background-rgb: var(--sidebar-teambar-bg-rgb);
-  --global-header-text-rgb: var(--sidebar-header-text-color-rgb);
+    // Global Header variables
+    --global-header-background: var(--sidebar-teambar-bg);
+    --global-header-text: var(--sidebar-header-text-color);
+    --global-header-background-rgb: var(--sidebar-teambar-bg-rgb);
+    --global-header-text-rgb: var(--sidebar-header-text-color-rgb);
 
-  //extra colors
-  --default-icon-color: #989898;
-  --button-primary-hover:#1C53C8;
-  --button-primary-active:#174BB6;
+    //extra colors
+    --default-icon-color: #989898;
+    --button-primary-hover: #1c53c8;
+    --button-primary-active: #174bb6;
+    --overlay-color: rgba(0, 0, 0, 0.4);
 }
-
