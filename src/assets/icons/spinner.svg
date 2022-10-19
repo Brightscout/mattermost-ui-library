@@ -1,0 +1,61 @@
+  <svg
+                width='100%'
+                height='100%'
+                viewBox='0 0 185 185'
+                fill='none'
+                xmlns='http://www.w3.org/2000/svg'
+            >
+                <path
+                    d='M5.62 92.5C5.62 69.458 14.7734 47.3597 31.0666 31.0666C47.3597 14.7734 69.458 5.62 92.5 5.62C115.542 5.62 137.64 14.7734 153.933 31.0666C170.227 47.3597 179.38 69.458 179.38 92.5'
+                    stroke='url(#paint0_linear_1_3)'
+                    stroke-width='10'
+                />
+                <path
+                    d='M179.38 92.5C179.38 115.542 170.227 137.64 153.933 153.933C137.64 170.227 115.542 179.38 92.5 179.38C69.458 179.38 47.3597 170.227 31.0666 153.933C14.7734 137.64 5.62 115.542 5.62 92.5'
+                    stroke='url(#paint1_linear_1_3)'
+                    stroke-width='10'
+                />
+                <defs>
+                    <linearGradient
+                        id='paint0_linear_1_3'
+                        x1='5.62'
+                        y1='5.62'
+                        x2='179.38'
+                        y2='5.62'
+                        gradientUnits='userSpaceOnUse'
+                    >
+                        <stop
+                            stop-color='currentColor'
+                            stop-opacity='0'
+                        />
+                        <stop
+                            stop-color='currentColor'
+                            offset='1'
+                            stop-opacity='0.5'
+                        />
+                    </linearGradient>
+                    <linearGradient
+                        id='paint1_linear_1_3'
+                        x1='5.62'
+                        y1='92.5'
+                        x2='179.38'
+                        y2='92.5'
+                        gradientUnits='userSpaceOnUse'
+                    >
+                        <stop stop-color='currentColor' />
+                        <stop
+                            stop-color='currentColor'
+                            offset='1'
+                            stop-opacity='0.5'
+                        />
+                    </linearGradient>
+                </defs>
+                <animateTransform
+                    from='0 0 0'
+                    to='360 0 0'
+                    attributeName='transform'
+                    type='rotate'
+                    repeatCount='indefinite'
+                    dur='1300ms'
+                />
+            </svg>
