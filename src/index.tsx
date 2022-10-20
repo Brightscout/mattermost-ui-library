@@ -29,6 +29,9 @@ import Tooltip from '@Components/Tooltip';
 // Icons
 import {ServiceNowIcon, BellIcon, UnlinkIcon, LinkIcon, EditIcon, DeleteIcon, CheckIcon, UserIcon} from '@Components/Icons';
 
+// new components
+import {Icon} from '@Components/Icon';
+
 export {
     AutoSuggest,
     MenuButtons,
@@ -65,4 +68,5 @@ export {
     DeleteIcon,
     CheckIcon,
     UserIcon,
+    Icon,
 };

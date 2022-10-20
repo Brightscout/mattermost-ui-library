@@ -1,0 +1,6 @@
+@import 'abstract/cssVariables';
+
+// export scss variable to use in js file
+:export {
+  iconColor: var(--default-icon-color);
+}
