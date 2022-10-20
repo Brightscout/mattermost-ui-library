@@ -59,7 +59,7 @@ export const StyledButtonContainer = styled.button<StyledButtonProps>(({variant,
             display: 'inline',
             marginInline: iconPosition === 'start' ? '0 8px' : '8px 0',
             '& path , & rect': {
-                fill: variant === 'primary' ? colors.primaryText : colors.primary,
+                color: variant === 'primary' ? colors.primaryText : colors.primary,
             },
         },
 
@@ -89,7 +89,7 @@ export const StyledButtonContainer = styled.button<StyledButtonProps>(({variant,
             cursor: 'default',
 
             '& .mm-icon path': {
-                fill: colors.centerChannel_32,
+                color: colors.centerChannel_32,
             },
         },
     };
