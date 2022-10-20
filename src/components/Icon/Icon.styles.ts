@@ -14,6 +14,7 @@ export const StyledIconContainer = styled.div<StyledContainerProps>(({size, icon
         height: size,
     },
     '& path, & rect': {
-        fill: iconColor,
+        color: iconColor,
+        strokeOpacity: 'unset',
     },
 }));

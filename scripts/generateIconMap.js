@@ -17,6 +17,15 @@ const generateIconMapContent = () => {
 
 	// Get all the icon file paths
 	fs.readdirSync('src/assets/icons/').forEach((file) => {
+		// Get the svg content and replace hexcode with currentColor
+		fs.readFile(`src/assets/icons/${file}`, 'utf8', function(err, data){			
+			const updatedSvgContent = data.replace(/#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})/g, 'currentColor');
+			fs.writeFileSync(
+				`src/assets/icons/${file}`,
+				updatedSvgContent
+				);
+			});
+			
 		// Get the component name in Pascal case and remove the .svg extension
 		const componentName = file
 			.split('.')[0]
