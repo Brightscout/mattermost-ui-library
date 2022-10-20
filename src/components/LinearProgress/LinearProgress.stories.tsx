@@ -13,17 +13,17 @@ const LinearProgressTemplate: Story<LinearProgressProps> = (args) => (
     <LinearProgress {...args}/>
 );
 
-// Default Linear Progress
+// Default
 export const Default = LinearProgressTemplate.bind({});
 
-// Determinate Linear Progress
+// Determinate linear progress
 export const Determinate = LinearProgressTemplate.bind({});
 Determinate.args = {
     determinate: true,
     value: 20,
 };
 
-// Linear Progress with color
+// Linear progress with color
 export const LinearProgressWithColor = LinearProgressTemplate.bind({});
 LinearProgressWithColor.args = {
     color: '#e76f51',
