@@ -2,72 +2,70 @@ import React from 'react';
 
 import {IconType} from '@Components/Icon';
 
-// BUTTON COMPONENT TYPES
 /**
- * Button Variants Type
+ * Button variants type
  *
- * primary - Button with background color ,no border and high emphasis
+ * `primary` - Button with background color, no border and high emphasis
  *
- * secondary - Button with no background color ,with border and medium emphasis
+ * `secondary` - Button with no background color, with border and medium emphasis
  *
- * tertiary - Button with background color ,no border and low emphasis
+ * `tertiary` - Button with background color, no border and low emphasis
  *
- * quaternary - Button with no background color ,no border and lowest emphasis
+ * `quaternary` - Button with no background color, no border and lowest emphasis
  */
 export type VariantType = 'primary' | 'secondary' | 'tertiary' | 'quaternary';
 
 /**
- * Icon Position in Button Component
+ * Icon position in the component
  *
- * start - Icon at left of button text
+ * `start` - Icon at left of button text
  *
- * end - Icon at right of button text
+ * `end` - Icon at right of button text
  */
 export type IconPositionType = 'start' | 'end';
 
 /**
- * Type for Button State
+ * Type for button state
  */
 export type ButtonState = 'default' | 'hover' | 'active' | 'disabled';
 
 /**
- * Type for Button Color Map
+ * Type for button color map
  */
 export type ButtonColorMap = Record<VariantType, Record<ButtonState, string>>;
 
 /**
- * Interface for Styled Button Component
+ * Interface for styled button component
  */
 export interface StyledButtonProps {
 
     /**
-		 * The variant of the Button component
+		 * The variant of the button component
 		 */
     variant: VariantType;
 
     /**
-		* Position of the Icon
+		* Position of the icon
 		*
 		* @default start
 		*/
     iconPosition?: IconPositionType;
 
     /**
-		* if 'true' Button occupies full width
+		* if `true`, button occupies full width
 		*
 		* @default false
 		*/
     fullWidth?:boolean;
-
 }
 
 /**
- * Interface for Button Component
+ * Interface for button component
  */
 export interface ButtonProps extends Omit<StyledButtonProps, 'variant'> {
 
     /**
-		 * The variant of the Button component
+		 * The variant of the component
 		 *
 		 * @default primary
 		 */
@@ -79,14 +77,14 @@ export interface ButtonProps extends Omit<StyledButtonProps, 'variant'> {
     children: React.ReactNode;
 
     /**
-		 * If 'true' the component is disabled
+		 * If `true`, the component is disabled
 		 *
 		 * @default false
 		 */
     disabled?: boolean;
 
     /**
-		 * Name of the icon to use in component
+		 * Name of the icon to use in the component
 		 */
     iconName?: IconType;
 
@@ -96,7 +94,7 @@ export interface ButtonProps extends Omit<StyledButtonProps, 'variant'> {
     className?: string;
 
     /**
-		 * Perform action on the Button Click
+		 * Perform action on the button click
 		 */
     onClick?: React.MouseEventHandler<HTMLButtonElement>;
 }

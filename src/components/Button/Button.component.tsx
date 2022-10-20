@@ -9,10 +9,10 @@ import {StyledButtonContainer} from './Button.styles';
  * Display the icon and text in button
  */
 const DisplayContent = ({iconName, iconPosition, children}: ButtonProps) => {
-    // Checks if iconName is undefined or not
-    // if yes then place the icon according to the icon-position given
-    // and return children with icon
-    // else return childer without icon
+    /**
+     * If "iconName" is present then place the icon according to the given icon position and return children with the icon
+     * else return children without an icon
+     */    
     if (iconName) {
         const icon = (
             <Icon
@@ -65,7 +65,9 @@ export const Button = (props:ButtonProps) => {
             <DisplayContent
                 iconName={iconName}
                 iconPosition={iconPosition}
-            >{children}</DisplayContent>
+            >
+                {children}
+            </DisplayContent>
         </StyledButtonContainer>
     );
 };
