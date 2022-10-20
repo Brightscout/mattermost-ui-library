@@ -9,7 +9,7 @@ export default {
     component: Switch,
 } as Meta;
 
-const SwitchTemplate:Story<SwitchProps> = (args) => <Switch {...args}/>;
+const SwitchTemplate: Story<SwitchProps> = (args) => <Switch {...args}/>;
 
 // Default Switch
 export const Default = SwitchTemplate.bind({});
@@ -24,7 +24,7 @@ DefaultWithSubLabel.args = {
     subLabel: 'Sub - Label',
 };
 
-// Default Switch with Overflow sub-label
+// Default Switch with overflow sub-label
 export const OverflowSubLabel = SwitchTemplate.bind({});
 OverflowSubLabel.args = {
     label: 'Label',
@@ -52,7 +52,7 @@ Error.args = {
     error: true,
 };
 
-// Error Switch
+// Switch with full width
 export const FullWidth = SwitchTemplate.bind({});
 FullWidth.args = {
     label: 'Label',

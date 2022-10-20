@@ -4,11 +4,11 @@
 export interface StyledSwitchContainerProps {
 
     /**
-		* if 'true', Toggle switch occupies full width of it's container
+		* If `true`, toggle switch occupies full width of it's container
 		*
 		* @default false
 		*/
-    fullWidth?:boolean;
+    fullWidth?: boolean;
 }
 
 /**
@@ -17,50 +17,50 @@ export interface StyledSwitchContainerProps {
 export interface SwitchProps extends StyledSwitchContainerProps {
 
     /**
-     * The id for current toggle switch
+     * The id for toggle switch
      */
-    id?:string;
+    id?: string;
 
     /**
-      * name for the current toggle switch
+      * Name for the toggle switch
       */
-    name?:string;
+    name?: string;
 
     /**
-     * value associated with current toggle switch
+     * Value associated with toggle switch
      */
-    value?:string;
+    value?: string;
 
     /**
-     * Label associated with current toggle switch
+     * Label associated with toggle switch
      */
-    label:string;
+    label: string;
 
     /**
-     * Sub-Label associated with current toggle switch
+     * Sub-Label associated with toggle switch
      */
-    subLabel?:string;
+    subLabel?: string;
 
     /**
-    * if 'true' toggle switch is disabled
+    * If `true` toggle switch is disabled
     *
     * @default false
     */
-    disabled?:boolean;
+    disabled?: boolean;
 
     /**
-     * if 'true' input is checked
+     * If `true` toggle switch is checked
      *
      * @default false
      */
-    checked?:boolean;
+    checked?: boolean;
 
     /**
-     * if 'true' toggle switch is in error state
+     * If `true` toggle switch is in error state
      *
      * @default false
      */
-    error?:boolean;
+    error?: boolean;
 
     /**
      * To override or extend the styles applied to the component

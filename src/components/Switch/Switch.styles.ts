@@ -6,7 +6,7 @@ import colors from '@Styles/colorsForJs.module.scss';
 import {StyledSwitchContainerProps} from './Switch';
 
 /**
- * Styled container to hold the Switch and label for component
+ * Styled container to hold the switch and label for component
  */
 export const StyledSwitch = styled(Form.Check)<StyledSwitchContainerProps>(({fullWidth}) => ({
     padding: 0,
@@ -69,7 +69,7 @@ export const StyledSwitch = styled(Form.Check)<StyledSwitchContainerProps>(({ful
         },
     },
 
-    // Style applied when Switch is disabled
+    // Style applied when switch is disabled
     '& input.form-check-input:disabled': {
         borderColor: 'transparent',
         backgroundColor: colors.centerChannel_24,
