@@ -1,9 +1,7 @@
 import React from 'react';
 import {Story, Meta} from '@storybook/react';
-import 'bootstrap/dist/css/bootstrap.css';
 
 import {Spinner} from './Spinner.component';
-
 import {SpinnerProps} from './Spinner';
 
 export default {
@@ -13,9 +11,8 @@ export default {
 
 const SpinnerTemplate: Story<SpinnerProps> = (args) => <Spinner {...args}/>;
 
-// Default Spinner
+// Default
 export const Default = SpinnerTemplate.bind({});
-Default.args = {};
 
 // Spinner with green color and size 2xl
 export const SpinnerWithSizeAndColor = SpinnerTemplate.bind({});
@@ -26,4 +23,7 @@ SpinnerWithSizeAndColor.args = {
 
 // Spinner with overlay
 export const SpinnerWithOverlay = SpinnerTemplate.bind({});
-SpinnerWithOverlay.args = {overlay: true, size: 'xl'};
+SpinnerWithOverlay.args = {
+    overlay: true,
+    size: 'xl',
+};

@@ -1,15 +1,15 @@
 /**
- * Spinner Size Type
+ * Spinner size type
  *
- *  xs - Spinner of size 10 x 10
+ *  `xs` - Spinner of size 10 x 10
  *
- *  sm - Spinner of size 12 x 12
+ *  `sm` - Spinner of size 12 x 12
  *
- *  md - Spinner of size 16 x 16
+ *  `md` - Spinner of size 16 x 16
  *
- *  xl - Spinner of size 28 x 28
+ *  `xl` - Spinner of size 28 x 28
  *
- *  2xl - Spinner of size 32 x 32
+ *  `2xl` - Spinner of size 32 x 32
  */
 type SizeType = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl';
 
@@ -19,14 +19,15 @@ type SizeType = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl';
 type SizeMapType = Record<SizeType, number>;
 
 /**
- * Interface for Spinner Container
+ * Interface for spinner container
  */
 export interface SpinnerContainerProps {
 
     /**
-        * Overlay for the Spinner Component
+        * Overlay for the spinner component
         *
-        * If true a background overlay fills the parent container and spinner is centered within the container
+        * If `true`, a background overlay fills the parent container
+        * and spinner is centered within the container
         *
         * @default false
         */
@@ -40,12 +41,12 @@ export interface SpinnerContainerProps {
 }
 
 /**
- * Interface for Spinner Component
+ * Interface for spinner component
  */
 export interface SpinnerProps extends SpinnerContainerProps {
 
     /**
-        * Size of the Spinner
+        * Size of the spinner
         *
         * @default 'md'
         */
