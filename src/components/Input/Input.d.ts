@@ -8,19 +8,19 @@ export interface InputProps {
     iconName?: IconType;
 
     /**
-		 * label for the input field
+		 * Label for the input field
 		 */
     label: string;
 
     /**
-		 * If `true`, the icon color will be disabled color
+		 * If `true`, the input element will be disabled
 		 *
 		 * @default false
 		 */
     disabled?: boolean;
 
     /**
-		 * If `true`, the input element is focused during the first mount.
+		 * If `true`, the input element is focused during the first mount
 		 *
 		 * @default false
 		 */
@@ -34,7 +34,7 @@ export interface InputProps {
     error?: boolean;
 
     /**
-		 * If `true`, the input will take up the full width of its container.
+		 * If `true`, the input will take up the full width of it's container.
 		 *
 		 * @default false
 		 */
@@ -56,20 +56,22 @@ export interface InputProps {
     className?: string;
 
     /**
-		 * The name applied to the input element
+		 * Type of the input element
 		 *
 		 * @default 'text'
 		 */
     type?: string;
 
     /**
-		 * It prevents the user from changing the value of the field
+		 * If `true`, prevents the user from changing the value of the field
+		 *
 		 * @default false
 		 */
     readOnly?: boolean;
 
     /**
-		 * If `true`,  the input element is required
+		 * If `true`, value in input field is required
+		 *
 		 * @default false
 		 */
     required?: boolean;

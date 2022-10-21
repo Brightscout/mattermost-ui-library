@@ -3,7 +3,7 @@ import {Form} from 'react-bootstrap';
 
 import colors from '@Styles/colorsForJs.module.scss';
 
-// Style for Input fieldset
+// Style for Input Fieldset
 export const StyledFieldSet = styled.fieldset<{error?: boolean}>(({error}) => {
     return ({
         border: `1px solid ${error ? colors.error : colors.centerChannel_16}`,
@@ -16,7 +16,7 @@ export const StyledFieldSet = styled.fieldset<{error?: boolean}>(({error}) => {
         borderRadius: '4px',
         pointerEvents: 'none',
 
-        // Style for Input Fieldset Legend
+        // Style for fieldset legend
         '& legend': {
             float: 'unset',
             width: 'auto',
@@ -70,7 +70,7 @@ export const StyledFieldSet = styled.fieldset<{error?: boolean}>(({error}) => {
             },
         },
 
-        // Style for Legend on focus
+        // Style for legend on focus
         '.mm-input input:focus + & legend, .visible_label': {
             paddingInline: 4,
             visibility: 'visible',
@@ -113,7 +113,7 @@ export const StyledInputContainer = styled.div<{fullWidth?: boolean}>(({fullWidt
     },
 }));
 
-// Style for Input component
+// Style for Input Component
 export const StyledInput = styled(Form.Control)(({error}) => ({
     display: 'block',
     fontSize: 14,
@@ -126,12 +126,12 @@ export const StyledInput = styled(Form.Control)(({error}) => ({
     appearance: 'none',
     transition: 'border-color .15s ease-in-out,box-shadow .15s ease-in-out',
 
-    // Style for Input on focus
+    // Style for input on focus
     '&:focus-visible': {
         outline: 0,
     },
 
-    // Style for Input on disable
+    // Style for input on disable
     '&:disabled': {
         background: 'transparent',
     },

@@ -34,7 +34,7 @@ const DisplayFieldSet = ({value, error, label}: InputProps) => {
  *
  * @example Correct usage
  * ```ts
- * <Input label={'label'}/>
+ * <Input label='label'/>
  * ```
  *
  * @example Correct usage with icon
