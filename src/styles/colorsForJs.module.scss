@@ -23,5 +23,7 @@
   buttonPrimaryActive:var(--button-primary-active);
   buttonFocusBorder:var(--sidebar-text-active-border);
 
-  overlayBg:var(--overlay-color)
+  overlayBg:var(--overlay-color);
+  tooltipBg:var(--tooltip-bg);
+  tooltipHint: var(--tooltip-hint-text);
 }
