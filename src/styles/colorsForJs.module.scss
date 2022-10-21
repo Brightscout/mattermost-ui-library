@@ -30,5 +30,7 @@
   checkboxHoverBorderColor:rgba(var(--center-channel-text-rgb),0.6);
   checkboxErrorBorderColor:var(--error-text);
 
-  overlayBg:var(--overlay-color)
+  overlayBg:var(--overlay-color);
+  tooltipBg:var(--tooltip-bg);
+  tooltipHint: var(--tooltip-hint-text);
 }
