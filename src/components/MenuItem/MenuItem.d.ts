@@ -39,7 +39,7 @@ export interface MenuItemProps {
     /**
 	 * Callback to be triggered on clicking the Menu Item
 	 */
-    onClick?: (event?: React.MouseEvent<HTMLLIElement, MouseEvent>) => void;
+    onClick?: (event: React.MouseEvent<HTMLLIElement, MouseEvent>) => void;
 
     /**
 	 * To override or extend the styles applied to the component

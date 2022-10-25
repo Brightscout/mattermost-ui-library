@@ -33,6 +33,10 @@ export const MenuItemWrapper = styled.li(() => {
             background: colors.primary_8,
         },
 
+        '&.active': {
+            background: colors.primary_8,
+        },
+
         '&:focus': {
             outline: `2px solid ${colors.buttonFocusBorder}`,
         },

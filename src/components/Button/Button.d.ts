@@ -97,4 +97,6 @@ export interface ButtonProps extends Omit<StyledButtonProps, 'variant'> {
 		 * Perform action on the button click
 		 */
     onClick?: React.MouseEventHandler<HTMLButtonElement>;
+
+    ref?: React.Ref<HTMLButtonElement>;
 }
