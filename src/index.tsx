@@ -1,4 +1,5 @@
 import AutoSuggest from '@Components/AutoSuggest';
+import Button from '@Components/Buttons/Button';
 import MenuButtons from '@Components/Buttons/MenuButtons';
 import BaseCard from '@Components/Card/Base';
 import SubscriptionCard from '@Components/Card/Subscription';
@@ -32,6 +33,7 @@ import {ServiceNowIcon, BellIcon, UnlinkIcon, LinkIcon, EditIcon, DeleteIcon, Ch
 
 export {
     AutoSuggest,
+    Button,
     MenuButtons,
     BaseCard,
     SubscriptionCard,
