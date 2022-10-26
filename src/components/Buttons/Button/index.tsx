@@ -15,7 +15,7 @@ const Button = ({
     extraClass = '',
     onClick,
     isSecondaryButton,
-    isDisabled = false
+    isDisabled = false,
 }: ButtonProps) => (
     <button
         disabled={isDisabled}
