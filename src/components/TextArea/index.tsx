@@ -1,6 +1,6 @@
 import React from 'react';
 
-type TextFieldProps = {
+type TextAreaProps = {
     label?: React.ReactNode;
     placeholder?: string;
     value?: string;
@@ -10,7 +10,7 @@ type TextFieldProps = {
     className?: string;
 }
 
-const TextField = ({
+const TextArea = ({
     label,
     placeholder = '',
     value = '',
@@ -18,18 +18,18 @@ const TextField = ({
     error,
     disabled = false,
     className = '',
-}: TextFieldProps) => (
-    <div className={`textfield ${className}`}>
+}: TextAreaProps) => (
+    <div className={`textarea ${className}`}>
         {label && <label className='form-group__label wt-400'>{label}</label>}
         <textarea
             value={value}
             onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) => onChange?.(e)}
             placeholder={placeholder}
             disabled={disabled}
-            className={`textfield__control border-radius-4 ${error && 'textfield__control--err error-text'}`}
+            className={`textarea__control border-radius-4 ${error && 'textarea__control--err error-text'}`}
         />
         {(error && typeof error === 'string') && <p className='form-group__err-text error-text font-14 margin-top-5'>{error}</p>}
     </div>
 );
 
-export default TextField;
+export default TextArea;

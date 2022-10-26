@@ -24,7 +24,7 @@ import Popover from '@Components/Popover';
 import ResultPanel from '@Components/ResultPanel';
 import SvgWrapper from '@Components/SvgWrapper';
 import Tabs from '@Components/Tabs';
-import TextField from '@Components/TextField';
+import TextArea from '@Components/TextArea';
 import ToggleSwitch from '@Components/ToggleSwitch';
 import Tooltip from '@Components/Tooltip';
 
@@ -58,7 +58,7 @@ export {
     ResultPanel,
     SvgWrapper,
     Tabs,
-    TextField,
+    TextArea,
     ToggleSwitch,
     Tooltip,
     ServiceNowIcon,
