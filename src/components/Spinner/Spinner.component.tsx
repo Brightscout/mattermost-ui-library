@@ -21,7 +21,7 @@ import {SpinnerContainer} from './Spinner.styles';
  * ```
  */
 export const Spinner = (props: SpinnerProps) => {
-    const {size = 'md', overlay = false, color, className} = props;
+    const {size = 'xl', overlay = false, color, className = ''} = props;
     const sizeMap: SizeMapType = {
         xs: 10,
         sm: 12,
@@ -35,7 +35,7 @@ export const Spinner = (props: SpinnerProps) => {
         <SpinnerContainer
             overlay={overlay}
             color={color}
-            className={className}
+            className={`mm-spinner ${className}`}
         >
             <Icon
                 name='Spinner'

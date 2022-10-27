@@ -1,61 +1,16 @@
-  <svg
-                width='100%'
-                height='100%'
-                viewBox='0 0 185 185'
-                fill='none'
-                xmlns='http://www.w3.org/2000/svg'
-            >
-                <path
-                    d='M5.62 92.5C5.62 69.458 14.7734 47.3597 31.0666 31.0666C47.3597 14.7734 69.458 5.62 92.5 5.62C115.542 5.62 137.64 14.7734 153.933 31.0666C170.227 47.3597 179.38 69.458 179.38 92.5'
-                    stroke='url(#paint0_linear_1_3)'
-                    stroke-width='10'
-                />
-                <path
-                    d='M179.38 92.5C179.38 115.542 170.227 137.64 153.933 153.933C137.64 170.227 115.542 179.38 92.5 179.38C69.458 179.38 47.3597 170.227 31.0666 153.933C14.7734 137.64 5.62 115.542 5.62 92.5'
-                    stroke='url(#paint1_linear_1_3)'
-                    stroke-width='10'
-                />
-                <defs>
-                    <linearGradient
-                        id='paint0_linear_1_3'
-                        x1='5.62'
-                        y1='5.62'
-                        x2='179.38'
-                        y2='5.62'
-                        gradientUnits='userSpaceOnUse'
-                    >
-                        <stop
-                            stop-color='currentColor'
-                            stop-opacity='0'
-                        />
-                        <stop
-                            stop-color='currentColor'
-                            offset='1'
-                            stop-opacity='0.5'
-                        />
-                    </linearGradient>
-                    <linearGradient
-                        id='paint1_linear_1_3'
-                        x1='5.62'
-                        y1='92.5'
-                        x2='179.38'
-                        y2='92.5'
-                        gradientUnits='userSpaceOnUse'
-                    >
-                        <stop stop-color='currentColor' />
-                        <stop
-                            stop-color='currentColor'
-                            offset='1'
-                            stop-opacity='0.5'
-                        />
-                    </linearGradient>
-                </defs>
-                <animateTransform
-                    from='0 0 0'
-                    to='360 0 0'
-                    attributeName='transform'
-                    type='rotate'
-                    repeatCount='indefinite'
-                    dur='1300ms'
-                />
-            </svg>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg fill="none" viewBox="0 0 195 195" xmlns="http://www.w3.org/2000/svg">
+<path d="m10.62 97.5c0-23.042 9.1534-45.14 25.447-61.433 16.293-16.293 38.391-25.447 61.433-25.447s45.14 9.1534 61.433 25.447c16.294 16.293 25.447 38.391 25.447 61.433" stroke="url(#b)" stroke-width="20"/>
+<path d="m184.38 97.5c0 23.042-9.153 45.14-25.447 61.433-16.293 16.294-38.391 25.447-61.433 25.447s-45.14-9.153-61.433-25.447c-16.293-16.293-25.447-38.391-25.447-61.433" stroke="url(#a)" stroke-width="20"/>
+<defs>
+<linearGradient id="b" x1="10.62" x2="184.38" y1="10.62" y2="10.62" gradientUnits="userSpaceOnUse">
+<stop stop-color="currentColor" stop-opacity="0" offset="0"/>
+<stop stop-color="currentColor" stop-opacity=".5" offset="1"/>
+</linearGradient>
+<linearGradient id="a" x1="10.62" x2="184.38" y1="97.5" y2="97.5" gradientUnits="userSpaceOnUse">
+<stop stop-color="currentColor" offset="0"/>
+<stop stop-color="currentColor" stop-opacity=".5" offset="1"/>
+</linearGradient>
+</defs>
+<animateTransform attributeName="transform" dur="1300ms" from="0 0 0" repeatCount="indefinite" to="360 0 0" type="rotate"/>
+</svg>

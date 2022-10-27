@@ -48,7 +48,7 @@ export interface SpinnerProps extends SpinnerContainerProps {
     /**
     * Size of the spinner
     *
-    * @default 'md'
+    * @default 'xl'
     */
     size?: SizeType;
 
