@@ -29,7 +29,7 @@ export const MenuItemWrapper = styled.li(() => {
             background: colors.centerChannel_8,
         },
 
-        '&:active': {
+        '&:active, &.active': {
             background: colors.primary_8,
         },
 
