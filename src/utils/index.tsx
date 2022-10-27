@@ -4,14 +4,14 @@
  * that key won't be included in the output.
  *
  * @param classObject - object with key as classname and value boolean
- * @returns classnames
+ * @returns classes
  */
 export const extendClassname = (classObject: Record<string, boolean>) => {
     let classes = '';
-    for (const classname in classObject) {
-        if (classObject[classname]) {
-            classes += classname + ' ';
+    for (const className in classObject) {
+        if (classObject[className]) {
+            classes +=  `${className} `;
         }
     }
-    return classes.trim();
+    return classes;
 };

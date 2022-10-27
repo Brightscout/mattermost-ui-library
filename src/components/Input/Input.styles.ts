@@ -108,7 +108,7 @@ export const StyledInputContainer = styled.div<{fullWidth?: boolean}>(({fullWidt
     '& .mm-icon': {
         marginLeft: 8,
         '& svg path': {
-            fill: colors.centerChannel_64,
+            color: colors.centerChannel_64,
         },
     },
 }));

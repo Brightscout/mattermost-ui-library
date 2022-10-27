@@ -12,22 +12,20 @@ import {InputProps} from './Input';
  *
  * Displays fieldset for input component
  */
-const DisplayFieldSet = ({value, error, label}: InputProps) => {
-    return (
-        <StyledFieldSet
-            className={`input_label ${extendClassname({
-                'visible_label-border': Boolean(value),
-                input_error: Boolean(error),
-            })}`
-            }
-            error={error}
-        >
-            <legend className={extendClassname({visible_label: Boolean(value)})}>
-                {label}
-            </legend>
-        </StyledFieldSet>
-    );
-};
+const DisplayFieldSet = ({value, error, label}: InputProps) => (
+    <StyledFieldSet
+        className={`input_label ${extendClassname({
+            'visible_label-border': Boolean(value),
+            input_error: Boolean(error),
+        })}`
+        }
+        error={error}
+    >
+        <legend className={extendClassname({visible_label: Boolean(value)})}>
+            {label}
+        </legend>
+    </StyledFieldSet>
+);
 
 /**
  * Input Component
@@ -46,7 +44,13 @@ export const Input = (props: InputProps) => {
     const {label, iconName, className = '', fullWidth, ...restProps} = props;
     const {readOnly, error, required, value = ''} = restProps;
 
-    const inputLabel = required ? `${label} *` : label;
+    const inputLabel = `${label}${required ? ' *' : ''}`;
+
+    const togglePlaceholderValue = (event: React.ChangeEvent<HTMLInputElement>, type: string) => {
+        if (!readOnly) {
+            event.target.placeholder = type === 'focus' ? '' : inputLabel;
+        }
+    }
 
     return (
         <StyledInputContainer
@@ -61,16 +65,12 @@ export const Input = (props: InputProps) => {
             }
             <StyledInput
                 placeholder={inputLabel}
-                onFocus={(event: React.ChangeEvent<HTMLInputElement>) => {
-                    if (!readOnly) {
-                        event.target.placeholder = '';
-                    }
-                }}
-                onBlur={(event: React.ChangeEvent<HTMLInputElement>) => {
-                    if (!readOnly) {
-                        event.target.placeholder = inputLabel;
-                    }
-                }}
+                onFocus={(event: React.ChangeEvent<HTMLInputElement>) => 
+                    togglePlaceholderValue(event, 'focus')
+                }
+                onBlur={(event: React.ChangeEvent<HTMLInputElement>) => 
+                    togglePlaceholderValue(event, 'blur')
+                }
                 {...restProps}
             />
             <DisplayFieldSet
