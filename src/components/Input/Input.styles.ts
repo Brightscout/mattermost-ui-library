@@ -23,8 +23,8 @@ export const StyledFieldSet = styled.fieldset<{error?: boolean}>(({error}) => {
             overflow: 'hidden',
             display: 'block',
             padding: 0,
-            fontSize: 14,
-            lineHeight: '16px',
+            fontSize: 10,
+            lineHeight: '12px',
             color: `${error ? colors.error : colors.centerChannel_64}`,
             visibility: 'hidden',
             maxWidth: 0.01,
@@ -75,6 +75,7 @@ export const StyledFieldSet = styled.fieldset<{error?: boolean}>(({error}) => {
             paddingInline: 4,
             visibility: 'visible',
             maxWidth: '100%',
+            marginLeft: 10,
             transition: 'max-width 100ms cubic-bezier(0.0, 0, 0.2, 1) 50ms',
         },
 
@@ -126,7 +127,7 @@ export const StyledInput = styled(Form.Control)(({error}) => ({
     appearance: 'none',
     transition: 'border-color .15s ease-in-out,box-shadow .15s ease-in-out',
 
-    // Style for input on focus
+    // Style for input on focus-visible
     '&:focus-visible': {
         outline: 0,
     },
@@ -135,4 +136,13 @@ export const StyledInput = styled(Form.Control)(({error}) => ({
     '&:disabled': {
         background: 'transparent',
     },
+
+    // Style for input on focus
+    '&:focus': {
+        color: 'inherit',
+        background: 'inherit',
+        border: 'none',
+        outline: 0,
+        boxShadow: 'none', 
+    }
 }));
