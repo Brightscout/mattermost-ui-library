@@ -8,30 +8,30 @@ export const StyledTooltip = styled(Tooltip)({
     '.tooltip-inner': {
         background: colors.tooltipBg,
         border: 'none',
+        borderRadius: 4,
+    },
+    '&.tooltip.show': {
+        opacity: 1,
     },
 
     // styling for tooltip with placement top
-    '&[x-placement="top"] .tooltip-arrow::before': {
+    '&[x-placement="top"] .arrow::before': {
         borderTopColor: colors.tooltipBg,
-        transform: 'translateY(1px)',
     },
 
     // styling for tooltip with placement bottom
-    '&[x-placement="bottom"] .tooltip-arrow::before': {
+    '&[x-placement="bottom"] .arrow::before': {
         borderBottomColor: colors.tooltipBg,
-        transform: 'translateY(-1px)',
     },
 
     // styling for tooltip with placement right
-    '&[x-placement="right"] .tooltip-arrow::before': {
+    '&[x-placement="right"] .arrow::before': {
         borderRightColor: colors.tooltipBg,
-        transform: 'translateX(-1px)',
     },
 
     // styling for tooltip with placement left
-    '&[x-placement="left"] .tooltip-arrow::before': {
+    '&[x-placement="left"] .arrow::before': {
         borderLeftColor: colors.tooltipBg,
-        transform: 'translateX(1px)',
     },
 
     svg: {
@@ -45,6 +45,7 @@ export const Text = styled.div({
     justifyContent: 'center',
     gap: 6,
     fontSize: 12,
+    fontWeight: 600,
 });
 
 export const Hint = styled.div({
