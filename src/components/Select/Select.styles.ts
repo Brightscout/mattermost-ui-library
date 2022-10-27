@@ -63,11 +63,6 @@ export const LeadingIcon = styled.div({
     top: '50%',
     left: '16px',
     transform: 'translateY(-50%)',
-
-    //TODO: need to fix globally icon
-    svg: {
-        display: 'block',
-    },
 });
 
 // styles for trailing icon
@@ -81,11 +76,6 @@ export const TrailingIcon = styled.div({
 
     '& .mm-icon': {
         pointerEvents: 'none',
-    },
-
-    //TODO: need to fix globally icon
-    svg: {
-        display: 'block',
     },
 });
 

@@ -13,6 +13,7 @@ export const StyledIconContainer = styled.div<StyledContainerProps>(({size, icon
         display: 'block',
         width: size,
         height: size,
+        display: 'block',
     },
     '& path, & rect': {
         color: iconColor,

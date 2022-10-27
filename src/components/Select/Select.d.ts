@@ -16,10 +16,11 @@ export type OptionTypeWithLabel = {
 /**
  * Type of Options
  *
- * Passed in by the user can either be a string array or an array of object with structure {label:string, value:string}
+ * Options passed in by the user can either be a string or an object with {label: string,value: string } structure
  *
  */
-export type OptionsType = string | OptionTypeWithLabel;
+// Todo: Find workaround for string[] | OptionTypeWithLabel[]
+export type OptionType = string | OptionTypeWithLabel;
 
 /**
  * Interface for input
@@ -46,7 +47,7 @@ export interface SelectProps extends InputProps {
      * options for the select component
      * rendered in the dropdown
      */
-    options: OptionsType[];
+    options: OptionType[];
 
     /**
      * @param e - Element in which the event have happened
