@@ -7,6 +7,11 @@ import { LinearProgressProps } from './LinearProgress';
 export default {
 	title: 'Component/LinearProgress',
 	component: LinearProgress,
+	argTypes: {
+		value: {
+			control: { type: 'range', min: 0, max: 100 },
+		},
+	},
 } as Meta;
 
 const LinearProgressTemplate: Story<LinearProgressProps> = (args) => (

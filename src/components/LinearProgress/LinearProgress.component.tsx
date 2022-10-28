@@ -1,5 +1,7 @@
 import React from 'react';
 
+import {extendClassname} from '@Utils';
+
 import {LinearProgressProps} from './LinearProgress';
 import {StyledProgressBar} from './LinearProgress.styles';
 
@@ -25,8 +27,7 @@ export const LinearProgress = (props: LinearProgressProps) => {
         <StyledProgressBar
             now={value}
             color={color}
-            determinate={determinate}
-            className={`mm-linearProgress ${className}`}
+            className={`mm-linearProgress ${className} ${extendClassname({linear_loader: !determinate})}`}
         />
     );
 };

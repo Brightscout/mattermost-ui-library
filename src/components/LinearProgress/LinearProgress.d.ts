@@ -3,13 +3,6 @@
  */
 export interface StyledProgressBarProps {
 	/**
-	 * Determinate state for linear progress bar component
-	 *
-	 * If `true` the indicator increases in width according to value passed
-	 */
-	determinate?: boolean;
-
-	/**
 	 * Color of the spinner based on available options
 	 * @default var(--button-bg)
 	 */
@@ -21,9 +14,16 @@ export interface StyledProgressBarProps {
  */
 export interface LinearProgressProps extends StyledProgressBarProps {
 	/**
-	 * Value of the progress in linear progress bar component
+	 * Value of the progress in percentage of linear progress bar component
 	 */
 	value?: number;
+
+	/**
+	 * Determinate state for linear progress bar component
+	 *
+	 * If `true` the indicator increases in width according to value passed
+	 */
+	determinate?: boolean;
 
 	/**
 	 * To override or extend the styles applied to the component
