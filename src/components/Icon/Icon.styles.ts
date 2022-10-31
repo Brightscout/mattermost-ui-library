@@ -10,6 +10,7 @@ import {StyledContainerProps} from './Icon';
 export const StyledIconContainer = styled.div<StyledContainerProps>(({size, iconColor = colors.iconColor}) => ({
     height: size,
     '& svg': {
+        display: 'block',
         width: size,
         height: size,
     },

@@ -13,7 +13,9 @@
   centerChannel: var(--center-channel-color);
   centerChannel_64: var(--center-channel-color-64);
   centerChannel_48: var(--center-channel-color-48);
+  centerChannel_40: var(--center-channel-color-40);
   centerChannel_32: var(--center-channel-color-32);
+  centerChannel_24: var(--center-channel-color-24);
   centerChannel_16: var(--center-channel-color-16);
   centerChannel_8: var(--center-channel-color-08);
   centerChannel_4: var(--center-channel-color-04);
@@ -22,4 +24,7 @@
   buttonPrimaryHover:var(--button-primary-hover);
   buttonPrimaryActive:var(--button-primary-active);
   buttonFocusBorder:var(--sidebar-text-active-border);
+  checkboxBorderColor:rgba(var(--center-channel-text-rgb),0.24);
+  checkboxHoverBorderColor:rgba(var(--center-channel-text-rgb),0.6);
+  checkboxErrorBorderColor:var(--error-text);
 }
