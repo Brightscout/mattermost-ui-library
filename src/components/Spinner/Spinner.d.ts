@@ -1,5 +1,5 @@
 /**
-* Spinner size type
+* Spinner's size type
 *
 *  `xs` - Spinner of size 10 x 10
 *
