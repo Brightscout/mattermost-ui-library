@@ -4,7 +4,7 @@ import {CheckIcon} from '@Components/Icons';
 
 type ResultPanelProps = {
     iconClass?: string | null;
-    header: string | null;
+    header: React.ReactNode;
     className?: string;
     primaryBtn?: {
         text: string;
