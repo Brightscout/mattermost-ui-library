@@ -45,9 +45,9 @@
   --mention-color-rgb: 30, 50, 92;
   --mention-highlight-bg-rgb: 255, 212, 112;
   --mention-highlight-link-rgb: 27, 29, 34;
-  --mention-highlight-bg-mixed-rgb: 255,233,183;
-  --pinned-highlight-bg-mixed-rgb: 255,244,220;
-  --own-highlight-bg-rgb: 245,204,110;
+  --mention-highlight-bg-mixed-rgb: 255, 233, 183;
+  --pinned-highlight-bg-mixed-rgb: 255, 244, 220;
+  --own-highlight-bg-rgb: 245, 204, 110;
   --new-message-separator-rgb: 204, 143, 0;
   --online-indicator-rgb: 61, 184, 135;
   --sidebar-bg-rgb: 30, 50, 92;
@@ -157,7 +157,7 @@
 
   //extra colors
   --default-icon-color: #989898;
-  --button-primary-hover:#1C53C8;
-  --button-primary-active:#174BB6;
+  --button-primary-hover: #1c53c8;
+  --button-primary-active: #174bb6;
+  --overlay-color: rgba(0, 0, 0, 0.4);
 }
-

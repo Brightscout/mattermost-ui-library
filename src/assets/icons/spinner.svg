@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg fill="none" viewBox="0 0 195 195" xmlns="http://www.w3.org/2000/svg">
+<path d="m10.62 97.5c0-23.042 9.1534-45.14 25.447-61.433 16.293-16.293 38.391-25.447 61.433-25.447s45.14 9.1534 61.433 25.447c16.294 16.293 25.447 38.391 25.447 61.433" stroke="url(#b)" stroke-width="20"/>
+<path d="m184.38 97.5c0 23.042-9.153 45.14-25.447 61.433-16.293 16.294-38.391 25.447-61.433 25.447s-45.14-9.153-61.433-25.447c-16.293-16.293-25.447-38.391-25.447-61.433" stroke="url(#a)" stroke-width="20"/>
+<defs>
+<linearGradient id="b" x1="10.62" x2="184.38" y1="10.62" y2="10.62" gradientUnits="userSpaceOnUse">
+<stop stop-color="currentColor" stop-opacity="0" offset="0"/>
+<stop stop-color="currentColor" stop-opacity=".5" offset="1"/>
+</linearGradient>
+<linearGradient id="a" x1="10.62" x2="184.38" y1="97.5" y2="97.5" gradientUnits="userSpaceOnUse">
+<stop stop-color="currentColor" offset="0"/>
+<stop stop-color="currentColor" stop-opacity=".5" offset="1"/>
+</linearGradient>
+</defs>
+<animateTransform attributeName="transform" dur="1300ms" from="0 0 0" repeatCount="indefinite" to="360 0 0" type="rotate"/>
+</svg>
