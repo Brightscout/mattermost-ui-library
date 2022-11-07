@@ -2,7 +2,7 @@ import React from 'react';
 
 import {extendClassname} from '@Utils';
 
-import {SkeletonProps} from './Skeleton';
+import {CircularSkeleton, RectangularSkeleton, SkeletonProps} from './Skeleton';
 import {StyledSkeleton} from './Skeleton.styles';
 
 /**
@@ -29,7 +29,7 @@ export const Skeleton = (props: SkeletonProps) => {
         return (
             <StyledSkeleton
                 className={`mm-skeleton ${extendClassname({[variant]: true})}`}
-                size={(props.size ?? '100%') as string | number}
+                size={((props as CircularSkeleton).size ?? '100%')}
             />);
     }
 
@@ -37,8 +37,8 @@ export const Skeleton = (props: SkeletonProps) => {
     return (
         <StyledSkeleton
             className={`mm-skeleton ${extendClassname({[variant]: true})}`}
-            height={(props.height ?? '100%') as string | number}
-            width={(props.width ?? '100%') as string | number}
-            borderRadius={(props.borderRadius ?? 0) as string | number}
+            height={((props as RectangularSkeleton).height ?? '100%')}
+            width={((props as RectangularSkeleton).width ?? '100%')}
+            borderRadius={((props as RectangularSkeleton).borderRadius ?? 0)}
         />);
 };
