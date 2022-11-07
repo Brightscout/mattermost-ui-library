@@ -2,21 +2,20 @@ import styled from 'styled-components';
 
 import Colors from '@Styles/colorsForJs.module.scss';
 
-// Styles for modal header wrapper
+// Styles for the modal header wrapper
 export const ModalHeaderWrapper = styled.div({
-
     padding: '26px  32px',
     borderBottom: `1px solid ${Colors.centerChannel_16}`,
 });
 
-// Styles for modal first row containing header title and close icon button
+// Styles for the modal's first row containing the header, the title and the close icon button
 export const ModalHeaderRow = styled.div({
     display: 'flex',
     alignItems: 'center',
     marginBottom: '8px',
 });
 
-// Styles for modal title
+// Styles for the modal title
 export const ModalHeaderTitle = styled.h2({
     margin: 0,
     flex: 1,
@@ -27,7 +26,7 @@ export const ModalHeaderTitle = styled.h2({
     whiteSpace: 'nowrap',
 });
 
-// Styles for modal subtitle
+// Styles for the modal subtitle
 export const ModalHeaderSubtitle = styled.p({
     margin: 0,
     color: Colors.centerChannel_72,
@@ -35,7 +34,7 @@ export const ModalHeaderSubtitle = styled.p({
     maxWidth: '80%',
 });
 
-// Styles for icon button
+// Styles for the icon button
 export const IconButton = styled.button({
     background: 'none',
     border: 'none',

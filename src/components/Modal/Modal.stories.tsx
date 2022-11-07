@@ -1,10 +1,7 @@
 import React from 'react';
 import {Story, Meta} from '@storybook/react';
 
-import {useState} from '@storybook/addons';
-
 import {Button} from '@Components/Button';
-
 import {Modal, ModalBody, ModalFooter, ModalHeader} from '@Components/Modal';
 
 import {ModalProps} from './Modal';
@@ -12,35 +9,28 @@ import {ModalProps} from './Modal';
 export default {
     title: 'Component/Modal',
     component: Modal,
+    args: {
+        backdrop: 'static',
+    },
     argTypes: {
         backdrop: {
             options: ['static', true, false],
             control: {type: 'select'},
         },
     },
-} as Meta<typeof Modal>;
+} as Meta<ModalProps>;
 
 // Default
-export const Default = (args: ModalProps) => {
-    const [show, setShow] = useState(false);
-    const onHideHandler = () => {
-        setShow(false);
-    };
-    const onOpenModalHandler = () => {
-        setShow(true);
-    };
-
-    return (<>
-        <Button onClick={onOpenModalHandler}>{'Open Modal'}</Button>
+export const Default:Story<ModalProps> = (args) => {
+    const {onCloseHandler} = args;
+    return (
         <Modal
-            show={show}
             {...args}
-            onCloseHandler={onHideHandler}
         >
             <ModalHeader
                 title='Modal Header'
                 subtitle='Diam viverra donec nisi in lorem dictum'
-                onCloseHandler={onHideHandler}
+                onCloseHandler={onCloseHandler}
             />
             <ModalBody>
                 {
@@ -52,9 +42,5 @@ export const Default = (args: ModalProps) => {
                 secondary={<Button variant='tertiary'>{'Close'}</Button>}
             />
         </Modal>
-    </>);
-};
-
-Default.args = {
-    backdrop: 'static',
+    );
 };

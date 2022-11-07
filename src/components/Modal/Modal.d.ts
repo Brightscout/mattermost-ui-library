@@ -9,14 +9,14 @@ export interface ModalProps {
 
     /**
      * State of the modal
-     * When `true` modal shows
+     * When `true`, the modal shows
      */
     show: boolean;
 
     /**
      * 'true' for a backdrop that triggers an "onHide" when clicked.
      * 'static' for a backdrop that doesn't trigger an "onHide" when clicked.
-     * 'false' to remove backdrop
+     * 'false' to remove the backdrop
      *
      * @default 'static'
      */

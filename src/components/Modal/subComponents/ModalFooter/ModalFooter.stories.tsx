@@ -9,7 +9,7 @@ import {ModalFooter} from './ModalFooter.component';
 export default {
     title: 'Component/Modal/ModalFooter',
     component: ModalFooter,
-} as Meta<typeof ModalFooter>;
+} as Meta<ModalFooterProps>;
 
 const ModalFooterTemplate: Story<ModalFooterProps> = (args) => <ModalFooter {...args}/>;
 
