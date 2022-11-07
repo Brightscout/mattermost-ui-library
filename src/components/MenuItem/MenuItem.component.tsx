@@ -1,5 +1,7 @@
 import React from 'react';
 
+import {Icon} from '@Components/Icon';
+
 import {MenuItemProps} from './MenuItem';
 import {Label, MenuItemWrapper, SecondaryLabel} from './MenuItem.styles';
 
@@ -27,19 +29,21 @@ import {Label, MenuItemWrapper, SecondaryLabel} from './MenuItem.styles';
  * />
  * ```
  *
- * @example usage with trailing and leading element
+ * @example usage with trailing and leading icon
  * ```ts
  * <MenuItem label='Main Label'
  *           secondaryLabel='Secondary Label'
- *           leadingElement={<Icon name='Edit' size={12}/>}
- *           trailingElement={<Icon name='Delete' size={12}>}
+ *           leadingIcon='Edit'
+ *           trailingIcon='Delete'
+ * />
+ * ```
  */
 export const MenuItem = (props: MenuItemProps) => {
     const {
         label,
         secondaryLabel,
-        leadingElement,
-        trailingElement,
+        leadingIcon,
+        trailingIcon,
         onClick,
         secondaryLabelPosition = 'block',
         className = '',
@@ -50,20 +54,35 @@ export const MenuItem = (props: MenuItemProps) => {
             onClick={onClick}
             className={`mm-menuItem ${className}`}
         >
-            {leadingElement}
+            {
+                leadingIcon &&
+                    <Icon
+                        name={leadingIcon}
+                        size={16}
+                    />
+            }
             <Label
                 className='mm-menuItem__label'
                 secondaryLabelPosition={secondaryLabelPosition}
             >
                 {label}
             </Label>
-            <SecondaryLabel
-                className='mm-menuItem__secondary-label'
-                secondaryLabelPosition={secondaryLabelPosition}
-            >
-                {secondaryLabel}
-            </SecondaryLabel>
-            {trailingElement}
+            {
+                secondaryLabel &&
+                    <SecondaryLabel
+                        className='mm-menuItem__secondary-label'
+                        secondaryLabelPosition={secondaryLabelPosition}
+                    >
+                        {secondaryLabel}
+                    </SecondaryLabel>
+            }
+            {
+                trailingIcon &&
+                    <Icon
+                        name={trailingIcon}
+                        size={16}
+                    />
+            }
         </MenuItemWrapper>
     );
 };

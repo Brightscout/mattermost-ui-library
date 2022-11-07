@@ -1,5 +1,7 @@
 import React from 'react';
 
+import {IconType} from '@Components/Icon';
+
 /**
  * Type of position for secondary label
  *
@@ -27,14 +29,14 @@ export interface MenuItemProps {
     secondaryLabelPosition?: SecondaryLabelPositionType;
 
     /**
-	 * Leading element in menu item
+	 * Leading icon in menu item
 	 */
-    leadingElement?: React.ReactNode;
+    leadingIcon?: Exclude<IconType, 'Spinner'>;
 
     /**
-	 * Trailing element in menu item
+	 * Trailing icon in menu item
 	 */
-    trailingElement?: React.ReactNode;
+    trailingIcon?: Exclude<IconType, 'Spinner'>;
 
     /**
 	 * Callback to be triggered on clicking the Menu Item

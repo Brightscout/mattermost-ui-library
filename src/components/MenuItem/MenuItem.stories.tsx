@@ -1,8 +1,6 @@
 import React from 'react';
 import {Story, Meta} from '@storybook/react';
 
-import {Icon} from '@Components/Icon';
-
 import {MenuItem} from './MenuItem.component';
 import {MenuItemProps} from './MenuItem';
 
@@ -25,30 +23,18 @@ MenuItemWithSecondaryLabel.args = {
     secondaryLabel: '@Secondary Label',
 };
 
-export const MenuItemWithLeadingElementAndInlineSecondaryLabel = MenuItemTemplate.bind({});
-MenuItemWithLeadingElementAndInlineSecondaryLabel.args = {
+export const MenuItemWithLeadingIconAndInlineSecondaryLabel = MenuItemTemplate.bind({});
+MenuItemWithLeadingIconAndInlineSecondaryLabel.args = {
     label: 'Main Label',
     secondaryLabel: '@Secondary label',
     secondaryLabelPosition: 'inline',
-    leadingElement:
-    <Icon
-        name='Edit'
-        size={12}
-    />,
+    leadingIcon: 'Edit',
 };
 
-export const MenuItemWithLeadingAndTrailingElement = MenuItemTemplate.bind({});
-MenuItemWithLeadingAndTrailingElement.args = {
+export const MenuItemWithLeadingAndTrailingIcon = MenuItemTemplate.bind({});
+MenuItemWithLeadingAndTrailingIcon.args = {
     label: 'Main Label',
     secondaryLabel: '@Secondary Label',
-    leadingElement:
-    <Icon
-        name='Edit'
-        size={12}
-    />,
-    trailingElement:
-    <Icon
-        name='Delete'
-        size={12}
-    />,
+    leadingIcon: 'Edit',
+    trailingIcon: 'Delete',
 };

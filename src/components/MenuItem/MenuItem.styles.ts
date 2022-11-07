@@ -36,11 +36,6 @@ export const MenuItemWrapper = styled.li(() => {
         '&:focus': {
             outline: `2px solid ${colors.buttonFocusBorder}`,
         },
-
-        // TODO: This needs to fixed gloablly in Icon Component
-        svg: {
-            display: 'block',
-        },
     };
 });
 
@@ -50,11 +45,7 @@ export const Label = styled.span<{
 }>(({secondaryLabelPosition}) => {
     return {
         fontSize: 14,
-        ...(secondaryLabelPosition === 'block' ? {
-            gridColumnStart: 3,
-        } : {
-            gridColumnStart: 2,
-        }),
+        gridColumnStart: secondaryLabelPosition === 'block' ? 3 : 2,
     };
 });
 
@@ -65,12 +56,8 @@ export const SecondaryLabel = styled.span<{
     return {
         fontSize: 12,
         color: colors.menuSecondaryText,
-        ...(secondaryLabelPosition === 'block' ? {
-            gridRowStart: 2,
-            gridColumnStart: 3,
-        } : {
-            gridColumnStart: 3,
-        }),
+        gridColumnStart: 3,
+        gridRowStart: secondaryLabelPosition === 'block' ? 2 : 'unset',
     };
 });
 
