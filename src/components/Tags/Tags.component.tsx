@@ -2,7 +2,9 @@ import React from 'react';
 
 import {extendClassname} from '@Utils';
 
-import {TagsProps} from './Tags';
+import {Tooltip} from '@Components/Tooltip';
+
+import {LabelTags, TagsProps} from './Tags';
 import {TagsWrapper} from './Tags.styles';
 
 /**
@@ -27,11 +29,25 @@ import {TagsWrapper} from './Tags.styles';
  * ```
  */
 export const Tags = (props: TagsProps) => {
-    const {type, text} = props;
+    const {type, text, tooltip = false} = props;
+
+    if (tooltip) {
+        return (
+            <Tooltip
+                text={tooltip.text}
+                placement={tooltip.placement}
+            >
+                <TagsWrapper
+                    className={`mm-tags ${extendClassname({[type]: true, ...(type === 'label' ? {[(props as LabelTags).variant]: true} : {})})}`}
+                >
+                    {text}
+                </TagsWrapper>
+            </Tooltip>);
+    }
 
     return (
         <TagsWrapper
-            className={`mm-tags ${extendClassname({[type]: true})}${type === 'label' ? extendClassname({[props.variant]: true}) : ''}`}
+            className={`mm-tags ${extendClassname({[type]: true, ...(type === 'label' ? {[(props as LabelTags).variant]: true} : {})})}`}
         >
             {text}
         </TagsWrapper>);

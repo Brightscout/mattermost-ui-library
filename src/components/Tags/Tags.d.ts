@@ -1,12 +1,36 @@
+import {placementType} from '@Components/Tooltip/Tooltip';
+
 // Variant Types for label
 export type TagsVariantType = 'general' | 'info' | 'warning' | 'success';
 
+// Interface for tooltip with tag
+export interface tagWithTooltip {
+
+    /**
+     * Text to be displayed in the tooltip
+     */
+    text: string;
+
+    /**
+     * placement of the tooltip with respect to the wrapper
+     */
+    placement: placementType;
+}
+
+// Types common to all types of tags
 export interface CommonProps {
 
     /**
      * Text to be rendered in the tag
      */
     text: string;
+
+    /**
+     * If passed with an object of text and placement would render a tooltip on hovering the tag
+     *
+     * @default false
+     */
+    tooltip?: tagWithTooltip;
 }
 
 // Interface for label tags

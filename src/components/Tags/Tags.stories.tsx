@@ -52,3 +52,11 @@ HighlightTags.args = {
     text: '@mention',
     type: 'highlight',
 };
+
+// Tags with tooltip
+export const TagsWithTooltip = TagsTemplate.bind({});
+TagsWithTooltip.args = {
+    text: '@mention',
+    type: 'highlight',
+    tooltip: {text: 'mentioning user', placement: 'right'},
+};
