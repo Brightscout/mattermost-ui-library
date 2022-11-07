@@ -15,7 +15,7 @@ export const TextField = styled.div({
 // Styles for label
 export const Label = styled.label<InputProps>(({leadingIcon}) => {
     return {
-        ...(leadingIcon ? {left: '24px', margin: '0 8px'} : {left: '12px'}),
+        ...(leadingIcon ? {left: '24px', margin: '0 10px'} : {left: '12px'}),
         padding: '0 4px',
         position: 'absolute',
         color: Colors.centerChannel_64,
@@ -91,6 +91,13 @@ export const Options = styled.ul<{open: boolean}>(({open}) => {
         boxShadow: Colors.elevation2,
         maxHeight: '300px',
         overflowY: 'auto',
+
+        // Color of the selected trailing check mark is set to primary color
+        '& .mm-menuItem.active': {
+            '.mm-icon svg path': {
+                color: Colors.primary,
+            },
+        },
     };
 });
 

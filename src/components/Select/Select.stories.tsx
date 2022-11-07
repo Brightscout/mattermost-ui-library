@@ -9,7 +9,7 @@ export default {
     component: Select,
     args: {
         label: 'label',
-        options: ['Option 1', 'Option 2', 'Option 3'],
+        options: [{value: 'Option 1'}, {value: 'Option 2'}, {value: 'Option 3'}],
     },
 } as Meta<typeof Select>;
 
@@ -25,22 +25,65 @@ SelectWithLeadingIcon.args = {
     leadingIcon: 'User',
 };
 
-// Select with more than 10 options
-export const SelectWithMoreThanTenOptions = SelectTemplate.bind({});
-SelectWithMoreThanTenOptions.args = {
+// Select with options with value and label
+export const SelectWithValueAndLabel = SelectTemplate.bind({});
+SelectWithValueAndLabel.args = {
     options: [
-        'Option 1',
-        'Option 2',
-        'Option 3',
-        'Option 4',
-        'Option 5',
-        'Option 6',
-        'Option 7',
-        'Option 8',
-        'Option 9',
-        'Option 10',
-        'Option 11',
-        'Option 12',
+        {
+            value: 'Value 1',
+            label: 'Label 1',
+        },
+        {
+            value: 'Value 2',
+            label: 'Label 2',
+        },
+        {
+            value: 'Value 3',
+            label: 'Label 3',
+        },
+    ],
+};
+
+// Select with more than 10 options
+export const SelectWithMoreThan10Options = SelectTemplate.bind({});
+SelectWithMoreThan10Options.args = {
+    options: [
+        {
+            value: 'Value 1',
+        },
+        {
+            value: 'Value 2',
+        },
+        {
+            value: 'Value 3',
+        },
+        {
+            value: 'Value 4',
+        },
+        {
+            value: 'Value 5',
+        },
+        {
+            value: 'Value 6',
+        },
+        {
+            value: 'Value 7',
+        },
+        {
+            value: 'Value 8',
+        },
+        {
+            value: 'Value 9',
+        },
+        {
+            value: 'Value 10',
+        },
+        {
+            value: 'Value 11',
+        },
+        {
+            value: 'Value 12',
+        },
     ],
 };
 
@@ -53,14 +96,14 @@ FunctionTrigger.args = {
     },
 };
 
-export const PassingInOptionsAsObjectWithFunctionTrigger = SelectTemplate.bind(
+export const PassingInOptionsWithLeadingIcon = SelectTemplate.bind(
     {},
 );
-PassingInOptionsAsObjectWithFunctionTrigger.args = {
+PassingInOptionsWithLeadingIcon.args = {
     options: [
-        {label: 'Label 1', value: 'Value 1'},
-        {label: 'Label 2', value: 'Value 2'},
-        {label: 'Label 3', value: 'Value 3'},
+        {label: 'Label 1', value: 'Value 1', iconName: 'Edit'},
+        {label: 'Label 2', value: 'Value 2', iconName: 'Globe'},
+        {label: 'Label 3', value: 'Value 3', iconName: 'MenuDots'},
     ],
     onSelectOptionHandler(_, value) {
         console.dir(_.target);

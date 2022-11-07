@@ -1,26 +1,13 @@
 import {IconType} from '@Components/Icon';
 
 /**
- * Type of option with label and value
+ * Option type
  */
-export type OptionTypeWithLabel = {
-
-    /**
-     * Label is showed to the user on selecting the option
-     */
-    label: string;
-
+export type OptionType = {
+    label?: string;
     value: string;
-}
-
-/**
- * Type of Options
- *
- * Options passed in by the user can either be a string or an object with {label: string,value: string } structure
- *
- */
-// Todo: Find workaround for string[] | OptionTypeWithLabel[]
-export type OptionType = string | OptionTypeWithLabel;
+    iconName?: Exclude<IconType, 'Spinner'>;
+};
 
 /**
  * Interface for input

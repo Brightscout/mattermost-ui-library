@@ -1,11 +1,9 @@
-import React, {useEffect, useRef, useState} from 'react';
+import React, {MutableRefObject, useEffect, useRef, useState} from 'react';
 
 import {Icon} from '@Components/Icon';
-
 import {MenuItem} from '@Components/MenuItem';
-import Colors from '@Styles/colorsForJs.module.scss';
 
-import {OptionTypeWithLabel, SelectProps} from './Select';
+import {OptionType, SelectProps} from './Select';
 import {
     Input,
     Label,
@@ -19,12 +17,12 @@ import {
 /**
  * Select Component
  *
- * @example Correct usage with array of string options
+ * @example Correct usage with options
  *
  * ```ts
  * <Select
  *      label='label'
- *      options=['Option1', 'Option2', 'Option3']
+ *      options=[{value: 'Option1'}, {value: 'Option2'}, {value: 'Option3'}]
  *      onSelectOptionHandler={onUserSelectHandler}
  * />
  * ```
@@ -37,18 +35,33 @@ import {
  *      options=[{label: 'Label 1', value: 'Option 1'}, {label: 'Label 2', value: 'Option 2'}, {label: 'Label 3', value: 'Option 3'}]
  *      onSelectOptionHandler={onUserSelectHandler}
  * />
+ * ```
  *
  * @example usage with leading icon
  *
  * ```ts
  * <Select
  *      label='label'
- *      options=['Option1', 'Option2', 'Option3']
+ *      options=[{value: 'Option1'}, {value: 'Option2'}, {value: 'Option3'}]
  *      leadingIcon='User'
  *      onSelectOptionHandler={onUserSelectHandler}
  * />
  * ```
- * @returns
+ * @example usage with options with leading icon
+ *
+ * ```ts
+ * <Select
+ *      label='label'
+ *      options=[
+ *               {label: 'Label 1', value: 'Value 1', iconName: 'Edit'},
+ *               {label: 'Label 2', value: 'Value 2', iconName: 'Delete'},
+ *               {label: 'Label 3', value: 'Value 3', iconName: 'Globe' }
+ *              ]
+ *      leadingIcon='User'
+ *      onSelectOptionHandler={onUserSelectHandler}
+ * />
+ * ```
+ *
  */
 export const Select = (props: SelectProps) => {
     const {leadingIcon, options, label, onSelectOptionHandler} = props;
@@ -56,7 +69,7 @@ export const Select = (props: SelectProps) => {
     const [isOpen, setIsOpen] = useState(false);
     const [value, setValue] = useState<string>('');
 
-    const inputRef = useRef<HTMLInputElement>(null);
+    const inputRef = useRef<HTMLInputElement>(null) as MutableRefObject<HTMLInputElement>;
     const trailingIconRef = useRef<HTMLDivElement>(null);
 
     /**
@@ -77,10 +90,10 @@ export const Select = (props: SelectProps) => {
     const onIconTrailingIconClickHandler = () => {
         setValue('');
         if (isOpen) {
-            inputRef.current?.blur();
+            inputRef.current.blur();
             setIsOpen(false);
         } else {
-            inputRef.current?.focus();
+            inputRef.current.focus();
             setIsOpen(true);
         }
     };
@@ -105,13 +118,9 @@ export const Select = (props: SelectProps) => {
 	 */
     const onUserSelectHandler = (
         e: React.MouseEvent<HTMLLIElement, MouseEvent>,
-        option: string | OptionTypeWithLabel,
+        option: OptionType,
     ) => {
-        if (typeof option === 'string') {
-            setValue(option);
-        } else {
-            setValue(option.label);
-        }
+        setValue(option.label ?? option.value);
         onSelectOptionHandler(e, option);
     };
 
@@ -141,7 +150,7 @@ export const Select = (props: SelectProps) => {
                     <LeadingIcon className='select__leading-icon'>
                         <Icon
                             name={leadingIcon}
-                            size={14}
+                            size={16}
                         />
                     </LeadingIcon>
                 )}
@@ -153,12 +162,12 @@ export const Select = (props: SelectProps) => {
                     {isOpen || value ? (
                         <Icon
                             name='Close'
-                            size={14}
+                            size={16}
                         />
                     ) : (
                         <Icon
                             name='ArrowDown'
-                            size={14}
+                            size={16}
                         />
                     )}
                 </TrailingIcon>
@@ -167,44 +176,16 @@ export const Select = (props: SelectProps) => {
                 open={isOpen}
                 className='select__option-list'
             >
-                {options.map((option) => {
-                    if (typeof option === 'string') {
-                        return (
-                            <MenuItem
-                                key={option}
-                                className={option === value ? 'active' : ''}
-                                onClick={(e) => onUserSelectHandler(e, option)}
-                                label={option}
-                                trailingElement={
-                                    option === value && (
-                                        <Icon
-                                            name='Check'
-                                            iconColor={Colors.primary}
-                                            size={14}
-                                        />
-                                    )
-                                }
-                            />
-                        );
-                    }
-                    return (
-                        <MenuItem
-                            key={option.label}
-                            className={option.label === value ? 'active' : ''}
-                            onClick={(e) => onUserSelectHandler(e, option)}
-                            label={option.label}
-                            trailingElement={
-                                option.label === value && (
-                                    <Icon
-                                        name='Check'
-                                        iconColor={Colors.primary}
-                                        size={14}
-                                    />
-                                )
-                            }
-                        />
-                    );
-                })}
+                {options.map((option) => (
+                    <MenuItem
+                        key={option.value}
+                        className={option.value === value ? 'active' : ''}
+                        onClick={(e) => onUserSelectHandler(e, option)}
+                        label={option.label ?? option.value}
+                        leadingIcon={option.iconName}
+                        {...(option.value === value && {trailingIcon: 'Check'})}
+                    />
+                ))}
             </Options>
         </SelectWrapper>
     );
