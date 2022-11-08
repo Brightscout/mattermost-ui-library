@@ -80,7 +80,7 @@ export const Select = (props: SelectProps) => {
     };
 
     /**
-     * On clicking the trailing icon which are either a string array
+     * On clicking the trailing icon the dropdown is opened or closed with respect to the state of the select
 
      * if isOpen = `true`  a close icon is rendered, on clicking clears the input field and closes the dropdown
      * if isOpen = `false` an arrow down is rendered, on clicking opens the dropdown
@@ -113,7 +113,7 @@ export const Select = (props: SelectProps) => {
     };
 
     /**
-	 * On user selecting the option the value / label of the menu Item is set to the  input field
+	 * On the user selecting the option the value/label of the menu item is set to the input field
 	 */
     const onUserSelectHandler = (
         e: React.MouseEvent<HTMLLIElement, MouseEvent>,
@@ -137,7 +137,7 @@ export const Select = (props: SelectProps) => {
             <Wrapper>
                 <Input
                     ref={inputRef}
-                    placeholder=' '
+                    placeholder=''
                     type='text'
                     onFocus={onFocusHandler}
                     readOnly={true}
@@ -158,17 +158,10 @@ export const Select = (props: SelectProps) => {
                     ref={trailingIconRef}
                     onClick={onIconTrailingIconClickHandler}
                 >
-                    {isOpen || value ? (
-                        <Icon
-                            name='Close'
-                            size={16}
-                        />
-                    ) : (
-                        <Icon
-                            name='ArrowDown'
-                            size={16}
-                        />
-                    )}
+                    <Icon
+                        name={isOpen || value ? 'Close' : 'ArrowDown'}
+                        size={16}
+                    />
                 </TrailingIcon>
             </Wrapper>
             <Options
@@ -178,11 +171,10 @@ export const Select = (props: SelectProps) => {
                 {options.map((option) => (
                     <MenuItem
                         key={option.value}
-                        className={(option.label ?? option.value) === value ? 'active' : ''}
                         onClick={(e) => onUserSelectHandler(e, option)}
                         label={option.label ?? option.value}
                         leadingIcon={option.iconName}
-                        {...((option.label ?? option.value) === value && {trailingIcon: 'Check'})}
+                        {...((option.label ?? option.value) === value && {trailingIcon: 'Check', className: 'active'})}
                     />
                 ))}
             </Options>

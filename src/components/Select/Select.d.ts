@@ -37,8 +37,8 @@ export interface SelectProps extends InputProps {
     options: OptionType[];
 
     /**
-     * @param e - Element in which the event have happened
-     * @param option - Option which the user have been selected
+     * @param e - Element where the event has happened
+     * @param option - Option selected by the user
      */
     onSelectOptionHandler: (
         e: React.MouseEvent<HTMLLIElement, MouseEvent>,

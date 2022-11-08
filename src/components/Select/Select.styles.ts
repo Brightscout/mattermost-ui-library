@@ -8,7 +8,7 @@ export const Wrapper = styled.div({
     position: 'relative',
 });
 
-// Styles for label
+// Styles for the label
 export const Label = styled.label<InputProps>(({leadingIcon}) => {
     return {
         ...(leadingIcon ? {left: '24px', margin: '0 10px'} : {left: '12px'}),
@@ -24,7 +24,7 @@ export const Label = styled.label<InputProps>(({leadingIcon}) => {
     };
 });
 
-// Styles for input
+// Styles for the input
 export const Input = styled.input<InputProps>(({leadingIcon}) => {
     return {
         ...(leadingIcon ? {padding: '10px 36px'} : {padding: '10px 32px 10px 16px'}),
@@ -52,7 +52,7 @@ export const Input = styled.input<InputProps>(({leadingIcon}) => {
     };
 });
 
-// Styles for leading icon
+// Styles for the leading icon
 export const LeadingIcon = styled.div({
     position: 'absolute',
     display: 'inline-block',
@@ -61,7 +61,7 @@ export const LeadingIcon = styled.div({
     transform: 'translateY(-50%)',
 });
 
-// styles for trailing icon
+// styles for the trailing icon
 export const TrailingIcon = styled.div({
     position: 'absolute',
     display: 'inline-block',
@@ -75,7 +75,7 @@ export const TrailingIcon = styled.div({
     },
 });
 
-// Styles for dropdown options
+// Styles for the dropdown options
 export const Options = styled.ul<{open: boolean}>(({open}) => {
     return {
         listStyle: 'none',
