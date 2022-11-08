@@ -48,7 +48,7 @@
     "@typescript-eslint/parser": "~4.28.1",
     "autoprefixer": "^10.4.12",
     "babel-loader": "^8.2.5",
-    "bootstrap": "~5.2.0",
+    "bootstrap": "^4.6.2",
     "chromatic": "^6.10.4",
     "copyfiles": "~2.4.1",
     "enzyme": "~3.11.0",
@@ -97,7 +97,8 @@
     "react": ">=16",
     "react-bootstrap": ">=2",
     "react-dom": ">=16",
-    "typescript": ">=4"
+    "typescript": ">=4",
+    "bootstrap": ">=4"
   },
   "repository": {
     "url": "git+https://github.com/Brightscout/mattermost-ui-library.git"
