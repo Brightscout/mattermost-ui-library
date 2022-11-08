@@ -3,7 +3,7 @@ import React from 'react';
 import {IconType} from '@Components/Icon';
 
 /**
- * Type of position for secondary label
+ * Types of position for the secondary label
  *
  * `inline` - inline with the main label
  *
@@ -19,22 +19,22 @@ export interface MenuItemProps {
     label: string;
 
     /**
-	 * Secondary label to describe main label in detail
+	 * Secondary label to describe the main label in detail
 	 */
     secondaryLabel?: string;
 
     /**
-	 * Position of secondary label
+	 * Position of the secondary label
 	 */
     secondaryLabelPosition?: SecondaryLabelPositionType;
 
     /**
-	 * Leading icon in menu item
+	 * Leading icon in the menu item
 	 */
     leadingIcon?: Exclude<IconType, 'Spinner'>;
 
     /**
-	 * Trailing icon in menu item
+	 * Trailing icon in the menu item
 	 */
     trailingIcon?: Exclude<IconType, 'Spinner'>;
 

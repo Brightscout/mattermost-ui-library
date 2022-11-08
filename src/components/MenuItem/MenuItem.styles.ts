@@ -11,11 +11,11 @@ export const MenuItemWrapper = styled.li(() => {
         cursor: 'pointer',
 
         /**
-         * - If secondary label position is inline then main label moves to the second column
-         *   so that secondary label will be stretched to the end and main label will occupy fit-content width.
+         * - If the secondary label position is inline then the main label moves to the second column
+         *   so that the secondary label will be stretched to the end and the main label will occupy fit-content width.
          *
-         * - If secondary label position is block then main label moves to the third column
-         *   so that main label will be stretched to the end
+         * - If the secondary label position is block then the main label moves to the third column
+         *   so that the main label will be stretched to the end
          */
         gridTemplateColumns: 'max-content max-content 1fr min-content',
         padding: '8px 16px',
@@ -39,7 +39,7 @@ export const MenuItemWrapper = styled.li(() => {
     };
 });
 
-// Styles for main label
+// Styles for the main label
 export const Label = styled.span<{
     secondaryLabelPosition?: SecondaryLabelPositionType;
 }>(({secondaryLabelPosition}) => {
@@ -49,7 +49,7 @@ export const Label = styled.span<{
     };
 });
 
-// Styles for secondary label
+// Styles for the secondary label
 export const SecondaryLabel = styled.span<{
     secondaryLabelPosition?: SecondaryLabelPositionType;
 }>(({secondaryLabelPosition}) => {
@@ -60,4 +60,3 @@ export const SecondaryLabel = styled.span<{
         gridRowStart: secondaryLabelPosition === 'block' ? 2 : 'unset',
     };
 });
-

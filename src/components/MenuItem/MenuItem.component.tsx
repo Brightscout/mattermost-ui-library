@@ -14,14 +14,14 @@ import {Label, MenuItemWrapper, SecondaryLabel} from './MenuItem.styles';
  * <MenuItem label='Menu Item Label' />
  * ```
  *
- * @example usage with secondary label positioned below main label
+ * @example usage with secondary label positioned below the main label
  * ```ts
  * <MenuItem label='Main Label'
  *           secondaryLabel='Secondary Label'
  * />
  * ```
  *
- * @example usage with secondary label positioned inline with main label
+ * @example usage with secondary label positioned inline with the main label
  * ```ts
  * <MenuItem label='Main Label'
  *           secondaryLabel='Secondary Label'
