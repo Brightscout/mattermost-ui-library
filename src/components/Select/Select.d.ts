@@ -1,16 +1,8 @@
+import {ListItemType} from '@Components/AutoComplete/AutoComplete';
 import {IconType} from '@Components/Icon';
 
 /**
- * Option type
- */
-export type OptionType = {
-    label?: string;
-    value: string;
-    iconName?: Exclude<IconType, 'Spinner'>;
-};
-
-/**
- * Interface for input
+ * Interface for select input field
  */
 export interface InputProps {
 
@@ -34,7 +26,7 @@ export interface SelectProps extends InputProps {
      * options for the select component
      * rendered in the dropdown
      */
-    options: OptionType[];
+    options: ListItemType[];
 
     /**
      * @param e - Element where the event has happened
@@ -42,6 +34,6 @@ export interface SelectProps extends InputProps {
      */
     onSelectOptionHandler: (
         e: React.MouseEvent<HTMLLIElement, MouseEvent>,
-        option: string | OptionTypeWithLabel
+        option: ListItemType
     ) => void;
 }

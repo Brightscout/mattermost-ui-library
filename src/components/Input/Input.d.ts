@@ -81,6 +81,16 @@ export interface InputProps {
 		*/
     value?: string | number;
 
+		/**
+		* The search query
+		*/
+		searchQuery?: string,
+		
+    /**
+		* Handler triggered on clicking close icon button
+		*/
+		onClose?: React.MouseEventHandler<HTMLElement>,
+
     /**
 		* Handler that's called when there is a change in the value of the input field
 		*/

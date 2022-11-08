@@ -1,14 +1,14 @@
 import React, {MutableRefObject, useEffect, useRef, useState} from 'react';
 
 import {Icon} from '@Components/Icon';
-import {MenuItem} from '@Components/MenuItem';
+import {List} from '@Components/List';
+import {ListItemType} from '@Components/List/List';
 
-import {OptionType, SelectProps} from './Select';
+import {SelectProps} from './Select';
 import {
     Input,
     Label,
     LeadingIcon,
-    Options,
     TrailingIcon,
     Wrapper,
 } from './Select.styles';
@@ -81,7 +81,7 @@ export const Select = (props: SelectProps) => {
 
     /**
      * On clicking the trailing icon the dropdown is opened or closed with respect to the state of the select
-
+     *
      * if isOpen = `true`  a close icon is rendered, on clicking clears the input field and closes the dropdown
      * if isOpen = `false` an arrow down is rendered, on clicking opens the dropdown
      *
@@ -101,12 +101,8 @@ export const Select = (props: SelectProps) => {
 	 * On clicking anywhere other than `input field` or `trailing icon` the dropdown closes
 	 */
     const onDropDownCloseHandler = (e: MouseEvent) => {
-        if (e.target === inputRef.current) {
-            return;
-        }
-        if (e.target === trailingIconRef.current) {
-            return;
-        }
+        if (e.target === inputRef.current) return;
+        if (e.target === trailingIconRef.current) return;
         if (isOpen) {
             setIsOpen(false);
         }
@@ -117,7 +113,7 @@ export const Select = (props: SelectProps) => {
 	 */
     const onUserSelectHandler = (
         e: React.MouseEvent<HTMLLIElement, MouseEvent>,
-        option: OptionType,
+        option: ListItemType,
     ) => {
         setValue(option.label ?? option.value);
         onSelectOptionHandler(e, option);
@@ -133,51 +129,43 @@ export const Select = (props: SelectProps) => {
     });
 
     return (
-        <>
-            <Wrapper>
-                <Input
-                    ref={inputRef}
-                    placeholder=''
-                    type='text'
-                    onFocus={onFocusHandler}
-                    readOnly={true}
-                    value={value}
-                    leadingIcon={leadingIcon}
-                />
-                <Label leadingIcon={leadingIcon}>{label}</Label>
-                {leadingIcon && (
-                    <LeadingIcon className='select__leading-icon'>
-                        <Icon
-                            name={leadingIcon}
-                            size={16}
-                        />
-                    </LeadingIcon>
-                )}
-                <TrailingIcon
-                    className='select__trailing-icon'
-                    ref={trailingIconRef}
-                    onClick={onIconTrailingIconClickHandler}
-                >
+        <Wrapper>
+            <Input
+                ref={inputRef}
+                placeholder=' '
+                type='text'
+                onFocus={onFocusHandler}
+                readOnly={true}
+                value={value}
+                leadingIcon={leadingIcon}
+            />
+            <Label leadingIcon={leadingIcon}>{label}</Label>
+            {leadingIcon && (
+                <LeadingIcon className='select__leading-icon'>
                     <Icon
-                        name={isOpen || value ? 'Close' : 'ArrowDown'}
+                        name={leadingIcon}
                         size={16}
                     />
-                </TrailingIcon>
-            </Wrapper>
-            <Options
-                open={isOpen}
-                className='select__option-list'
+                </LeadingIcon>
+            )}
+            <TrailingIcon
+                className='select__trailing-icon'
+                ref={trailingIconRef}
+                onClick={onIconTrailingIconClickHandler}
             >
-                {options.map((option) => (
-                    <MenuItem
-                        key={option.value}
-                        onClick={(e) => onUserSelectHandler(e, option)}
-                        label={option.label ?? option.value}
-                        leadingIcon={option.iconName}
-                        {...((option.label ?? option.value) === value && {trailingIcon: 'Check', className: 'active'})}
-                    />
-                ))}
-            </Options>
-        </>
+                <Icon
+                    name={(isOpen || value) ?'Close' : 'ArrowDown'}
+                    size={16}
+                />
+            </TrailingIcon>
+            {options.length > 0 && (
+                <List
+                    isOpen={isOpen}
+                    listItems={options}
+                    handleItemClick={onUserSelectHandler}
+                    value={value}
+                />
+            )}
+        </Wrapper>
     );
 };

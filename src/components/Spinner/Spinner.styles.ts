@@ -15,10 +15,6 @@ export const SpinnerContainer = styled.div<SpinnerContainerProps>(
             justifyContent: 'center',
             alignItems: 'center',
             color: color ?? colors.primary,
-
-            svg: {
-                display: 'block',
-            },
         };
     },
 );

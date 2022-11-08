@@ -100,9 +100,9 @@ export const PassingInOptionsWithLeadingIcon = SelectTemplate.bind(
 );
 PassingInOptionsWithLeadingIcon.args = {
     options: [
-        {label: 'Label 1', value: 'Value 1', iconName: 'Edit'},
-        {label: 'Label 2', value: 'Value 2', iconName: 'Globe'},
-        {label: 'Label 3', value: 'Value 3', iconName: 'MenuDots'},
+        {label: 'Label 1', value: 'Value 1', icon: 'Edit'},
+        {label: 'Label 2', value: 'Value 2', icon: 'Globe'},
+        {label: 'Label 3', value: 'Value 3', icon: 'MenuDots'},
     ],
     onSelectOptionHandler(_, value) {
         console.dir(_.target);
