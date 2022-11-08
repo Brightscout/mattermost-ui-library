@@ -3,17 +3,17 @@ import {OverlayTriggerProps} from 'react-bootstrap';
 import {IconType} from '@Components/Icon';
 
 /**
- * Type for position
+ * Types for position
  *
- * `auto` - renders on side where more space is available
+ * `auto` - renders on the side where more space is available
  *
- * `top` - renders on top of the wrapped component
+ * `top` - renders on the top of the wrapped component
  *
- * `right` - renders on right of the wrapped component
+ * `right` - renders on the right of the wrapped component
  *
- * `bottom` - renders on bottom of the wrapped component
+ * `bottom` - renders on the bottom of the wrapped component
  *
- * `left` - renders on left of the wrapped component
+ * `left` - renders on the left of the wrapped component
  */
 type placementType = 'auto' | 'top' | 'right' | 'bottom' | 'left';
 
@@ -30,7 +30,7 @@ export interface TooltipProps extends Pick<OverlayTriggerProps, 'children'> {
     text: string;
 
     /**
-	 * Low emphasis text which adds more details
+	 * Low-emphasis text which adds more details
 	 */
     hint?: string;
 

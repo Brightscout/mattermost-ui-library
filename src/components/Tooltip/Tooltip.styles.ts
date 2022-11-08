@@ -14,22 +14,22 @@ export const StyledTooltip = styled(Tooltip)({
         opacity: 1,
     },
 
-    // styling for tooltip with placement top
+    // styling for the tooltip with placement top
     '&[x-placement="top"] .arrow::before': {
         borderTopColor: colors.tooltipBg,
     },
 
-    // styling for tooltip with placement bottom
+    // styling for the tooltip with placement bottom
     '&[x-placement="bottom"] .arrow::before': {
         borderBottomColor: colors.tooltipBg,
     },
 
-    // styling for tooltip with placement right
+    // styling for the tooltip with placement right
     '&[x-placement="right"] .arrow::before': {
         borderRightColor: colors.tooltipBg,
     },
 
-    // styling for tooltip with placement left
+    // styling for the tooltip with placement left
     '&[x-placement="left"] .arrow::before': {
         borderLeftColor: colors.tooltipBg,
     },
