@@ -9,9 +9,8 @@ import {
     Label,
     LeadingIcon,
     Options,
-    SelectWrapper,
-    TextField,
     TrailingIcon,
+    Wrapper,
 } from './Select.styles';
 
 /**
@@ -134,8 +133,8 @@ export const Select = (props: SelectProps) => {
     });
 
     return (
-        <SelectWrapper>
-            <TextField>
+        <>
+            <Wrapper>
                 <Input
                     ref={inputRef}
                     placeholder=' '
@@ -171,7 +170,7 @@ export const Select = (props: SelectProps) => {
                         />
                     )}
                 </TrailingIcon>
-            </TextField>
+            </Wrapper>
             <Options
                 open={isOpen}
                 className='select__option-list'
@@ -179,14 +178,14 @@ export const Select = (props: SelectProps) => {
                 {options.map((option) => (
                     <MenuItem
                         key={option.value}
-                        className={option.value === value ? 'active' : ''}
+                        className={(option.label ?? option.value) === value ? 'active' : ''}
                         onClick={(e) => onUserSelectHandler(e, option)}
                         label={option.label ?? option.value}
                         leadingIcon={option.iconName}
-                        {...(option.value === value && {trailingIcon: 'Check'})}
+                        {...((option.label ?? option.value) === value && {trailingIcon: 'Check'})}
                     />
                 ))}
             </Options>
-        </SelectWrapper>
+        </>
     );
 };

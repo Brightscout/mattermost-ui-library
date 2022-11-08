@@ -17,7 +17,6 @@ const SelectTemplate: Story<SelectProps> = (args) => <Select {...args}/>;
 
 // Default
 export const Default = SelectTemplate.bind({});
-Default.args = {};
 
 // Select with leading icon
 export const SelectWithLeadingIcon = SelectTemplate.bind({});

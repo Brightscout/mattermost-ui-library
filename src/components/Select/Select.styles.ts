@@ -4,11 +4,7 @@ import Colors from '@Styles/colorsForJs.module.scss';
 
 import {InputProps} from './Select';
 
-export const SelectWrapper = styled.div({
-    position: 'relative',
-});
-
-export const TextField = styled.div({
+export const Wrapper = styled.div({
     position: 'relative',
 });
 
@@ -94,10 +90,9 @@ export const Options = styled.ul<{open: boolean}>(({open}) => {
 
         // Color of the selected trailing check mark is set to primary color
         '& .mm-menuItem.active': {
-            '.mm-icon svg path': {
+            '.mm-icon:last-child svg path': {
                 color: Colors.primary,
             },
         },
     };
 });
-
