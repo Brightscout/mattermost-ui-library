@@ -12,7 +12,9 @@ export default {
     },
 } as Meta<typeof ModalHeader>;
 
-const ModalHeaderTemplate: Story<ModalHeaderProps> = (args) => <ModalHeader {...args}/>;
+const ModalHeaderTemplate: Story<ModalHeaderProps> = (args) => (
+    <ModalHeader {...args}/>
+);
 
 // Default
 export const Default = ModalHeaderTemplate.bind({});

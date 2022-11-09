@@ -1,9 +1,12 @@
 import React from 'react';
 
-export interface ModalProps {
+import {ModalFooterProps} from './subComponents/ModalFooter/ModalFooter';
+import {ModalHeaderProps} from './subComponents/ModalHeader/ModalHeader';
+
+export interface ModalProps extends ModalHeaderProps, ModalFooterProps {
 
     /**
-     * The content of the component
+     * The content of the modal
      */
     children?: React.ReactNode;
 
@@ -21,11 +24,6 @@ export interface ModalProps {
      * @default 'static'
      */
     backdrop?: 'static' | boolean;
-
-    /**
-     * Callback function which is to be triggered onHide scenarios
-     */
-    onCloseHandler: ()=>void;
 
     /**
      * To override or extend the styles applied to the component

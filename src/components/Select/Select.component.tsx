@@ -1,16 +1,16 @@
-import React, { MutableRefObject, useEffect, useRef, useState } from 'react';
+import React, {MutableRefObject, useEffect, useRef, useState} from 'react';
 
-import { Icon } from '@Components/Icon';
-import { MenuItem } from '@Components/MenuItem';
+import {Icon} from '@Components/Icon';
+import {MenuItem} from '@Components/MenuItem';
 
-import { OptionType, SelectProps } from './Select';
+import {OptionType, SelectProps} from './Select';
 import {
-	Input,
-	Label,
-	LeadingIcon,
-	Options,
-	TrailingIcon,
-	Wrapper,
+    Input,
+    Label,
+    LeadingIcon,
+    Options,
+    TrailingIcon,
+    Wrapper,
 } from './Select.styles';
 
 /**
@@ -63,117 +63,121 @@ import {
  *
  */
 export const Select = (props: SelectProps) => {
-	const { leadingIcon, options, label, onSelectOptionHandler } = props;
+    const {leadingIcon, options, label, onSelectOptionHandler} = props;
 
-	const [isOpen, setIsOpen] = useState(false);
-	const [value, setValue] = useState<string>('');
+    const [isOpen, setIsOpen] = useState(false);
+    const [value, setValue] = useState<string>('');
 
-	const inputRef = useRef<HTMLInputElement>(
-		null
-	) as MutableRefObject<HTMLInputElement>;
-	const trailingIconRef = useRef<HTMLDivElement>(null);
+    const inputRef = useRef<HTMLInputElement>(null) as MutableRefObject<HTMLInputElement>;
+    const trailingIconRef = useRef<HTMLDivElement>(null);
 
-	/**
+    /**
 	 * On clicking or on focusing the input field
 	 * isOpen is set to `true` and the dropdown opens with passed in options
 	 */
-	const onFocusHandler = () => {
-		setIsOpen(true);
-	};
+    const onFocusHandler = () => {
+        setIsOpen(true);
+    };
 
-	/**
+    /**
      * On clicking the trailing icon the dropdown is opened or closed with respect to the state of the select
 
      * if isOpen = `true`  a close icon is rendered, on clicking clears the input field and closes the dropdown
      * if isOpen = `false` an arrow down is rendered, on clicking opens the dropdown
      *
      */
-	const onIconTrailingIconClickHandler = () => {
-		setValue('');
-		if (isOpen) {
-			inputRef.current.blur();
-			setIsOpen(false);
-		} else {
-			inputRef.current.focus();
-			setIsOpen(true);
-		}
-	};
+    const onIconTrailingIconClickHandler = () => {
+        setValue('');
+        if (isOpen) {
+            inputRef.current.blur();
+            setIsOpen(false);
+        } else {
+            inputRef.current.focus();
+            setIsOpen(true);
+        }
+    };
 
-	/**
+    /**
 	 * On clicking anywhere other than `input field` or `trailing icon` the dropdown closes
 	 */
-	const onDropDownCloseHandler = (e: MouseEvent) => {
-		if (e.target === inputRef.current) {
-			return;
-		}
-		if (e.target === trailingIconRef.current) {
-			return;
-		}
-		if (isOpen) {
-			setIsOpen(false);
-		}
-	};
+    const onDropDownCloseHandler = (e: MouseEvent) => {
+        if (e.target === inputRef.current) {
+            return;
+        }
+        if (e.target === trailingIconRef.current) {
+            return;
+        }
+        if (isOpen) {
+            setIsOpen(false);
+        }
+    };
 
-	/**
+    /**
 	 * On the user selecting the option the value/label of the menu item is set to the input field
 	 */
-	const onUserSelectHandler = (
-		e: React.MouseEvent<HTMLLIElement, MouseEvent>,
-		option: OptionType
-	) => {
-		setValue(option.label ?? option.value);
-		onSelectOptionHandler(e, option);
-	};
+    const onUserSelectHandler = (
+        e: React.MouseEvent<HTMLLIElement, MouseEvent>,
+        option: OptionType,
+    ) => {
+        setValue(option.label ?? option.value);
+        onSelectOptionHandler(e, option);
+    };
 
-	// On clicking anywhere other than the input field the dropdown closes
-	useEffect(() => {
-		document.body.addEventListener('click', onDropDownCloseHandler);
+    // On clicking anywhere other than the input field the dropdown closes
+    useEffect(() => {
+        document.body.addEventListener('click', onDropDownCloseHandler);
 
-		return () => {
-			document.body.removeEventListener('click', onDropDownCloseHandler);
-		};
-	});
+        return () => {
+            document.body.removeEventListener('click', onDropDownCloseHandler);
+        };
+    });
 
-	return (
-		<>
-			<Wrapper>
-				<Input
-					ref={inputRef}
-					placeholder=""
-					type="text"
-					onFocus={onFocusHandler}
-					readOnly={true}
-					value={value}
-					leadingIcon={leadingIcon}
-				/>
-				<Label leadingIcon={leadingIcon}>{label}</Label>
-				{leadingIcon && (
-					<LeadingIcon className="select__leading-icon">
-						<Icon name={leadingIcon} size={16} />
-					</LeadingIcon>
-				)}
-				<TrailingIcon
-					className="select__trailing-icon"
-					ref={trailingIconRef}
-					onClick={onIconTrailingIconClickHandler}
-				>
-					<Icon name={isOpen || value ? 'Close' : 'ArrowDown'} size={16} />
-				</TrailingIcon>
-			</Wrapper>
-			<Options open={isOpen} className="select__option-list">
-				{options.map((option) => (
-					<MenuItem
-						key={option.value}
-						onClick={(e) => onUserSelectHandler(e, option)}
-						label={option.label ?? option.value}
-						leadingIcon={option.iconName}
-						{...((option.label ?? option.value) === value && {
-							trailingIcon: 'Check',
-							className: 'active',
-						})}
-					/>
-				))}
-			</Options>
-		</>
-	);
+    return (
+        <>
+            <Wrapper>
+                <Input
+                    ref={inputRef}
+                    placeholder=''
+                    type='text'
+                    onFocus={onFocusHandler}
+                    readOnly={true}
+                    value={value}
+                    leadingIcon={leadingIcon}
+                />
+                <Label leadingIcon={leadingIcon}>{label}</Label>
+                {leadingIcon && (
+                    <LeadingIcon className='select__leading-icon'>
+                        <Icon
+                            name={leadingIcon}
+                            size={16}
+                        />
+                    </LeadingIcon>
+                )}
+                <TrailingIcon
+                    className='select__trailing-icon'
+                    ref={trailingIconRef}
+                    onClick={onIconTrailingIconClickHandler}
+                >
+                    <Icon
+                        name={isOpen || value ? 'Close' : 'ArrowDown'}
+                        size={16}
+                    />
+                </TrailingIcon>
+            </Wrapper>
+            <Options
+                open={isOpen}
+                className='select__option-list'
+            >
+                {options.map((option) => (
+                    <MenuItem
+                        key={option.value}
+                        onClick={(e) => onUserSelectHandler(e, option)}
+                        label={option.label ?? option.value}
+                        leadingIcon={option.iconName}
+                        {...((option.label ?? option.value) === value && {trailingIcon: 'Check', className: 'active'})}
+                    />
+                ))}
+            </Options>
+        </>
+    );
 };

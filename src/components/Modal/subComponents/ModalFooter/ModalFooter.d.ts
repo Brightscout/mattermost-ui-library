@@ -1,14 +1,26 @@
-import React from 'react';
-
 export interface ModalFooterProps {
 
     /**
-     * Primary action component
-     */
-    primary: React.ReactNode;
+	 * Callback for the close button
+	 */
+    onCloseHandler: () => void;
 
     /**
-     * Secondary action component
-     */
-    secondary?: React.ReactNode;
+	 * Callback for the primary button
+	 */
+    onSubmitHandler: () => void;
+
+    /**
+	 * Text for the primary button
+	 *
+	 * @default `Submit`
+	 */
+    primaryActionText?: string;
+
+    /**
+	 * Text for the secondary button in the modal footer
+	 *
+	 * @default `Close`
+	 */
+    secondaryActionText?: string;
 }

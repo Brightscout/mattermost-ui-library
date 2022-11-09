@@ -1,5 +1,7 @@
 import React from 'react';
 
+import {Button} from '@Components/Button';
+
 import {ModalFooterProps} from './ModalFooter';
 import {ModalFooterWrapper} from './ModalFooter.styles';
 
@@ -8,15 +10,34 @@ import {ModalFooterWrapper} from './ModalFooter.styles';
  *
  * @example Correct usage
  * <ModalFooter
- *      primary={<Button variant='primary'>{'Submit'}</Button>}
- *      secondary={<Button variant='tertiary'>{'Close'}</Button>}
+ *  primaryActionText='Submit'
+ *  secondaryActionText='Close'
+ *  onSubmitHandler={onSubmitHandler}
+ *  onCloseHandler={onCloseHandler}
  * />
+ *
  */
 export const ModalFooter = (props: ModalFooterProps) => {
-    const {primary, secondary} = props;
+    const {
+        onCloseHandler,
+        onSubmitHandler,
+        primaryActionText,
+        secondaryActionText,
+    } = props;
     return (
-        <ModalFooterWrapper className='mm=modalFooter'>
-            {secondary}
-            {primary}
-        </ModalFooterWrapper>);
+        <ModalFooterWrapper className='mm-modalFooter'>
+            <Button
+                variant='tertiary'
+                onClick={onCloseHandler}
+            >
+                {secondaryActionText || 'Close'}
+            </Button>
+            <Button
+                variant='primary'
+                onClick={onSubmitHandler}
+            >
+                {primaryActionText || 'Submit'}
+            </Button>
+        </ModalFooterWrapper>
+    );
 };

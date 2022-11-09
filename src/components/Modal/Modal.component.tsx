@@ -1,7 +1,9 @@
 import React from 'react';
 
 import {ModalProps} from './Modal';
-import {ModalWrapper} from './Modal.styles';
+import {ModalBody, ModalWrapper} from './Modal.styles';
+import {ModalFooter} from './subComponents/ModalFooter';
+import {ModalHeader} from './subComponents/ModalHeader';
 
 /**
  * Modal Component
@@ -9,27 +11,33 @@ import {ModalWrapper} from './Modal.styles';
  * @example Correct usage
  *
  * ```ts
- * <Modal show={show} onCloseHandler={onHideHandler}>
- * 	<ModalHeader
- * 		title='Modal Title'
- * 		subTitle='Modal Subtitle'
- * 		onCloseHandler={onHideHandler}
- *  />
- *  <ModalBody>
- * 		{
- * 			content
- * 		}
- *  </ModalBody>
- *  <ModalFooter
- *  	primary={<Button variant='primary'>{'Submit'}</Button>}
- *      secondary={<Button variant='tertiary'>{'Close'}</Button>}
- *  />
+ * <Modal
+ *  show={show}
+ *  title='Header Title'
+ *  subtitle='Header Subtitle'
+ *  primaryActionText='Submit'
+ *  secondaryActionText='Close'
+ *  onCloseHandler={onCloseHandler}
+ *  onSubmitHandler={onSubmitHandler}
+ * >
+ *  {Modal Content to appear on body}
  * </Modal>
  * ```
  *
  */
 export const Modal = (props: ModalProps) => {
-    const {children, show, onCloseHandler, className = '', backdrop = 'static'} = props;
+    const {
+        children,
+        show,
+        onCloseHandler,
+        title,
+        subtitle,
+        onSubmitHandler,
+        primaryActionText,
+        secondaryActionText,
+        className = '',
+        backdrop = 'static',
+    } = props;
 
     return (
         <ModalWrapper
@@ -38,7 +46,18 @@ export const Modal = (props: ModalProps) => {
             backdrop={backdrop}
             className={`mm-modal ${className}`}
         >
-            {children}
+            <ModalHeader
+                title={title}
+                subtitle={subtitle}
+                onCloseHandler={onCloseHandler}
+            />
+            <ModalBody> {children} </ModalBody>
+            <ModalFooter
+                onCloseHandler={onCloseHandler}
+                onSubmitHandler={onSubmitHandler}
+                primaryActionText={primaryActionText}
+                secondaryActionText={secondaryActionText}
+            />
         </ModalWrapper>
     );
 };

@@ -28,7 +28,9 @@ export const ModalHeader = (props: ModalHeaderProps) => {
     return (
         <ModalHeaderWrapper className='mm-modalHeader'>
             <ModalHeaderRow>
-                <ModalHeaderTitle className='mm-modalHeaderTitle'>{title}</ModalHeaderTitle>
+                <ModalHeaderTitle className='mm-modalHeaderTitle'>
+                    {title}
+                </ModalHeaderTitle>
                 <IconButton onClick={onCloseHandler}>
                     <Icon
                         name='Close'
@@ -36,7 +38,11 @@ export const ModalHeader = (props: ModalHeaderProps) => {
                     />
                 </IconButton>
             </ModalHeaderRow>
-            {subtitle && <ModalHeaderSubtitle className='mm-modalHeaderSubtitle'>{subtitle}</ModalHeaderSubtitle>}
+            {subtitle && (
+                <ModalHeaderSubtitle className='mm-modalHeaderSubtitle'>
+                    {subtitle}
+                </ModalHeaderSubtitle>
+            )}
         </ModalHeaderWrapper>
     );
 };
