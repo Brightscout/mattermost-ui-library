@@ -1,9 +1,10 @@
 import React from 'react';
+import {ProgressBar} from 'react-bootstrap';
 
 import {extendClassname} from '@Utils';
 
 import {LinearProgressProps} from './LinearProgress';
-import {StyledProgressBar} from './LinearProgress.styles';
+import {StyledProgressBarContainer} from './LinearProgress.styles';
 
 /**
  * LinearProgress
@@ -24,10 +25,11 @@ import {StyledProgressBar} from './LinearProgress.styles';
 export const LinearProgress = (props: LinearProgressProps) => {
     const {value, determinate, color, className = ''} = props;
     return (
-        <StyledProgressBar
-            now={value}
-            color={color}
-            className={`mm-linearProgress ${className} ${extendClassname({linear_loader: !determinate})}`}
-        />
+        <StyledProgressBarContainer color={color}>
+            <ProgressBar
+                now={value}
+                className={`mm-linearProgress ${className} ${extendClassname({linear_loader: !determinate})}`}
+            />
+        </StyledProgressBarContainer>
     );
 };

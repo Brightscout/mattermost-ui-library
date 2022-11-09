@@ -20,7 +20,7 @@
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "generate-icon-map": "node scripts/generateIconMap.js",
-    "chromatic": "npx chromatic --auto-accept-changes --exit-once-uploaded"
+    "chromatic": "npx chromatic --exit-once-uploaded --project-token=$npm_config_projectToken"
   },
   "devDependencies": {
     "@babel/core": "~7.16.7",
