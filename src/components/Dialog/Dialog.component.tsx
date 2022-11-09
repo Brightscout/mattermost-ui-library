@@ -37,6 +37,7 @@ import {
  *  title="Dialog Header"
  *  primaryActionText="Submit"
  *  description="Dialog Description"
+ * />
  * ```
  *
  * @example usage with custom jsx element as content
@@ -52,11 +53,20 @@ import {
  * ```
  */
 export const Dialog = (props: DialogProps) => {
-    const {children, title, description, primaryActionText, show, onCloseHandler, onSubmitHandler, className = '', destructive = false, ...restProps} = props;
+    const {
+        children,
+        title,
+        description,
+        primaryActionText,
+        onCloseHandler,
+        onSubmitHandler,
+        className = '',
+        destructive = false,
+        ...restProps
+    } = props;
 
     return (
         <DialogWrapper
-            show={show}
             onHide={onCloseHandler}
             centered={true}
             className={`mm-dialog ${className}`}
@@ -72,22 +82,29 @@ export const Dialog = (props: DialogProps) => {
             </DialogHeader>
             <DialogContent>
                 {title && <DialogTitle>{title}</DialogTitle>}
-                { description && <DialogDescription>{description}</DialogDescription> }
+                {description && <DialogDescription>{description}</DialogDescription>}
                 {children}
                 <DialogActions>
                     <Button
                         variant='tertiary'
                         onClick={onCloseHandler}
-                        className={`${extendClassname({destructiveBtnSecondary: destructive})}`}
-                    >{'Cancel'}</Button>
-                    {(primaryActionText || destructive) &&
-                    <Button
-                        variant='primary'
-                        className={`${extendClassname({destructiveBtnPrimary: destructive})}`}
-                        onClick={onSubmitHandler}
+                        className={`${extendClassname({
+                            destructiveBtnSecondary: destructive,
+                        })}`}
                     >
-                        {primaryActionText || (destructive && 'Delete')}
-                    </Button>}
+                        {'Cancel'}
+                    </Button>
+                    {(primaryActionText || destructive) && (
+                        <Button
+                            variant='primary'
+                            className={`${extendClassname({
+                                destructiveBtnPrimary: destructive,
+                            })}`}
+                            onClick={onSubmitHandler}
+                        >
+                            {primaryActionText || (destructive && 'Delete')}
+                        </Button>
+                    )}
                 </DialogActions>
             </DialogContent>
             <DialogFooter/>
