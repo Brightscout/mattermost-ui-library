@@ -1,20 +1,19 @@
-/* eslint-disable @typescript-eslint/indent */
 import React, {useCallback, useEffect, useRef, useState} from 'react';
 import _, {debounce} from 'lodash';
 
 import {Input} from '@Components/Input';
+import {List} from '@Components/List';
 import {ListItemType} from '@Components/List/List';
 
 import {AutoCompleteProps} from './AutoComplete';
 import {AutoCompleteWrapper} from './AutoComplete.styles';
-import {List} from '../List/List.component';
 
 /**
  * An asynchronous function to search the query in the given list
  *
- * @param options - search item list
- * @param query - query to search in list
- * @returns list of items that inclued query with given query
+ * @param options - the search item list
+ * @param query - query to search in the list
+ * @returns list of items that included query with the given query
  */
 const getOptionsAsync = (
 	options: ListItemType[],
@@ -46,8 +45,8 @@ const getOptionsAsync = (
  * 	]
  * />
  * ```
- * 
- * @example Correct usage for accessing selected value
+ *
+ * @example Correct usage for accessing the selected value
  * ```ts
  * <AutoComplete
  * 	label='label'
@@ -111,7 +110,7 @@ export const AutoComplete = (props: AutoCompleteProps) => {
 
 	/**
 	 * A callback function called after searchQuery value is changed
-	 * 
+	 *
 	 * The function first deletes the previous option list and closes the popover list. Then,
 	 * calls the `getOptionAsync` function to get the new list according to the searchQuery
 	 * after the delay of 200ms.
@@ -125,14 +124,14 @@ export const AutoComplete = (props: AutoCompleteProps) => {
 		[]
 	);
 
-	// On every change in searchQuery's value, it sets loading to true and 
+	// On every change in searchQuery's value, it sets loading to true and
 	// fetch the new list according to the value of searchQuery
 	useEffect(() => {
 		setIsLoading(true);
 
 		getOptionsDelayed(searchQuery, (options: ListItemType[]) => {
 			setOptions(options);
-			setOpen(options.length > 0 && !!searchQuery);
+			setOpen(Boolean(options.length && searchQuery));
 			setIsLoading(false);
 		});
 	}, [searchQuery, getOptionsDelayed]);
@@ -160,7 +159,7 @@ export const AutoComplete = (props: AutoCompleteProps) => {
 				}}
 				{...restProps}
 			/>
-			{options.length > 0 && (
+			{options.length && (
 				<List
 					isOpen={open}
 					listItems={options}

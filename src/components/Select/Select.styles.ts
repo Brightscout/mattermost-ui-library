@@ -49,7 +49,6 @@ export const Input = styled.input<InputProps>(({leadingIcon}) => {
             left: '10px',
             fontSize: '10px',
         },
-
     };
 });
 

@@ -21,7 +21,7 @@ export const Options = styled.ul<{open: boolean}>(({open}) => {
         maxHeight: '300px',
         overflowY: 'auto',
 
-        // Color of the selected trailing check mark is set to primary color
+        // Color of the selected trailing check mark is set to the primary color
         '& .mm-menuItem.select__option-active': {
             '.mm-icon:last-child svg path': {
                 color: colors.primary,

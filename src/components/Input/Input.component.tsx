@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/indent */
 import React, {forwardRef} from 'react';
 
 import {Icon} from '@Components/Icon';
@@ -12,17 +11,17 @@ import {StyledInput, StyledFieldSet, StyledInputContainer, StyledIconButton} fro
  *
  * Displays fieldset for input component
  */
- const DisplayFieldSet = ({value, error, label}: InputProps) => (
+const DisplayFieldSet = ({value, error, label}: InputProps) => (
 	<StyledFieldSet
-			className={`input_label ${extendClassname({
-					'visible_label-border': Boolean(value),
-					input_error: Boolean(error),
-			})}`}
-			error={error}
+		className={`input_label ${extendClassname({
+			'visible_label-border': Boolean(value),
+			input_error: Boolean(error),
+		})}`}
+		error={error}
 	>
-			<legend className={extendClassname({visible_label: Boolean(value)})}>
-					{label}
-			</legend>
+		<legend className={extendClassname({visible_label: Boolean(value)})}>
+			{label}
+		</legend>
 	</StyledFieldSet>
 );
 
@@ -63,7 +62,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
 		type: string
 	) => {
 		if (!readOnly) {
-			event.target.placeholder = type === 'focus' ? '' : inputLabel;
+			event.target.placeholder = (type === 'focus') ? '' : inputLabel;
 		}
 	};
 
@@ -72,7 +71,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
 			className={`mm-input ${className}`}
 			fullWidth={fullWidth}
 		>
-			{iconName && <Icon name={iconName} size={16} />}
+			{iconName && <Icon name={iconName} size={16}/>}
 			<StyledInput
 				ref={ref}
 				placeholder={inputLabel}
@@ -86,7 +85,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
 			/>
 			{searchQuery && (
 				<StyledIconButton onClick={onClose}>
-					<Icon name="Close" size={12} iconColor="#fff" />
+					<Icon name='Close' size={12} iconColor='#fff'/>
 				</StyledIconButton>
 			)}
 			<DisplayFieldSet value={value} label={inputLabel} error={error} />

@@ -16,7 +16,7 @@ export type ListItemType = {
 
 	/**
 	 * Icon Name for the list item
-	 */	
+	 */
 	icon?: Exclude<IconType, 'Spinner'>;
 };
 

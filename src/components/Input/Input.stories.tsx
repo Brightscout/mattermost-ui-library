@@ -5,8 +5,8 @@ import {Input} from './Input.component';
 import {InputProps} from './Input';
 
 export default {
-    title: 'Component/Input',
-    component: Input,
+	title: 'Component/Input',
+	component: Input,
 } as Meta;
 
 const InputTemplate: Story<InputProps> = (args) => <Input {...args}/>;
@@ -14,78 +14,78 @@ const InputTemplate: Story<InputProps> = (args) => <Input {...args}/>;
 // Default
 export const Default = InputTemplate.bind({});
 Default.args = {
-    label: 'Label',
+	label: 'Label',
 };
 
 // Input with leading Icon
 export const InputWithIcon = InputTemplate.bind({});
 InputWithIcon.args = {
-    label: 'Icon-Label',
-    iconName: 'Globe',
+	label: 'Icon-Label',
+	iconName: 'Globe',
 };
 
 // Input with type
 export const InputWithType = InputTemplate.bind({});
 InputWithType.args = {
-    label: 'Password',
-    iconName: 'Lock',
-    type: 'password',
+	label: 'Password',
+	iconName: 'Lock',
+	type: 'password',
 };
 
 // Input with value
 export const InputWithValue = InputTemplate.bind({});
 InputWithValue.args = {
-    label: 'Label',
-    iconName: 'Globe',
-    value: 'input value',
+	label: 'Label',
+	iconName: 'Globe',
+	value: 'input value',
 };
 
 // Read-only Input
 export const ReadOnlyInput = InputTemplate.bind({});
 ReadOnlyInput.args = {
-    label: 'Readonly-Label',
-    iconName: 'Globe',
-    readOnly: true,
-    value: 'input value',
+	label: 'Readonly-Label',
+	iconName: 'Globe',
+	readOnly: true,
+	value: 'input value',
 };
 
 // Required Input
 export const RequiredInput = InputTemplate.bind({});
 RequiredInput.args = {
-    label: 'Required',
-    iconName: 'Globe',
-    required: true,
+	label: 'Required',
+	iconName: 'Globe',
+	required: true,
 };
 
 // Input with auto focus
 export const InputWithAutoFocus = InputTemplate.bind({});
 InputWithAutoFocus.args = {
-    label: 'Label',
-    iconName: 'Globe',
-    autoFocus: true,
+	label: 'Label',
+	iconName: 'Globe',
+	autoFocus: true,
 };
 
 // Disabled Input
 export const DisabledInput = InputTemplate.bind({});
 DisabledInput.args = {
-    label: 'Label',
-    iconName: 'Globe',
-    value: 'input value',
-    disabled: true,
+	label: 'Label',
+	iconName: 'Globe',
+	value: 'input value',
+	disabled: true,
 };
 
 // Error Input
 export const ErrorInput = InputTemplate.bind({});
 ErrorInput.args = {
-    label: 'Label',
-    iconName: 'Globe',
-    error: true,
+	label: 'Label',
+	iconName: 'Globe',
+	error: true,
 };
 
 // Input with full width
 export const FullWidthInput = InputTemplate.bind({});
 FullWidthInput.args = {
-    label: 'Label',
-    iconName: 'Globe',
-    fullWidth: true,
+	label: 'Label',
+	iconName: 'Globe',
+	fullWidth: true,
 };
