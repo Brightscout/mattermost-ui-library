@@ -51,7 +51,7 @@ export const Modal = (props: ModalProps) => {
                 subtitle={subtitle}
                 onCloseHandler={onCloseHandler}
             />
-            <ModalBody> {children} </ModalBody>
+            <ModalBody>{children}</ModalBody>
             <ModalFooter
                 onCloseHandler={onCloseHandler}
                 onSubmitHandler={onSubmitHandler}

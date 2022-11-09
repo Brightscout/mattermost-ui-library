@@ -24,8 +24,7 @@ export default {
 export const Default: Story<ModalProps> = (args) => {
     return (
         <Modal {...args}>
-            {`
-            Curabitur felis diam, viverra ac lorem et, laoreet placerat urna. Cras in
+            {`Curabitur felis diam, viverra ac lorem et, laoreet placerat urna. Cras in
             feugiat mauris, vitae feugiat libero. Praesent euismod tempus diam non
             laoreet. Aliquam eu nisi in ante posuere faucibus. Lorem ipsum dolor sit
             amet, consectetur adipiscing elit. Maecenas finibus gravida ante. Nunc
@@ -34,8 +33,7 @@ export const Default: Story<ModalProps> = (args) => {
             libero volutpat ac. Aliquam ultricies nisi sit amet velit sagittis
             finibus. Suspendisse tincidunt gravida sem id accumsan. Morbi eget enim
             quis mi scelerisque malesuada. In porttitor tempus massa, vel rutrum
-            libero pretium nec. Donec eu eros finibus, rutrum felis eu, aliquet velit.
-            `}
+            libero pretium nec. Donec eu eros finibus, rutrum felis eu, aliquet velit.`}
         </Modal>
     );
 };
