@@ -14,5 +14,6 @@ import {CardWrapper} from './Card.styles';
  */
 export const Card = (props: CardProps) => {
     const {children, className = ''} = props;
+
     return <CardWrapper className={`mm-card ${className}`}>{children}</CardWrapper>;
 };
