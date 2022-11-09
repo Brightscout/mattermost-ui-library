@@ -20,11 +20,10 @@ export const StyledProgressBarContainer = styled.div<{color?: string}>(
                     position: 'absolute',
                     inset: '0 0 0',
                     transition: 'transform 0.2s linear',
-                    animation:
-                            'loaderAnim 1.8s cubic-bezier(0.65, 0.815, 0.735, 0.395) infinite',
+                    animation: 'loaderAnimation 1.8s cubic-bezier(0.65, 0.815, 0.735, 0.395) infinite',
                 },
 
-                '@keyframes loaderAnim': {
+                '@keyframes loaderAnimation': {
                     '0%': {
                         left: '-100%',
                         right: '100%',
