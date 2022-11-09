@@ -2,8 +2,8 @@ import styled from 'styled-components';
 
 import Colors from '@Styles/colorsForJs.module.scss';
 
-// Styles for tag wrapper
-export const TagsWrapper = styled.div(() => {
+// Styles for the tag wrapper
+export const TagWrapper = styled.div(() => {
     return {
         color: Colors.centerChannel,
         fontWeight: 600,

@@ -1,9 +1,9 @@
 import {placementType} from '@Components/Tooltip/Tooltip';
 
 // Variant Types for label
-export type TagsVariantType = 'general' | 'info' | 'warning' | 'success';
+export type TagVariantType = 'general' | 'info' | 'warning' | 'success';
 
-// Interface for tooltip with tag
+// Interface for the tooltip with tag
 export interface tagWithTooltip {
 
     /**
@@ -12,12 +12,12 @@ export interface tagWithTooltip {
     text: string;
 
     /**
-     * placement of the tooltip with respect to the wrapper
+     * Placement of the tooltip with respect to the wrapper
      */
     placement: placementType;
 }
 
-// Types common to all types of tags
+// Types common to all types of tag
 export interface CommonProps {
 
     /**
@@ -33,8 +33,8 @@ export interface CommonProps {
     tooltip?: tagWithTooltip;
 }
 
-// Interface for label tags
-export interface LabelTags extends CommonProps{
+// Interface for the label tag
+export interface LabelTag extends CommonProps{
 
     /**
      * Label type tag
@@ -42,13 +42,13 @@ export interface LabelTags extends CommonProps{
     type: 'label';
 
     /**
-     * Variant of label tag
+     * Variant of the label tag
      */
-    variant: TagsVariantType;
+    variant: TagVariantType;
 }
 
-// Interface for shortcut tag
-export interface ShortcutTags extends CommonProps {
+// Interface for the shortcut tag
+export interface ShortcutTag extends CommonProps {
 
     /**
      * Shortcut tag
@@ -56,8 +56,8 @@ export interface ShortcutTags extends CommonProps {
     type: 'shortcut';
 }
 
-// Interface for highlight tag
-export interface HighlightTags extends CommonProps {
+// Interface for the highlight tag
+export interface HighlightTag extends CommonProps {
 
     /**
      * Highlight tag
@@ -66,4 +66,4 @@ export interface HighlightTags extends CommonProps {
 }
 
 // Type of tag props
-export type TagsProps = LabelTags | ShortcutTags | HighlightTags
+export type TagProps = LabelTag | ShortcutTag | HighlightTag
