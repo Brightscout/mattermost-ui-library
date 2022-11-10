@@ -1,12 +1,12 @@
 export interface TextAreaProps {
 
     /**
-	 * value of textarea
+	 * Value of the textarea
 	 */
     value: string | number;
 
     /**
-	 * number of rows for textarea
+	 * Number of rows for the textarea
 	 *
 	 * @default 3
 	 */
@@ -18,10 +18,10 @@ export interface TextAreaProps {
     error?: boolean;
 
     /**
-    * If `true`, the textarea element will be disabled
-    *
-    * @default false
-    */
+	 * If `true`, the textarea element will be disabled
+	 *
+	 * @default false
+	 */
     disabled?: boolean;
 
     /**
@@ -32,37 +32,37 @@ export interface TextAreaProps {
     readOnly?: boolean;
 
     /**
-    * Label for the text area
-    */
+	 * Label for the text area
+	 */
     label: string;
 
     /**
-    * A unique id given to the textarea element
-    */
+	 * A unique id given to the textarea element
+	 */
     id?: string;
 
     /**
-    * The name applied to the textarea element
-    */
+	 * The name applied to the textarea element
+	 */
     name?: string;
 
     /**
-	* If `true`, value in textarea is required
-	*
-	* @default false
-	*/
+	 * If `true`, value in the textarea is required
+	 *
+	 * @default false
+	 */
     required?: boolean;
 
     /**
-	* If `true`, the textarea element is focused during the first mount
-	*
-	* @default false
-	*/
+	 * If `true`, the textarea element is focused during the first mount
+	 *
+	 * @default false
+	 */
     autoFocus?: boolean;
 
     /**
-     * To override or extend the styles applied to the component
-     */
+	 * To override or extend the styles applied to the component
+	 */
     className?: string;
 
     /**

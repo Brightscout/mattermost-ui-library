@@ -21,7 +21,9 @@ const DisplayFieldSet = ({value, error, label}: TextAreaProps) => {
             label={label}
             className={`${extendClassname({'fieldset-error': Boolean(error)})}`}
         >
-            <legend className={`${extendClassname({'legend-active': Boolean(value)})}`}>
+            <legend
+                className={`${extendClassname({'legend-active': Boolean(value)})}`}
+            >
                 {label}
             </legend>
         </StyledFieldSet>
@@ -43,12 +45,23 @@ export const TextArea = (props: TextAreaProps) => {
     const textAreaLabel = `${label}${required ? ' *' : ''}`;
 
     return (
-        <TextAreaContainer className={`mm-textarea ${className} ${extendClassname({'textarea-error': Boolean(error)})}`}>
+        <TextAreaContainer
+            className={`mm-textarea ${className} ${extendClassname({
+                'textarea-error': Boolean(error),
+            })}`}
+        >
             <StyledTextArea
                 as='textarea'
                 {...restProps}
             />
-            <Label className={`textarea-label ${extendClassname({'label-visible': Boolean(value), 'label-error': Boolean(error)})}`}>{textAreaLabel}</Label>
+            <Label
+                className={`textarea-label ${extendClassname({
+                    'label-visible': Boolean(value),
+                    'label-error': Boolean(error),
+                })}`}
+            >
+                {textAreaLabel}
+            </Label>
             <DisplayFieldSet
                 label={textAreaLabel}
                 value={value}

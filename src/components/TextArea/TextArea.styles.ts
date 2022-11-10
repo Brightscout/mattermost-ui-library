@@ -79,9 +79,6 @@ export const Label = styled.label({
 
     // Styles for label when value is present
     '&.label-visible': {
-
-        // top: -9,
-        // left: -8.5,
         fontSize: 10,
         transform: 'translate(6px,-18.5px)',
 
