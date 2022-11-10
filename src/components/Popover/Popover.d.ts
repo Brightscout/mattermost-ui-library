@@ -2,7 +2,7 @@ import React from 'react';
 import {OverlayTriggerProps} from 'react-bootstrap';
 
 /**
- * Type for position
+ * Types for position
  */
 type placementType =
     | 'auto-start'
@@ -25,8 +25,10 @@ export interface PopoverProps extends Pick<OverlayTriggerProps, 'children'> {
 
     /**
      * Placement of the tooltip with respect to the wrapped component
+     *
+     * @default `auto`
      */
-    placement: placementType;
+    placement?: placementType;
 
     /**
      * Component to be rendered in the body of the popover

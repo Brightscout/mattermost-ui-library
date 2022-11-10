@@ -22,22 +22,14 @@ export default {
                 onClick={() => {
                     console.log('clicked option 1');
                 }}
-                leadingElement={
-                    <Icon
-                        name='Edit'
-                        size={14}
-                    />}
+                leadingIcon='Edit'
                 label='option 1'
             />
             <MenuItem
                 onClick={() => {
                     console.log('clicked option 2');
                 }}
-                leadingElement={
-                    <Icon
-                        name='Delete'
-                        size={14}
-                    />}
+                leadingIcon='Delete'
                 label='option 2'
             />
         </>,

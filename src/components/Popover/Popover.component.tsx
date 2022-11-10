@@ -20,35 +20,29 @@ import {EventPassContainer, StyledPopover} from './Popover.styles';
  * ```
  */
 export const Popover = (props: PopoverProps) => {
-    const {children, placement, popoverBody, elevation, className = ''} = props;
+    const {children, popoverBody, elevation, placement = 'auto', className = ''} = props;
     const [show, setShow] = useState(false);
 
     const EventPassContainerRef = useRef<HTMLDivElement>(null);
 
     /**
-     * Toggler for popover component
-     * @param {boolean} e - state of popover, wether being shown or not
+     * Toggler for the popover component
+     * @param {boolean} e - a state to change the visibility of the popover
      */
     const onToggleHandler = (e:boolean) => {
         setShow(e);
     };
 
     /**
-     * Function which closes the popover on clicking anywhere other than popover wrapped element
-     * @param {MouseEvent} e - gets the element on which the on click event acted upon
-     *
+     * Function which closes the popover on clicking anywhere other than the popover wrapped element
+     * @param {MouseEvent} e - gets the element on which the onClick event is acted upon
      */
     const onPopoverCloseHandler = (e: MouseEvent) => {
-        if (e.target === EventPassContainerRef.current) {
-            return;
-        }
-
-        if (show) {
-            setShow(false);
-        }
+        if (e.target === EventPassContainerRef.current) return;
+        if (show) setShow(false);
     };
 
-    // Function to render popover body
+    // Function to render the popover body
     const renderedPopover = (renderedPopoverProps: OverlayTriggerRenderProps) => (
         <StyledPopover
             elevation={elevation}
@@ -79,7 +73,7 @@ export const Popover = (props: PopoverProps) => {
             onToggle={onToggleHandler}
         >
             {/*
-                Since all child components wont be spreading props, the event wont be able to reach down.
+                Since all child components won't be spreading props, the event won't be able to reach down.
                 Therefore passing the event to a div which wraps the children
             */}
             <EventPassContainer
