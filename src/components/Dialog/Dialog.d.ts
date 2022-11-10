@@ -20,7 +20,7 @@ export interface CommonProps {
     show?: boolean;
 
     /**
-	 * Callback function which is to be triggered onHide scenarios
+	 * Callback function which is to be triggered for the "onHide" scenarios
 	 */
     onCloseHandler: () => void;
 
@@ -30,8 +30,8 @@ export interface CommonProps {
     onSubmitHandler?: () => void;
 
     /**
-	 * 'true' for a backdrop that triggers an "onHide" when clicked.
-	 * 'static' for a backdrop that doesn't trigger an "onHide" when clicked.
+	 * 'true' for a backdrop that triggers the "onHide" when clicked.
+	 * 'static' for a backdrop that doesn't trigger the "onHide" when clicked.
 	 * 'false' to remove the backdrop
 	 *
 	 * @default 'static'

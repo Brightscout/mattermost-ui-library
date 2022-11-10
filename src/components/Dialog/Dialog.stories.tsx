@@ -55,7 +55,6 @@ WithOnlyJsxAsContent.args = {
     title: undefined,
     children: <div>
         <h1>{'Custom Jsx'}</h1>
-        <hr/>
         <p>{'This whole is a custom jsx element'}</p>
     </div>,
 };
