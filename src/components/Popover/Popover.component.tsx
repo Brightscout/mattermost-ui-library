@@ -20,27 +20,28 @@ import {EventPassContainer, StyledPopover} from './Popover.styles';
  * ```
  */
 export const Popover = (props: PopoverProps) => {
-    const {children, popoverBody, elevation, placement = 'auto', className = ''} = props;
+    const {
+        children,
+        popoverBody,
+        elevation,
+        placement = 'auto',
+        className = '',
+    } = props;
     const [show, setShow] = useState(false);
 
     const EventPassContainerRef = useRef<HTMLDivElement>(null);
 
     /**
-     * Toggler for the popover component
-     * @param {boolean} e - a state to change the visibility of the popover
-     */
-    const onToggleHandler = (e:boolean) => {
-        setShow(e);
-    };
+	 * Toggler for the popover component
+	 * @param {boolean} e - a state to change the visibility of the popover
+	 */
+    const onToggleHandler = (e: boolean) => setShow(e);
 
     /**
-     * Function which closes the popover on clicking anywhere other than the popover wrapped element
-     * @param {MouseEvent} e - gets the element on which the onClick event is acted upon
-     */
-    const onPopoverCloseHandler = (e: MouseEvent) => {
-        if (e.target === EventPassContainerRef.current) return;
-        if (show) setShow(false);
-    };
+	 * Function which closes the popover on clicking anywhere outside the popover wrapper
+	 * @param {MouseEvent} e - gets the element on which the onClick event is acted upon
+	 */
+    const onPopoverCloseHandler = (e: MouseEvent) => e.target !== EventPassContainerRef.current && setShow(false);
 
     // Function to render the popover body
     const renderedPopover = (renderedPopoverProps: OverlayTriggerRenderProps) => (
@@ -53,14 +54,14 @@ export const Popover = (props: PopoverProps) => {
         </StyledPopover>
     );
 
-    // On clicking anywhere other than the wrapped component the pop over closes
+    // On clicking anywhere other than the wrapped component the pop-over closes
     useEffect(() => {
         document.body.addEventListener('click', onPopoverCloseHandler);
 
         return () => {
             document.body.removeEventListener('click', onPopoverCloseHandler);
         };
-    });
+    }, []);
 
     return (
         <OverlayTrigger
@@ -76,10 +77,9 @@ export const Popover = (props: PopoverProps) => {
                 Since all child components won't be spreading props, the event won't be able to reach down.
                 Therefore passing the event to a div which wraps the children
             */}
-            <EventPassContainer
-                ref={EventPassContainerRef}
-            >
+            <EventPassContainer ref={EventPassContainerRef}>
                 {children}
             </EventPassContainer>
-        </OverlayTrigger>);
+        </OverlayTrigger>
+    );
 };

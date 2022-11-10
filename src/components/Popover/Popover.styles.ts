@@ -4,8 +4,8 @@ import {Popover} from 'react-bootstrap';
 import Colors from '@Styles/colorsForJs.module.scss';
 
 // Styles for the pop over
-export const StyledPopover = styled(Popover)<{elevation: boolean}>(({elevation}) => {
-    return {
+export const StyledPopover = styled(Popover)<{ elevation: boolean }>(
+    ({elevation}) => ({
         margin: 8,
         borderRadius: 4,
         boxShadow: elevation ? Colors.elevation1 : 'none',
@@ -18,8 +18,8 @@ export const StyledPopover = styled(Popover)<{elevation: boolean}>(({elevation})
         '& *': {
             cursor: 'pointer',
         },
-    };
-});
+    }),
+);
 
 // Styles for the event pass container
 export const EventPassContainer = styled.div({
