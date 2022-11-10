@@ -1,57 +1,65 @@
 export interface StyledSkeletonProps {
 
-    // size on the circular variant loader, the size if passed to width and height
+    /**
+	 * Size on the circular variant loader, the size is passed to width and height
+	 */
     size?: string | number;
 
-    // height of the rectangular variant loader
+    /**
+	 * Height of the rectangular variant loader
+	 */
     height?: string | number;
 
-    // width of the rectangular variant loader
+    /**
+	 * Width of the rectangular variant loader
+	 */
     width?: string | number;
 
-    // border radius of the rectangular variant loader
+    /**
+	 * Border radius of the rectangular variant loader
+	 */
     borderRadius?: string | number;
 }
 
 export interface CircularSkeleton {
 
     /**
-     * `circular` variant loader
-     */
+	 * `Circular` variant loader
+	 */
     variant: 'circular';
 
     /**
-     * Size of the `circular` loader
-     *
-     * @default 100%
-     */
+	 * Size of the `circular` loader
+	 *
+	 * @default 100%
+	 */
     size?: number | string;
 }
 
 export interface RectangularSkeleton {
 
     /**
-     * `rectangular` variant loader
-     */
+	 * `rectangular` variant loader
+	 */
     variant: 'rectangular';
 
     /**
-     * Width of the `rectangular` loader
-     *
-     * @default 100%
-     */
+	 * Width of the `rectangular` loader
+	 *
+	 * @default 100%
+	 */
     width?: number | string;
 
     /**
-     * Height of the `rectangular` loader
-     *
-     * @default 100%
-     */
+	 * Height of the `rectangular` loader
+	 *
+	 * @default 100%
+	 */
     height?: number | string;
 
     /**
-     * Border radius of the `rectangular` loader
-     */
+	 * Border radius of the `rectangular` loader
+	 */
     borderRadius?: number | string;
 }
 
