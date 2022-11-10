@@ -1,7 +1,7 @@
 import React, {useCallback, useEffect, useState, useRef} from 'react';
 
 // Constants
-import {DefaultCharThresholdToShowSuggestions} from '@Constants';
+import {DefaultCharThresholdToShowSuggestions, DropDownItemHeight} from '@Constants';
 
 export type AutoSuggestProps = {
     inputValue: string;
@@ -100,7 +100,7 @@ const AutoSuggest = ({
                 setCurr(prev => prev + 1);
                 // Scroll down after first three options
                 if (curr >= 2) {
-                    listRef.current.scrollBy(0, 40);
+                    listRef.current.scrollBy(0, DropDownItemHeight);
                 }
             }
 
@@ -108,7 +108,7 @@ const AutoSuggest = ({
                 setCurr(prev => prev - 1);
                 // Scroll down after last three options
                 if (curr < suggestions.length - 2) {
-                    listRef.current.scrollBy(0, -40);
+                    listRef.current.scrollBy(0, -DropDownItemHeight);
                 }
             }
 
@@ -161,7 +161,7 @@ const AutoSuggest = ({
                     placeholder={`${placeholder ?? ''}${required ? '*' : ''}`}
                     value={inputValue}
                     onChange={(e) => onInputValueChange(e.target.value)}
-                    onKeyDown={(e) => keyboardNavigation(e)}
+                    onKeyDown={keyboardNavigation}
                     onBlur={handleBlur}
                     className={`auto-suggest__input padding-0 ${disabled && 'cursor-not-allowed'}`}
                     disabled={disabled}

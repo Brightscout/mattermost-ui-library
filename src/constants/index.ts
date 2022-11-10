@@ -9,3 +9,5 @@ export const TooltipDefaultPlacement = 'top';
 
 // TODO: Remove the constant from here and use from "mattermost-redux" instead
 export const PrivateChannelType = 'P';
+
+export const DropDownItemHeight = 40;

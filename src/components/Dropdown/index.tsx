@@ -1,3 +1,4 @@
+import { DropDownItemHeight } from '@Constants';
 import React, {useEffect, useState, useRef, useCallback} from 'react';
 
 export type DropdownProps = {
@@ -66,7 +67,7 @@ const Dropdown = ({
                 setCurr(prev => prev + 1);
                 // Scroll down after first three options
                 if (curr >= 2) {
-                    listRef.current.scrollBy(0, 40);
+                    listRef.current.scrollBy(0, DropDownItemHeight);
                 }
             }
 
@@ -74,7 +75,7 @@ const Dropdown = ({
                 setCurr(prev => prev - 1);
                 // Scroll down after last three options
                 if (curr < options.length - 2) {
-                    listRef.current.scrollBy(0, -40);
+                    listRef.current.scrollBy(0, -DropDownItemHeight);
                 }
             }
 
@@ -127,7 +128,7 @@ const Dropdown = ({
                     className='plugin-dropdown__field-input cursor-pointer'
                     checked={open}
                     onChange={(e) => setOpen(e.target.checked)}
-                    onKeyDown={(e) => keyboardNavigation(e)}
+                    onKeyDown={keyboardNavigation}
                     disabled={disabled}
                 />
             </div>
