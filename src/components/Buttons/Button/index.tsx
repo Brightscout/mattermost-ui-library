@@ -1,12 +1,12 @@
 import React from 'react';
 
 type ButtonProps = {
-    text: string
-    iconName?: string
-    extraClass?: string
-    onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void
-    isSecondaryButton?: boolean
-    isDisabled?: boolean
+    text: string;
+    iconName?: string;
+    extraClass?: string;
+    onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
+    isSecondaryButton?: boolean;
+    isDisabled?: boolean;
 }
 
 const Button = ({

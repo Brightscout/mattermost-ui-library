@@ -4,7 +4,7 @@ import {CheckIcon} from '@Components/Icons';
 
 type ResultPanelProps = {
     iconClass?: string | null;
-    header: React.ReactNode;
+    header: string | React.ReactNode;
     className?: string;
     primaryBtn?: {
         text: string;
@@ -33,7 +33,9 @@ const ResultPanel = forwardRef<HTMLDivElement, ResultPanelProps>(({
             ) : (
                 <CheckIcon className='result-panel-icon'/>
             )}
-            <h2 className='result-panel-text font-16 margin-v-25 text-center'>{header}</h2>
+            {typeof header !== 'string' ? header : (
+                <h2 className='result-panel-text font-16 margin-v-25 text-center'>{header}</h2>
+            )}
         </div>
         <div className='modal-footer d-flex flex-row-reverse padding-h-12 padding-v-15'>
             {primaryBtn?.onClick && (
