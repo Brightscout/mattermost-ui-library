@@ -34,7 +34,7 @@ DisabledState.args = {
 // Two radio buttons
 export const TwoRadioButtons = () => {
     const [selected, setSelected] = React.useState<undefined | string>();
-    const onChangeHandler = (_: React.ChangeEvent<HTMLInputElement>, value: string) => {
+    const onClickHandler = (_: React.MouseEvent<HTMLInputElement, MouseEvent>, value: string) => {
         setSelected(value);
     };
     return (
@@ -44,7 +44,7 @@ export const TwoRadioButtons = () => {
                 value='male'
                 name='gender'
                 id='male'
-                onChange={onChangeHandler}
+                onClick={onClickHandler}
             />
             <br/>
             <Radio
@@ -52,7 +52,7 @@ export const TwoRadioButtons = () => {
                 value='female'
                 name='gender'
                 id='female'
-                onChange={onChangeHandler}
+                onClick={onClickHandler}
             />
             {selected && <div>{`selected ${selected}`}</div>}
         </>

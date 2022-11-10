@@ -2,95 +2,64 @@ import styled from 'styled-components';
 
 import Colors from '@Styles/colorsForJs.module.scss';
 
-export const RadioContainer = styled.div({
-    display: 'inline-flex',
-    alignItems: 'center',
+import {RadioSizeTypes} from './Radio';
 
-    '.radio-label': {
-        margin: 0,
-        color: Colors.centerChannel,
+export const RadioContainer = styled.div<{ size: RadioSizeTypes }>(
+    ({size}) => {
+        const increaseRadioSizeBy = {
+            sm: 0,
+            md: 2,
+            lg: 4,
+        };
+
+        return {
+            display: 'inline-flex',
+            alignItems: 'center',
+            gap: 8 + increaseRadioSizeBy[size],
+
+            '.radio-label': {
+                margin: 0,
+                color: Colors.centerChannel,
+                fontSize: 12 + increaseRadioSizeBy[size],
+            },
+
+            '.radio-label[for]': {
+                cursor: 'pointer',
+            },
+
+            '.input-wrapper': {
+                width: 12 + (2 * increaseRadioSizeBy[size]),
+                height: 12 + (2 * increaseRadioSizeBy[size]),
+            },
+
+            '.mm-radio-active': {
+                width: 6 + increaseRadioSizeBy[size],
+                height: 6 + increaseRadioSizeBy[size],
+            },
+
+            // Error state
+            '&.mm-radio-error': {
+                '.mm-radio-input, .mm-radio-input:checked': {
+                    borderColor: Colors.error,
+                },
+
+                '.mm-radio-active': {
+                    backgroundColor: Colors.error,
+                },
+            },
+
+            // Disabled state
+            '&.mm-radio-disabled': {
+                '.radio-label': {
+                    opacity: '40%',
+                },
+                '.radio-label[for]': {
+                    cursor: 'default',
+                },
+            },
+        };
     },
-
-    '.radio-label[for]': {
-        cursor: 'pointer',
-    },
-
-    // Styles based on `size` prop
-    '&.mm-radio-sm ': {
-        gap: 8,
-
-        '.radio-label': {
-            fontSize: 12,
-        },
-
-        '.input-wrapper': {
-            width: 12,
-            height: 12,
-        },
-
-        '.mm-radio-active': {
-            width: 6,
-            height: 6,
-        },
-    },
-
-    '&.mm-radio-md': {
-        gap: 10,
-
-        '.radio-label': {
-            fontSize: 14,
-        },
-
-        '.input-wrapper': {
-            width: 16,
-            height: 16,
-        },
-
-        '.mm-radio-active': {
-            width: 8,
-            height: 8,
-        },
-    },
-
-    '&.mm-radio-lg': {
-        gap: 12,
-
-        '.radio-label': {
-            fontSize: 16,
-        },
-
-        '.input-wrapper': {
-            width: 20,
-            height: 20,
-        },
-
-        '.mm-radio-active': {
-            width: 10,
-            height: 10,
-        },
-    },
-
-    // Error state
-    '&.mm-radio-error': {
-        '.mm-radio-input, .mm-radio-input:checked': {
-            borderColor: Colors.error,
-        },
-
-        '.mm-radio-active': {
-            backgroundColor: Colors.error,
-        },
-    },
-
-    // Disabled state
-    '&.mm-radio-disabled': {
-        '.radio-label': {
-            opacity: '40%',
-        },
-        '.radio-label[for]': {
-            cursor: 'default',
-        },
-    },
-});
+);
 
 export const InputContainer = styled.div({
     display: 'inline-block',

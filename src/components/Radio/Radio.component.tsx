@@ -16,20 +16,37 @@ import {InputContainer, RadioContainer} from './Radio.styles';
  *  onChange={onChangeHandler}
  * />
  */
-export const Radio = (props:RadioProps) => {
-    const {error, label, disabled, onChange, id, className = '', size = 'md', ...restProps} = props;
+export const Radio = (props: RadioProps) => {
+    const {
+        error,
+        label,
+        disabled,
+        onClick,
+        id,
+        className = '',
+        size = 'md',
+        ...restProps
+    } = props;
 
-    const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
-        onChange(e, e.target.value);
+    const onClickHandler = (
+        e: React.MouseEvent<HTMLInputElement, MouseEvent>,
+    ) => {
+        onClick(e, (e.target as HTMLInputElement).value);
     };
 
     return (
-        <RadioContainer className={`mm-radio ${className} ${extendClassname({'mm-radio-error': Boolean(error), [`mm-radio-${size}`]: true, 'mm-radio-disabled': Boolean(disabled)})}`}>
+        <RadioContainer
+            size={size}
+            className={`mm-radio ${className} ${extendClassname({
+                'mm-radio-error': Boolean(error),
+                'mm-radio-disabled': Boolean(disabled),
+            })}`}
+        >
             <InputContainer className='input-wrapper'>
                 <input
                     className='mm-radio-input'
                     type='radio'
-                    onChange={onChangeHandler}
+                    onClick={onClickHandler}
                     disabled={disabled}
                     id={id}
                     {...restProps}
@@ -39,7 +56,9 @@ export const Radio = (props:RadioProps) => {
             <label
                 htmlFor={id}
                 className='radio-label'
-            >{label}</label>
+            >
+                {label}
+            </label>
         </RadioContainer>
     );
 };
