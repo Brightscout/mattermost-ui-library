@@ -42,15 +42,14 @@ export const Tag = (props: TagProps) => {
         </TagWrapper>
     );
 
-    if (tooltip) {
-        return (
-            <Tooltip
-                text={tooltip.text}
-                placement={tooltip.placement}
-            >
-                {tagElement}
-            </Tooltip>
-        );
-    }
-    return tagElement;
+    return tooltip ? (
+        <Tooltip
+            text={tooltip.text}
+            placement={tooltip.placement}
+        >
+            {tagElement}
+        </Tooltip>
+    ) : (
+        tagElement
+    );
 };
