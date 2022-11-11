@@ -76,6 +76,11 @@ export interface InputProps {
 	required?: boolean;
 
 	/**
+	 * The function is called when an event is detected on the keyboard
+	 */
+	onKeyDown?: React.KeyboardEventHandler<HTMLInputElement>;
+
+	/**
 	 * The value of the input field
 	 */
 	value?: string | number;

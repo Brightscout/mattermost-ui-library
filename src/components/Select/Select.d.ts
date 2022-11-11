@@ -31,7 +31,7 @@ export interface SelectProps extends InputProps {
 	 * @param option - Option selected by the user
 	 */
 	onSelectOptionHandler: (
-		e: React.MouseEvent<HTMLLIElement, MouseEvent>,
+		e: React.MouseEvent<HTMLLIElement, MouseEvent> | KeyboardEvent<HTMLInputElement>,
 		option: ListItemType
 	) => void;
 }

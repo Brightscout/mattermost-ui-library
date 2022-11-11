@@ -12,7 +12,7 @@ export const Options = styled.ul<{open: boolean}>(({open}) => {
         top: 44,
         zIndex: 99,
         listStyle: 'none',
-        padding: '2px',
+        padding: 0,
         display: open ? 'block' : 'none',
         margin: 0,
         border: `1px solid ${colors.centerChannel_16}`,

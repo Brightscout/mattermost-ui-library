@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {forwardRef} from 'react';
 
 import {MenuItem} from '@Components/MenuItem';
 import {extendClassname} from '@Utils';
@@ -9,7 +9,7 @@ import {Options} from './List.styles';
 /**
  * List Component
  *
- * @example Correct usage 
+ * @example Correct usage
  * ```ts
  * <List
  * 	isOpen={true}
@@ -37,33 +37,40 @@ import {Options} from './List.styles';
  * />
  * ```
  */
-export const List = ({
-	listItems,
-	handleItemClick,
-	value,
-	isOpen,
-	loading,
-	isAutocomplete,
-}: ListPropType) => (
-	<Options open={isOpen} className='select__option-list'>
-		{loading ? (
-			<MenuItem label={'Loading ...'} />
-		) : (
-			listItems.map((option) => (
-				<MenuItem
-					key={option.value}
-					className={extendClassname({
-						'select__option-active':
-							(option.label ?? option.value) === value && !isAutocomplete,
-					})}
-					onClick={(event) => handleItemClick(event, option)}
-					label={option.label ?? option.value}
-					leadingIcon={option.icon}
-					{...((option.label ?? option.value) === value && {
-						trailingIcon: 'Check',
-					})}
-				/>
-			))
-		)}
-	</Options>
+export const List = forwardRef<HTMLUListElement, ListPropType>(
+	(
+		{
+			listItems,
+			handleItemClick,
+			value,
+			isOpen,
+			loading,
+			isAutocomplete,
+			activeItem = 0,
+		},
+		ref
+	) => (
+		<Options open={isOpen} className='select__option-list' ref={ref}>
+			{loading ? (
+				<MenuItem label={'Loading ...'}/>
+			) : (
+				listItems.map((option, index) => (
+					<MenuItem
+						key={option.value}
+						className={extendClassname({
+							active:
+								((option.label ?? option.value) === value && !isAutocomplete) ||
+								activeItem === index,
+						})}
+						onClick={(event) => handleItemClick(event, option, index)}
+						label={option.label ?? option.value}
+						leadingIcon={option.icon}
+						{...((option.label ?? option.value) === value && {
+							trailingIcon: 'Check',
+						})}
+					/>
+				))
+			)}
+		</Options>
+	)
 );

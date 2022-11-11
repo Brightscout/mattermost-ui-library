@@ -50,6 +50,11 @@ export interface ListPropType {
 	isAutocomplete?: boolean;
 
 	/**
+	 * The index of active menu item
+	 */
+	activeItem?: number;
+
+	/**
 	 * The handler called when any List item is selected
 	 *
 	 * @param event - Element in which the event have happened
@@ -57,6 +62,7 @@ export interface ListPropType {
 	 */
 	handleItemClick: (
 		event: React.MouseEvent<HTMLLIElement, MouseEvent>,
-		option: ListItemType
+		option: ListItemType,
+		index: number
 	) => void;
 }

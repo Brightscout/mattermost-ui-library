@@ -7,6 +7,9 @@ import {AutoCompleteProps} from './AutoComplete';
 export default {
     title: 'Component/AutoComplete',
     component: AutoComplete,
+    args: {
+      label: 'Search...',
+    }
 } as Meta;
 
 const AutoCompleteTemplate: Story<AutoCompleteProps> = (args) => <AutoComplete {...args}/>;
@@ -14,7 +17,6 @@ const AutoCompleteTemplate: Story<AutoCompleteProps> = (args) => <AutoComplete {
 // Default
 export const Default = AutoCompleteTemplate.bind({});
 Default.args = {
-    label: 'Label',
     items: [
       {label: 'koko 1', value: 'Value 1'},
       {label: 'asd 2', value: 'Value 2'},
@@ -34,7 +36,6 @@ Default.args = {
 // AutoComplete options with leading icon
 export const OptionWithIcon = AutoCompleteTemplate.bind({});
 OptionWithIcon.args = {
-    label: 'Label',
     items: [
       {label: 'koko 1', icon: 'User', value: 'Value 1'},
       {label: 'asd 2', icon: 'User', value: 'Value 2'},
@@ -54,7 +55,6 @@ OptionWithIcon.args = {
 // AutoComplete options without label
 export const OptionWithoutLabel = AutoCompleteTemplate.bind({});
 OptionWithoutLabel.args = {
-    label: 'Label',
     items: [
       {icon: 'User', value: 'Value 1'},
       {icon: 'User', value: 'Value 2'},
@@ -74,7 +74,6 @@ OptionWithoutLabel.args = {
 // Full Width AutoComplete
 export const FullWidth = AutoCompleteTemplate.bind({});
 FullWidth.args = {
-    label: 'Label',
     fullWidth: true,
     items: [
       {label: 'koko 1', value: 'Value 1'},
@@ -95,8 +94,9 @@ FullWidth.args = {
 // AutoComplete with onSelect function
 export const OnItemSelect = AutoCompleteTemplate.bind({});
 OnItemSelect.args = {
-    label: 'Label',
-    onSelect: (event, option) => {console.log('on selecting items =>', event, option)},
+    onSelect: (event, option) => {
+      console.log('on selecting items =>', event, option)
+    },
     items: [
       {label: 'koko 1', value: 'Value 1'},
       {label: 'asd 2', value: 'Value 2'},
