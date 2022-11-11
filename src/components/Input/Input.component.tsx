@@ -1,11 +1,10 @@
-/* eslint-disable @typescript-eslint/indent */
-import React from 'react';
+import React, {forwardRef} from 'react';
 
 import {Icon} from '@Components/Icon';
 import {extendClassname} from '@Utils';
 
-import {StyledInput, StyledFieldSet, StyledInputContainer} from './Input.styles';
 import {InputProps} from './Input';
+import {StyledInput, StyledFieldSet, StyledInputContainer, StyledIconButton} from './Input.styles';
 
 /**
  * DisplayFieldSet - sub-component
@@ -13,18 +12,17 @@ import {InputProps} from './Input';
  * Displays fieldset for input component
  */
 const DisplayFieldSet = ({value, error, label}: InputProps) => (
-    <StyledFieldSet
-        className={`input_label ${extendClassname({
-            'visible_label-border': Boolean(value),
-            input_error: Boolean(error),
-        })}`
-        }
-        error={error}
-    >
-        <legend className={extendClassname({visible_label: Boolean(value)})}>
-            {label}
-        </legend>
-    </StyledFieldSet>
+	<StyledFieldSet
+		className={`input_label ${extendClassname({
+			'visible_label-border': Boolean(value),
+			input_error: Boolean(error),
+		})}`}
+		error={error}
+	>
+		<legend className={extendClassname({visible_label: Boolean(value)})}>
+			{label}
+		</legend>
+	</StyledFieldSet>
 );
 
 /**
@@ -40,44 +38,57 @@ const DisplayFieldSet = ({value, error, label}: InputProps) => (
  * <Input label='label' iconName='Globe'/>
  * ```
  */
-export const Input = (props: InputProps) => {
-    const {label, iconName, className = '', fullWidth, ...restProps} = props;
-    const {readOnly, error, required, value = ''} = restProps;
+export const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
+	const {
+		label,
+		iconName,
+		className = '',
+		fullWidth,
+		onClose,
+		searchQuery,
+		...restProps
+	} = props;
+	const {readOnly, error, required, value = ''} = restProps;
 
-    const inputLabel = `${label}${required ? ' *' : ''}`;
+	const inputLabel = `${label}${required ? ' *' : ''}`;
 
-    const togglePlaceholderValue = (event: React.ChangeEvent<HTMLInputElement>, type: string) => {
-        if (!readOnly) {
-            event.target.placeholder = type === 'focus' ? '' : inputLabel;
-        }
-    }
+	/**
+	 * Toggle placeholder value on type change
+	 * @param event - HTML input event
+	 * @param type - focus, blur
+	 */
+	const togglePlaceholderValue = (
+		event: React.ChangeEvent<HTMLInputElement>,
+		type: string
+	) => {
+		if (!readOnly) {
+			event.target.placeholder = (type === 'focus') ? '' : inputLabel;
+		}
+	};
 
-    return (
-        <StyledInputContainer
-            className={`mm-input ${className}`}
-            fullWidth={fullWidth}
-        >
-            {iconName &&
-                <Icon
-                    name={iconName}
-                    size={16}
-                />
-            }
-            <StyledInput
-                placeholder={inputLabel}
-                onFocus={(event: React.ChangeEvent<HTMLInputElement>) => 
-                    togglePlaceholderValue(event, 'focus')
-                }
-                onBlur={(event: React.ChangeEvent<HTMLInputElement>) => 
-                    togglePlaceholderValue(event, 'blur')
-                }
-                {...restProps}
-            />
-            <DisplayFieldSet
-                value={value}
-                label={inputLabel}
-                error={error}
-            />
-        </StyledInputContainer>
-    );
-};
+	return (
+		<StyledInputContainer
+			className={`mm-input ${className}`}
+			fullWidth={fullWidth}
+		>
+			{iconName && <Icon name={iconName} size={16}/>}
+			<StyledInput
+				ref={ref}
+				placeholder={inputLabel}
+				onFocus={(event: React.ChangeEvent<HTMLInputElement>) =>
+					togglePlaceholderValue(event, 'focus')
+				}
+				onBlur={(event: React.ChangeEvent<HTMLInputElement>) =>
+					togglePlaceholderValue(event, 'blur')
+				}
+				{...restProps}
+			/>
+			{searchQuery && (
+				<StyledIconButton onClick={onClose}>
+					<Icon name='Close' size={12} iconColor='#ffffff'/>
+				</StyledIconButton>
+			)}
+			<DisplayFieldSet value={value} label={inputLabel} error={error} />
+		</StyledInputContainer>
+	);
+});

@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import {Form} from 'react-bootstrap';
+import {Button, Form} from 'react-bootstrap';
 
 import colors from '@Styles/colorsForJs.module.scss';
 
@@ -106,7 +106,7 @@ export const StyledInputContainer = styled.div<{fullWidth?: boolean}>(({fullWidt
     backgroundColor: colors.centerChannelBg,
 
     // Style for icon in input component
-    '& .mm-icon': {
+    '& > .mm-icon': {
         marginLeft: 8,
         '& svg path': {
             color: colors.centerChannel_64,
@@ -118,7 +118,7 @@ export const StyledInputContainer = styled.div<{fullWidth?: boolean}>(({fullWidt
 export const StyledInput = styled(Form.Control)(({error}) => ({
     display: 'block',
     fontSize: 14,
-    padding: '10px 8px',
+    padding: '12px 8px',
     width: '100%',
     fontWeight: 400,
     lineHeight: '16px',
@@ -146,3 +146,16 @@ export const StyledInput = styled(Form.Control)(({error}) => ({
         boxShadow: 'none', 
     }
 }));
+
+// Style for close icon button
+export const StyledIconButton = styled(Button)({    
+    borderRadius: '50%',
+    padding: 2,
+    borderWidth: 0,
+
+    '&.btn.btn-primary': {
+        '&, &:hover, &:active, &:focus': {
+            background: colors.centerChannel_64,
+        },
+    }, 
+});

@@ -33,10 +33,6 @@ export const StyledTooltip = styled(Tooltip)({
     '&[x-placement="left"] .arrow::before': {
         borderLeftColor: colors.tooltipBg,
     },
-
-    svg: {
-        display: 'block',
-    },
 });
 
 export const Text = styled.div({

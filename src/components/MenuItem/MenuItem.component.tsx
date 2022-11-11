@@ -44,15 +44,16 @@ export const MenuItem = (props: MenuItemProps) => {
         secondaryLabel,
         leadingIcon,
         trailingIcon,
-        onClick,
         secondaryLabelPosition = 'block',
         className = '',
+        ...restProps
     } = props;
+
     return (
         <MenuItemWrapper
             tabIndex={0}
-            onClick={onClick}
             className={`mm-menuItem ${className}`}
+            {...restProps}
         >
             {
                 leadingIcon &&

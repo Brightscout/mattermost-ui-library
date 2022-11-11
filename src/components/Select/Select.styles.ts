@@ -27,9 +27,10 @@ export const Label = styled.label<InputProps>(({leadingIcon}) => {
 // Styles for the input
 export const Input = styled.input<InputProps>(({leadingIcon}) => {
     return {
-        ...(leadingIcon ? {padding: '10px 36px'} : {padding: '10px 32px 10px 16px'}),
+        ...(leadingIcon ? {padding: '11px 36px'} : {padding: '11px 32px 11px 16px'}),
         width: '100%',
         fontSize: '14px',
+        lineHeight: '16px',
         color: Colors.centerChannel,
         border: `1px solid ${Colors.centerChannel_16}`,
         borderRadius: '4px',
@@ -48,7 +49,6 @@ export const Input = styled.input<InputProps>(({leadingIcon}) => {
             left: '10px',
             fontSize: '10px',
         },
-
     };
 });
 
@@ -61,7 +61,7 @@ export const LeadingIcon = styled.div({
     transform: 'translateY(-50%)',
 });
 
-// styles for the trailing icon
+// Styles for the trailing icon
 export const TrailingIcon = styled.div({
     position: 'absolute',
     display: 'inline-block',
@@ -73,26 +73,4 @@ export const TrailingIcon = styled.div({
     '& .mm-icon': {
         pointerEvents: 'none',
     },
-});
-
-// Styles for the dropdown options
-export const Options = styled.ul<{open: boolean}>(({open}) => {
-    return {
-        listStyle: 'none',
-        padding: '2px',
-        display: open ? 'block' : 'none',
-        margin: '10px 0',
-        border: `1px solid ${Colors.centerChannel_16}`,
-        borderRadius: '4px',
-        boxShadow: Colors.elevation2,
-        maxHeight: '300px',
-        overflowY: 'auto',
-
-        // Color of the selected trailing check mark is set to primary color
-        '& .mm-menuItem.active': {
-            '.mm-icon:last-child svg path': {
-                color: Colors.primary,
-            },
-        },
-    };
 });
