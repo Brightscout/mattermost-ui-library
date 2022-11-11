@@ -10,7 +10,7 @@ export const extendClassname = (classObject: Record<string, boolean>) => {
     let classes = '';
     for (const className in classObject) {
         if (classObject[className]) {
-            classes +=  `${className} `;
+            classes += `${className} `;
         }
     }
     return classes;

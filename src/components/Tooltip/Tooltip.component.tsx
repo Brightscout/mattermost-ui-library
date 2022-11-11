@@ -28,10 +28,10 @@ import {Hint, Text, StyledTooltip} from './Tooltip.styles';
 export const Tooltip = (props: TooltipProps) => {
     const {children, placement, iconName, text, hint} = props;
 
-    const renderTooltip = (props: OverlayInjectedProps) => (
+    const renderTooltip = (overlayProps: OverlayInjectedProps) => (
         <StyledTooltip
             id='tooltip'
-            {...props}
+            {...overlayProps}
         >
             <Text>
                 {iconName &&
