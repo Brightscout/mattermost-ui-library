@@ -110,6 +110,15 @@ export const AutoComplete = (props: AutoCompleteProps) => {
 		};
 	}, []);
 
+	// If open is true and value empty the set active index to 0 and scroll list to 0,0
+	// else set active index to selected item index
+	useEffect(() => {
+		if(open) {
+			setActive(0);
+			listRef.current.scrollTo(0, 0);
+		}
+	}, [open]);
+
 	/**
 	 * A callback function called after searchQuery value is changed
 	 *
@@ -192,6 +201,7 @@ export const AutoComplete = (props: AutoCompleteProps) => {
 					isOpen={open}
 					listItems={options}
 					handleItemClick={(event, option) => {
+						setActive(0);
 						setSearchValue(option.label ?? option.value);
 						if (onSelect) onSelect(event, option);
 					}}

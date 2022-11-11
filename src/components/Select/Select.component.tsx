@@ -3,6 +3,7 @@ import React, {MutableRefObject, useEffect, useRef, useState} from 'react';
 import {Icon} from '@Components/Icon';
 import {List} from '@Components/List';
 import {ListItemType} from '@Components/List/List';
+import {Constants} from '@Constants';
 
 import {SelectProps} from './Select';
 import {
@@ -68,6 +69,7 @@ export const Select = (props: SelectProps) => {
 	const [isOpen, setIsOpen] = useState(false);
 	const [value, setValue] = useState<string>('');
 	const [active, setActive] = useState<number>(0);
+	const [selectedIndex, setSelectedIndex] = useState<number>(-1);
 
 	const inputRef = useRef<HTMLInputElement>(
 		null
@@ -95,6 +97,7 @@ export const Select = (props: SelectProps) => {
 	const onIconTrailingIconClickHandler = () => {
 		setValue('');
 		setActive(0);
+		setSelectedIndex(-1);
 		if (isOpen) {
 			inputRef.current.blur();
 			setIsOpen(false);
@@ -112,18 +115,18 @@ export const Select = (props: SelectProps) => {
 		if (event.key === 'Enter') {
 			const option = options[active];
 			setValue(option.label ?? option.value);
+			setSelectedIndex(active);
+			inputRef.current.blur();
 			onSelectOptionHandler(event, option);
 			setIsOpen(false);
-		}
-		else if (event.key === 'ArrowUp') {
+		} else if (event.key === 'ArrowUp') {
 			if (active === 0) return;
 			setActive((prev) => prev - 1);
-			listRef.current.scrollBy(0, -37);
-		}
-		else if (event.key === 'ArrowDown') {
+			listRef.current.scrollBy(0, -Constants.ITEM_HEIGHT);
+		} else if (event.key === 'ArrowDown') {
 			if (active === options.length - 1) return;
 			setActive((prev) => prev + 1);
-			listRef.current.scrollBy(0, 37);
+			listRef.current.scrollBy(0, Constants.ITEM_HEIGHT);
 		}
 	};
 
@@ -133,7 +136,7 @@ export const Select = (props: SelectProps) => {
 	const onDropDownCloseHandler = (e: MouseEvent) => {
 		if (e.target === inputRef.current || e.target === trailingIconRef.current)
 			return;
-		if (isOpen) setIsOpen(false);
+		setIsOpen(false);
 	};
 
 	/**
@@ -145,6 +148,7 @@ export const Select = (props: SelectProps) => {
 		index: number
 	) => {
 		setActive(index);
+		setSelectedIndex(index);
 		setValue(option.label ?? option.value);
 		onSelectOptionHandler(e, option);
 	};
@@ -156,7 +160,17 @@ export const Select = (props: SelectProps) => {
 		return () => {
 			document.body.removeEventListener('click', onDropDownCloseHandler);
 		};
-	});
+	}, []);
+
+	// If isOpen is true and value empty the set active index to 0 and scroll list to 0,0
+	// else set active index to selected item index
+	useEffect(() => {
+		if(isOpen) {
+			if(value === '') {
+			setActive(0);
+			listRef.current.scrollTo(0, 0);
+		} else setActive(selectedIndex);}
+	}, [isOpen]);
 
 	return (
 		<Wrapper>
