@@ -34,7 +34,7 @@ module.exports = {
     },
     resolve: {
       plugins: [new TsconfigPathsPlugin()],
-      extensions: ['.ts', '.tsx', '.js']
+      extensions: ['.ts', '.tsx', '.js', '.jsx']
     },
     devtool: 'source-map',
     externals: {
