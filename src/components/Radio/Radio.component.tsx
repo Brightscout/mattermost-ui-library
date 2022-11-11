@@ -28,11 +28,8 @@ export const Radio = (props: RadioProps) => {
         ...restProps
     } = props;
 
-    const onClickHandler = (
-        e: React.MouseEvent<HTMLInputElement, MouseEvent>,
-    ) => {
+    const onClickHandler = (e: React.MouseEvent<HTMLInputElement, MouseEvent>) =>
         onClick(e, (e.target as HTMLInputElement).value);
-    };
 
     return (
         <RadioContainer

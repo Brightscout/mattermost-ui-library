@@ -14,7 +14,7 @@ export default {
     },
 } as Meta<RadioProps>;
 
-const RadioTemplate:Story<RadioProps> = (args) => <Radio {...args}/>;
+const RadioTemplate: Story<RadioProps> = (args) => <Radio {...args}/>;
 
 // Default
 export const Default = RadioTemplate.bind({});
@@ -34,9 +34,13 @@ DisabledState.args = {
 // Two radio buttons
 export const TwoRadioButtons = () => {
     const [selected, setSelected] = React.useState<undefined | string>();
-    const onClickHandler = (_: React.MouseEvent<HTMLInputElement, MouseEvent>, value: string) => {
+    const onClickHandler = (
+        _: React.MouseEvent<HTMLInputElement, MouseEvent>,
+        value: string,
+    ) => {
         setSelected(value);
     };
+
     return (
         <>
             <Radio
@@ -46,7 +50,6 @@ export const TwoRadioButtons = () => {
                 id='male'
                 onClick={onClickHandler}
             />
-            <br/>
             <Radio
                 label='female'
                 value='female'
