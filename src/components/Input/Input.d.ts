@@ -86,7 +86,7 @@ export interface InputProps {
 	searchQuery?: string;
 
 	/**
-	 * Handler triggered on clicking close icon button
+	 * Handle trigger on clicking the close icon button
 	 */
 	onClose?: React.MouseEventHandler<HTMLElement>;
 

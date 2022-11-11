@@ -9,11 +9,11 @@ import {AutoCompleteProps} from './AutoComplete';
 import {AutoCompleteWrapper} from './AutoComplete.styles';
 
 /**
- * An asynchronous function to search the query in the given list
+ * An asynchronous function to search a query in the given list
  *
  * @param options - the search item list
  * @param query - query to search in the list
- * @returns list of items that included query with the given query
+ * @returns list of items that include query with the given query
  */
 const getOptionsAsync = (
 	options: ListItemType[],
@@ -39,9 +39,9 @@ const getOptionsAsync = (
  * <AutoComplete
  * 	label='label'
  *  item=items: [
- * 		{label: 'koko 1', value: 'Value 1'},
- * 		{label: 'asd 2', value: 'Value 2'},
- * 		{label: 'xcs 3', value: 'Value 3'},
+ * 		{label: 'label 1', value: 'Value 1'},
+ * 		{label: 'label 2', value: 'Value 2'},
+ * 		{label: 'label 3', value: 'Value 3'},
  * 	]
  * />
  * ```
@@ -51,9 +51,9 @@ const getOptionsAsync = (
  * <AutoComplete
  * 	label='label'
  *  item=items: [
- * 		{label: 'koko 1', value: 'Value 1', icon: 'User'},
- * 		{label: 'asd 2', value: 'Value 2', icon: 'User'},
- * 		{label: 'xcs 3', value: 'Value 3', icon: 'User'},
+ * 		{label: 'label 1', value: 'Value 1', icon: 'User'},
+ * 		{label: 'label 2', value: 'Value 2', icon: 'User'},
+ * 		{label: 'label 3', value: 'Value 3', icon: 'User'},
  * 	]
  * 	onSelect={(event, options)=> {
  * 		logic to use selected value;
@@ -66,9 +66,9 @@ const getOptionsAsync = (
  * <AutoComplete
  * 	label='label'
  *  item=items: [
- * 		{label: 'koko 1', value: 'Value 1', icon: 'User'},
- * 		{label: 'asd 2', value: 'Value 2', icon: 'User'},
- * 		{label: 'xcs 3', value: 'Value 3', icon: 'User'},
+ * 		{label: 'label 1', value: 'Value 1', icon: 'User'},
+ * 		{label: 'label 2', value: 'Value 2', icon: 'User'},
+ * 		{label: 'label 3', value: 'Value 3', icon: 'User'},
  * 	]
  * />
  * ```
@@ -96,8 +96,7 @@ export const AutoComplete = (props: AutoCompleteProps) => {
 	 * On clicking anywhere other than `input field`, the dropdown closes
 	 */
 	const onDropDownCloseHandler = (e: MouseEvent) => {
-		if (e.target === ref.current) return;
-		setOpen(false);
+		if (e.target !== ref.current) setOpen(false);
 	};
 
 	useEffect(() => {
@@ -106,7 +105,7 @@ export const AutoComplete = (props: AutoCompleteProps) => {
 		return () => {
 			document.body.removeEventListener('click', onDropDownCloseHandler);
 		};
-	});
+	}, []);
 
 	/**
 	 * A callback function called after searchQuery value is changed

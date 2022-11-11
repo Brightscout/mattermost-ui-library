@@ -85,7 +85,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
 			/>
 			{searchQuery && (
 				<StyledIconButton onClick={onClose}>
-					<Icon name='Close' size={12} iconColor='#fff'/>
+					<Icon name='Close' size={12} iconColor='#ffffff'/>
 				</StyledIconButton>
 			)}
 			<DisplayFieldSet value={value} label={inputLabel} error={error} />
