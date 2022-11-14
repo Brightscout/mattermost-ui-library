@@ -11,7 +11,7 @@ export default {
     component: Dialog,
     args: {
         title: 'Dialog Header',
-        show: false,
+        show: true,
     },
     argTypes: {
         backdrop: {
