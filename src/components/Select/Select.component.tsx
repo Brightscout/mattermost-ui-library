@@ -162,8 +162,10 @@ export const Select = (props: SelectProps) => {
 		};
 	}, []);
 
-	// If isOpen is true and value empty the set active index to 0 and scroll list to 0,0
-	// else set active index to selected item index
+	/**
+	 * If isOpen is true and value is empty, then set the active index to 0 and scroll the list to (0,0)
+	 * else, set the active index to selected item index
+	 */
 	useEffect(() => {
 		if(isOpen) {
 			if(value === '') {
