@@ -1,7 +1,5 @@
 # Mattermost-UI-Library
 
-# How to run the project
-
 ## 1. Clone it to your local machine
 
 You need to clone (download) it to local machine using
@@ -50,12 +48,8 @@ The following are the available scripts:
 
 In the project directory, you can run:
 
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:8000](http://localhost:8000) to view it in the browser.
-
 ### `npm run storybook`
+
 Runs the storybook
 
 ### `npm run build`
@@ -63,10 +57,42 @@ Runs the storybook
 Builds the app for production to the `build` folder.\
 It correctly bundles React in production mode and optimizes the build for the best performance.
 
-## 5. Folder Structure
+### `npm run chromatic`
+
+Deploys the storybook to chromatic \
+Create .npmrc file and add projectToken=$project_token
+
+## 5. Local Development
+
+- To use package locally add `"@brightscout/mattermost-ui-library": "link:<library_folder_address>"` to your project dependencies. E.g.: `"@brightscout/mattermost-ui-library": "file:../../mm-ui-library",`
+
+- The build fails due to multiple copies of react in the application, one in the main app and the another in the UI library. To resolve this issue using symbolic link, follow the following steps:
+
+  - Link react using the link command from the package manager. E.g:
+
+  ```
+  cd ./node_modules/react
+  yarn link react
+  cd ../../
+  ```
+
+  - In the toolkit to use the copy of react from the main app, execute the following command:
+
+  ```
+  yarn link react
+  yarn run build
+  ```
+
+- The toolkit should be up and running in your main app.
+
+
+## 6. Folder Structure
 
 ```
 .
+├── .storybook
+│   ├── main.js
+│   └── preview.js
 ├── public
 │   ├── favicon.ico
 │   ├── index.html
@@ -75,15 +101,19 @@ It correctly bundles React in production mode and optimizes the build for the be
 │   └── robots.txt
 ├── src
 │   ├── components
-│   │   └── *
+│   │   ├── Button
+│   │   │   ├── Button.component.tsx
+│   │   │   ├── Button.d.ts
+│   │   │   ├── Button.stories.tsx
+│   │   │   ├── Button.styles.ts
+│   │   │   └──  index.ts
+│   │   │
+│   │   └──  *
 │   ├── styles
 │   │   ├── abstract
 │   │   │   ├── _mixins.scss
 │   │   │   └── _variables.scss
-│   │   ├── base
-│   │   │   └── _utils.scss
-│   │   ├── components
-│   │   │   └──*
+│   │   ├── colorsForJs.module.scss
 │   │   └── main.scss
 │   ├── index.tsx
 │   ├── react-app-env.d.ts
@@ -99,7 +129,8 @@ It correctly bundles React in production mode and optimizes the build for the be
 ├── package-lock.json
 ├── package.json
 ├── README.md
-└── tsconfig.json
+├── tsconfig.json
+└── webpack.config.js
 ```
 
 ---

@@ -48,12 +48,14 @@ export const DialogActions = styled.div({
     // If `destructive` is true, the primary button turns to error state
     '& .destructiveBtnPrimary': {
         backgroundColor: Colors.error,
+        borderColor: Colors.error,
     },
 
     // If `destructive` is true, the secondary button turns to error state
     '& .destructiveBtnSecondary': {
         color: Colors.error,
         backgroundColor: Colors.error_8,
+        borderColor: Colors.error,
     },
 });
 

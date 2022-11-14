@@ -35,6 +35,7 @@ export const Input = styled.input<InputProps>(({leadingIcon}) => {
         border: `1px solid ${Colors.centerChannel_16}`,
         borderRadius: '4px',
         cursor: 'pointer',
+        boxSizing: 'border-box',
 
         '&:focus': {
             outline: `2px solid ${Colors.primary}`,
@@ -69,6 +70,7 @@ export const TrailingIcon = styled.div({
     right: '16px',
     transform: 'translateY(-50%)',
     cursor: 'pointer',
+    boxSizing: 'border-box',
 
     '& .mm-icon': {
         pointerEvents: 'none',
