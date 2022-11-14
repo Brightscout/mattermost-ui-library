@@ -90,7 +90,8 @@
   &__option-item {
     max-width: 100%;
 
-    &:hover {
+    &:hover,
+    &--keyboard-navigation {
       background: rgba(var(--center-channel-text-rgb), 0.03);
     }
   }

@@ -1,3 +1,4 @@
+import { DropDownItemHeight } from '@Constants';
 import React, {useEffect, useState, useRef, useCallback} from 'react';
 
 export type DropdownProps = {
@@ -28,7 +29,9 @@ const Dropdown = ({
     className = '',
 }: DropdownProps): JSX.Element => {
     const [open, setOpen] = useState(false);
+    const [curr, setCurr] = useState(-1);
     const dropdownRef = useRef<HTMLDivElement>(null);
+    const listRef = useRef<HTMLUListElement>(null);
 
     // Handles closing the popover and updating the value when someone selects an option
     const handleInputChange = useCallback((newOption: DropdownOptionType) => {
@@ -58,9 +61,36 @@ const Dropdown = ({
 
     const getLabel = useCallback((optionValue: string | null) => getOptions().find((option) => option.value === optionValue), [getOptions]);
 
+    const keyboardNavigation = (e: React.KeyboardEvent<HTMLSpanElement> | React.KeyboardEvent<SVGSVGElement>) => {
+        if (listRef?.current) {
+            if (e.key === 'ArrowDown' && curr < options.length - 1) {
+                setCurr(prev => prev + 1);
+                // Scroll down after first three options
+                if (curr >= 2) {
+                    listRef.current.scrollBy(0, DropDownItemHeight);
+                }
+            }
+
+            if (e.key === 'ArrowUp' && curr > 0) {
+                setCurr(prev => prev - 1);
+                // Scroll down after last three options
+                if (curr < options.length - 2) {
+                    listRef.current.scrollBy(0, -DropDownItemHeight);
+                }
+            }
+
+            if (e.key === 'Enter' && curr >= 0) {
+                onChange(options[curr].value);
+                setOpen(false);
+                listRef.current.scrollTo(0, 0);
+                setCurr(0);
+            }
+        }
+    };
+
     // Close the dropdown popover when the user clicks outside
     useEffect(() => {
-        const handleCloseDropdown = (e: MouseEvent) => !dropdownRef.current?.contains(e.target as Element) && setOpen(false);
+        const handleCloseDropdown = (e: MouseEvent) => !dropdownRef.current?.contains(e.target as Element) && setOpen(false) && setCurr(0) && listRef?.current?.scrollTo(0, 0);
 
         document.addEventListener('click', handleCloseDropdown);
 
@@ -98,15 +128,19 @@ const Dropdown = ({
                     className='plugin-dropdown__field-input cursor-pointer'
                     checked={open}
                     onChange={(e) => setOpen(e.target.checked)}
+                    onKeyDown={keyboardNavigation}
                     disabled={disabled}
                 />
             </div>
-            <ul className={`plugin-dropdown__options-list channel-bg padding-0 border-radius-4 ${open && 'plugin-dropdown__options-list--open'}`}>
-                {options.map((option) => (
+            <ul 
+                className={`plugin-dropdown__options-list channel-bg padding-0 border-radius-4 ${open && 'plugin-dropdown__options-list--open'}`}
+                ref={listRef}
+            >
+                {options.map((option, index) => (
                     <li
                         key={option.value}
                         onClick={() => !disabled && handleInputChange(option)}
-                        className='plugin-dropdown__option-item text-ellipsis font-14 margin-0 padding-v-10 padding-h-25 cursor-pointer'
+                        className={`plugin-dropdown__option-item text-ellipsis font-14 margin-0 padding-v-10 padding-h-25 cursor-pointer ${index === curr && 'plugin-dropdown__option-item--keyboard-navigation'}`}
                     >
                         {option.label || option.value}
                     </li>

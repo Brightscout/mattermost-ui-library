@@ -1,7 +1,7 @@
 import React, {useCallback, useEffect, useState, useRef} from 'react';
 
 // Constants
-import {DefaultCharThresholdToShowSuggestions} from '@Constants';
+import {DefaultCharThresholdToShowSuggestions, DropDownItemHeight} from '@Constants';
 
 export type AutoSuggestProps = {
     inputValue: string;
@@ -39,8 +39,10 @@ const AutoSuggest = ({
 }: AutoSuggestProps) => {
     const [showSuggestions, setShowSuggestions] = useState(false);
     const [focused, setFocused] = useState(false);
+    const [curr, setCurr] = useState(-1);
     const textInputFieldRef = useRef<HTMLInputElement>(null);
     const autoSuggestRef = useRef<HTMLDivElement>(null);
+    const listRef = useRef<HTMLUListElement>(null);
     const [selectedOption, setSelectedOption] = useState<Record<string, string> | null>(null);
 
     const {suggestions, renderValue} = suggestionConfig;
@@ -74,7 +76,7 @@ const AutoSuggest = ({
 
     // Close the auto-suggest popover when the user clicks outside
     useEffect(() => {
-        const handleCloseAutoSuggest = (e: MouseEvent) => !autoSuggestRef.current?.contains(e.target as Element) && setFocused(false);
+        const handleCloseAutoSuggest = (e: MouseEvent) => !autoSuggestRef.current?.contains(e.target as Element) && setFocused(false) && setCurr(0) && listRef?.current?.scrollTo(0, 0);
 
         document.addEventListener('click', handleCloseAutoSuggest);
 
@@ -91,6 +93,34 @@ const AutoSuggest = ({
 
     // Prevent the text input field(which is the field visible in the UI) from blurring if "focused" is set to "true"
     const handleBlur = useCallback(() => focused && textInputFieldRef.current?.focus(), [focused]);
+
+    const keyboardNavigation = (e: React.KeyboardEvent<HTMLSpanElement> | React.KeyboardEvent<SVGSVGElement>) => {
+        if (suggestions && listRef?.current) {
+            if (e.key === 'ArrowDown' && curr < suggestions.length - 1) {
+                setCurr(prev => prev + 1);
+                // Scroll down after first three options
+                if (curr >= 2) {
+                    listRef.current.scrollBy(0, DropDownItemHeight);
+                }
+            }
+
+            if (e.key === 'ArrowUp' && curr > 0) {
+                setCurr(prev => prev - 1);
+                // Scroll down after last three options
+                if (curr < suggestions.length - 2) {
+                    listRef.current.scrollBy(0, -DropDownItemHeight);
+                }
+            }
+
+            if (e.key === 'Enter' && curr >= 0) {
+                onChangeSelectedSuggestion(suggestions[curr]);
+                setSelectedOption(suggestions[curr]);
+                setFocused(false);
+                listRef.current.scrollTo(0, 0);
+                setCurr(0);
+            }
+        }
+    };
 
     // Handles resetting the selected suggestion
     const handleResetSelectedOption = useCallback(() => {
@@ -131,6 +161,7 @@ const AutoSuggest = ({
                     placeholder={`${placeholder ?? ''}${required ? '*' : ''}`}
                     value={inputValue}
                     onChange={(e) => onInputValueChange(e.target.value)}
+                    onKeyDown={keyboardNavigation}
                     onBlur={handleBlur}
                     className={`auto-suggest__input padding-0 ${disabled && 'cursor-not-allowed'}`}
                     disabled={disabled}
@@ -144,13 +175,16 @@ const AutoSuggest = ({
                     {`Please enter at least ${charThresholdToShowSuggestions} characters to get suggestions.`}
                 </p>
             )}
-            <ul className={`auto-suggest__suggestions padding-0 ${showSuggestions && 'auto-suggest__suggestions--open'}`}>
+            <ul 
+                className={`auto-suggest__suggestions padding-0 ${showSuggestions && 'auto-suggest__suggestions--open'}`}
+                ref={listRef}
+            >
                 {suggestions.map((suggestion, index) => (
                     <li
                         // eslint-disable-next-line react/no-array-index-key
                         key={index}
                         onClick={() => handleSuggestionClick(suggestion)}
-                        className='auto-suggest__suggestion text-ellipsis cursor-pointer padding-v-10 padding-h-25 margin-0'
+                        className={`auto-suggest__suggestion text-ellipsis cursor-pointer padding-v-10 padding-h-25 margin-0 ${curr === index && 'auto-suggest__suggestion--keyboard-navigation'}`}
                     >
                         {renderValue(suggestion)}
                     </li>
