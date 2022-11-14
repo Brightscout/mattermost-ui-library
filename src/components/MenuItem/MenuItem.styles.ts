@@ -34,7 +34,8 @@ export const MenuItemWrapper = styled.li(() => {
         },
 
         '&:focus': {
-            outline: `2px solid ${colors.buttonFocusBorder}`,
+            outline: 'none',
+            border: `2px solid ${colors.buttonFocusBorder}`,
         },
     };
 });

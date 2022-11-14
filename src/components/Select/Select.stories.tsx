@@ -93,8 +93,8 @@ SelectWithMoreThan10Options.args = {
 /* eslint-disable no-console */
 export const FunctionTrigger = SelectTemplate.bind({});
 FunctionTrigger.args = {
-	onSelectOptionHandler(_, value) {
-		console.dir(_.target);
+	onSelectOptionHandler(e, value) {
+		console.dir(e);
 		console.log(value);
 	},
 };
@@ -106,8 +106,4 @@ PassingInOptionsWithLeadingIcon.args = {
 		{label: 'Label 2', value: 'Value 2', icon: 'Globe'},
 		{label: 'Label 3', value: 'Value 3', icon: 'MenuDots'},
 	],
-	onSelectOptionHandler(_, value) {
-		console.dir(_.target);
-		console.log(value);
-	},
 };
