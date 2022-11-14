@@ -59,8 +59,16 @@ It correctly bundles React in production mode and optimizes the build for the be
 
 ### `npm run chromatic`
 
-Deploys the storybook to chromatic \
-Create .npmrc file and add projectToken=$project_token
+Deploys the storybook to chromatic
+
+- Login to `chromatic` with your GitHub account.
+- Then create a `new project` and sync it with the github repository.
+- Choose github repo under collaborators and select the repository.
+- Copy the unique `project-token` that was generated for the project.
+
+  https://user-images.githubusercontent.com/102018792/201682370-c327d535-3c53-4767-a4c2-590dd74f475f.mp4
+
+- Create `.npmrc` file and add `projectToken=$project_token`
 
 ## 5. Local Development
 
@@ -84,7 +92,6 @@ Create .npmrc file and add projectToken=$project_token
   ```
 
 - The toolkit should be up and running in your main app.
-
 
 ## 6. Folder Structure
 
