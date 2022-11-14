@@ -28,7 +28,7 @@ const getOptionsAsync = (
 					return search.toLowerCase().includes(query.toLowerCase());
 				})
 			);
-		}, Constants.SUGGESTION_FETCH_DELAY);
+		}, Constants.FETCH_SUGGESTION_DELAY);
 	});
 };
 
@@ -93,7 +93,9 @@ export const AutoComplete = (props: AutoCompleteProps) => {
 	const [active, setActive] = useState<number>(0);
 
 	const ref = useRef<HTMLInputElement>(null);
-	const listRef = useRef<HTMLUListElement>(null) as MutableRefObject<HTMLUListElement>;
+	const listRef = useRef<HTMLUListElement>(
+		null
+	) as MutableRefObject<HTMLUListElement>;
 
 	/**
 	 * On clicking anywhere other than `input field`, the dropdown closes
@@ -111,11 +113,11 @@ export const AutoComplete = (props: AutoCompleteProps) => {
 	}, []);
 
 	/**
-	 * If isOpen is true and value is empty, then set the active index to 0 and scroll the list to (0,0)
+	 * If 'isOpen' is true and 'value' is empty, then set the active index to 0 and scroll the list to (0,0)
 	 * else, set the active index to selected item index
 	 */
 	useEffect(() => {
-		if(open) {
+		if (open) {
 			setActive(0);
 			listRef.current.scrollTo(0, 0);
 		}
@@ -160,18 +162,21 @@ export const AutoComplete = (props: AutoCompleteProps) => {
 			setActive(0);
 			setOptions([]);
 			setOpen(false);
-    }
-		else if (event.key === 'ArrowUp') {
-      if (active === 0) return;
-			setActive(prev => prev - 1);
+			return;
+		}
+		if (event.key === 'ArrowUp') {
+			if (active === 0) return;
+			setActive((prev) => prev - 1);
 			listRef.current.scrollBy(0, -Constants.ITEM_HEIGHT);
-    }
-		else if (event.key === 'ArrowDown') {
-      if (active === options.length - 1) return;
-      setActive(prev => prev + 1);
+			return;
+		}
+		if (event.key === 'ArrowDown') {
+			if (active === options.length - 1) return;
+			setActive((prev) => prev + 1);
 			listRef.current.scrollBy(0, Constants.ITEM_HEIGHT);
-    }
-  };
+			return;
+		}
+	};
 
 	return (
 		<AutoCompleteWrapper
@@ -197,7 +202,7 @@ export const AutoComplete = (props: AutoCompleteProps) => {
 				}}
 				{...restProps}
 			/>
-			{!!options.length && (
+			{Boolean(options.length) && (
 				<List
 					ref={listRef}
 					isOpen={open}

@@ -119,14 +119,19 @@ export const Select = (props: SelectProps) => {
 			inputRef.current.blur();
 			onSelectOptionHandler(event, option);
 			setIsOpen(false);
-		} else if (event.key === 'ArrowUp') {
+			return;
+		}
+		if (event.key === 'ArrowUp') {
 			if (active === 0) return;
 			setActive((prev) => prev - 1);
 			listRef.current.scrollBy(0, -Constants.ITEM_HEIGHT);
-		} else if (event.key === 'ArrowDown') {
+			return;
+		}
+		if (event.key === 'ArrowDown') {
 			if (active === options.length - 1) return;
 			setActive((prev) => prev + 1);
 			listRef.current.scrollBy(0, Constants.ITEM_HEIGHT);
+			return;
 		}
 	};
 
@@ -163,15 +168,16 @@ export const Select = (props: SelectProps) => {
 	}, []);
 
 	/**
-	 * If isOpen is true and value is empty, then set the active index to 0 and scroll the list to (0,0)
+	 * If 'isOpen' is true and 'value' is empty, then set the active index to 0 and scroll the list to (0,0)
 	 * else, set the active index to selected item index
 	 */
 	useEffect(() => {
-		if(isOpen) {
-			if(value === '') {
-			setActive(0);
-			listRef.current.scrollTo(0, 0);
-		} else setActive(selectedIndex);}
+		if (isOpen) {
+			if (value === '') {
+				setActive(0);
+				listRef.current.scrollTo(0, 0);
+			} else setActive(selectedIndex);
+		}
 	}, [isOpen]);
 
 	return (
