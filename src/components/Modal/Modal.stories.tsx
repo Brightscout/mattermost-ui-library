@@ -8,6 +8,7 @@ export default {
     title: 'Component/Modal',
     component: Modal,
     args: {
+        show: true,
         backdrop: 'static',
         title: 'Modal Header',
         subtitle: 'Modal subheader',

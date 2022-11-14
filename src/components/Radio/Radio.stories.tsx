@@ -42,7 +42,7 @@ export const TwoRadioButtons = () => {
     };
 
     return (
-        <>
+        <div style={{display: 'flex', gap: 10}}>
             <Radio
                 label='Male'
                 value='male'
@@ -51,13 +51,13 @@ export const TwoRadioButtons = () => {
                 onClick={onClickHandler}
             />
             <Radio
-                label='female'
+                label='Female'
                 value='female'
                 name='gender'
                 id='female'
                 onClick={onClickHandler}
             />
             {selected && <div>{`selected ${selected}`}</div>}
-        </>
+        </div>
     );
 };
