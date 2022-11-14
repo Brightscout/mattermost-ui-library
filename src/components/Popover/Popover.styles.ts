@@ -23,9 +23,10 @@ export const StyledPopover = styled(Popover)<{ elevation: boolean }>(
 
 // Styles for the event pass container
 export const EventPassContainer = styled.div({
+    width: 'fit-content',
     cursor: 'pointer',
 
-    '& .mm-icon': {
+    '& > *': {
         pointerEvents: 'none',
     },
 });

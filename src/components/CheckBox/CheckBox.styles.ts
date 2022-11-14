@@ -18,11 +18,13 @@ export const StyledCheckbox = styled(Form.Check)({
         cursor: 'pointer',
         width: 16,
         height: 16,
-        padding: 0,
+        padding: '2px 0',
         margin: 0,
         borderRadius: 4,
         border: `1px solid ${colors.centerChannel_24}`,
         background: colors.centerChannelBg,
+        position: 'relative',
+        appearance: 'none',
 
         '&:hover': {
             borderColor: colors.centerChannel_40,

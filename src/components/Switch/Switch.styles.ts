@@ -44,7 +44,7 @@ export const StyledSwitch = styled(Form.Check)<StyledSwitchContainerProps>(({ful
     // Style for switch
     '& input.form-check-input': {
         cursor: 'pointer',
-        padding: 0,
+        padding: '2px 0',
         margin: 0,
         height: 20,
         minWidth: 32,
@@ -53,6 +53,9 @@ export const StyledSwitch = styled(Form.Check)<StyledSwitchContainerProps>(({ful
         backgroundColor: colors.centerChannel_32,
         backgroundImage: 'url("data:image/svg+xml,%3csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'-4 -4 8 8\'%3e%3ccircle r=\'4\' fill=\'%23fff\'/%3e%3c/svg%3e")',
         backgroundPosition: 'left center',
+        backgroundRepeat: 'no-repeat',
+        position: 'relative',
+        appearance: 'none',
 
         '&:hover': {
             backgroundColor: colors.centerChannel_40,
