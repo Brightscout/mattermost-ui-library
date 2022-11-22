@@ -15,7 +15,7 @@ const ModalHeader = ({
     className = '',
 }: ModalHeaderProps): JSX.Element => (
     <>{(title || showCloseIconInHeader) && (
-        <RBModal.Header className={`modal__header ${className}`}>
+        <RBModal.Header className={`modal__header modal__header-icon ${className}`}>
             <div className='modal__title d-flex align-items-center justify-content-between'>
                 {title && <p className='modal__title text-ellipsis font-20 wt-500 margin-0'>{title}</p>}
                 {showCloseIconInHeader && (
