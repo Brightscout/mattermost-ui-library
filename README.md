@@ -70,6 +70,8 @@ Deploys the storybook to chromatic
 
 - Create `.npmrc` file and add `projectToken=$project_token`
 
+> Stoybook link to view all the components [Mattermost-UI-Library]( https://6351138fe1271125e36406fb-vpprpcpesw.chromatic.com/)
+
 ## 5. Local Development
 
 - To use package locally add `"@brightscout/mattermost-ui-library": "link:<library_folder_address>"` to your project dependencies. E.g.: `"@brightscout/mattermost-ui-library": "file:../../mm-ui-library",`
