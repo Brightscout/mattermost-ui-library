@@ -1,4 +1,8 @@
 # Mattermost-UI-Library
+The Mattermost UI Library is a collection of React components based on the [Compass design system](https://zeroheight.com/29be2c109/p/4429ac-components).
+The intention behind this UI library is to create a unified look and feel across the Mattermost's plugins.
+
+Click [here]( https://6351138fe1271125e36406fb-vpprpcpesw.chromatic.com/) to view the Storybook of Mattermost-UI-Library.
 
 ## 1. Clone it to your local machine
 
@@ -69,8 +73,6 @@ Deploys the storybook to chromatic
   https://user-images.githubusercontent.com/102018792/201682370-c327d535-3c53-4767-a4c2-590dd74f475f.mp4
 
 - Create `.npmrc` file and add `projectToken=$project_token`
-
-> Stoybook link to view all the components [Mattermost-UI-Library]( https://6351138fe1271125e36406fb-vpprpcpesw.chromatic.com/)
 
 ## 5. Local Development
 
