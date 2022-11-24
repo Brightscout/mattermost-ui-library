@@ -1,4 +1,8 @@
 # Mattermost-UI-Library
+The Mattermost UI Library is a collection of React components based on the [Compass design system](https://zeroheight.com/29be2c109/p/4429ac-components).
+The intention behind this UI library is to create a unified look and feel across the Mattermost's plugins.
+
+Click [here]( https://6351138fe1271125e36406fb-vpprpcpesw.chromatic.com/) to view the Storybook of Mattermost-UI-Library.
 
 ## 1. Clone it to your local machine
 

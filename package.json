@@ -1,6 +1,6 @@
 {
   "name": "@brightscout/mattermost-ui-library",
-  "version": "1.0.5",
+  "version": "2.0.0",
   "author": {
     "name": "Brightscout, Inc."
   },
@@ -106,9 +106,7 @@
     "bootstrap": ">=4"
   },
   "repository": {
+    "type": "git",
     "url": "git+https://github.com/Brightscout/mattermost-ui-library.git"
-  },
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com/@Brightscout"
   }
 }
