@@ -10,6 +10,7 @@ type InputFieldProps = {
     error?: boolean | string;
     disabled?: boolean;
     className?: string;
+    required?: boolean;
 }
 
 const Input = ({
@@ -21,6 +22,7 @@ const Input = ({
     error,
     disabled = false,
     className = '',
+    required = false,
 }: InputFieldProps) => (
     <div className={`form-group ${className}`}>
         {label && <label className='form-group__label wt-400'>{label}</label>}
@@ -28,7 +30,7 @@ const Input = ({
             type={type}
             value={value}
             onChange={(e) => onChange?.(e as React.ChangeEvent<HTMLInputElement>)}
-            placeholder={placeholder}
+            placeholder={`${placeholder} ${required ? '*' : ''}`}
             disabled={disabled}
             className={`form-group__control border-radius-4 ${error && 'form-group__control--err error-text'}`}
         />
