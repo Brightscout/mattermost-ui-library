@@ -30,7 +30,7 @@ const Input = ({
             type={type}
             value={value}
             onChange={(e) => onChange?.(e as React.ChangeEvent<HTMLInputElement>)}
-            placeholder={`${placeholder} ${required ? '*' : ''}`}
+            placeholder={`${placeholder}${required ? '*' : ''}`}
             disabled={disabled}
             className={`form-group__control border-radius-4 ${error && 'form-group__control--err error-text'}`}
         />
