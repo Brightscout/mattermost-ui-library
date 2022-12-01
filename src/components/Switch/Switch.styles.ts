@@ -27,6 +27,8 @@ export const StyledSwitch = styled(Form.Check)<StyledSwitchContainerProps>(({ful
         // Style for label
         '& .mm-switch_label': {
             fontSize: 14,
+            marginBottom: 0,
+            fontWeight: 'inherit',
             lineHeight: '20px',
             color: colors.centerChannel,
             overflowWrap: 'break-word',
@@ -35,6 +37,8 @@ export const StyledSwitch = styled(Form.Check)<StyledSwitchContainerProps>(({ful
         // Style for sub-label
         '& .mm-switch_subLabel': {
             fontSize: 12,
+            marginBottom: 0,
+            fontWeight: 'inherit',
             lineHeight: '16px',
             color: colors.centerChannel_72,
             overflowWrap: 'break-word',
@@ -69,6 +73,12 @@ export const StyledSwitch = styled(Form.Check)<StyledSwitchContainerProps>(({ful
         '&:focus': {
             borderColor: colors.primary,
             boxShadow: 'none',
+            outline: 'none',
+        },
+
+        '&:focus-visible': {
+            outline: '-webkit-focus-ring-color auto 1px',
+            outlineOffset: '2px',
         },
     },
 

@@ -30,6 +30,7 @@ export const StyledFieldSet = styled.fieldset<{error?: boolean}>(({error}) => {
             maxWidth: 0.01,
             transition: 'max-width 50ms cubic-bezier(0.0, 0, 0.2, 1) 0ms',
             whiteSpace: 'nowrap',
+            borderBottom: 'none',
         },
 
         // Style for fieldset on hover
@@ -126,6 +127,7 @@ export const StyledInput = styled(Form.Control)(({error}) => ({
     border: 'none',
     appearance: 'none',
     transition: 'border-color .15s ease-in-out,box-shadow .15s ease-in-out',
+    boxShadow: 'none',
 
     // Style for input on focus-visible
     '&:focus-visible': {
@@ -143,12 +145,12 @@ export const StyledInput = styled(Form.Control)(({error}) => ({
         background: 'inherit',
         border: 'none',
         outline: 0,
-        boxShadow: 'none', 
-    }
+        boxShadow: 'none',
+    },
 }));
 
 // Style for close icon button
-export const StyledIconButton = styled(Button)({    
+export const StyledIconButton = styled(Button)({
     borderRadius: '50%',
     padding: 2,
     borderWidth: 0,
@@ -157,5 +159,5 @@ export const StyledIconButton = styled(Button)({
         '&, &:hover, &:active, &:focus': {
             background: colors.centerChannel_64,
         },
-    }, 
+    },
 });

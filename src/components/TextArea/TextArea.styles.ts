@@ -65,6 +65,7 @@ export const Label = styled.label({
     top: 10,
     left: 10,
     fontSize: 14,
+    fontWeight: 'inherit',
     color: Colors.centerChannel_64,
     transition: 'transform 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms, font-size 100ms ease-in-out',
     transformOrigin: 'left top 0',

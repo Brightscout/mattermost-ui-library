@@ -50,7 +50,7 @@ export const Tooltip = (props: TooltipProps) => {
             key={placement}
             placement={placement}
             flip={true}
-            delay={400}
+            delay={{show: 400, hide: 100000}}
             overlay={renderTooltip}
         >
             {children}

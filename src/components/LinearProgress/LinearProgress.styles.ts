@@ -1,5 +1,8 @@
 import styled from 'styled-components';
+
 import colors from '@Styles/colorsForJs.module.scss';
+// eslint-disable-next-line no-console
+console.log(styled);
 
 // Styles based on progress bar
 export const StyledProgressBarContainer = styled.div<{color?: string}>(
@@ -8,6 +11,7 @@ export const StyledProgressBarContainer = styled.div<{color?: string}>(
             '& .progress': {
                 position: 'relative',
                 height: '4px',
+                boxShadow: 'none',
 
                 '.progress-bar': {
                     borderRadius: '12px',

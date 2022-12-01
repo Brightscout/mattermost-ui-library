@@ -10,6 +10,11 @@ export const StyledPopover = styled(Popover)<{ elevation: boolean }>(
         borderRadius: 4,
         boxShadow: elevation ? Colors.elevation1 : 'none',
 
+        '&.fade': {
+            opacity: 'inherit',
+            transition: 'opacity .15s linear',
+        },
+
         // removing arrow
         '& .arrow': {
             display: 'none',

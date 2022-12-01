@@ -21,6 +21,7 @@ export const RadioContainer = styled.div<{ size: RadioSizeTypes }>(
                 margin: 0,
                 color: Colors.centerChannel,
                 fontSize: 12 + increaseRadioSizeBy[size],
+                fontWeight: 'inherit',
             },
 
             '.radio-label[for]': {
@@ -74,10 +75,20 @@ export const InputContainer = styled.div({
         display: 'block',
         height: 'inherit',
         width: 'inherit',
+        margin: 0,
         border: `1px solid ${Colors.centerChannel_24}`,
         borderRadius: '50%',
         cursor: 'pointer',
         backgroundColor: Colors.centerChannelBg,
+
+        '&:focus': {
+            outline: 'none',
+        },
+
+        '&:focus-visible': {
+            outline: '-webkit-focus-ring-color auto 1px',
+            outlineOffset: '2px',
+        },
     },
 
     // styles for radio input on disabled state

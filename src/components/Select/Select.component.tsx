@@ -64,7 +64,7 @@ import {
  *
  */
 export const Select = (props: SelectProps) => {
-	const {leadingIcon, options, label, onSelectOptionHandler} = props;
+	const {leadingIcon, options, label, className, onSelectOptionHandler} = props;
 
 	const [isOpen, setIsOpen] = useState(false);
 	const [value, setValue] = useState<string>('');
@@ -181,7 +181,7 @@ export const Select = (props: SelectProps) => {
 	}, [isOpen]);
 
 	return (
-		<Wrapper>
+		<Wrapper className={`mm-select ${className}`}>
 			<Input
 				ref={inputRef}
 				placeholder=' '

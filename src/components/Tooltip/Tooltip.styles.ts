@@ -14,6 +14,14 @@ export const StyledTooltip = styled(Tooltip)({
         opacity: 1,
     },
 
+    '.arrow': {
+        bottom: ' 0',
+        left: ' 50%',
+        marginLeft: ' -5px',
+        borderWidth: ' 5px 5px 0',
+        borderTopColor: ' #000',
+    },
+
     // styling for the tooltip with placement top
     '&[x-placement="top"] .arrow::before': {
         borderTopColor: colors.tooltipBg,

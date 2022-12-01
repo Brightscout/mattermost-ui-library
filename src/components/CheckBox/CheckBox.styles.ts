@@ -38,6 +38,7 @@ export const StyledCheckbox = styled(Form.Check)({
         '&:focus': {
             borderColor: colors.primary,
             boxShadow: 'none',
+            outline: 'none',
         },
     },
 
@@ -46,6 +47,8 @@ export const StyledCheckbox = styled(Form.Check)({
         fontSize: 14,
         lineHeight: '16px',
         marginLeft: 10,
+        marginBottom: 0,
+        fontWeight: 'inherit',
         color: colors.centerChannel,
     },
 

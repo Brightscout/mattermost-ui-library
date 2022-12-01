@@ -27,6 +27,11 @@ export interface SelectProps extends InputProps {
 	options: ListItemType[];
 
 	/**
+	 * To override or extend the styles applied to the component
+	 */
+	className?: string;
+
+	/**
 	 * @param e - Element where the event has happened
 	 * @param option - Option selected by the user
 	 */

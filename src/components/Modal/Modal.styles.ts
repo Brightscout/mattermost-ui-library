@@ -5,7 +5,22 @@ import Colors from '@Styles/colorsForJs.module.scss';
 
 // Styles for the modal wrapper
 export const ModalWrapper = styled(Modal)({
+
+    '&.fade': {
+        opacity: 1,
+        transition: 'opacity .15s linear',
+
+        ':not(.show)': {
+            opacity: 0,
+        },
+    },
+
+    '&.show .modal-dialog': {
+        transform: 'none',
+    },
+
     '& .modal-content': {
+        boxShadow: 'none',
         border: `1px solid ${Colors.centerChannel_8}`,
         borderRadius: '8px',
     },
