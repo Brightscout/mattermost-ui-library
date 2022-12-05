@@ -9,6 +9,13 @@ export interface InputProps {
 	 * Leading icon in the select
 	 */
 	leadingIcon?: Exclude<IconType, 'Spinner'>;
+
+	/**
+	 * If `true`, the select will indicate an error
+	 *
+	 * @default false
+	*/
+    error?: boolean;
 }
 
 /**
@@ -21,6 +28,11 @@ export interface SelectProps extends InputProps {
 	label: string;
 
 	/**
+	 * The value of the select field
+	 */
+	value?: string;
+
+	/**
 	 * options for the select component
 	 * rendered in the dropdown
 	 */
@@ -30,6 +42,20 @@ export interface SelectProps extends InputProps {
 	 * To override or extend the styles applied to the component
 	 */
 	className?: string;
+
+	/**
+	 * If `true`, value in select field is required
+	 *
+	 * @default false
+	 */
+	required?: boolean;
+
+	/**
+	 * If `true`, the select will indicate an error
+	 *
+	 * @default false
+	 */
+	error?: boolean;
 
 	/**
 	 * @param e - Element where the event has happened

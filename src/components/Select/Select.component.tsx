@@ -64,10 +64,10 @@ import {
  *
  */
 export const Select = (props: SelectProps) => {
-	const {leadingIcon, options, label, className, onSelectOptionHandler} = props;
+	const {leadingIcon, value = '', options, label, className, onSelectOptionHandler, error = false, required = false} = props;
 
 	const [isOpen, setIsOpen] = useState(false);
-	const [value, setValue] = useState<string>('');
+	const [newValue, setValue] = useState<string>(value);
 	const [active, setActive] = useState<number>(0);
 	const [selectedIndex, setSelectedIndex] = useState<number>(-1);
 
@@ -189,10 +189,11 @@ export const Select = (props: SelectProps) => {
 				onFocus={onFocusHandler}
 				readOnly={true}
 				onKeyDown={onKeyDown}
-				value={value}
+				value={newValue}
 				leadingIcon={leadingIcon}
+				error={error}
 			/>
-			<Label leadingIcon={leadingIcon}>{label}</Label>
+			<Label leadingIcon={leadingIcon}>{label}{required ? ' *' : ''}</Label>
 			{leadingIcon && (
 				<LeadingIcon className='select__leading-icon'>
 					<Icon name={leadingIcon} size={16}/>
@@ -211,7 +212,7 @@ export const Select = (props: SelectProps) => {
 					isOpen={isOpen}
 					listItems={options}
 					handleItemClick={onUserSelectHandler}
-					value={value}
+					value={newValue}
 					activeItem={active}
 				/>
 			)}

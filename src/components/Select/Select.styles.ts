@@ -25,24 +25,24 @@ export const Label = styled.label<InputProps>(({leadingIcon}) => {
 });
 
 // Styles for the input
-export const Input = styled.input<InputProps>(({leadingIcon}) => {
+export const Input = styled.input<InputProps>(({leadingIcon, error}) => {
     return {
         ...(leadingIcon ? {padding: '11px 36px'} : {padding: '11px 32px 11px 16px'}),
         width: '100%',
         fontSize: '14px',
         lineHeight: '16px',
         color: Colors.centerChannel,
-        border: `1px solid ${Colors.centerChannel_16}`,
+        border: `1px solid ${error ? Colors.error : Colors.centerChannel_16}`,
         borderRadius: '4px',
         cursor: 'pointer',
         boxSizing: 'border-box',
 
         '&:focus': {
-            outline: `2px solid ${Colors.primary}`,
+            outline: `2px solid ${error ? Colors.error : Colors.primary}`,
         },
 
         '&:focus + label': {
-            color: Colors.primary,
+            color: error ? Colors.error : Colors.primary,
         },
 
         '&:focus + label , &:not(:placeholder-shown) + label': {
