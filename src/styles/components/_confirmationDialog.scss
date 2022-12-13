@@ -7,15 +7,15 @@
     .modal__confirm-btn {
       @extend .margin-0, .margin-left-15;
       width: unset;
-      background: $delete-confirmation-dialog-btn-bg;
-      border-color: $delete-confirmation-dialog-btn-border;
+      background: $delete-confirmation-dialog-btn-bg !important;
+      border-color: $delete-confirmation-dialog-btn-border !important;
 
       &:hover,
       &:active,
       &:focus {
         outline: none;
-        background: $delete-confirmation-dialog-btn-hover-bg;
-        border-color: $delete-confirmation-dialog-btn-hover-border;
+        background: $delete-confirmation-dialog-btn-hover-bg !important;
+        border-color: $delete-confirmation-dialog-btn-hover-border !important;
       }
     }
   }
