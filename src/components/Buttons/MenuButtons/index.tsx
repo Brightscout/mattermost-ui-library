@@ -5,6 +5,7 @@ type MenuButtonProps = {
         text: string;
         icon: string | JSX.Element;
         onClick: (e: React.MouseEvent<HTMLButtonElement>) => void;
+        className?: string;
     }[];
     className?: string;
 }
@@ -14,7 +15,7 @@ const MenuButtons = ({buttons, className = ''}: MenuButtonProps): JSX.Element =>
         {buttons.map((button) => (
             <button
                 key={button.text}
-                className='button-menu__btn channel-bg channel-text font-14 padding-v-12 padding-h-10 d-flex plugin-btn'
+                className={`button-menu__btn channel-bg channel-text font-14 padding-v-12 padding-h-10 d-flex plugin-btn ${button.className}`}
                 onClick={button.onClick}
             >
                 <span className='button-menu__btn-icon margin-right-10 d-inline-block'>
