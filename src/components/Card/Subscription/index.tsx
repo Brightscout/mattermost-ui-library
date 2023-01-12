@@ -49,6 +49,7 @@ const SubscriptionCard = ({
                             icon: deleteIcon ?? 'fa fa-trash-o',
                             text: 'Delete',
                             onClick: onDelete,
+                            className: 'error-text',
                         },
                     ]}
                 />
