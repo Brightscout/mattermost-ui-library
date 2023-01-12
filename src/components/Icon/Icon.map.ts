@@ -7,9 +7,12 @@ import {ReactComponent as Delete} from '@Assets/icons/delete.svg';
 import {ReactComponent as Edit} from '@Assets/icons/edit.svg';
 import {ReactComponent as Globe} from '@Assets/icons/globe.svg';
 import {ReactComponent as Lock} from '@Assets/icons/lock.svg';
+import {ReactComponent as MagnifyingGlass} from '@Assets/icons/magnifying_glass.svg';
 import {ReactComponent as MenuDots} from '@Assets/icons/menu_dots.svg';
 import {ReactComponent as NoSubscription} from '@Assets/icons/no_subscription.svg';
+import {ReactComponent as Pin} from '@Assets/icons/pin.svg';
 import {ReactComponent as Spinner} from '@Assets/icons/spinner.svg';
+import {ReactComponent as TextBars} from '@Assets/icons/text_bars.svg';
 import {ReactComponent as Unlink} from '@Assets/icons/unlink.svg';
 import {ReactComponent as User} from '@Assets/icons/user.svg';
 
@@ -21,9 +24,12 @@ export default {
 	Edit,
 	Globe,
 	Lock,
+	MagnifyingGlass,
 	MenuDots,
 	NoSubscription,
+	Pin,
 	Spinner,
+	TextBars,
 	Unlink,
 	User,
 };

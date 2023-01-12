@@ -9,6 +9,7 @@ import {Input} from '@Components/Input';
 import {LinearProgress} from '@Components/LinearProgress';
 import {MenuItem} from '@Components/MenuItem';
 import {Modal} from '@Components/Modal';
+import {Nodata} from '@Components/Nodata';
 import {Popover} from '@Components/Popover';
 import {Radio} from '@Components/Radio';
 import {Select} from '@Components/Select';
@@ -30,6 +31,7 @@ export {
     LinearProgress,
     MenuItem,
     Modal,
+    Nodata,
     Popover,
     Radio,
     Select,
@@ -38,5 +40,5 @@ export {
     Switch,
     Tag,
     TextArea,
-    Tooltip
+    Tooltip,
 };
