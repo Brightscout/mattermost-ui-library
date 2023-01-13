@@ -2,10 +2,10 @@ import React from 'react';
 
 import {Icon} from '@Components/Icon';
 
-import {Container, IconContainer, NodataMessage} from './Nodata.styles';
-import {NodataProps} from './Nodata';
+import {Container, IconContainer, NoDataMessage} from './NoData.styles';
+import {NoDataProps} from './NoData';
 
-export const Nodata = (props: NodataProps) => {
+export const NoData = (props: NoDataProps) => {
     const {iconName, message} = props;
 
     return (
@@ -17,9 +17,9 @@ export const Nodata = (props: NodataProps) => {
                     iconColor='#84878F'
                 />
             </IconContainer>
-            <NodataMessage>
+            <NoDataMessage>
                 {message}
-            </NodataMessage>
+            </NoDataMessage>
         </Container>
     );
 };

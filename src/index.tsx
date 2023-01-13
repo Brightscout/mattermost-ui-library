@@ -9,7 +9,7 @@ import {Input} from '@Components/Input';
 import {LinearProgress} from '@Components/LinearProgress';
 import {MenuItem} from '@Components/MenuItem';
 import {Modal} from '@Components/Modal';
-import {Nodata} from '@Components/Nodata';
+import {NoData} from '@Components/NoData';
 import {Popover} from '@Components/Popover';
 import {Radio} from '@Components/Radio';
 import {Select} from '@Components/Select';
@@ -31,7 +31,7 @@ export {
     LinearProgress,
     MenuItem,
     Modal,
-    Nodata,
+    NoData,
     Popover,
     Radio,
     Select,

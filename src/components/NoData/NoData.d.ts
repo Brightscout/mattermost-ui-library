@@ -1,6 +1,6 @@
 import {IconProps} from '@Components/Icon/Icon';
 
-export interface NodataProps {
+export interface NoDataProps {
 
     /**
      * Name of icon to be displayed on component

@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 import colors from '@Styles/colorsForJs.module.scss';
 
-export const Container = styled.div(() => {
+export const Container = styled('div')(() => {
     return {
         height: '100%',
         width: '100%',
@@ -14,7 +14,7 @@ export const Container = styled.div(() => {
     };
 });
 
-export const IconContainer = styled.div(() => {
+export const IconContainer = styled('div')(() => {
     return {
         minWidth: '120px',
         minHeight: '120px',
@@ -26,7 +26,7 @@ export const IconContainer = styled.div(() => {
     };
 });
 
-export const NodataMessage = styled.p(() => {
+export const NoDataMessage = styled('p')(() => {
     return {
         lineHeight: '20px',
         color: colors.centerChannel,
