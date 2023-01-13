@@ -15,6 +15,7 @@ import {Select} from '@Components/Select';
 import {Skeleton} from '@Components/Skeleton';
 import {Spinner} from '@Components/Spinner';
 import {Switch} from '@Components/Switch';
+import {Tabs} from '@Components/Tabs';
 import {Tag} from '@Components/Tag';
 import {TextArea} from '@Components/TextArea';
 import {Tooltip} from '@Components/Tooltip';
@@ -37,6 +38,7 @@ export {
     Spinner,
     Switch,
     Tag,
+    Tabs,
     TextArea,
-    Tooltip
+    Tooltip,
 };
