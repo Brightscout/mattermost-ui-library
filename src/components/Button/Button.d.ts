@@ -12,8 +12,10 @@ import {IconType} from '@Components/Icon';
  * `tertiary` - Button with background color, no border and low emphasis
  *
  * `quaternary` - Button with no background color, no border and lowest emphasis
+ *
+ * `text` - Button like a link with no background color and less padding
  */
-export type VariantType = 'primary' | 'secondary' | 'tertiary' | 'quaternary';
+export type VariantType = 'primary' | 'secondary' | 'tertiary' | 'quaternary' | 'text';
 
 /**
  * Icon position in the component

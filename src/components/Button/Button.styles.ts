@@ -33,6 +33,44 @@ export const StyledButtonContainer = styled.button<StyledButtonProps>(({variant,
             active: colors.primary_12,
             disabled: 'transparent',
         },
+        text: {
+            default: 'transparent',
+            hover: 'transparent',
+            active: colors.primary_16,
+            disabled: 'transparent',
+        },
+    };
+
+    // padding styles
+    const padding = () => {
+        switch (variant) {
+        case 'secondary':
+            return '11px 19px';
+        case 'text':
+            return '4px';
+        default:
+            return '12px 20px';
+        }
+    };
+
+    // focus styles
+    const focus = () => {
+        switch (variant) {
+        case 'quaternary':
+            return {backgroundColor: colors.primary_16};
+        case 'text':
+            return {
+                border: `2px solid ${colors.buttonFocusBorder}`,
+                backgroundColor: colorMap[variant].default,
+                padding: '2px',
+            };
+        default:
+            return {
+                border: `2px solid ${colors.buttonFocusBorder}`,
+                backgroundColor: colorMap[variant].default,
+                padding: '10px 18px',
+            };
+        }
     };
 
     return {
@@ -45,12 +83,12 @@ export const StyledButtonContainer = styled.button<StyledButtonProps>(({variant,
         lineHeight: '16px',
         fontSize: '14px',
         fontWeight: '600',
-        height: '40px',
-        borderRadius: '4px',
+        height: variant === 'text' ? 'auto' : '40px',
+        borderRadius: variant === 'text' ? 0 : '4px',
 
         // Styles based on variant
         border: variant === 'secondary' ? `1px solid ${colors.primary}` : 'none',
-        padding: variant === 'secondary' ? '11px 19px' : '12px 20px',
+        padding: padding(),
         color: variant === 'primary' ? colors.primaryText : colors.primary,
         backgroundColor: colorMap[variant].default,
 
@@ -74,11 +112,7 @@ export const StyledButtonContainer = styled.button<StyledButtonProps>(({variant,
         },
 
         // Style when button is focused
-        ':focus': variant === 'quaternary' ? {backgroundColor: colors.primary_16} : {
-            border: `2px solid ${colors.buttonFocusBorder}`,
-            backgroundColor: colorMap[variant].default,
-            padding: '10px 18px',
-        },
+        ':focus': focus(),
 
         // Style when button is disabled
         ':disabled': {
