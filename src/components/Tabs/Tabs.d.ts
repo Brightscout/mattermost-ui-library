@@ -16,7 +16,6 @@ export interface TabsConfig {
      * Content to be displayed when tab is opened
      */
     content: TabProps['children'];
-
 }
 
 export interface TabsProps extends BootstrapTabProps {
