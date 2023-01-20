@@ -1,6 +1,7 @@
 /* Auto generated using scripts/generateIconMap.js */
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import {ReactComponent as ArrowDown} from '@Assets/icons/arrow_down.svg';
+import {ReactComponent as ArrowLeft} from '@Assets/icons/arrow_left.svg';
 import {ReactComponent as Check} from '@Assets/icons/check.svg';
 import {ReactComponent as Close} from '@Assets/icons/close.svg';
 import {ReactComponent as Delete} from '@Assets/icons/delete.svg';
@@ -17,19 +18,20 @@ import {ReactComponent as Unlink} from '@Assets/icons/unlink.svg';
 import {ReactComponent as User} from '@Assets/icons/user.svg';
 
 export default {
-	ArrowDown,
-	Check,
-	Close,
-	Delete,
-	Edit,
-	Globe,
-	Lock,
-	MagnifyingGlass,
-	MenuDots,
-	NoSubscription,
-	Pin,
-	Spinner,
-	TextBars,
-	Unlink,
-	User,
+    ArrowDown,
+    ArrowLeft,
+    Check,
+    Close,
+    Delete,
+    Edit,
+    Globe,
+    Lock,
+    MagnifyingGlass,
+    MenuDots,
+    NoSubscription,
+    Pin,
+    Spinner,
+    TextBars,
+    Unlink,
+    User,
 };

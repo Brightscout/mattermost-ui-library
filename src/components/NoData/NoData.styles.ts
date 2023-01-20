@@ -29,6 +29,7 @@ export const IconContainer = styled('div')(() => {
 export const NoDataMessage = styled('p')(() => {
     return {
         lineHeight: '20px',
+        fontSize: '16px',
         color: colors.centerChannel,
         maxWidth: '219px',
     };
