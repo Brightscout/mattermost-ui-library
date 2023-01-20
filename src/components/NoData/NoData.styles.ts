@@ -23,6 +23,12 @@ export const IconContainer = styled('div')(() => {
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
+
+        '& .mm-icon': {
+            '& path , & rect': {
+                color: colors.noDataIcon,
+            },
+        },
     };
 });
 

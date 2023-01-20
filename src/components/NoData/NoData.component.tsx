@@ -14,7 +14,6 @@ export const NoData = (props: NoDataProps) => {
                 <Icon
                     name={iconName}
                     size={32}
-                    iconColor='#84878F'
                 />
             </IconContainer>
             <NoDataMessage>
