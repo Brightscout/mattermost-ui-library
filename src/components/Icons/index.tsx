@@ -72,3 +72,12 @@ export const UserIcon = ({className = ''}: IconProps): JSX.Element => (
         {SVGIcons.user}
     </SVGWrapper>
 );
+
+export const EventIcon = ({className = ''}: IconProps): JSX.Element => (
+    <SVGWrapper 
+        {...getIconParams(16, `icon-text-color--fill ${className}`)}
+        viewBox='0 -4 16 16'
+    >
+        {SVGIcons.event}
+    </SVGWrapper>
+);

@@ -47,6 +47,7 @@ type ToggleSwitchLabelPositioning = 'left' | 'right';
 
 type SubscriptionCardBody = {
     list?: Array<string | JSX.Element>;
+    filters?: JSX.Element;
     labelValuePairs?: Array<{label: string; value: string}>;
 }
 

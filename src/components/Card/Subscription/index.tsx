@@ -6,6 +6,7 @@ import {PrivateChannelType} from '@Constants';
 import BaseCard from '@Components/Card/Base';
 import Popover from '@Components/Popover';
 import MenuButtons from '@Components/Buttons/MenuButtons';
+import {EventIcon} from '@Components/Icons';
 import Tooltip from '@Components/Tooltip';
 
 // Constants
@@ -82,23 +83,31 @@ const SubscriptionCard = ({
                 {label && <div className='subscription-card__label padding-v-2 padding-h-5 text-capitalize font-10 wt-600 margin-bottom-10 channel-text d-inline-block border-radius-4'>{label}</div>}
                 {(cardBody || description) && (
                     <ul className='subscription-card__body padding-0 margin-0 font-14'>
-                        {cardBody?.list?.map((listItem: string | JSX.Element, index: number) => (
-                            <li
-                                key={index}
-                                className='subscription-card__body-item margin-bottom-5 margin-left-15 subscription-card__body-item--list font-12'
-                            >
-                                {listItem}
-                            </li>
-                        ))}
-                        {cardBody?.labelValuePairs?.map((bodyItem, index: number) => (
-                            <li
-                                key={bodyItem.label}
-                                className={`text-ellipsis subscription-card__body-item margin-bottom-10 ${cardBody?.list?.length && !index && 'margin-top-15'}`}
-                            >
-                                <span className='subscription-card__body-header wt-600 margin-right-10'>{bodyItem.label + ':'}</span>
-                                <span className='subscription-card__body-text'>{bodyItem.value}</span>
-                            </li>
-                        ))}
+                        <div className='d-flex'>
+                            {cardBody?.list?.length && <EventIcon/>}
+                            <div className='flex-column'>
+                                {cardBody?.list?.map((listItem: string | JSX.Element, index: number) => (
+                                    <li
+                                        key={index}
+                                        className='subscription-card__body-item subscription-card__body-item--list font-12'
+                                    >
+                                        {listItem}
+                                    </li>
+                                ))}
+                            </div>
+                        </div>
+                        <div className='margin-top-10'>{cardBody?.filters}</div>
+                        <div className='margin-top-10'>
+                            {cardBody?.labelValuePairs?.map((bodyItem, index: number) => (
+                                <li
+                                    key={bodyItem.label}
+                                    className={`text-ellipsis subscription-card__body-item margin-bottom-10 ${cardBody?.list?.length && !index}`}
+                                >
+                                    <span className='subscription-card__body-header wt-600 margin-right-10'>{bodyItem.label + ':'}</span>
+                                    <span className='subscription-card__body-text'>{bodyItem.value}</span>
+                                </li>
+                            ))}
+                        </div>
                         {description && (
                             <li
                                 className='subscription-card__body-item'
