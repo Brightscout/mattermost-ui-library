@@ -84,7 +84,7 @@ const SubscriptionCard = ({
                 {(cardBody || description) && (
                     <ul className='subscription-card__body padding-0 margin-0 font-14'>
                         <div className='d-flex'>
-                            {cardBody?.list?.length && <EventIcon/>}
+                            {!!cardBody?.list?.length && <EventIcon/>}
                             <div className='flex-column'>
                                 {cardBody?.list?.map((listItem: string | JSX.Element, index: number) => (
                                     <li
@@ -98,10 +98,10 @@ const SubscriptionCard = ({
                         </div>
                         <div className='margin-top-10'>{cardBody?.filters}</div>
                         <div className='margin-top-10'>
-                            {cardBody?.labelValuePairs?.map((bodyItem, index: number) => (
+                            {cardBody?.labelValuePairs?.map((bodyItem) => (
                                 <li
                                     key={bodyItem.label}
-                                    className={`text-ellipsis subscription-card__body-item margin-bottom-10 ${cardBody?.list?.length && !index}`}
+                                    className={`text-ellipsis subscription-card__body-item margin-bottom-10 ${cardBody?.list?.length}`}
                                 >
                                     <span className='subscription-card__body-header wt-600 margin-right-10'>{bodyItem.label + ':'}</span>
                                     <span className='subscription-card__body-text'>{bodyItem.value}</span>
