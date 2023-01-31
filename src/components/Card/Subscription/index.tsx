@@ -101,7 +101,7 @@ const SubscriptionCard = ({
                             {cardBody?.labelValuePairs?.map((bodyItem) => (
                                 <li
                                     key={bodyItem.label}
-                                    className={`text-ellipsis subscription-card__body-item margin-bottom-10 ${cardBody?.list?.length}`}
+                                    className='text-ellipsis subscription-card__body-item margin-bottom-10'
                                 >
                                     <span className='subscription-card__body-header wt-600 margin-right-10'>{bodyItem.label + ':'}</span>
                                     <span className='subscription-card__body-text'>{bodyItem.value}</span>
