@@ -21,12 +21,15 @@ const TextArea = ({
 }: TextAreaProps) => (
     <div className={`textarea ${className}`}>
         {label && <label className='form-group__label wt-400'>{label}</label>}
+        {value.length>0 && <label className={'wt-400 textarea__field-placeholder'}>
+            {placeholder}
+        </label>}
         <textarea
             value={value}
             onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) => onChange?.(e)}
             placeholder={placeholder}
             disabled={disabled}
-            className={`textarea__control border-radius-4 ${error && 'textarea__control--err error-text'}`}
+            className={`textarea__control border-radius-4 ${error && 'textarea__control--err error-text'} ${value?.length>0 && 'textarea__input--shifted'}`}
         />
         {(error && typeof error === 'string') && <p className='form-group__err-text error-text font-14 margin-top-5'>{error}</p>}
     </div>
