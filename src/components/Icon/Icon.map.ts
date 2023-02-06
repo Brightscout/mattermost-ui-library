@@ -14,16 +14,16 @@ import {ReactComponent as Unlink} from '@Assets/icons/unlink.svg';
 import {ReactComponent as User} from '@Assets/icons/user.svg';
 
 export default {
-	ArrowDown,
-	Check,
-	Close,
-	Delete,
-	Edit,
-	Globe,
-	Lock,
-	MenuDots,
-	NoSubscription,
-	Spinner,
-	Unlink,
-	User,
+    ArrowDown,
+    Check,
+    Close,
+    Delete,
+    Edit,
+    Globe,
+    Lock,
+    MenuDots,
+    NoSubscription,
+    Spinner,
+    Unlink,
+    User,
 };

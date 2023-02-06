@@ -17,7 +17,7 @@ export default {
     },
 } as Meta<TextAreaProps>;
 
-const TextAreaTemplate:Story<TextAreaProps> = (args) => <TextArea {...args}/>;
+const TextAreaTemplate: Story<TextAreaProps> = (args) => <TextArea {...args}/>;
 
 // Default
 export const Default = TextAreaTemplate.bind({});
@@ -25,7 +25,7 @@ export const Default = TextAreaTemplate.bind({});
 // Error state
 export const ErrorState = TextAreaTemplate.bind({});
 ErrorState.args = {
-    error: true,
+    error: 'Error Message',
 };
 
 // Readonly state

@@ -38,40 +38,44 @@ import {Options} from './List.styles';
  * ```
  */
 export const List = forwardRef<HTMLUListElement, ListPropType>(
-	(
-		{
-			listItems,
-			handleItemClick,
-			value,
-			isOpen,
-			loading,
-			isAutocomplete,
-			activeItem = 0,
-		},
-		ref
-	) => (
-		<Options open={isOpen} className='select__option-list' ref={ref}>
-			{loading ? (
-				<MenuItem label={'Loading ...'}/>
-			) : (
-				listItems.map((option, index) => (
-					<MenuItem
-						key={option.value}
-						className={extendClassname({
-							active:
+    (
+        {
+            listItems,
+            handleItemClick,
+            value,
+            isOpen,
+            loading,
+            isAutocomplete,
+            activeItem = 0,
+        },
+        ref,
+    ) => (
+        <Options
+            open={isOpen}
+            className='select__option-list'
+            ref={ref}
+        >
+            {loading ? (
+                <MenuItem label={'Loading ...'}/>
+            ) : (
+                listItems.map((option, index) => (
+                    <MenuItem
+                        key={option.value}
+                        className={extendClassname({
+                            active:
 								((option.label ?? option.value) === value && !isAutocomplete) ||
 								activeItem === index,
-						})}
-						onClick={(event) => handleItemClick(event, option, index)}
-						label={option.label ?? option.value}
-						leadingIcon={option.icon}
-						{...((option.label ?? option.value) === value &&
+                        })}
+                        onClick={(event) => handleItemClick(event, option, index)}
+                        label={option.label ?? option.value}
+                        leadingIcon={option.icon}
+                        {...((option.label ?? option.value) === value &&
 							!isAutocomplete && {
-								trailingIcon: 'Check',
-							})}
-					/>
-				))
-			)}
-		</Options>
-	)
+                            trailingIcon: 'Check',
+                        })}
+                    />
+                ))
+            )}
+        </Options>
+    ),
 );

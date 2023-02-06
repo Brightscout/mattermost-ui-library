@@ -143,12 +143,12 @@ export const StyledInput = styled(Form.Control)(({error}) => ({
         background: 'inherit',
         border: 'none',
         outline: 0,
-        boxShadow: 'none', 
-    }
+        boxShadow: 'none',
+    },
 }));
 
 // Style for close icon button
-export const StyledIconButton = styled(Button)({    
+export const StyledIconButton = styled(Button)({
     borderRadius: '50%',
     padding: 2,
     borderWidth: 0,
@@ -157,5 +157,5 @@ export const StyledIconButton = styled(Button)({
         '&, &:hover, &:active, &:focus': {
             background: colors.centerChannel_64,
         },
-    }, 
+    },
 });

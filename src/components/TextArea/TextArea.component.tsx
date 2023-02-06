@@ -2,6 +2,8 @@ import React from 'react';
 
 import {extendClassname} from '@Utils';
 
+import {InputErrorMessage} from 'commonStyledComponents/InputErrorMessage/InputErrorMessage.styles';
+
 import {TextAreaProps} from './TextArea';
 import {
     Label,
@@ -39,34 +41,37 @@ const DisplayFieldSet = ({value, error, label}: TextAreaProps) => {
  * ```
  */
 export const TextArea = (props: TextAreaProps) => {
-    const {error, label, required, className = '', ...restProps} = props;
+    const {error = '', label, required, className = '', ...restProps} = props;
     const {value = ''} = restProps;
 
     const textAreaLabel = `${label}${required ? ' *' : ''}`;
 
     return (
-        <TextAreaContainer
-            className={`mm-textarea ${className} ${extendClassname({
-                'textarea-error': Boolean(error),
-            })}`}
-        >
-            <StyledTextArea
-                as='textarea'
-                {...restProps}
-            />
-            <Label
-                className={`textarea-label ${extendClassname({
-                    'label-visible': Boolean(value),
-                    'label-error': Boolean(error),
+        <div>
+            <TextAreaContainer
+                className={`mm-textarea ${className} ${extendClassname({
+                    'textarea-error': Boolean(error),
                 })}`}
             >
-                {textAreaLabel}
-            </Label>
-            <DisplayFieldSet
-                label={textAreaLabel}
-                value={value}
-                error={error}
-            />
-        </TextAreaContainer>
+                <StyledTextArea
+                    as='textarea'
+                    {...restProps}
+                />
+                <Label
+                    className={`textarea-label ${extendClassname({
+                        'label-visible': Boolean(value),
+                        'label-error': Boolean(error),
+                    })}`}
+                >
+                    {textAreaLabel}
+                </Label>
+                <DisplayFieldSet
+                    label={textAreaLabel}
+                    value={value}
+                    error={error}
+                />
+            </TextAreaContainer>
+            {Boolean(error) && <InputErrorMessage>{error}</InputErrorMessage>}
+        </div>
     );
 };

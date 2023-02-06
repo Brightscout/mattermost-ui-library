@@ -38,5 +38,5 @@ export {
     Switch,
     Tag,
     TextArea,
-    Tooltip
+    Tooltip,
 };

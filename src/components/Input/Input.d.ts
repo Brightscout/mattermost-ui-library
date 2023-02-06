@@ -1,102 +1,103 @@
 import {IconType} from '@Components/Icon';
 
 export interface InputProps {
-	/**
+
+    /**
 	 * Name of the icon from the icon map
 	 */
-	iconName?: IconType;
+    iconName?: IconType;
 
-	/**
+    /**
 	 * Label for the input field
 	 */
-	label: string;
+    label: string;
 
-	/**
+    /**
 	 * If `true`, the input element will be disabled
 	 *
 	 * @default false
 	 */
-	disabled?: boolean;
+    disabled?: boolean;
 
-	/**
+    /**
 	 * If `true`, the input element is focused during the first mount
 	 *
 	 * @default false
 	 */
-	autoFocus?: boolean;
+    autoFocus?: boolean;
 
-	/**
+    /**
 	 * If `true`, the input will indicate an error
 	 *
-	 * @default false
+	 * @default ''
 	 */
-	error?: boolean;
+    error?: string;
 
-	/**
+    /**
 	 * If `true`, the input will take up the full width of it's container.
 	 *
 	 * @default false
 	 */
-	fullWidth?: boolean;
+    fullWidth?: boolean;
 
-	/**
+    /**
 	 * A unique id given to the input element
 	 */
-	id?: string;
+    id?: string;
 
-	/**
+    /**
 	 * The name applied to the input element
 	 */
-	name?: string;
+    name?: string;
 
-	/**
+    /**
 	 * To override or extend the styles applied to the component
 	 */
-	className?: string;
+    className?: string;
 
-	/**
+    /**
 	 * Type of the input element
 	 *
 	 * @default 'text'
 	 */
-	type?: string;
+    type?: string;
 
-	/**
+    /**
 	 * If `true`, prevents the user from changing the value of the field
 	 *
 	 * @default false
 	 */
-	readOnly?: boolean;
+    readOnly?: boolean;
 
-	/**
+    /**
 	 * If `true`, value in input field is required
 	 *
 	 * @default false
 	 */
-	required?: boolean;
+    required?: boolean;
 
-	/**
+    /**
 	 * The function is called when an event is detected on the keyboard
 	 */
-	onKeyDown?: React.KeyboardEventHandler<HTMLInputElement>;
+    onKeyDown?: React.KeyboardEventHandler<HTMLInputElement>;
 
-	/**
+    /**
 	 * The value of the input field
 	 */
-	value?: string | number;
+    value?: string | number;
 
-	/**
+    /**
 	 * The search query
 	 */
-	searchQuery?: string;
+    searchQuery?: string;
 
-	/**
+    /**
 	 * Handle trigger on clicking the close icon button
 	 */
-	onClose?: React.MouseEventHandler<HTMLElement>;
+    onClose?: React.MouseEventHandler<HTMLElement>;
 
-	/**
+    /**
 	 * Handler that's called when there is a change in the value of the input field
 	 */
-	onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
+    onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
