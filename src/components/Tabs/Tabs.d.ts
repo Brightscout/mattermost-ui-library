@@ -26,13 +26,13 @@ export interface TabsProps extends BootstrapTabProps {
     tabsConfig: TabsConfig[];
 
     /**
-     * Have all Tabs proportionately fill all available width.
+     * Have all tabs proportionately fill all available widths.
      * @default false
      */
     fill?: boolean;
 
     /**
-     * Have all Tabs evenly fill all available width
+     * Have all tabs evenly fill all available widths
      * @default true
      */
     justify?: boolean;
