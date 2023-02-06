@@ -156,10 +156,12 @@ const AutoSuggest = ({
                     onClick={() => setFocused(true)}
                     readOnly={true}
                 />
-                {inputValue?.length>0 && <label className={'margin-0 wt-400 auto-suggest__field-placeholder'}>
-                    {placeholder}
-                    {required && '*'}
-                </label>}
+                {!!inputValue?.length && (
+                    <label className={'margin-0 wt-400 auto-suggest__field-placeholder'}>
+                        {placeholder}
+                        {required && '*'}
+                    </label>
+                )}
                 <input
                     ref={textInputFieldRef}
                     placeholder={`${placeholder ?? ''}${required ? '*' : ''}`}
@@ -167,7 +169,7 @@ const AutoSuggest = ({
                     onChange={(e) => onInputValueChange(e.target.value)}
                     onKeyDown={keyboardNavigation}
                     onBlur={handleBlur}
-                    className={`auto-suggest__input ${disabled && 'cursor-not-allowed'} ${inputValue?.length>0 && 'auto-suggest__input--shifted'}`}
+                    className={`auto-suggest__input ${disabled && 'cursor-not-allowed'} ${!!inputValue?.length && 'auto-suggest__input--shifted'}`}
                     disabled={disabled}
                 />
                 {loadingSuggestions && (
@@ -197,11 +199,15 @@ const AutoSuggest = ({
             </ul>
             {selectedOption && (
                 <div className='d-flex align-items-center justify-content-between auto-suggest__selected-option-container padding-h-20 channel-bg'>
-                    {inputValue?.length>0 && <label className={'margin-0 wt-400 auto-suggest__field-placeholder'}>
-                        {placeholder}
-                        {required && '*'}
-                    </label>}
-                    <div className={`auto-suggest__selected-option-value text-ellipsis ${inputValue?.length>0 && 'auto-suggest__input--shifted'}`}>{renderValue(selectedOption)}</div>
+                    {!!inputValue?.length && (
+                        <label className='margin-0 wt-400 auto-suggest__field-placeholder'>
+                            {placeholder}
+                            {required && '*'}
+                        </label>
+                    )}
+                    <div className={`auto-suggest__selected-option-value text-ellipsis ${!!inputValue?.length && 'auto-suggest__input--shifted'}`}>
+                        {renderValue(selectedOption)}
+                    </div>
                     <button
                         className='style--none padding-0 margin-0'
                         onClick={handleResetSelectedOption}
