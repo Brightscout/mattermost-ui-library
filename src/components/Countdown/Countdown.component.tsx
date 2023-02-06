@@ -126,7 +126,7 @@ export const Countdown = (props: CountdownProps) => {
     }, [showDays, showHours, showMinutes, showSeconds]);
 
     return (
-        <CountdownWrapper className={className}>
+        <CountdownWrapper className={`mm-countdown ${className}`}>
             <Timer>
                 {timer}
             </Timer>

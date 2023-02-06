@@ -18,6 +18,7 @@ import {Switch} from '@Components/Switch';
 import {Tag} from '@Components/Tag';
 import {TextArea} from '@Components/TextArea';
 import {Tooltip} from '@Components/Tooltip';
+import {Countdown} from '@Components/Countdown';
 
 export {
     AutoComplete,
@@ -38,5 +39,6 @@ export {
     Switch,
     Tag,
     TextArea,
-    Tooltip
+    Tooltip,
+    Countdown,
 };
