@@ -33,4 +33,9 @@ export interface CountdownProps {
 	 * To override or extend the styles applied to the component
 	 */
     className?: string;
+
+    /**
+     * To be called when countdown is over
+     */
+    onFinished?: () => void;
 }

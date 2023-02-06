@@ -9,7 +9,7 @@ import {CountdownWrapper, TimeLabel, Timer, TimeLabelWrapper} from './Countdown.
  * @example Correct usage for showing full time
  *
  * ```ts
- * <Countdown endTime={1675488600000} />
+ * <Countdown endTime={1675488600000}  onFinished={()=>{}}/>
  * ```
  *
  * @example Correct usage when showing custom fields
@@ -19,6 +19,7 @@ import {CountdownWrapper, TimeLabel, Timer, TimeLabelWrapper} from './Countdown.
  *    endTime={1675488600000}
  *    showHours={true}
  *    showMinutes={true}
+ *    onFinished={()=>{}}
  * />
  * ```
  *
@@ -32,6 +33,7 @@ export const Countdown = (props: CountdownProps) => {
         showMinutes = false,
         showSeconds = false,
         className = '',
+        onFinished,
     } = props;
 
     // Check if full time is shown or not
@@ -88,6 +90,11 @@ export const Countdown = (props: CountdownProps) => {
                 setTimer(
                     `${days.toString().padStart(2, '0')} : ${hours.toString().padStart(2, '0')} : ${minutes.toString().padStart(2, '0')} : ${seconds.toString().padStart(2, '0')} `,
                 );
+            }
+        } else {
+            clearInterval(Ref.current);
+            if (onFinished) {
+                onFinished();
             }
         }
     };
