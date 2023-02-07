@@ -32,6 +32,12 @@ QuatenaryButton.args = {
     variant: 'quaternary',
 };
 
+// text button
+export const TextButton = ButtonTemplate.bind({});
+TextButton.args = {
+    variant: 'text',
+};
+
 // Button with icon
 export const IconButton = ButtonTemplate.bind({});
 IconButton.args = {

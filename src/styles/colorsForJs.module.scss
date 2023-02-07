@@ -34,11 +34,15 @@
   checkboxBorderColor:rgba(var(--center-channel-text-rgb),0.24);
   checkboxHoverBorderColor:rgba(var(--center-channel-text-rgb),0.6);
   checkboxErrorBorderColor:var(--error-text);
+  nodataIconBackground: var(--nodata-icon-background);
 
+  white: var(--white);
   overlayBg:var(--overlay-color);
   tooltipBg:var(--tooltip-bg);
   tooltipHint: var(--tooltip-hint-text);
   menuSecondaryText: var(--menu-secondary-text);
+  tabsHeaderBorder: var(--tabs-header-border);
   elevation2: var(--elevation-2);
-  elevation1: var(--elevation-1)
+  elevation1: var(--elevation-1);
+  noDataIcon:var(--no-data-icon);
 }
