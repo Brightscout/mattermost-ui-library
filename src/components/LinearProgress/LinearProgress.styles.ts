@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+
 import colors from '@Styles/colorsForJs.module.scss';
 
 // Styles based on progress bar

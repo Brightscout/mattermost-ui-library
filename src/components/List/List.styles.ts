@@ -27,6 +27,6 @@ export const Options = styled.ul<{open: boolean}>(({open}) => {
                 color: colors.primary,
             },
         },
-        
+
     };
 });
