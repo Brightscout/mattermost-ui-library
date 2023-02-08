@@ -3,18 +3,13 @@
     min-width: 10px;
   }
 
-  &__label {
-    background: rgba(var(--center-channel-color-rgb), 0.1);
-  }
-
   &__body {
     list-style-type: none;
   }
 
   &__body-item {
-    &--list {
-      list-style: disc;
-    }
+    list-style: none;
+    margin-bottom: 4px;
 
     &:last-child {
       margin-bottom: 0 !important;
