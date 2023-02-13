@@ -1,6 +1,11 @@
 export interface ProgressBarProps {
 
     /**
+     * Key of the progress
+     */
+    key: number;
+
+    /**
 	 * Value of the progress in percentage of linear progress bar component
 	 */
     value: number;

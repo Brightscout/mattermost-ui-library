@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useMemo} from 'react';
 
 import {ProgressBar} from 'react-bootstrap';
 
@@ -12,7 +12,7 @@ import {StyledMultiProgressBarContainer} from './MultiProgress.styles';
  *
  * ```ts
  * <MultiProgress
- *      progressBarConfig={[{value: 10, color: 'red'}, {value: 7, color: 'blue'}, {value: 3, color: 'green'}]}
+ *      progressBarConfig={[{key:0, value: 10, color: 'red'}, {key:1, value: 7, color: 'blue'}, {key:2, value: 3, color: 'green'}]}
  * />
  * ```
  *
@@ -20,22 +20,22 @@ import {StyledMultiProgressBarContainer} from './MultiProgress.styles';
 export const MultiProgress = (props: MultiProgressBarProps) => {
     const {progressBarConfig, className} = props;
 
-    // get percentage of progress of a progress bar with respect to progress of all the progress bars
-    const getBarFraction = (value: number) => {
+    // sum of progress of all progress bars
+    const totalValue = useMemo(() => {
         let total = 0;
         progressBarConfig.forEach((bar: ProgressBarProps) => {
             total += bar.value;
         });
-        return (value / total) * 100;
-    };
+        return total;
+    }, [progressBarConfig]);
 
     return (
         <StyledMultiProgressBarContainer>
             <ProgressBar className={`mm-multiProgress ${className}`}>
-                {progressBarConfig.map((bar: ProgressBarProps, index: number) => (
+                {progressBarConfig.map((bar: ProgressBarProps) => (
                     <ProgressBar
-                        key={index}
-                        now={getBarFraction(bar.value)}
+                        key={bar.key}
+                        now={(bar.value / totalValue) * 100}
                         style={{
                             backgroundColor: bar.color,
                         }}

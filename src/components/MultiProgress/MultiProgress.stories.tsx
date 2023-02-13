@@ -16,18 +16,22 @@ export const Default = MultiProgressTemplate.bind({});
 Default.args = {
     progressBarConfig: [
         {
+            key: 0,
             value: 10,
             color: 'green',
         },
         {
+            key: 1,
             value: 7,
             color: 'blue',
         },
         {
+            key: 2,
             value: 3,
             color: 'red',
         },
         {
+            key: 3,
             value: 4,
             color: 'orange',
         },
