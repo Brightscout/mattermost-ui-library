@@ -26,13 +26,19 @@ const Input = ({
 }: InputFieldProps) => (
     <div className={`form-group ${className}`}>
         {label && <label className='form-group__label wt-400'>{label}</label>}
+        {!!value?.length && (
+            <label className='wt-400 form-group__field-placeholder'>
+                {placeholder}
+                {required && '*'}
+            </label>
+        )}
         <FormControl
             type={type}
             value={value}
             onChange={(e) => onChange?.(e as React.ChangeEvent<HTMLInputElement>)}
             placeholder={`${placeholder}${required ? '*' : ''}`}
             disabled={disabled}
-            className={`form-group__control border-radius-4 ${error && 'form-group__control--err error-text'}`}
+            className={`form-group__control border-radius-4 ${error && 'form-group__control--err error-text'} ${!!value?.length && 'form-group__input--shifted'}`}
         />
         {(error && typeof error === 'string') && <p className='form-group__err-text error-text font-14 margin-top-5'>{error}</p>}
     </div>

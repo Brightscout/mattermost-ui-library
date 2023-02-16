@@ -36,6 +36,18 @@
       background: transparent;
       outline: none;
     }
+
+    &--shifted {
+      padding-top: 10px;
+    }
+  }
+
+  &__field-placeholder {
+    @include positioning(absolute, 10px, '', '', 17px, 0);
+    max-width: calc(100% - 20px);
+    color: rgba(var(--center-channel-color-rgb), 0.4);
+    transform: translateY(-6px);
+    font-size: 95%;
   }
 
   &--disabled {

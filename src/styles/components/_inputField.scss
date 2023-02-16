@@ -1,4 +1,6 @@
 .form-group {
+  position: relative;
+
   &__control {
     height: 50px;
     border-width: 2px;
@@ -14,6 +16,18 @@
         color: rgba(var(--center-channel-color-rgb), 0.7);
       }
     }
+  }
+
+  &__field-placeholder {
+    @include positioning(absolute, 10px, '', '', 11px, 0);
+    max-width: calc(100% - 20px);
+    color: rgba(var(--center-channel-color-rgb), 0.4);
+    transform: translateY(-6px);
+    font-size: 90%;
+  }
+
+  &__input--shifted {
+    padding-top: 15px;
   }
 
   &__control--err {

@@ -1,4 +1,6 @@
 .textarea {
+  position: relative;
+
   &__control {
     height: 50px;
     max-width: 100%;
@@ -30,5 +32,20 @@
         }
       }
     }
+  }
+
+  &__field-placeholder {
+    @include positioning(absolute, 6px, '', '', 11px, 0);
+    max-width: calc(100% - 20px);
+    color: rgba(var(--center-channel-color-rgb), 0.4);
+    transition: all 200ms ease-in-out;
+    font-size: 90%;
+    padding-top: 6px;
+    width: 100%;
+    background: white;
+  }
+
+  &__input--shifted {
+    padding-top: 22px;
   }
 }
