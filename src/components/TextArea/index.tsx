@@ -22,7 +22,7 @@ const TextArea = ({
     <div className={`textarea ${className}`}>
         {label && <label className='form-group__label wt-400'>{label}</label>}
         {!!value.length && (
-            <label className='wt-400 textarea__field-placeholder'>
+            <label className='wt-400 textarea__field-placeholder d-block'>
                 {placeholder}
             </label>
         )}
