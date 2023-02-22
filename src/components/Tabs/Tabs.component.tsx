@@ -1,10 +1,10 @@
 import React from 'react';
 import Tab from 'react-bootstrap/Tab';
 
-import {StyledTabs} from './Tabs.styles';
-import {TabsProps} from './Tabs';
+import { StyledTabs } from './Tabs.styles';
+import { TabsProps } from './Tabs';
 
-import 'bootstrap/dist/css/bootstrap.min.css';
+// import 'bootstrap/dist/css/bootstrap.min.css';
 
 export const Tabs = (props: TabsProps) => {
     const {
