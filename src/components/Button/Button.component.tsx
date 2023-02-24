@@ -12,7 +12,7 @@ const DisplayContent = ({iconName, iconPosition, children}: ButtonProps) => {
     /**
      * If "iconName" is present then place the icon according to the given icon position and return children with the icon
      * else return children without an icon
-     */    
+     */
     if (iconName) {
         const icon = (
             <Icon

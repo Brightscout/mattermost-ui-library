@@ -19,16 +19,12 @@ export default {
         placement: 'bottom-end',
         popoverBody: <>
             <MenuItem
-                onClick={() => {
-                    console.log('clicked option 1');
-                }}
+                onClick={() => ''}
                 leadingIcon='Edit'
                 label='option 1'
             />
             <MenuItem
-                onClick={() => {
-                    console.log('clicked option 2');
-                }}
+                onClick={() => ''}
                 leadingIcon='Delete'
                 label='option 2'
             />
