@@ -199,13 +199,13 @@ const AutoSuggest = ({
             </ul>
             {selectedOption && (
                 <div className='d-flex align-items-center justify-content-between auto-suggest__selected-option-container padding-h-20 channel-bg'>
-                    {!!inputValue?.length && (
+                    {(!!inputValue?.length || selectedOption) && (
                         <label className='margin-0 wt-400 auto-suggest__field-placeholder'>
                             {placeholder}
                             {required && '*'}
                         </label>
                     )}
-                    <div className={`auto-suggest__selected-option-value text-ellipsis ${!!inputValue?.length && 'auto-suggest__input--shifted'}`}>
+                    <div className={`auto-suggest__selected-option-value text-ellipsis ${(!!inputValue?.length || selectedOption) && 'auto-suggest__input--shifted'}`}>
                         {renderValue(selectedOption)}
                     </div>
                     <button
