@@ -2,8 +2,9 @@ import React, { MutableRefObject, useEffect, useMemo, useRef, useState } from 'r
 
 import { Input } from '@Components/Input';
 import { List } from '@Components/List';
-import { Constants } from '@Constants';
 import { AutoCompleteWrapper } from '@Components/AutoComplete/AutoComplete.styles';
+
+import { Constants } from '@Constants';
 
 import { MMSearchProps } from './MMSearch';
 
@@ -43,20 +44,6 @@ import { MMSearchProps } from './MMSearch';
  * 	}}
  * />
  * ```
- *
- * @example Correct usage for options with icon
- * ```ts
- * <MMSearch
- *  searchValue=""
- *  setSearchValue={(val)=> {}}
- * 	label='label'
- *  item={[
- * 		{label: 'label 1', value: 'Value 1', icon: 'User'},
- * 		{label: 'label 2', value: 'Value 2', icon: 'User'},
- * 		{label: 'label 3', value: 'Value 3', icon: 'User'},
- * 	]}
- * />
- * ```
  */
 export const MMSearch = (props: MMSearchProps) => {
     const {
@@ -93,7 +80,9 @@ export const MMSearch = (props: MMSearchProps) => {
     };
 
     // filter dropdown options based on the input value
-    const filteredOptions = useMemo(() => (filterBy ? items.filter((item) => item.label?.startsWith(filterBy) && item.label !== filterBy) : items), [filterBy, items]);
+    const filteredOptions = useMemo(
+        () => (filterBy ? items.filter((item) => item.label?.startsWith(filterBy) && item.label !== filterBy) : items),
+        [filterBy, items]);
 
     useEffect(() => {
         document.body.addEventListener('click', onDropDownCloseHandler);
@@ -105,7 +94,6 @@ export const MMSearch = (props: MMSearchProps) => {
 
     /**
      * If 'isOpen' is true and 'value' is empty, then set the active index to 0 and scroll the list to (0,0)
-     * else, set the active index to selected item index
      */
     useEffect(() => {
         if (open) {
