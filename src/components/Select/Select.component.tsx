@@ -7,11 +7,11 @@ import {Constants} from '@Constants';
 
 import {SelectProps} from './Select';
 import {
-	Input,
-	Label,
-	LeadingIcon,
-	TrailingIcon,
-	Wrapper,
+    Input,
+    Label,
+    LeadingIcon,
+    TrailingIcon,
+    Wrapper,
 } from './Select.styles';
 
 /**
@@ -64,157 +64,169 @@ import {
  *
  */
 export const Select = (props: SelectProps) => {
-	const {leadingIcon, options, label, onSelectOptionHandler} = props;
+    const {leadingIcon, options, label, onSelectOptionHandler} = props;
 
-	const [isOpen, setIsOpen] = useState(false);
-	const [value, setValue] = useState<string>('');
-	const [active, setActive] = useState<number>(0);
-	const [selectedIndex, setSelectedIndex] = useState<number>(-1);
+    const [isOpen, setIsOpen] = useState(false);
+    const [value, setValue] = useState<string>('');
+    const [active, setActive] = useState<number>(0);
+    const [selectedIndex, setSelectedIndex] = useState<number>(-1);
 
-	const inputRef = useRef<HTMLInputElement>(
-		null
-	) as MutableRefObject<HTMLInputElement>;
-	const trailingIconRef = useRef<HTMLDivElement>(null);
-	const listRef = useRef<HTMLUListElement>(
-		null
-	) as MutableRefObject<HTMLUListElement>;
+    const inputRef = useRef<HTMLInputElement>(
+        null,
+    ) as MutableRefObject<HTMLInputElement>;
+    const trailingIconRef = useRef<HTMLDivElement>(null);
+    const listRef = useRef<HTMLUListElement>(
+        null,
+    ) as MutableRefObject<HTMLUListElement>;
 
-	/**
+    /**
 	 * On clicking or on focusing the input field
 	 * isOpen is set to `true` and the dropdown opens with passed in options
 	 */
-	const onFocusHandler = () => {
-		setIsOpen(true);
-	};
+    const onFocusHandler = () => {
+        setIsOpen(true);
+    };
 
-	/**
+    /**
 	 * On clicking the trailing icon the dropdown is opened or closed with respect to the state of the select
 	 *
 	 * if isOpen = `true`  a close icon is rendered, on clicking clears the input field and closes the dropdown
 	 * if isOpen = `false` an arrow down is rendered, on clicking opens the dropdown
 	 *
 	 */
-	const onIconTrailingIconClickHandler = () => {
-		setValue('');
-		setActive(0);
-		setSelectedIndex(-1);
-		if (isOpen) {
-			inputRef.current.blur();
-			setIsOpen(false);
-		} else {
-			inputRef.current.focus();
-			setIsOpen(true);
-		}
-	};
+    const onIconTrailingIconClickHandler = () => {
+        setValue('');
+        setActive(0);
+        setSelectedIndex(-1);
+        if (isOpen) {
+            inputRef.current.blur();
+            setIsOpen(false);
+        } else {
+            inputRef.current.focus();
+            setIsOpen(true);
+        }
+    };
 
-	/**
+    /**
 	 * The function is called when an event is detected on the keyboard,
 	 * so you can browse through the list and select one.
 	 */
-	const onKeyDown: React.KeyboardEventHandler<HTMLInputElement> = (event) => {
-		if (event.key === 'Enter') {
-			const option = options[active];
-			setValue(option.label ?? option.value);
-			setSelectedIndex(active);
-			inputRef.current.blur();
-			onSelectOptionHandler(event, option);
-			setIsOpen(false);
-			return;
-		}
-		if (event.key === 'ArrowUp') {
-			if (active === 0) return;
-			setActive((prev) => prev - 1);
-			listRef.current.scrollBy(0, -Constants.ITEM_HEIGHT);
-			return;
-		}
-		if (event.key === 'ArrowDown') {
-			if (active === options.length - 1) return;
-			setActive((prev) => prev + 1);
-			listRef.current.scrollBy(0, Constants.ITEM_HEIGHT);
-			return;
-		}
-	};
+    const onKeyDown: React.KeyboardEventHandler<HTMLInputElement> = (event) => {
+        if (event.key === 'Enter') {
+            const option = options[active];
+            setValue(option.label ?? option.value);
+            setSelectedIndex(active);
+            inputRef.current.blur();
+            onSelectOptionHandler(event, option);
+            setIsOpen(false);
+            return;
+        }
+        if (event.key === 'ArrowUp') {
+            if (active === 0) {
+                return;
+            }
+            setActive((prev) => prev - 1);
+            listRef.current.scrollBy(0, -Constants.ITEM_HEIGHT);
+            return;
+        }
+        if (event.key === 'ArrowDown') {
+            if (active === options.length - 1) {
+                return;
+            }
+            setActive((prev) => prev + 1);
+            listRef.current.scrollBy(0, Constants.ITEM_HEIGHT);
+        }
+    };
 
-	/**
+    /**
 	 * On clicking anywhere other than `input field` or `trailing icon` the dropdown closes
 	 */
-	const onDropDownCloseHandler = (e: MouseEvent) => {
-		if (e.target === inputRef.current || e.target === trailingIconRef.current)
-			return;
-		setIsOpen(false);
-	};
+    const onDropDownCloseHandler = (e: MouseEvent) => {
+        if (e.target === inputRef.current || e.target === trailingIconRef.current) {
+            return;
+        }
+        setIsOpen(false);
+    };
 
-	/**
+    /**
 	 * On the user selecting the option the value/label of the menu item is set to the input field
 	 */
-	const onUserSelectHandler = (
-		e: React.MouseEvent<HTMLLIElement, MouseEvent>,
-		option: ListItemType,
-		index: number
-	) => {
-		setActive(index);
-		setSelectedIndex(index);
-		setValue(option.label ?? option.value);
-		onSelectOptionHandler(e, option);
-	};
+    const onUserSelectHandler = (
+        e: React.MouseEvent<HTMLLIElement, MouseEvent>,
+        option: ListItemType,
+        index: number,
+    ) => {
+        setActive(index);
+        setSelectedIndex(index);
+        setValue(option.label ?? option.value);
+        onSelectOptionHandler(e, option);
+    };
 
-	// On clicking anywhere other than the input field the dropdown closes
-	useEffect(() => {
-		document.body.addEventListener('click', onDropDownCloseHandler);
+    // On clicking anywhere other than the input field the dropdown closes
+    useEffect(() => {
+        document.body.addEventListener('click', onDropDownCloseHandler);
 
-		return () => {
-			document.body.removeEventListener('click', onDropDownCloseHandler);
-		};
-	}, []);
+        return () => {
+            document.body.removeEventListener('click', onDropDownCloseHandler);
+        };
+    }, []);
 
-	/**
+    /**
 	 * If 'isOpen' is true and 'value' is empty, then set the active index to 0 and scroll the list to (0,0)
 	 * else, set the active index to selected item index
 	 */
-	useEffect(() => {
-		if (isOpen) {
-			if (value === '') {
-				setActive(0);
-				listRef.current.scrollTo(0, 0);
-			} else setActive(selectedIndex);
-		}
-	}, [isOpen]);
+    useEffect(() => {
+        if (isOpen) {
+            if (value === '') {
+                setActive(0);
+                listRef.current.scrollTo(0, 0);
+            } else {
+                setActive(selectedIndex);
+            }
+        }
+    }, [isOpen]);
 
-	return (
-		<Wrapper>
-			<Input
-				ref={inputRef}
-				placeholder=' '
-				type='text'
-				onFocus={onFocusHandler}
-				readOnly={true}
-				onKeyDown={onKeyDown}
-				value={value}
-				leadingIcon={leadingIcon}
-			/>
-			<Label leadingIcon={leadingIcon}>{label}</Label>
-			{leadingIcon && (
-				<LeadingIcon className='select__leading-icon'>
-					<Icon name={leadingIcon} size={16}/>
-				</LeadingIcon>
-			)}
-			<TrailingIcon
-				className='select__trailing-icon'
-				ref={trailingIconRef}
-				onClick={onIconTrailingIconClickHandler}
-			>
-				<Icon name={(isOpen || value) ? 'Close' : 'ArrowDown'} size={16}/>
-			</TrailingIcon>
-			{options.length > 0 && (
-				<List
-					ref={listRef}
-					isOpen={isOpen}
-					listItems={options}
-					handleItemClick={onUserSelectHandler}
-					value={value}
-					activeItem={active}
-				/>
-			)}
-		</Wrapper>
-	);
+    return (
+        <Wrapper>
+            <Input
+                ref={inputRef}
+                placeholder=' '
+                type='text'
+                onFocus={onFocusHandler}
+                readOnly={true}
+                onKeyDown={onKeyDown}
+                value={value}
+                leadingIcon={leadingIcon}
+            />
+            <Label leadingIcon={leadingIcon}>{label}</Label>
+            {leadingIcon && (
+                <LeadingIcon className='select__leading-icon'>
+                    <Icon
+                        name={leadingIcon}
+                        size={16}
+                    />
+                </LeadingIcon>
+            )}
+            <TrailingIcon
+                className='select__trailing-icon'
+                ref={trailingIconRef}
+                onClick={onIconTrailingIconClickHandler}
+            >
+                <Icon
+                    name={(isOpen || value) ? 'Close' : 'ArrowDown'}
+                    size={16}
+                />
+            </TrailingIcon>
+            {options.length > 0 && (
+                <List
+                    ref={listRef}
+                    isOpen={isOpen}
+                    listItems={options}
+                    handleItemClick={onUserSelectHandler}
+                    value={value}
+                    activeItem={active}
+                />
+            )}
+        </Wrapper>
+    );
 };

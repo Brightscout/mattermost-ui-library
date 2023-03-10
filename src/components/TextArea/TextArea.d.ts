@@ -13,9 +13,11 @@ export interface TextAreaProps {
     rows?: number;
 
     /**
-	 * If `true`, the textarea will indicate error
+	 * If it has value, the text area will indicate an error with an error message
+	 *
+	 * @default ""
 	 */
-    error?: boolean;
+    error?: string;
 
     /**
 	 * If `true`, the textarea element will be disabled
