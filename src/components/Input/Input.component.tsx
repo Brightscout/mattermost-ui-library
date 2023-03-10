@@ -66,7 +66,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
 	 */
 	const togglePlaceholderValue = (
 		event: React.ChangeEvent<HTMLInputElement>,
-		type: string
+		type: string,
 	) => {
 		if (!readOnly) {
 			event.target.placeholder = type === 'focus' ? '' : inputLabel;
@@ -79,7 +79,10 @@ export const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
 				className={`mm-input ${className}`}
 				fullWidth={fullWidth}
 			>
-				{iconName && <Icon name={iconName} size={16} />}
+				{iconName && <Icon
+					name={iconName}
+					size={16}
+				/>}
 				<StyledInput
 					ref={ref}
 					placeholder={inputLabel}
@@ -93,10 +96,18 @@ export const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
 				/>
 				{searchQuery && (
 					<StyledIconButton onClick={onClose}>
-						<Icon name="Close" size={12} iconColor="#ffffff" />
+						<Icon
+							name='Close'
+							size={12}
+							iconColor='#ffffff'
+						/>
 					</StyledIconButton>
 				)}
-				<DisplayFieldSet value={value} label={inputLabel} error={error} />
+				<DisplayFieldSet
+					value={value}
+					label={inputLabel}
+					error={error}
+				/>
 			</StyledInputContainer>
 			{Boolean(error) && <InputErrorMessage>{error}</InputErrorMessage>}
 		</div>
