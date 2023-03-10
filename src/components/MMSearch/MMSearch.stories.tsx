@@ -16,7 +16,6 @@ export default {
         },
         items: [{ label: 'koko 1', value: 'Value 1' }],
     },
-
 } as Meta;
 
 const MMSearchTemplate: Story<MMSearchProps> = (args) => <MMSearch {...args} />;

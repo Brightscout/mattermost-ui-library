@@ -14,7 +14,7 @@ import { MMSearchProps } from './MMSearch';
  * @example Correct usage
  * ```ts
  * <MMSearch
- *  searchValue=""
+ *  searchValue=''
  *  setSearchValue={(val)=> {}}
  * 	label='label'
  *  openOptions={true}
@@ -29,7 +29,7 @@ import { MMSearchProps } from './MMSearch';
  * @example Correct usage for accessing the selected value
  * ```ts
  * <MMSearch
- *  searchValue=""
+ *  searchValue=''
  *  setSearchValue={(val)=> {}}
  * 	label='label'
  *  optionsLoading={true}
@@ -79,7 +79,7 @@ export const MMSearch = (props: MMSearchProps) => {
         }
     };
 
-    // filter dropdown options based on the input value
+    // Filter dropdown options based on the input value
     const filteredOptions = useMemo(
         () => (filterBy ? items.filter((item) => item.label?.startsWith(filterBy) && item.label !== filterBy) : items),
         [filterBy, items]);

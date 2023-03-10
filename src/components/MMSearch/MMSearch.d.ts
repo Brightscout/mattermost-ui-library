@@ -1,5 +1,5 @@
-import { IconType } from '@Components/Icon';
-import { ListItemType } from '@Components/List/List';
+import {IconType} from '@Components/Icon';
+import {ListItemType} from '@Components/List/List';
 
 export interface MMSearchProps {
 
@@ -38,7 +38,7 @@ export interface MMSearchProps {
     className?: string;
 
     /**
-     * Options to render in the dropdown of the autocomplete search list.
+     * Options to render in the dropdown of the auto complete search list.
      */
     items: ListItemType[];
 
@@ -59,7 +59,7 @@ export interface MMSearchProps {
     ) => void;
 
     /**
-     * value of the search input component
+     * Value of the search input component
      */
     searchValue: string;
 
@@ -70,7 +70,7 @@ export interface MMSearchProps {
     setSearchValue: (val: string) => void;
 
     /**
-     * loading flag to show whether options are loading
+     * Loading flag to show whether options are loading
      * @default false
      */
     optionsLoading?: boolean;
