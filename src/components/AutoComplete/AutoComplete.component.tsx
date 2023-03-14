@@ -138,20 +138,23 @@ export const AutoComplete = (props: AutoCompleteProps) => {
 	 * calls the `getOptionAsync` function to get the new list according to the searchQuery
 	 * after the delay of 200ms.
 	 */
+
+    /**
+     * Disabling the eslint rule as it is causing a lint error when we're not passing any dependency in the dependency array
+     * The dependency array is not expected to have any item
+     */
     // eslint-disable-next-line react-hooks/exhaustive-deps
     const getOptionsDelayed = useCallback(
-        debounce(
-            (query: string, callback: (availableOptions: ListItemType[]) => void) => {
-                setOptions([]);
-                setOpen(false);
-                getOptionsAsync(items, query).
-                    then(callback).
+        debounce((query: string, callback: (availableOptions: ListItemType[]) => void) => {
+            setOptions([]);
+            setOpen(false);
 
-                    // The promise rejection isn't needed to be handled, because that is not expected
-                    catch(() => '');
-            },
-            Constants.FETCH_FUNCTION_DELAY,
-        ),
+            /**
+             * The catch block is used to catch any javascript error
+             * TODO: Update the logic to report the javascript error to the user
+             * */
+            getOptionsAsync(items, query).then(callback).catch(() => '');
+        }, Constants.FETCH_FUNCTION_DELAY),
         [],
     );
 

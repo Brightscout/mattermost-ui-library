@@ -4,7 +4,7 @@ import {Button, Form} from 'react-bootstrap';
 import colors from '@Styles/colorsForJs.module.scss';
 
 // Style for Input Fieldset
-export const StyledFieldSet = styled.fieldset<{error?: boolean}>(({error}) => {
+export const StyledFieldSet = styled.fieldset<{error?: string}>(({error}) => {
     return ({
         border: `1px solid ${error ? colors.error : colors.centerChannel_16}`,
         position: 'absolute',

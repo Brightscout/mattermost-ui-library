@@ -3,6 +3,8 @@ import React, {forwardRef} from 'react';
 import {Icon} from '@Components/Icon';
 import {extendClassname} from '@Utils';
 
+import {InputErrorMessage} from 'commonStyledComponents/InputErrorMessage/InputErrorMessage.styles';
+
 import {InputProps} from './Input';
 import {
     StyledInput,
@@ -72,38 +74,44 @@ export const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
     };
 
     return (
-        <StyledInputContainer
-            className={`mm-input ${className}`}
-            fullWidth={fullWidth}
-        >
-            {iconName && <Icon
-                name={iconName}
-                size={16}/>}
-            <StyledInput
-                ref={ref}
-                placeholder={inputLabel}
-                onFocus={(event: React.ChangeEvent<HTMLInputElement>) =>
-                    togglePlaceholderValue(event, 'focus')
-                }
-                onBlur={(event: React.ChangeEvent<HTMLInputElement>) =>
-                    togglePlaceholderValue(event, 'blur')
-                }
-                {...restProps}
-            />
-            {searchQuery && (
-                <StyledIconButton onClick={onClose}>
+        <div>
+            <StyledInputContainer
+                className={`mm-input ${className}`}
+                fullWidth={fullWidth}
+            >
+                { iconName && (
                     <Icon
-                        name='Close'
-                        size={12}
-                        iconColor='#ffffff'
+                        name={iconName}
+                        size={16}
                     />
-                </StyledIconButton>
-            )}
-            <DisplayFieldSet
-                value={value}
-                label={inputLabel}
-                error={error}
-            />
-        </StyledInputContainer>
+                )}
+                <StyledInput
+                    ref={ref}
+                    placeholder={inputLabel}
+                    onFocus={(event: React.ChangeEvent<HTMLInputElement>) =>
+                        togglePlaceholderValue(event, 'focus')
+                    }
+                    onBlur={(event: React.ChangeEvent<HTMLInputElement>) =>
+                        togglePlaceholderValue(event, 'blur')
+                    }
+                    {...restProps}
+                />
+                {searchQuery && (
+                    <StyledIconButton onClick={onClose}>
+                        <Icon
+                            name='Close'
+                            size={12}
+                            iconColor='#ffffff'
+                        />
+                    </StyledIconButton>
+                )}
+                <DisplayFieldSet
+                    value={value}
+                    label={inputLabel}
+                    error={error}
+                />
+            </StyledInputContainer>
+            {error && <InputErrorMessage>{error}</InputErrorMessage>}
+        </div>
     );
 });

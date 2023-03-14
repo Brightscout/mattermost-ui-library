@@ -79,7 +79,7 @@ export const ErrorInput = InputTemplate.bind({});
 ErrorInput.args = {
     label: 'Label',
     iconName: 'Globe',
-    error: true,
+    error: 'Error Message',
 };
 
 // Input with full width

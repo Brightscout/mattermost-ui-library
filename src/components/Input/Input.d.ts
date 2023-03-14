@@ -1,3 +1,5 @@
+import {Button} from 'react-bootstrap';
+
 import {IconType} from '@Components/Icon';
 
 export interface InputProps {
@@ -29,9 +31,9 @@ export interface InputProps {
     /**
 	 * If `true`, the input will indicate an error
 	 *
-	 * @default false
+	 * @default ''
 	 */
-    error?: boolean;
+    error?: string;
 
     /**
 	 * If `true`, the input will take up the full width of it's container.
@@ -94,7 +96,7 @@ export interface InputProps {
     /**
 	 * Handle trigger on clicking the close icon button
 	 */
-    onClose?: React.MouseEventHandler<HTMLElement>;
+    onClose?: React.MouseEventHandler<Button>;
 
     /**
 	 * Handler that's called when there is a change in the value of the input field
