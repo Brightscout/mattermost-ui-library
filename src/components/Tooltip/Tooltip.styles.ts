@@ -10,27 +10,24 @@ export const StyledTooltip = styled(Tooltip)({
         border: 'none',
         borderRadius: 4,
     },
-    '&.tooltip.show': {
-        opacity: 1,
-    },
 
     // styling for the tooltip with placement top
-    '&[x-placement="top"] .arrow::before': {
+    '&.top .tooltip-arrow': {
         borderTopColor: colors.tooltipBg,
     },
 
     // styling for the tooltip with placement bottom
-    '&[x-placement="bottom"] .arrow::before': {
+    '&.bottom .tooltip-arrow': {
         borderBottomColor: colors.tooltipBg,
     },
 
     // styling for the tooltip with placement right
-    '&[x-placement="right"] .arrow::before': {
+    '&.right .tooltip-arrow': {
         borderRightColor: colors.tooltipBg,
     },
 
     // styling for the tooltip with placement left
-    '&[x-placement="left"] .arrow::before': {
+    '&.left .tooltip-arrow': {
         borderLeftColor: colors.tooltipBg,
     },
 });
