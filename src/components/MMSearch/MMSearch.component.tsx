@@ -58,6 +58,8 @@ export const MMSearch = (props: MMSearchProps) => {
         optionsLoading = false,
         filterBy = '',
         openOptions = false,
+        secondaryLabelPosition = null,
+        onClearInput,
         ...restProps
     } = props;
 
@@ -114,7 +116,7 @@ export const MMSearch = (props: MMSearchProps) => {
         }
         if (event.key === 'Enter') {
             event.preventDefault();
-            const option = items[active];
+            const option = filteredOptions[active];
 
             if (onSelect) {
                 onSelect(event, option);
@@ -139,7 +141,7 @@ export const MMSearch = (props: MMSearchProps) => {
         }
         if (event.key === 'ArrowDown') {
             event.preventDefault();
-            if (active === items.length - 1) {
+            if (active === filteredOptions.length - 1) {
                 return;
             }
             setActive((prev) => prev + 1);
@@ -163,6 +165,13 @@ export const MMSearch = (props: MMSearchProps) => {
                 label={label}
                 iconName={leadingIcon}
                 onClose={() => {
+                    if (onClearInput) {
+                        onClearInput();
+                    }
+                    if (inputRef.current) {
+                        inputRef.current.focus();
+                    }
+                    setOpen(true);
                     setSearchValue('');
                     setSearchQuery('');
                 }}
@@ -192,6 +201,7 @@ export const MMSearch = (props: MMSearchProps) => {
                     loading={optionsLoading}
                     isAutocomplete={true}
                     activeItem={active}
+                    secondaryLabelPosition={secondaryLabelPosition}
                 />
             )}
         </AutoCompleteWrapper>

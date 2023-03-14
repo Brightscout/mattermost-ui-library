@@ -1,10 +1,10 @@
-import React, {forwardRef} from 'react';
+import React, { forwardRef } from 'react';
 
-import {MenuItem} from '@Components/MenuItem';
-import {extendClassname} from '@Utils';
+import { MenuItem } from '@Components/MenuItem';
+import { extendClassname } from '@Utils';
 
-import {ListPropType} from './List';
-import {Options} from './List.styles';
+import { ListPropType } from './List';
+import { Options } from './List.styles';
 
 /**
  * List Component
@@ -47,6 +47,7 @@ export const List = forwardRef<HTMLUListElement, ListPropType>(
             loading,
             isAutocomplete,
             activeItem = 0,
+            secondaryLabelPosition = null,
         },
         ref,
     ) => (
@@ -73,6 +74,8 @@ export const List = forwardRef<HTMLUListElement, ListPropType>(
 							!isAutocomplete && {
                             trailingIcon: 'Check',
                         })}
+                        secondaryLabelPosition={secondaryLabelPosition}
+                        secondaryLabel={secondaryLabelPosition ? option.secondaryLabel : ''}
                     />
                 ))
             )}

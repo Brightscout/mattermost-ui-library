@@ -9,7 +9,7 @@ import {IconType} from '@Components/Icon';
  *
  * `block` - below the main label
  */
-export type SecondaryLabelPositionType = 'inline' | 'block';
+export type SecondaryLabelPositionType = 'inline' | 'block' | null;
 
 export interface MenuItemProps {
 

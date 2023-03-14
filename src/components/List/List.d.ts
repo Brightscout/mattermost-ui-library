@@ -1,4 +1,5 @@
 import {IconType} from '@Components/Icon';
+import {SecondaryLabelPositionType} from '@Components/MenuItem/MenuItem';
 
 /**
  * List item type
@@ -14,6 +15,11 @@ export type ListItemType = {
 	 * Value for the list item
 	 */
     value: string;
+
+    /**
+     * Secondary label for the list item
+     */
+    secondaryLabel?: string;
 
     /**
 	 * Icon Name for the list item
@@ -55,6 +61,11 @@ export interface ListPropType {
 	 * The index of active menu item
 	 */
     activeItem?: number;
+
+    /**
+     * Position of the secondary label
+     */
+    secondaryLabelPosition?: SecondaryLabelPositionType;
 
     /**
 	 * The handler called when any List item is selected
