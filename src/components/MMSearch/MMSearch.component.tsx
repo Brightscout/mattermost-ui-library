@@ -168,7 +168,7 @@ export const MMSearch = (props: MMSearchProps) => {
                     if (onClearInput) {
                         onClearInput();
                     }
-                    if (inputRef.current) {
+                    if (inputRef?.current) {
                         inputRef.current.focus();
                     }
                     setOpen(true);
