@@ -2,6 +2,8 @@ import styled from 'styled-components';
 
 import colors from '@Styles/colorsForJs.module.scss';
 
+import {IconContainerProps} from './NoData';
+
 export const Container = styled('div')(() => {
     return {
         height: '100%',
@@ -14,12 +16,12 @@ export const Container = styled('div')(() => {
     };
 });
 
-export const IconContainer = styled('div')(() => {
+export const IconContainer = styled.div<IconContainerProps>(({iconBgColor}) => {
     return {
         minWidth: '120px',
         minHeight: '120px',
         borderRadius: '80px',
-        backgroundColor: colors.nodataIconBackground,
+        backgroundColor: iconBgColor,
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
@@ -32,11 +34,11 @@ export const IconContainer = styled('div')(() => {
     };
 });
 
-export const NoDataMessage = styled('p')(() => {
-    return {
-        lineHeight: '20px',
-        fontSize: '16px',
-        color: colors.centerChannel,
-        maxWidth: '219px',
-    };
+export const NoDataMessage = styled.p({
+    textAlign: 'center',
+    wordWrap: 'break-word',
+    lineHeight: '20px',
+    fontSize: '16px',
+    color: colors.centerChannel,
+    maxWidth: '219px',
 });

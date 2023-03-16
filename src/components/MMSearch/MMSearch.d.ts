@@ -1,5 +1,6 @@
 import {IconType} from '@Components/Icon';
 import {ListItemType} from '@Components/List/List';
+import {SecondaryLabelPositionType} from '@Components/MenuItem/MenuItem';
 
 export interface MMSearchProps {
 
@@ -86,7 +87,17 @@ export interface MMSearchProps {
     openOptions?: boolean;
 
     /**
+	 * Position of the secondary label
+	 */
+    secondaryLabelPosition?: SecondaryLabelPositionType;
+
+    /**
      * Function used to handle onKeyPress functionality of input
      */
     onKeyPress?: () => void;
+
+    /**
+     * Function used to handle clear input functionality
+     */
+    onClearInput?: () => void;
 }

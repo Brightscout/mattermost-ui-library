@@ -1,6 +1,14 @@
 import {IconProps} from '@Components/Icon/Icon';
 
-export interface NoDataProps {
+export interface IconContainerProps {
+
+    /**
+     * Color of Icon container
+     */
+    iconBgColor: string;
+}
+
+export interface NoDataProps extends IconContainerProps {
 
     /**
      * Name of icon to be displayed on the component
@@ -11,4 +19,9 @@ export interface NoDataProps {
      * Text to be displayed as a description of no data
      */
     message: string;
+
+    /**
+     * To override or extend the styles applied to the component
+     */
+    className?: string;
 }
