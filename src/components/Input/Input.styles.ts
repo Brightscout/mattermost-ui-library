@@ -1,7 +1,9 @@
 import styled from 'styled-components';
-import {Button, Form} from 'react-bootstrap';
+import {Button, FormControl} from 'react-bootstrap';
 
 import colors from '@Styles/colorsForJs.module.scss';
+
+import {InputProps} from './Input';
 
 // Style for Input Fieldset
 export const StyledFieldSet = styled.fieldset<{error?: boolean}>(({error}) => {
@@ -12,7 +14,7 @@ export const StyledFieldSet = styled.fieldset<{error?: boolean}>(({error}) => {
         left: 0,
         right: 0,
         margin: 0,
-        top: -8,
+        top: -6,
         borderRadius: '4px',
         pointerEvents: 'none',
 
@@ -30,6 +32,7 @@ export const StyledFieldSet = styled.fieldset<{error?: boolean}>(({error}) => {
             maxWidth: 0.01,
             transition: 'max-width 50ms cubic-bezier(0.0, 0, 0.2, 1) 0ms',
             whiteSpace: 'nowrap',
+            borderBottom: 'none',
         },
 
         // Style for fieldset on hover
@@ -92,7 +95,6 @@ export const StyledFieldSet = styled.fieldset<{error?: boolean}>(({error}) => {
                 transition: 'max-width 100ms cubic-bezier(0.0, 0, 0.2, 1) 50ms',
             },
         },
-
     });
 });
 
@@ -115,7 +117,7 @@ export const StyledInputContainer = styled.div<{fullWidth?: boolean}>(({fullWidt
 }));
 
 // Style for Input Component
-export const StyledInput = styled(Form.Control)(({error}) => ({
+export const StyledInput = styled(FormControl)<InputProps>(({error}) => ({
     display: 'block',
     fontSize: 14,
     padding: '12px 8px',
@@ -126,6 +128,7 @@ export const StyledInput = styled(Form.Control)(({error}) => ({
     border: 'none',
     appearance: 'none',
     transition: 'border-color .15s ease-in-out,box-shadow .15s ease-in-out',
+    boxShadow: 'none',
 
     // Style for input on focus-visible
     '&:focus-visible': {
@@ -144,6 +147,11 @@ export const StyledInput = styled(Form.Control)(({error}) => ({
         border: 'none',
         outline: 0,
         boxShadow: 'none',
+    },
+
+    // Style for input on read-only
+    '&.form-control[readonly]': {
+        background: colors.centerChannelBg,
     },
 }));
 

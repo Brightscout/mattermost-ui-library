@@ -1,4 +1,5 @@
 import React, {forwardRef} from 'react';
+import {FormControl} from 'react-bootstrap';
 
 import {Icon} from '@Components/Icon';
 import {extendClassname} from '@Utils';
@@ -43,7 +44,8 @@ const DisplayFieldSet = ({value, error, label}: InputProps) => (
  * <Input label='label' iconName='Globe'/>
  * ```
  */
-export const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
+// eslint-disable-next-line react/display-name
+export const Input = forwardRef<FormControl, InputProps>((props, ref) => {
     const {
         label,
         iconName,
@@ -63,7 +65,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
 	 * @param type - focus, blur
 	 */
     const togglePlaceholderValue = (
-        event: React.ChangeEvent<HTMLInputElement>,
+        event: React.FocusEvent<FormControl & HTMLInputElement>,
         type: string,
     ) => {
         if (!readOnly) {
@@ -82,16 +84,20 @@ export const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
             <StyledInput
                 ref={ref}
                 placeholder={inputLabel}
-                onFocus={(event: React.ChangeEvent<HTMLInputElement>) =>
+                onFocus={(event: React.FocusEvent<FormControl & HTMLInputElement>) =>
                     togglePlaceholderValue(event, 'focus')
                 }
-                onBlur={(event: React.ChangeEvent<HTMLInputElement>) =>
+                onBlur={(event: React.FocusEvent<FormControl & HTMLInputElement>) =>
                     togglePlaceholderValue(event, 'blur')
                 }
+                label={label}
                 {...restProps}
             />
             {searchQuery && (
-                <StyledIconButton onClick={onClose}>
+                <StyledIconButton
+                    onClick={onClose}
+                    bsStyle='primary'
+                >
                     <Icon
                         name='Close'
                         size={12}

@@ -79,7 +79,7 @@ export interface InputProps {
     /**
 	 * The function is called when an event is detected on the keyboard
 	 */
-    onKeyDown?: React.KeyboardEventHandler<HTMLInputElement>;
+    onKeyDown?: React.KeyboardEventHandler<FormControl & HTMLInputElement>;
 
     /**
 	 * The value of the input field
@@ -94,10 +94,10 @@ export interface InputProps {
     /**
 	 * Handle trigger on clicking the close icon button
 	 */
-    onClose?: React.MouseEventHandler<HTMLElement>;
+    onClose?: React.MouseEventHandler<Button>;
 
     /**
 	 * Handler that's called when there is a change in the value of the input field
 	 */
-    onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
+    onChange?: (event: React.FormEvent<FormControl & HTMLInputElement>) => void;
 }
