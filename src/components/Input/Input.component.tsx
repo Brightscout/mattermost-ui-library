@@ -53,6 +53,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
 		fullWidth,
 		onClose,
 		searchQuery,
+		onInputFocus,
 		...restProps
 	} = props;
 	const { readOnly, error, required, value = '' } = restProps;
@@ -86,9 +87,12 @@ export const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
 				<StyledInput
 					ref={ref}
 					placeholder={inputLabel}
-					onFocus={(event: React.ChangeEvent<HTMLInputElement>) =>
-						togglePlaceholderValue(event, 'focus')
-					}
+					onFocus={(event: React.ChangeEvent<HTMLInputElement>) => {
+						if(onInputFocus){
+							onInputFocus();
+						}
+						togglePlaceholderValue(event, 'focus');
+					}}
 					onBlur={(event: React.ChangeEvent<HTMLInputElement>) =>
 						togglePlaceholderValue(event, 'blur')
 					}

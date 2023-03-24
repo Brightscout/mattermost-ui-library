@@ -180,6 +180,7 @@ export const MMSearch = (props: MMSearchProps) => {
                     setSearchQuery(e.target.value);
                     setSearchValue(e.target.value);
                 }}
+                onInputFocus={() => setOpen(true)}
                 {...restProps}
             />
             {Boolean(filteredOptions.length) && (
