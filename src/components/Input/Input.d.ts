@@ -102,7 +102,7 @@ export interface InputProps {
     onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
 
     /**
-	 * Handler that's called when input field gains focus
+	 * Handler for handling input focus event
 	 */
     onInputFocus?: () => void;
 }
