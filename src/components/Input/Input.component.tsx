@@ -102,7 +102,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
 					<StyledIconButton onClick={onClose}>
 						<Icon
 							name='Close'
-							size={12}
+							size={14}
 							iconColor='#ffffff'
 						/>
 					</StyledIconButton>

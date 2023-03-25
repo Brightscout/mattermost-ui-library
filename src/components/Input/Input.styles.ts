@@ -150,12 +150,16 @@ export const StyledInput = styled(Form.Control)(({error}) => ({
 // Style for close icon button
 export const StyledIconButton = styled(Button)({
     borderRadius: '50%',
-    padding: 2,
+    padding: 0,
     borderWidth: 0,
 
     '&.btn.btn-primary': {
         '&, &:hover, &:active, &:focus': {
             background: colors.centerChannel_64,
         },
+    },
+
+    '& svg': {
+        padding: 1,
     },
 });
