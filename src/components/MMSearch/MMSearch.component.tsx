@@ -76,7 +76,8 @@ export const MMSearch = (props: MMSearchProps) => {
      * On clicking anywhere other than `input field`, the dropdown closes
      */
     const onDropDownCloseHandler = (e: MouseEvent) => {
-        if (e.target !== inputRef.current) {
+        e.stopPropagation();
+        if (e.target instanceof HTMLElement && !inputRef.current?.contains(e.target) && e.target !== inputRef.current) {
             setOpen(false);
         }
     };
