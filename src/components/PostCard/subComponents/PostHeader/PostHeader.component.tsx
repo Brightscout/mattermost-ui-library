@@ -16,6 +16,7 @@ import {
  *  authorName={authorName}
  *  botBadgeComponent={botBadgeComponent}
  *  floatingMenuComponents={floatingMenuComponents}
+ * />
  * ```
  */
 export const PostHeader = ({

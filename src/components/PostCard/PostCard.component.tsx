@@ -16,6 +16,7 @@ import {PostHeader} from './subComponents/PostHeader';
  *  botBadgeComponent={botBadgeComponent}
  *  timeStampComponent={timeStampComponent}
  *  postMessage={postMessage}
+ * />
  * ```
  */
 export const PostCard = ({
