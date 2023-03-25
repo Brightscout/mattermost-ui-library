@@ -5,14 +5,14 @@ import {PostHeaderProps} from './subComponents/PostHeader/PostHeader';
 export type PostCardProps = {
 
     /**
-     * Avatar component from mattermost.
-     */
+	 * Avatar component from mattermost.
+	 */
     avatarComponent: ReactNode;
 
     /**
-     * Message to be rendered in the post card.
-     */
-    postMessage: string;
+	 * Message or mattermost rendered component to be rendered in the post card.
+	 */
+    postMessage: string | ReactNode;
 } & Pick<
 PostHeaderProps,
 | 'floatingMenuComponents'
