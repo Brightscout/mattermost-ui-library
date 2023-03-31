@@ -21,6 +21,8 @@ export const RadioContainer = styled.div<{ size: RadioSizeTypes }>(
                 margin: 0,
                 color: Colors.centerChannel,
                 fontSize: 12 + increaseRadioSizeBy[size],
+                lineHeight: `${16 + (2 * increaseRadioSizeBy[size])}px`,
+                fontWeight: 400,
             },
 
             '.radio-label[for]': {
@@ -77,6 +79,7 @@ export const InputContainer = styled.div({
         border: `1px solid ${Colors.centerChannel_24}`,
         borderRadius: '50%',
         cursor: 'pointer',
+        margin: 0,
         backgroundColor: Colors.centerChannelBg,
     },
 
