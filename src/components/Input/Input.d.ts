@@ -9,8 +9,9 @@ export interface InputProps {
 
     /**
 	 * Label for the input field
+	 * @default ''
 	 */
-    label: string;
+    label?: string;
 
     /**
 	 * If `true`, the input element will be disabled
@@ -105,4 +106,27 @@ export interface InputProps {
 	 * Handler for handling input focus event
 	 */
     onInputFocus?: () => void;
+
+    /**
+	 * The underlying HTML element to use when rendering the FormControl.
+	 * @default 'input'
+	 */
+    as?: 'input' | 'textarea';
+
+    /**
+	 * If `true`, the resize option in the text area will be removed.
+	 * @default false
+	 */
+    disableResize?: boolean;
+
+    /**
+	 * The number of rows in the textarea.
+	 */
+    rows?: number;
+
+    /**
+	 * If `true`, the close button will be removed.
+	 * @default false
+	 */
+    removeCloseButton?: boolean;
 }

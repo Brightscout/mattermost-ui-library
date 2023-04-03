@@ -1,11 +1,14 @@
 import {IconType} from '@Components/Icon';
+import {InputProps} from '@Components/Input/Input';
 
-export interface AutoCompleteProps {
+export interface AutoCompleteProps
+    extends Pick<InputProps, 'as' | 'disableResize' | 'rows' | 'removeCloseButton'> {
 
     /**
 	 * Label for the component
+	 * @default ''
 	 */
-    label: string;
+    label?: string;
 
     /**
 	 * If `true`, the component is focused during the first mount
