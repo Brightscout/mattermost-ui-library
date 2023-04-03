@@ -56,6 +56,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
 		onInputFocus,
 		disableResize = false,
 		removeCloseButton = false,
+		component='input',
 		...restProps
 	} = props;
 	const { readOnly, error, required, value = '' } = restProps;
@@ -87,6 +88,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
 					size={16}
 				/>}
 				<StyledInput
+				    as={component}
 			        className={extendClassname({disableResize})}
 					ref={ref}
 					placeholder={inputLabel}

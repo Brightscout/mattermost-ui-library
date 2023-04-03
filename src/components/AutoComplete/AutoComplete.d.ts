@@ -2,7 +2,7 @@ import {IconType} from '@Components/Icon';
 import {InputProps} from '@Components/Input/Input';
 
 export interface AutoCompleteProps
-    extends Pick<InputProps, 'as' | 'disableResize' | 'rows' | 'removeCloseButton'> {
+    extends Pick<InputProps, 'component' | 'disableResize' | 'rows' | 'removeCloseButton'> {
 
     /**
 	 * Label for the component

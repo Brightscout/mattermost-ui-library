@@ -111,7 +111,7 @@ export interface InputProps {
 	 * The underlying HTML element to use when rendering the FormControl.
 	 * @default 'input'
 	 */
-    as?: 'input' | 'textarea';
+    component?: 'input' | 'textarea';
 
     /**
 	 * If `true`, the resize option in the text area will be removed.
