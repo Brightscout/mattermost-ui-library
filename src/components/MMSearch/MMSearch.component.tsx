@@ -1,12 +1,12 @@
-import React, { MutableRefObject, useEffect, useMemo, useRef, useState } from 'react';
+import React, {MutableRefObject, useEffect, useMemo, useRef, useState} from 'react';
 
-import { Input } from '@Components/Input';
-import { List } from '@Components/List';
-import { AutoCompleteWrapper } from '@Components/AutoComplete/AutoComplete.styles';
+import {Input} from '@Components/Input';
+import {List} from '@Components/List';
+import {AutoCompleteWrapper} from '@Components/AutoComplete/AutoComplete.styles';
 
-import { Constants } from '@Constants';
+import {Constants} from '@Constants';
 
-import { MMSearchProps } from './MMSearch';
+import {MMSearchProps} from './MMSearch';
 
 /**
  * MMSearch Component

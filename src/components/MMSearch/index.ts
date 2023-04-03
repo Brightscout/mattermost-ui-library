@@ -1,1 +1,1 @@
-export { MMSearch } from './MMSearch.component';
+export {MMSearch} from './MMSearch.component';
