@@ -1,46 +1,36 @@
-// TODO: Update and fix the issues
 import React from 'react';
-import Tab from 'react-bootstrap/lib/Tab';
+import {Tab} from 'react-bootstrap';
 
 import {StyledTabs} from './Tabs.styles';
-import {TabsProps} from './Tabs';
-
-import 'bootstrap/dist/css/bootstrap.min.css';
+import {TabsConfig, TabsProps} from './Tabs';
 
 export const Tabs = (props: TabsProps) => {
     const {
         tabsConfig,
-        fill = false,
-        justify = true,
+        justified = false,
         mountOnEnter = true,
         unmountOnExit = true,
-
-        // defaultActiveKey,
         stickyHeader = true,
-        ...restProps
+        className = '',
     } = props;
 
     return (
         <StyledTabs
-
-            // stickyHeader={stickyHeader}
-            // fill={fill}
-            // justify={justify}
+            stickyHeader={stickyHeader}
+            justified={justified}
             mountOnEnter={mountOnEnter}
             unmountOnExit={unmountOnExit}
-
-            // defaultActiveKey={defaultActiveKey}
-            {...restProps}
+            className={`mm-tabs ${className}`}
         >
-            {/* {tabsConfig.map((tab) => (
+            {tabsConfig.map((tab: TabsConfig) => (
                 <Tab
-
-                    // key={tab.key}
-                    // eventKey={tab.key}
+                    key={tab.key as number}
+                    eventKey={tab.key as number}
                     title={tab.title}
+                    tabClassName='nav-item'
                 >
                     {tab.content}
-                </Tab>))} */}
+                </Tab>))}
         </StyledTabs>
     );
 };
