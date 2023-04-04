@@ -14,15 +14,14 @@ const CountdownTemplate: Story<CountdownProps> = (args) => <Countdown {...args}/
 // Default
 export const Default = CountdownTemplate.bind({});
 Default.args = {
-    endTime: 1676007000000, // 2023/02/10 11:00
+    endTime: Date.now() + 172800000, // Today + 2 Days
 };
 
 // Custom countdown
 export const Custom = CountdownTemplate.bind({});
 Custom.args = {
-    endTime: 1676007000000, // 2023/02/10 11:00
+    endTime: Date.now() + 172800000,
     showDays: true,
     showHours: true,
     showMinutes: true,
 };
-

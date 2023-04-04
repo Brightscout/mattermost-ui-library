@@ -5,6 +5,8 @@ import {extendClassname} from '@Utils';
 
 import {InputErrorMessage} from 'commonStyledComponents/InputErrorMessage/InputErrorMessage.styles';
 
+import colors from '@Styles/colorsForJs.module.scss';
+
 import {InputProps} from './Input';
 import {
     StyledInput,
@@ -74,28 +76,40 @@ export const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
         }
     };
 
+    /**
+     * Handle focus event on input element
+     */
+    const handleOnInputFocus = (event: React.ChangeEvent<HTMLInputElement>) => {
+        if (onInputFocus) {
+            onInputFocus();
+        }
+        togglePlaceholderValue(event, 'focus');
+    };
+
+    /**
+     * Handle blur event on input element
+     */
+    const handleOnInputBlur = (event: React.ChangeEvent<HTMLInputElement>) => {
+        togglePlaceholderValue(event, 'blur');
+    };
+
     return (
         <div>
             <StyledInputContainer
                 className={`mm-input ${className}`}
                 fullWidth={fullWidth}
             >
-                {iconName && <Icon
-                    name={iconName}
-                    size={16}
-                             />}
+                {iconName && (
+                    <Icon
+                        name={iconName}
+                        size={16}
+                    />
+                )}
                 <StyledInput
                     ref={ref}
                     placeholder={inputLabel}
-                    onFocus={(event: React.ChangeEvent<HTMLInputElement>) => {
-                        if (onInputFocus) {
-                            onInputFocus();
-                        }
-                        togglePlaceholderValue(event, 'focus');
-                    }}
-                    onBlur={(event: React.ChangeEvent<HTMLInputElement>) =>
-                        togglePlaceholderValue(event, 'blur')
-                    }
+                    onFocus={handleOnInputFocus}
+                    onBlur={handleOnInputBlur}
                     {...restProps}
                 />
                 {searchQuery && (
@@ -103,7 +117,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
                         <Icon
                             name='Close'
                             size={14}
-                            iconColor='#ffffff'
+                            iconColor={colors.white}
                         />
                     </StyledIconButton>
                 )}

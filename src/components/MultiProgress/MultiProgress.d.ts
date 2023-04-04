@@ -1,4 +1,4 @@
-export interface ProgressBarProps {
+export type ProgressBarProps = {
 
     /**
 	 * Value of the progress in percentage of linear progress bar component
@@ -11,7 +11,7 @@ export interface ProgressBarProps {
     color: string;
 }
 
-export interface MultiProgressBarProps {
+export type MultiProgressBarProps = {
 
     /**
      * Configuration array for the multiple progress bars

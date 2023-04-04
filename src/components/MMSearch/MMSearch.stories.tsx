@@ -11,9 +11,7 @@ export default {
     args: {
         label: 'Search...',
         searchValue: '',
-        setSearchValue: (val: string) => {
-            console.log(val);
-        },
+        setSearchValue: (val: string) => val,
         items: [{label: 'koko 1', value: 'Value 1'}],
     },
 } as Meta;

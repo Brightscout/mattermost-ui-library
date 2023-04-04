@@ -6,6 +6,8 @@ import {AutoCompleteWrapper} from '@Components/AutoComplete/AutoComplete.styles'
 
 import {Constants} from '@Constants';
 
+import {ListItemType} from '@Components/List/List';
+
 import {MMSearchProps} from './MMSearch';
 
 /**
@@ -64,7 +66,7 @@ export const MMSearch = (props: MMSearchProps) => {
     } = props;
 
     const [searchQuery, setSearchQuery] = useState<string>('');
-    const [open, setOpen] = useState<boolean>(openOptions);
+    const [isOpen, setIsOpen] = useState<boolean>(openOptions);
     const [active, setActive] = useState<number>(0);
 
     const inputRef = useRef<HTMLInputElement>(null);
@@ -78,7 +80,7 @@ export const MMSearch = (props: MMSearchProps) => {
     const onDropDownCloseHandler = (e: MouseEvent) => {
         e.stopPropagation();
         if (e.target instanceof HTMLElement && !inputRef.current?.contains(e.target) && e.target !== inputRef.current) {
-            setOpen(false);
+            setIsOpen(false);
         }
     };
 
@@ -99,23 +101,21 @@ export const MMSearch = (props: MMSearchProps) => {
      * If 'isOpen' is true and 'value' is empty, then set the active index to 0 and scroll the list to (0,0)
      */
     useEffect(() => {
-        if (open) {
+        if (isOpen) {
             setActive(0);
-            if (typeof listRef.current?.scrollTo === 'function') {
-                listRef.current.scrollTo(0, 0);
-            }
+            listRef.current.scrollTo(0, 0);
         }
-    }, [open]);
+    }, [isOpen]);
 
     /**
      * The function is called when an event is detected on the keyboard,
      * so you can browse through the list and select one.
      */
     const onKeyDown: React.KeyboardEventHandler<HTMLInputElement> = (event) => {
-        if (!filteredOptions.length || !open) {
+        if (!filteredOptions.length || !isOpen) {
             return;
         }
-        if (event.key === 'Enter') {
+        if (event.key === Constants.KeyboardEvent.ENTER) {
             event.preventDefault();
             const option = filteredOptions[active];
 
@@ -126,29 +126,57 @@ export const MMSearch = (props: MMSearchProps) => {
             setActive(0);
             return;
         }
-        if (event.key === 'ArrowUp') {
+        if (event.key === Constants.KeyboardEvent.ARROW_UP) {
             event.preventDefault();
             if (active === 0) {
                 return;
             }
             setActive((prev) => prev - 1);
-            if (typeof listRef.current?.scrollBy === 'function') {
-                listRef.current.scrollBy(0, -Constants.ITEM_HEIGHT);
-            }
+
+            listRef.current.scrollBy(0, -Constants.ITEM_HEIGHT);
+
             if (inputRef.current) {
                 inputRef.current.focus();
             }
             return;
         }
-        if (event.key === 'ArrowDown') {
+        if (event.key === Constants.KeyboardEvent.ARROW_DOWN) {
             event.preventDefault();
             if (active === filteredOptions.length - 1) {
                 return;
             }
             setActive((prev) => prev + 1);
-            if (typeof listRef.current.scrollBy === 'function') {
-                listRef.current.scrollBy(0, Constants.ITEM_HEIGHT);
-            }
+
+            listRef.current.scrollBy(0, Constants.ITEM_HEIGHT);
+        }
+    };
+
+    const handleOnClose = () => {
+        if (onClearInput) {
+            onClearInput();
+        }
+        if (inputRef?.current) {
+            inputRef.current.focus();
+        }
+        setIsOpen(true);
+        setSearchValue('');
+        setSearchQuery('');
+    };
+
+    const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setIsOpen(true);
+        setSearchQuery(e.target.value);
+        setSearchValue(e.target.value);
+    };
+
+    const handleItemClick = (event: React.MouseEvent<HTMLLIElement>, option: ListItemType) => {
+        setActive(0);
+        if (onSelect) {
+            onSelect(event, option);
+        }
+        setIsOpen(true);
+        if (inputRef.current) {
+            inputRef.current.focus();
         }
     };
 
@@ -165,40 +193,17 @@ export const MMSearch = (props: MMSearchProps) => {
                 value={searchValue}
                 label={label}
                 iconName={leadingIcon}
-                onClose={() => {
-                    if (onClearInput) {
-                        onClearInput();
-                    }
-                    if (inputRef?.current) {
-                        inputRef.current.focus();
-                    }
-                    setOpen(true);
-                    setSearchValue('');
-                    setSearchQuery('');
-                }}
-                onChange={(e) => {
-                    setOpen(true);
-                    setSearchQuery(e.target.value);
-                    setSearchValue(e.target.value);
-                }}
-                onInputFocus={() => setOpen(true)}
+                onClose={handleOnClose}
+                onChange={handleOnChange}
+                onInputFocus={() => setIsOpen(true)}
                 {...restProps}
             />
             {Boolean(filteredOptions.length) && (
                 <List
                     ref={listRef}
-                    isOpen={open}
+                    isOpen={isOpen}
                     listItems={filteredOptions}
-                    handleItemClick={(event, option) => {
-                        setActive(0);
-                        if (onSelect) {
-                            onSelect(event, option);
-                        }
-                        setOpen(true);
-                        if (inputRef.current) {
-                            inputRef.current.focus();
-                        }
-                    }}
+                    handleItemClick={handleItemClick}
                     value={searchQuery}
                     loading={optionsLoading}
                     isAutocomplete={true}

@@ -83,6 +83,7 @@ export interface MMSearchProps {
 
     /**
      * Flag used to open options
+     * @default false
      */
     openOptions?: boolean;
 
