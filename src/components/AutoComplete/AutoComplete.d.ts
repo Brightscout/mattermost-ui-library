@@ -1,3 +1,5 @@
+import React from 'react';
+
 import {IconType} from '@Components/Icon';
 import {InputProps} from '@Components/Input/Input';
 
@@ -59,4 +61,16 @@ export interface AutoCompleteProps
         event: React.MouseEvent<HTMLLIElement, MouseEvent>,
         option: ListItemType
     ) => void;
+
+    /**
+	 * Value of the input component, required for a controlled component.
+	 */
+    value?: string;
+
+    /**
+	 * Handler that's called when there is a change in the value of the input field.
+	 * Required for a controlled component.
+	 * @param value - changed value
+	 */
+    onChange?: (value: string) => void;
 }

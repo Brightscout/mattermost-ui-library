@@ -82,6 +82,8 @@ export const AutoComplete = (props: AutoCompleteProps) => {
         label,
         className = '',
         leadingIcon,
+        onChange,
+        value,
         ...restProps
     } = props;
 
@@ -160,7 +162,14 @@ export const AutoComplete = (props: AutoCompleteProps) => {
     const onKeyDown: React.KeyboardEventHandler<HTMLInputElement> = (event) => {
         if (event.key === 'Enter') {
             const option = options[active];
-            setSearchValue(option.label ?? option.value);
+            if (!option) {
+                return;
+            }
+            if (typeof value !== 'undefined' && typeof onChange !== 'undefined' && open === true) {
+                onChange(option.label ?? option.value);
+            } else {
+                setSearchValue(option.label ?? option.value);
+            }
             setActive(0);
             setOptions([]);
             setOpen(false);
@@ -193,17 +202,24 @@ export const AutoComplete = (props: AutoCompleteProps) => {
                 fullWidth={fullWidth}
                 searchQuery={searchQuery}
                 onKeyDown={onKeyDown}
-                value={searchValue}
+                value={typeof value === 'undefined' ? searchValue : value}
                 label={label}
                 iconName={leadingIcon}
                 onClose={() => {
                     setOpen(false);
                     setSearchQuery('');
+                    if (typeof value !== 'undefined' && typeof onChange !== 'undefined') {
+                        onChange('');
+                    }
                     setSearchValue('');
                 }}
                 onChange={(e) => {
                     setSearchQuery(e.target.value);
-                    setSearchValue(e.target.value);
+                    if (typeof value !== 'undefined' && typeof onChange !== 'undefined') {
+                        onChange(e.target.value);
+                    } else {
+                        setSearchValue(e.target.value);
+                    }
                 }}
                 {...restProps}
             />
@@ -214,6 +230,9 @@ export const AutoComplete = (props: AutoCompleteProps) => {
                     listItems={options}
                     handleItemClick={(event, option) => {
                         setActive(0);
+                        if (typeof value !== 'undefined' && typeof onChange !== 'undefined') {
+                            onChange(option.label ?? option.value);
+                        }
                         setSearchValue(option.label ?? option.value);
                         if (onSelect) {
                             onSelect(event, option);
