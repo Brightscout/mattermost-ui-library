@@ -14,13 +14,13 @@ export const StyledButtonContainer = styled.button<StyledButtonProps>(({variant,
             padding: '6px 10px',
             fontSize: '10px',
             height: '24px',
-            lineHeight: '10px',
+            lineHeight: '9px',
         },
         sm: {
             padding: '10px 16px',
             fontSize: '12px',
             height: '32px',
-            lineHeight: '9.5px',
+            lineHeight: '10px',
         },
         md: {
             padding: '12px 20px',
@@ -32,7 +32,7 @@ export const StyledButtonContainer = styled.button<StyledButtonProps>(({variant,
             padding: '14px 24px',
             fontSize: '16px',
             height: '48px',
-            lineHeight: '18px',
+            lineHeight: '17px',
         },
     };
 
@@ -222,7 +222,7 @@ export const StyledButtonContainer = styled.button<StyledButtonProps>(({variant,
             display: 'inline',
             marginInline: iconPosition === 'start' ? '0 8px' : '8px 0',
             '& path , & rect': {
-                color: variant === 'primary' ? colors.primaryText : getButtonColor(),
+                color: !inverted && variant === 'primary' ? colors.primaryText : getButtonColor(),
             },
         },
 

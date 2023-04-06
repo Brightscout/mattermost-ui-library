@@ -60,6 +60,19 @@ export type ButtonSizeProperties = 'height' | 'fontSize' | 'padding' | 'lineHeig
 export type ButtonSizeMap = Record<ButtonSizeTypes, Record<ButtonSizeProperties, string>>;
 
 /**
+ * Button icon's size types
+ *
+ * `xs` - Icon Size = 10
+ *
+ * `sm` - Icon Size = 12
+ *
+ * `md` - Icon Size = 16
+ *
+ * `lg` - Icon Size = 20
+ */
+export type ButtonIconSizeMap = Record<ButtonSizeTypes, number>
+
+/**
  * Interface for styled button component
  */
 export interface StyledButtonProps {
