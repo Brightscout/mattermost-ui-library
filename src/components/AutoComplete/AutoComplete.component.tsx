@@ -167,11 +167,13 @@ export const AutoComplete = (props: AutoCompleteProps) => {
             if (!option) {
                 return;
             }
-            if (typeof value !== 'undefined' && typeof onChange !== 'undefined' && open === true) {
+
+            if (onChange) {
                 onChange(option.label ?? option.value);
-            } else {
-                setSearchValue(option.label ?? option.value);
             }
+
+            setSearchValue(option.label ?? option.value);
+
             setActive(0);
             setOptions([]);
             setOpen(false);
@@ -194,45 +196,80 @@ export const AutoComplete = (props: AutoCompleteProps) => {
         }
     };
 
+    /**
+     * Function to be triggered on handling key down.
+     * @param event - event source of the callback.
+     */
+    const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
+        onKeyDownHandler(event);
+        if (onKeyDown) {
+            onKeyDown(event);
+        }
+    };
+
+    /**
+     * Function which sets reference variable to the component.
+     */
+    const handleSetRef = (node: HTMLInputElement | null) => {
+        ref.current = node;
+        if (inputRef) {
+            inputRef.current = node;
+        }
+    };
+
+    /**
+     * Function which is triggered on clicking the close icon on the input field.
+     */
+    const handleOnClose = () => {
+        setOpen(false);
+        setSearchQuery('');
+        if (onChange) {
+            onChange('');
+        }
+        setSearchValue('');
+    };
+
+    /**
+     * Function which is triggered on value change on the input field.
+     * @param e - event source of the callback.
+     */
+    const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setSearchQuery(e.target.value);
+        if (onChange) {
+            onChange(e.target.value);
+        }
+        setSearchValue(e.target.value);
+    };
+
+    /**
+     * Function which is triggered on clicking or keypress on list item.
+     */
+    const handleItemClick = (event: React.MouseEvent<HTMLLIElement, MouseEvent>, option: ListItemType) => {
+        setActive(0);
+        if (onChange) {
+            onChange(option.label ?? option.value);
+        }
+        setSearchValue(option.label ?? option.value);
+        if (onSelect) {
+            onSelect(event, option);
+        }
+    };
+
     return (
         <AutoCompleteWrapper
             fullWidth={fullWidth}
             className={`mm-autocomplete ${className}`}
         >
             <Input
-                ref={(node) => {
-                    ref.current = node;
-                    if (inputRef) {
-                        inputRef.current = node;
-                    }
-                }}
+                ref={handleSetRef}
                 fullWidth={fullWidth}
                 searchQuery={searchQuery}
-                onKeyDown={(e) => {
-                    onKeyDownHandler(e);
-                    if (onKeyDown) {
-                        onKeyDown(e);
-                    }
-                }}
-                value={typeof value === 'undefined' ? searchValue : value}
+                onKeyDown={handleKeyDown}
+                value={value ?? searchValue}
                 label={label}
                 iconName={leadingIcon}
-                onClose={() => {
-                    setOpen(false);
-                    setSearchQuery('');
-                    if (typeof value !== 'undefined' && typeof onChange !== 'undefined') {
-                        onChange('');
-                    }
-                    setSearchValue('');
-                }}
-                onChange={(e) => {
-                    setSearchQuery(e.target.value);
-                    if (typeof value !== 'undefined' && typeof onChange !== 'undefined') {
-                        onChange(e.target.value);
-                    } else {
-                        setSearchValue(e.target.value);
-                    }
-                }}
+                onClose={handleOnClose}
+                onChange={handleOnChange}
                 {...restProps}
             />
             {Boolean(options.length) && (
@@ -240,16 +277,7 @@ export const AutoComplete = (props: AutoCompleteProps) => {
                     ref={listRef}
                     isOpen={open}
                     listItems={options}
-                    handleItemClick={(event, option) => {
-                        setActive(0);
-                        if (typeof value !== 'undefined' && typeof onChange !== 'undefined') {
-                            onChange(option.label ?? option.value);
-                        }
-                        setSearchValue(option.label ?? option.value);
-                        if (onSelect) {
-                            onSelect(event, option);
-                        }
-                    }}
+                    handleItemClick={handleItemClick}
                     value={searchQuery}
                     loading={isLoading}
                     isAutocomplete={true}
