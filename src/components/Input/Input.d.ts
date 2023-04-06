@@ -121,7 +121,7 @@ export interface InputProps {
 
     /**
 	 * The number of rows in the textarea.
-	 * @default 1
+	 * @default 2
 	 */
     rows?: number;
 
