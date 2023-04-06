@@ -37,6 +37,29 @@ export type ButtonState = 'default' | 'hover' | 'active' | 'disabled';
 export type ButtonColorMap = Record<VariantType, Record<ButtonState, string>>;
 
 /**
+ * Button's size types
+ *
+ * `xs` - Button height = 24
+ *
+ * `sm` - Button height = 32
+ *
+ * `md` - Button height = 40
+ *
+ * `lg` - Button height = 48
+ */
+export type ButtonSizeTypes = 'xs' | 'sm' | 'md' | 'lg';
+
+/**
+ * Type for button properties
+ */
+export type ButtonSizeProperties = 'height' | 'fontSize' | 'padding' | 'lineHeight';
+
+/**
+ * Type for button color map
+ */
+export type ButtonSizeMap = Record<ButtonSizeTypes, Record<ButtonSizeProperties, string>>;
+
+/**
  * Interface for styled button component
  */
 export interface StyledButtonProps {
@@ -59,6 +82,33 @@ export interface StyledButtonProps {
 		* @default false
 		*/
     fullWidth?:boolean;
+
+    /**
+	 * Button sizes
+	 *
+	 * @default 'md'
+	 */
+    size?: ButtonSizeTypes;
+
+    /**
+	 * The inverted style of button
+	 *
+	 * @default false
+	 */
+    inverted?: boolean;
+
+    /**
+	 * The destructive style of button
+	 *
+	 * @default false
+	 */
+    destructive?: boolean;
+
+    /**
+	 * The width of the button
+	 * @default fit-content
+	 */
+    width?: string;
 }
 
 /**

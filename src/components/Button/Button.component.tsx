@@ -52,6 +52,8 @@ export const Button = (props:ButtonProps) => {
         iconPosition = 'start',
         variant = 'primary',
         className = '',
+        size = 'md',
+        width = 'fit-content',
         ...restProps
     } = props;
 
@@ -60,6 +62,8 @@ export const Button = (props:ButtonProps) => {
             iconPosition={iconPosition}
             variant={variant}
             className={`mm-button ${className}`}
+            size={size}
+            width={width}
             {...restProps}
         >
             <DisplayContent
