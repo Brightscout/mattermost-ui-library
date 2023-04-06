@@ -1,8 +1,11 @@
 import React from 'react';
-import {Form} from 'react-bootstrap';
+
+import {Icon} from '@Components/Icon';
+
+import {extendClassname} from '@Utils';
 
 import {CheckBoxProps} from './CheckBox';
-import {StyledCheckbox} from './CheckBox.styles';
+import {CheckboxContainer, InputContainer} from './CheckBox.styles';
 
 /**
  * Checkbox Component
@@ -13,22 +16,44 @@ import {StyledCheckbox} from './CheckBox.styles';
  *  <Checkbox label="Label"/>
  * ```
  */
-export const Checkbox = (props:CheckBoxProps) => {
-    const {className = '', id, label, error, ...restProps} = props;
+export const Checkbox = (props: CheckBoxProps) => {
+    const {className = '', id, label, error, disabled, size = 'md', ...restProps} = props;
+
+    const increaseCheckboxIconSizeBy = {
+        sm: 10,
+        md: 12,
+        lg: 16,
+    };
 
     return (
-        <StyledCheckbox
-            type='checkbox'
-            className={`mm-checkbox ${className}`}
-            id={id}
+        <CheckboxContainer
+            size={size}
+            className={`mm-checkbox ${className} ${extendClassname({
+                'mm-checkbox-error': Boolean(error),
+                'mm-checkbox-disabled': Boolean(disabled),
+            })}`}
         >
-            <Form.Check.Input
-                type='checkbox'
-                className='mm-checkbox_input'
-                isInvalid={error}
-                {...restProps}
-            />
-            <Form.Check.Label>{label}</Form.Check.Label>
-        </StyledCheckbox>
+            <InputContainer className='input-wrapper'>
+                <input
+                    type='checkbox'
+                    className='mm-checkbox-input'
+                    id={id}
+                    disabled={disabled}
+                    {...restProps}
+                />
+                <span className='mm-checkbox-active'>
+                    <Icon
+                        name='CheckBold'
+                        size={increaseCheckboxIconSizeBy[size]}
+                    />
+                </span>
+            </InputContainer>
+            <label
+                htmlFor={id}
+                className='checkbox-label'
+            >
+                {label}
+            </label>
+        </CheckboxContainer>
     );
 };
