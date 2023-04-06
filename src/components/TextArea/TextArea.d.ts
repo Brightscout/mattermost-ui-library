@@ -13,7 +13,7 @@ export interface TextAreaProps {
     rows?: number;
 
     /**
-	 * If has value, the textarea will indicate error with error message
+	 * If it has value, the text area will indicate an error with an error message
 	 *
 	 * @default ""
 	 */

@@ -1,16 +1,18 @@
-import React, { forwardRef } from 'react';
+import React, {forwardRef} from 'react';
 
-import { Icon } from '@Components/Icon';
-import { extendClassname } from '@Utils';
+import {Icon} from '@Components/Icon';
+import {extendClassname} from '@Utils';
 
-import { InputErrorMessage } from 'commonStyledComponents/InputErrorMessage/InputErrorMessage.styles';
+import {InputErrorMessage} from 'commonStyledComponents/InputErrorMessage/InputErrorMessage.styles';
 
-import { InputProps } from './Input';
+import colors from '@Styles/colorsForJs.module.scss';
+
+import {InputProps} from './Input';
 import {
-	StyledInput,
-	StyledFieldSet,
-	StyledInputContainer,
-	StyledIconButton,
+    StyledInput,
+    StyledFieldSet,
+    StyledInputContainer,
+    StyledIconButton,
 } from './Input.styles';
 
 /**
@@ -18,18 +20,18 @@ import {
  *
  * Displays fieldset for input component
  */
-const DisplayFieldSet = ({ value, error, label }: InputProps) => (
-	<StyledFieldSet
-		className={`input_label ${extendClassname({
-			'visible_label-border': Boolean(value),
-			input_error: Boolean(error),
-		})}`}
-		error={Boolean(error)}
-	>
-		<legend className={extendClassname({ visible_label: Boolean(value && label) })}>
-			{label}
-		</legend>
-	</StyledFieldSet>
+const DisplayFieldSet = ({value, error, label}: InputProps) => (
+    <StyledFieldSet
+        className={`input_label ${extendClassname({
+            'visible_label-border': Boolean(value),
+            input_error: Boolean(error),
+        })}`}
+        error={Boolean(error)}
+    >
+        <legend className={extendClassname({visible_label: Boolean(value && label)})}>
+            {label}
+        </legend>
+    </StyledFieldSet>
 );
 
 /**
@@ -46,79 +48,91 @@ const DisplayFieldSet = ({ value, error, label }: InputProps) => (
  * ```
  */
 export const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
-	const {
-		label = '',
-		iconName,
-		className = '',
-		fullWidth,
-		onClose,
-		searchQuery,
-		onInputFocus,
-		disableResize = false,
-		removeCloseButton = false,
-		component='input',
-		...restProps
-	} = props;
-	const { readOnly, error, required, value = '' } = restProps;
+    const {
+        label = '',
+        iconName,
+        className = '',
+        fullWidth,
+        onClose,
+        searchQuery,
+        onInputFocus,
+        disableResize = false,
+        removeCloseButton = false,
+        component = 'input',
+        ...restProps
+    } = props;
+    const {readOnly, error, required, value = ''} = restProps;
 
-	const inputLabel = `${label}${required ? ' *' : ''}`;
+    const inputLabel = `${label}${required ? ' *' : ''}`;
 
-	/**
+    /**
 	 * Toggle placeholder value on type change
 	 * @param event - HTML input event
 	 * @param type - focus, blur
 	 */
-	const togglePlaceholderValue = (
-		event: React.ChangeEvent<HTMLInputElement>,
-		type: string,
-	) => {
-		if (!readOnly) {
-			event.target.placeholder = type === 'focus' ? '' : inputLabel;
-		}
-	};
+    const togglePlaceholderValue = (
+        event: React.ChangeEvent<HTMLInputElement>,
+        type: string,
+    ) => {
+        if (!readOnly) {
+            event.target.placeholder = type === 'focus' ? '' : inputLabel;
+        }
+    };
 
-	return (
-		<div>
-			<StyledInputContainer
-				className={`mm-input ${className}`}
-				fullWidth={fullWidth}
-			>
-				{iconName && <Icon
-					name={iconName}
-					size={16}
-				/>}
-				<StyledInput
-				    as={component}
-			        className={extendClassname({disableResize})}
-					ref={ref}
-					placeholder={inputLabel}
-					onFocus={(event: React.ChangeEvent<HTMLInputElement>) => {
-						if(onInputFocus){
-							onInputFocus();
-						}
-						togglePlaceholderValue(event, 'focus');
-					}}
-					onBlur={(event: React.ChangeEvent<HTMLInputElement>) =>
-						togglePlaceholderValue(event, 'blur')
-					}
-					{...restProps}
-				/>
-				{(searchQuery && !removeCloseButton)  && (
-					<StyledIconButton onClick={onClose}>
-						<Icon
-							name='Close'
-							size={14}
-							iconColor='#ffffff'
-						/>
-					</StyledIconButton>
-				)}
-				<DisplayFieldSet
-					value={value}
-					label={inputLabel}
-					error={error}
-				/>
-			</StyledInputContainer>
-			{Boolean(error) && <InputErrorMessage>{error}</InputErrorMessage>}
-		</div>
-	);
+    /**
+     * Handle focus event on input element
+     */
+    const handleOnInputFocus = (event: React.ChangeEvent<HTMLInputElement>) => {
+        if (onInputFocus) {
+            onInputFocus();
+        }
+        togglePlaceholderValue(event, 'focus');
+    };
+
+    /**
+     * Handle blur event on input element
+     */
+    const handleOnInputBlur = (event: React.ChangeEvent<HTMLInputElement>) => {
+        togglePlaceholderValue(event, 'blur');
+    };
+
+    return (
+        <div>
+            <StyledInputContainer
+                className={`mm-input ${className}`}
+                fullWidth={fullWidth}
+            >
+                {iconName && (
+                    <Icon
+                        name={iconName}
+                        size={16}
+                    />
+                )}
+                <StyledInput
+                    as={component}
+                    className={extendClassname({disableResize})}
+                    ref={ref}
+                    placeholder={inputLabel}
+                    onFocus={handleOnInputFocus}
+                    onBlur={handleOnInputBlur}
+                    {...restProps}
+                />
+                {(searchQuery && !removeCloseButton) && (
+                    <StyledIconButton onClick={onClose}>
+                        <Icon
+                            name='Close'
+                            size={14}
+                            iconColor={colors.white}
+                        />
+                    </StyledIconButton>
+                )}
+                <DisplayFieldSet
+                    value={value}
+                    label={inputLabel}
+                    error={error}
+                />
+            </StyledInputContainer>
+            {Boolean(error) && <InputErrorMessage>{error}</InputErrorMessage>}
+        </div>
+    );
 });

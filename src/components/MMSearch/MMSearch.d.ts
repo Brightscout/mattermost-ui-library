@@ -84,6 +84,7 @@ export interface MMSearchProps extends Pick<InputProps, 'component' | 'disableRe
 
     /**
      * Flag used to open options
+     * @default false
      */
     openOptions?: boolean;
 
