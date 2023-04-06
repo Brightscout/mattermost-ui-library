@@ -73,4 +73,14 @@ export interface AutoCompleteProps
 	 * @param value - changed value
 	 */
     onChange?: (value: string) => void;
+
+    /**
+	 * Pass in ref object for the input component.
+	 */
+    inputRef?: React.MutableRefObject<unknown>;
+
+    /**
+     * Function used to handle onKeyPress functionality of input
+     */
+    onKeyDown?: React.KeyboardEventHandler<unknown>;
 }

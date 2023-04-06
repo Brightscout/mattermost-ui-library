@@ -60,6 +60,8 @@ export const MMSearch = (props: MMSearchProps) => {
         openOptions = false,
         secondaryLabelPosition = null,
         onClearInput,
+        onKeyPress,
+        inputRef,
         ...restProps
     } = props;
 
@@ -67,7 +69,7 @@ export const MMSearch = (props: MMSearchProps) => {
     const [open, setOpen] = useState<boolean>(openOptions);
     const [active, setActive] = useState<number>(0);
 
-    const inputRef = useRef<HTMLInputElement>(null);
+    const ref = useRef<HTMLInputElement | null>(null);
     const listRef = useRef<HTMLUListElement>(
         null,
     ) as MutableRefObject<HTMLUListElement>;
@@ -77,7 +79,7 @@ export const MMSearch = (props: MMSearchProps) => {
      */
     const onDropDownCloseHandler = (e: MouseEvent) => {
         e.stopPropagation();
-        if (e.target instanceof HTMLElement && !inputRef.current?.contains(e.target) && e.target !== inputRef.current) {
+        if (e.target instanceof HTMLElement && !ref.current?.contains(e.target) && e.target !== ref.current) {
             setOpen(false);
         }
     };
@@ -135,8 +137,8 @@ export const MMSearch = (props: MMSearchProps) => {
             if (typeof listRef.current?.scrollBy === 'function') {
                 listRef.current.scrollBy(0, -Constants.ITEM_HEIGHT);
             }
-            if (inputRef.current) {
-                inputRef.current.focus();
+            if (ref.current) {
+                ref.current.focus();
             }
             return;
         }
@@ -158,10 +160,20 @@ export const MMSearch = (props: MMSearchProps) => {
             className={`mm-autocomplete ${className}`}
         >
             <Input
-                ref={inputRef}
+                ref={(node) => {
+                    ref.current = node;
+                    if (inputRef) {
+                        inputRef.current = node;
+                    }
+                }}
                 fullWidth={fullWidth}
                 searchQuery={searchQuery}
-                onKeyDown={onKeyDown}
+                onKeyDown={(e) => {
+                    onKeyDown(e);
+                    if (onKeyPress) {
+                        onKeyPress(e);
+                    }
+                }}
                 value={searchValue}
                 label={label}
                 iconName={leadingIcon}
@@ -169,8 +181,8 @@ export const MMSearch = (props: MMSearchProps) => {
                     if (onClearInput) {
                         onClearInput();
                     }
-                    if (inputRef?.current) {
-                        inputRef.current.focus();
+                    if (ref?.current) {
+                        ref.current.focus();
                     }
                     setOpen(true);
                     setSearchValue('');
@@ -195,8 +207,8 @@ export const MMSearch = (props: MMSearchProps) => {
                             onSelect(event, option);
                         }
                         setOpen(true);
-                        if (inputRef.current) {
-                            inputRef.current.focus();
+                        if (ref.current) {
+                            ref.current.focus();
                         }
                     }}
                     value={searchQuery}

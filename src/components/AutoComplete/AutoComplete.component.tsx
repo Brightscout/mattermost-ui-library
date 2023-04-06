@@ -84,6 +84,8 @@ export const AutoComplete = (props: AutoCompleteProps) => {
         leadingIcon,
         onChange,
         value,
+        inputRef,
+        onKeyDown,
         ...restProps
     } = props;
 
@@ -94,7 +96,7 @@ export const AutoComplete = (props: AutoCompleteProps) => {
     const [open, setOpen] = useState<boolean>(false);
     const [active, setActive] = useState<number>(0);
 
-    const ref = useRef<HTMLInputElement>(null);
+    const ref = useRef<HTMLInputElement | null>(null);
     const listRef = useRef<HTMLUListElement>(
         null,
     ) as MutableRefObject<HTMLUListElement>;
@@ -159,7 +161,7 @@ export const AutoComplete = (props: AutoCompleteProps) => {
 	 * The function is called when an event is detected on the keyboard,
 	 * so you can browse through the list and select one.
 	 */
-    const onKeyDown: React.KeyboardEventHandler<HTMLInputElement> = (event) => {
+    const onKeyDownHandler: React.KeyboardEventHandler<HTMLInputElement> = (event) => {
         if (event.key === 'Enter') {
             const option = options[active];
             if (!option) {
@@ -198,10 +200,20 @@ export const AutoComplete = (props: AutoCompleteProps) => {
             className={`mm-autocomplete ${className}`}
         >
             <Input
-                ref={ref}
+                ref={(node) => {
+                    ref.current = node;
+                    if (inputRef) {
+                        inputRef.current = node;
+                    }
+                }}
                 fullWidth={fullWidth}
                 searchQuery={searchQuery}
-                onKeyDown={onKeyDown}
+                onKeyDown={(e) => {
+                    onKeyDownHandler(e);
+                    if (onKeyDown) {
+                        onKeyDown(e);
+                    }
+                }}
                 value={typeof value === 'undefined' ? searchValue : value}
                 label={label}
                 iconName={leadingIcon}
