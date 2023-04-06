@@ -105,7 +105,9 @@ export const MMSearch = (props: MMSearchProps) => {
     useEffect(() => {
         if (isOpen) {
             setActive(0);
-            listRef.current.scrollTo(0, 0);
+            if (typeof listRef.current?.scrollTo === 'function') {
+                listRef.current.scrollTo(0, 0);
+            }
         }
     }, [isOpen]);
 
@@ -182,18 +184,23 @@ export const MMSearch = (props: MMSearchProps) => {
         }
     };
 
+    /**
+     * Function which sets reference variable to the component.
+     */
+    const handleSetRef = (node: HTMLInputElement | null) => {
+        ref.current = node;
+        if (inputRef) {
+            inputRef.current = node;
+        }
+    };
+
     return (
         <AutoCompleteWrapper
             fullWidth={fullWidth}
             className={`mm-autocomplete ${className}`}
         >
             <Input
-                ref={(node) => {
-                    ref.current = node;
-                    if (inputRef) {
-                        inputRef.current = node;
-                    }
-                }}
+                ref={handleSetRef}
                 fullWidth={fullWidth}
                 searchQuery={searchQuery}
                 onKeyDown={(e) => {
