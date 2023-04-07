@@ -1,9 +1,9 @@
-// TODO: Update and fix the issues
 import React from 'react';
-import {Form} from 'react-bootstrap';
+
+import {extendClassname} from '@Utils';
 
 import {SwitchProps} from './Switch';
-import {StyledSwitch} from './Switch.styles';
+import {SwitchContainer, InputWrapper} from './Switch.styles';
 
 /**
  * Switch Component
@@ -22,25 +22,29 @@ import {StyledSwitch} from './Switch.styles';
  *
  */
 export const Switch = (props: SwitchProps) => {
-    const {id, label, subLabel, error, className = '', fullWidth = false, ...restProps} = props;
+    const {id, label, subLabel, error, className = '', fullWidth = false, disabled, ...restProps} = props;
 
     return (
-        <StyledSwitch
-            className={`mm-switch ${className}`}
+        <SwitchContainer
+            className={`mm-switch ${className}${extendClassname({
+                'mm-switch-error': Boolean(error),
+                'mm-switch-disabled': Boolean(disabled),
+            })}`}
             id={id}
             fullWidth={fullWidth}
         >
-            {/* <Form.Check.Input
-                className='mm-switch_input'
-                isInvalid={error}
-                {...restProps}
-            />
-            <div className='mm-switch_labels'>
-                <Form.Check.Label className='mm-switch_label'>{label}</Form.Check.Label>
-                <Form.Check.Label className='mm-switch_subLabel'>
-                    {subLabel}
-                </Form.Check.Label>
-            </div> */}
-        </StyledSwitch>
+            <div className='mm-switch-labels'>
+                <label className='mm-switch-label'>{label}</label>
+                <label className='mm-switch-subLabel'>{subLabel}</label>
+            </div>
+            <InputWrapper>
+                <input
+                    type='checkbox'
+                    className='mm-switch-input'
+                    disabled={disabled}
+                    {...restProps}
+                />
+            </InputWrapper>
+        </SwitchContainer>
     );
 };
