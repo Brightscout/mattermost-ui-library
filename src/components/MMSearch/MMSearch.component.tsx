@@ -136,7 +136,9 @@ export const MMSearch = (props: MMSearchProps) => {
             }
             setActive((prev) => prev - 1);
 
-            listRef.current.scrollBy(0, -Constants.ITEM_HEIGHT);
+            if (listRef.current) {
+                listRef.current.scrollBy(0, -Constants.ITEM_HEIGHT);
+            }
 
             if (ref.current) {
                 ref.current.focus();
@@ -150,10 +152,15 @@ export const MMSearch = (props: MMSearchProps) => {
             }
             setActive((prev) => prev + 1);
 
-            listRef.current.scrollBy(0, Constants.ITEM_HEIGHT);
+            if (listRef.current) {
+                listRef.current.scrollBy(0, Constants.ITEM_HEIGHT);
+            }
         }
     };
 
+    /**
+     * Function which handles close button click
+     */
     const handleOnClose = () => {
         if (onClearInput) {
             onClearInput();
@@ -166,12 +173,21 @@ export const MMSearch = (props: MMSearchProps) => {
         setSearchQuery('');
     };
 
+    /**
+     * Function which handles change in input field
+     * @param {React.ChangeEvent<HTMLInputElement>} e - gets the value of input field
+     */
     const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setIsOpen(true);
         setSearchQuery(e.target.value);
         setSearchValue(e.target.value);
     };
 
+    /**
+     * Function which handle click on dropdown option list item.
+     * @param {React.MouseEvent<HTMLLIElement>} event - item click event
+     * @param {ListItemType} option - the option on which click happens
+     */
     const handleItemClick = (event: React.MouseEvent<HTMLLIElement>, option: ListItemType) => {
         setActive(0);
         if (onSelect) {
