@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {PostCardWrapper} from './PostCard.styles';
+import {PostCardRightPanelWrapper, PostCardWrapper} from './PostCard.styles';
 import {PostCardProps} from './PostCard';
 import {PostHeader} from './subComponents/PostHeader';
 
@@ -29,7 +29,7 @@ export const PostCard = ({
 }: PostCardProps) => (
     <PostCardWrapper>
         {avatarComponent}
-        <div>
+        <PostCardRightPanelWrapper>
             <PostHeader
                 authorName={authorName}
                 floatingMenuComponents={floatingMenuComponents}
@@ -37,6 +37,6 @@ export const PostCard = ({
                 timeStampComponent={timeStampComponent}
             />
             <div>{postMessage}</div>
-        </div>
+        </PostCardRightPanelWrapper>
     </PostCardWrapper>
 );

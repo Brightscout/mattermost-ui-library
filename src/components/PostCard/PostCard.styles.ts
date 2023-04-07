@@ -16,3 +16,7 @@ export const PostCardWrapper = styled('div')({
         },
     },
 });
+
+export const PostCardRightPanelWrapper = styled('div')({
+    overflow: 'auto',
+});
