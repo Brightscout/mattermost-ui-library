@@ -28,7 +28,7 @@ const DisplayFieldSet = ({value, error, label}: InputProps) => (
         })}`}
         error={Boolean(error)}
     >
-        <legend className={extendClassname({visible_label: Boolean(value)})}>
+        <legend className={extendClassname({visible_label: Boolean(value && label)})}>
             {label}
         </legend>
     </StyledFieldSet>
@@ -49,13 +49,16 @@ const DisplayFieldSet = ({value, error, label}: InputProps) => (
  */
 export const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
     const {
-        label,
+        label = '',
         iconName,
         className = '',
         fullWidth,
         onClose,
         searchQuery,
         onInputFocus,
+        disableResize = false,
+        removeCloseButton = false,
+        component = 'input',
         ...restProps
     } = props;
     const {readOnly, error, required, value = ''} = restProps;
@@ -106,13 +109,15 @@ export const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
                     />
                 )}
                 <StyledInput
+                    as={component}
+                    className={extendClassname({disableResize})}
                     ref={ref}
                     placeholder={inputLabel}
                     onFocus={handleOnInputFocus}
                     onBlur={handleOnInputBlur}
                     {...restProps}
                 />
-                {searchQuery && (
+                {(searchQuery && !removeCloseButton) && (
                     <StyledIconButton onClick={onClose}>
                         <Icon
                             name='Close'

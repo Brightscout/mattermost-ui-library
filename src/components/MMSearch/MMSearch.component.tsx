@@ -62,6 +62,8 @@ export const MMSearch = (props: MMSearchProps) => {
         openOptions = false,
         secondaryLabelPosition = null,
         onClearInput,
+        onKeyPress,
+        inputRef,
         ...restProps
     } = props;
 
@@ -69,7 +71,7 @@ export const MMSearch = (props: MMSearchProps) => {
     const [isOpen, setIsOpen] = useState<boolean>(openOptions);
     const [active, setActive] = useState<number>(0);
 
-    const inputRef = useRef<HTMLInputElement>(null);
+    const ref = useRef<HTMLInputElement | null>(null);
     const listRef = useRef<HTMLUListElement>(
         null,
     ) as MutableRefObject<HTMLUListElement>;
@@ -78,7 +80,7 @@ export const MMSearch = (props: MMSearchProps) => {
      * On clicking anywhere other than `input field`, the dropdown closes
      */
     const onDropDownCloseHandler = (e: MouseEvent) => {
-        if (e.target instanceof HTMLElement && !inputRef.current?.contains(e.target) && e.target !== inputRef.current) {
+        if (e.target instanceof HTMLElement && !ref.current?.contains(e.target) && e.target !== ref.current) {
             setIsOpen(false);
         }
     };
@@ -102,7 +104,7 @@ export const MMSearch = (props: MMSearchProps) => {
     useEffect(() => {
         if (isOpen) {
             setActive(0);
-            if (listRef.current) {
+            if (typeof listRef.current?.scrollTo === 'function') {
                 listRef.current.scrollTo(0, 0);
             }
         }
@@ -138,8 +140,8 @@ export const MMSearch = (props: MMSearchProps) => {
                 listRef.current.scrollBy(0, -Constants.ITEM_HEIGHT);
             }
 
-            if (inputRef.current) {
-                inputRef.current.focus();
+            if (ref.current) {
+                ref.current.focus();
             }
             return;
         }
@@ -163,8 +165,8 @@ export const MMSearch = (props: MMSearchProps) => {
         if (onClearInput) {
             onClearInput();
         }
-        if (inputRef?.current) {
-            inputRef.current.focus();
+        if (ref?.current) {
+            ref.current.focus();
         }
         setIsOpen(true);
         setSearchValue('');
@@ -192,8 +194,18 @@ export const MMSearch = (props: MMSearchProps) => {
             onSelect(event, option);
         }
         setIsOpen(true);
-        if (inputRef.current) {
-            inputRef.current.focus();
+        if (ref.current) {
+            ref.current.focus();
+        }
+    };
+
+    /**
+     * Function which sets reference variable to the component.
+     */
+    const handleSetRef = (node: HTMLInputElement | null) => {
+        ref.current = node;
+        if (inputRef) {
+            inputRef.current = node;
         }
     };
 
@@ -203,10 +215,15 @@ export const MMSearch = (props: MMSearchProps) => {
             className={`mm-autocomplete ${className}`}
         >
             <Input
-                ref={inputRef}
+                ref={handleSetRef}
                 fullWidth={fullWidth}
                 searchQuery={searchQuery}
-                onKeyDown={onKeyDown}
+                onKeyDown={(e) => {
+                    onKeyDown(e);
+                    if (onKeyPress) {
+                        onKeyPress(e);
+                    }
+                }}
                 value={searchValue}
                 label={label}
                 iconName={leadingIcon}

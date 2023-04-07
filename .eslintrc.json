@@ -322,7 +322,6 @@
     "no-unreachable": 2,
     "no-unsafe-finally": 2,
     "no-unsafe-negation": 2,
-    "no-unused-expressions": 2,
     "no-unused-vars": [
       2,
       {
@@ -547,6 +546,7 @@
         "@typescript-eslint/prefer-interface": 0,
         "@typescript-eslint/explicit-function-return-type": 0,
         "@typescript-eslint/explicit-module-boundary-types": 0,
+        "@typescript-eslint/no-unused-expressions": 0,
         "@typescript-eslint/indent": [
           2,
           4,

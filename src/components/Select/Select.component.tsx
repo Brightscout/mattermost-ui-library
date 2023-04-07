@@ -179,7 +179,9 @@ export const Select = (props: SelectProps) => {
         if (isOpen) {
             if (value === '') {
                 setActive(0);
-                listRef.current.scrollTo(0, 0);
+                if (typeof listRef.current?.scrollTo === 'function') {
+                    listRef.current.scrollTo(0, 0);
+                }
             } else {
                 setActive(selectedIndex);
             }

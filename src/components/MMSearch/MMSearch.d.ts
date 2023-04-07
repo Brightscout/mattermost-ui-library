@@ -1,8 +1,9 @@
 import {IconType} from '@Components/Icon';
+import {InputProps} from '@Components/Input/Input';
 import {ListItemType} from '@Components/List/List';
 import {SecondaryLabelPositionType} from '@Components/MenuItem/MenuItem';
 
-export interface MMSearchProps {
+export interface MMSearchProps extends Pick<InputProps, 'component' | 'disableResize' | 'rows' | 'removeCloseButton'> {
 
     /**
      * Label for the component
@@ -95,10 +96,15 @@ export interface MMSearchProps {
     /**
      * Function used to handle onKeyPress functionality of input
      */
-    onKeyPress?: () => void;
+    onKeyPress?: React.KeyboardEventHandler<unknown>;
 
     /**
      * Function used to handle clear input functionality
      */
     onClearInput?: () => void;
+
+    /**
+	 * Pass in ref object for the input component.
+	 */
+    inputRef?: React.MutableRefObject<unknown>;
 }

@@ -145,6 +145,10 @@ export const StyledInput = styled(Form.Control)(({error}) => ({
         outline: 0,
         boxShadow: 'none',
     },
+
+    '&.disableResize': {
+        resize: 'none',
+    },
 }));
 
 // Style for close icon button

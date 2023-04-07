@@ -23,6 +23,7 @@ import {Tooltip} from '@Components/Tooltip';
 import {MultiProgress} from '@Components/MultiProgress';
 import {Countdown} from '@Components/Countdown';
 import {MMSearch} from '@Components/MMSearch';
+import {PostCard} from '@Components/PostCard';
 
 export {
     AutoComplete,
@@ -49,4 +50,5 @@ export {
     MultiProgress,
     Countdown,
     MMSearch,
+    PostCard,
 };
