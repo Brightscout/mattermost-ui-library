@@ -20,6 +20,9 @@ import {Tabs} from '@Components/Tabs';
 import {Tag} from '@Components/Tag';
 import {TextArea} from '@Components/TextArea';
 import {Tooltip} from '@Components/Tooltip';
+import {MultiProgress} from '@Components/MultiProgress';
+import {Countdown} from '@Components/Countdown';
+import {MMSearch} from '@Components/MMSearch';
 
 export {
     AutoComplete,
@@ -43,4 +46,7 @@ export {
     Tabs,
     TextArea,
     Tooltip,
+    MultiProgress,
+    Countdown,
+    MMSearch,
 };
