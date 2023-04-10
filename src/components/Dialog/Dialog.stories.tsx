@@ -1,7 +1,7 @@
 import React from 'react';
 import {Story, Meta} from '@storybook/react';
 
-import {LinearProgress} from '@Components/LinearProgress';
+import {LinearProgress} from '../LinearProgress';
 
 import {Dialog} from './Dialog.component';
 import {DialogProps} from './Dialog';
@@ -37,6 +37,15 @@ WithDescriptionWithPrimaryAction.args = {
 export const WithDescriptionWithDestructivePrimaryAction = DialogTemplate.bind({});
 WithDescriptionWithDestructivePrimaryAction.args = {
     description: 'Are you sure you want to delete this subscription ?',
+    destructive: true,
+    primaryActionText: 'Delete',
+};
+
+// Dialog with description and destructive secondary action only
+export const WithDescriptionWithDestructiveSecondaryActionOnly = DialogTemplate.bind({});
+WithDescriptionWithDestructiveSecondaryActionOnly.args = {
+    title: 'Unable to delete subscription',
+    description: 'The subscription could not be deleted because of some error',
     destructive: true,
 };
 

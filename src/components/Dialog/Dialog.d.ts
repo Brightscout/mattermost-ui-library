@@ -8,6 +8,11 @@ export interface CommonProps {
     primaryActionText?: string;
 
     /**
+	 * Secondary action button text
+	 */
+    secondaryActionText?: string;
+
+    /**
 	 * Destructive state of the button,
 	 * if `true` the button color changes into error state
 	 */

@@ -58,6 +58,7 @@ export const Dialog = (props: DialogProps) => {
         title,
         description,
         primaryActionText,
+        secondaryActionText,
         onCloseHandler,
         onSubmitHandler,
         className = '',
@@ -91,9 +92,9 @@ export const Dialog = (props: DialogProps) => {
                             destructiveBtnSecondary: destructive,
                         })}`}
                     >
-                        {'Cancel'}
+                        {secondaryActionText ?? 'Close'}
                     </Button>
-                    {(primaryActionText || destructive) && (
+                    {(onSubmitHandler && primaryActionText) && (
                         <Button
                             variant='primary'
                             className={`${extendClassname({
@@ -101,7 +102,7 @@ export const Dialog = (props: DialogProps) => {
                             })}`}
                             onClick={onSubmitHandler}
                         >
-                            {primaryActionText || (destructive && 'Delete')}
+                            {primaryActionText ?? 'Submit'}
                         </Button>
                     )}
                 </DialogActions>
