@@ -22,10 +22,11 @@ import {SwitchContainer, InputWrapper} from './Switch.styles';
  *
  */
 export const Switch = (props: SwitchProps) => {
-    const {id, label, subLabel, error, className = '', fullWidth = false, disabled, ...restProps} = props;
+    const {id, label, subLabel, error, className = '', fullWidth = false, disabled, size = 'md', ...restProps} = props;
 
     return (
         <SwitchContainer
+            size={size}
             className={`mm-switch ${className}${extendClassname({
                 'mm-switch-error': Boolean(error),
                 'mm-switch-disabled': Boolean(disabled),
@@ -37,7 +38,7 @@ export const Switch = (props: SwitchProps) => {
                 <label className='mm-switch-label'>{label}</label>
                 <label className='mm-switch-subLabel'>{subLabel}</label>
             </div>
-            <InputWrapper>
+            <InputWrapper size={size}>
                 <input
                     type='checkbox'
                     className='mm-switch-input'
