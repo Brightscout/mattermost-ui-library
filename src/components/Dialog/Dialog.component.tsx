@@ -68,7 +68,6 @@ export const Dialog = (props: DialogProps) => {
     return (
         <DialogWrapper
             onHide={onCloseHandler}
-            centered={true}
             className={`mm-dialog ${className}`}
             {...restProps}
         >
