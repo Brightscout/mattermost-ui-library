@@ -18,13 +18,15 @@ import {
  *
  * Displays fieldset for input component
  */
-const DisplayFieldSet = ({value, error, label}: InputProps) => (
+const DisplayFieldSet = ({value, error, label, borderLess}: InputProps) => (
     <StyledFieldSet
         className={`input_label ${extendClassname({
             'visible_label-border': Boolean(value),
             input_error: Boolean(error),
+            input_borderless: Boolean(borderLess),
         })}`}
         error={error}
+        borderLess={borderLess}
     >
         <legend className={extendClassname({visible_label: Boolean(value)})}>
             {label}
@@ -54,6 +56,7 @@ export const Input = forwardRef<FormControl, InputProps>((props, ref) => {
         fullWidth,
         onClose,
         searchQuery,
+        borderLess = false,
         ...restProps
     } = props;
     const {readOnly, error, required, value = '', size = 'md'} = restProps;
@@ -116,6 +119,7 @@ export const Input = forwardRef<FormControl, InputProps>((props, ref) => {
                 value={value}
                 label={inputLabel}
                 error={error}
+                borderLess={borderLess}
             />
         </StyledInputContainer>
     );

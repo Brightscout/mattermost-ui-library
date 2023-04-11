@@ -13,7 +13,7 @@ export const increaseInputSizeBy = {
 };
 
 // Style for Input Fieldset
-export const StyledFieldSet = styled.fieldset<{error?: boolean}>(({error}) => {
+export const StyledFieldSet = styled.fieldset<{error?: boolean; borderLess?: boolean}>(({error = false, borderLess = false}) => {
     return ({
         border: `1px solid ${error ? colors.error : colors.centerChannel_16}`,
         position: 'absolute',
@@ -24,6 +24,10 @@ export const StyledFieldSet = styled.fieldset<{error?: boolean}>(({error}) => {
         top: -6,
         borderRadius: '4px',
         pointerEvents: 'none',
+
+        ...(borderLess && {
+            border: '1px solid transparent',
+        }),
 
         // Style for fieldset legend
         '& legend': {
@@ -49,6 +53,11 @@ export const StyledFieldSet = styled.fieldset<{error?: boolean}>(({error}) => {
             '&.input_error': {
                 borderColor: colors.error,
             },
+
+            '&.input_borderless': {
+                borderColor: 'transparent',
+                backgroundColor: error ? colors.error_4 : colors.centerChannel_4,
+            },
         },
 
         // Style for fieldset on active
@@ -59,6 +68,11 @@ export const StyledFieldSet = styled.fieldset<{error?: boolean}>(({error}) => {
             '&.input_error': {
                 borderColor: colors.error,
                 background: 'none',
+            },
+
+            '&.input_borderless': {
+                borderColor: 'transparent',
+                backgroundColor: error ? colors.error_4 : colors.primary_4,
             },
         },
 
@@ -78,12 +92,17 @@ export const StyledFieldSet = styled.fieldset<{error?: boolean}>(({error}) => {
                     color: colors.error,
                 },
             },
+
+            '&.input_borderless': {
+                borderColor: 'transparent',
+                backgroundColor: error ? colors.error_8 : colors.primary_8,
+            },
         },
 
         // Style for legend on focus
         '.mm-input input:focus + & legend, .visible_label': {
             paddingInline: 4,
-            visibility: 'visible',
+            visibility: borderLess ? 'hidden' : 'visible',
             maxWidth: '100%',
             marginLeft: 10,
             transition: 'max-width 100ms cubic-bezier(0.0, 0, 0.2, 1) 50ms',
@@ -97,7 +116,7 @@ export const StyledFieldSet = styled.fieldset<{error?: boolean}>(({error}) => {
             '& .visible_label': {
                 paddingInline: 4,
                 color: colors.centerChannel_64,
-                visibility: 'visible',
+                visibility: borderLess ? 'hidden' : 'visible',
                 maxWidth: '100%',
                 transition: 'max-width 100ms cubic-bezier(0.0, 0, 0.2, 1) 50ms',
             },
@@ -106,8 +125,7 @@ export const StyledFieldSet = styled.fieldset<{error?: boolean}>(({error}) => {
 });
 
 // Style for Input Container
-export const StyledInputContainer = styled.div<{fullWidth?: boolean; size: InputSizeTypes}>(({fullWidth, size = 'md'}) => ({
-
+export const StyledInputContainer = styled.div<{fullWidth?: boolean; size?: InputSizeTypes}>(({fullWidth, size = 'md'}) => ({
     position: 'relative',
     width: fullWidth ? 'auto' : 'fit-content',
     display: 'flex',
@@ -127,7 +145,6 @@ export const StyledInputContainer = styled.div<{fullWidth?: boolean; size: Input
             color: colors.centerChannel_64,
         },
     },
-
 }));
 
 // Style for Input Component

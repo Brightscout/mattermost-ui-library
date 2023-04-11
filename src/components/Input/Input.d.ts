@@ -8,6 +8,11 @@ type InputSizeTypes = 'sm' | 'md' | 'lg';
 export interface InputProps {
 
     /**
+	 * If 'true', the input will have transparent border
+	 */
+    borderLess?: boolean;
+
+    /**
 	 * Input sizes
 	 *
 	 * @default 'md'
