@@ -1,6 +1,18 @@
 import {IconType} from '@Components/Icon';
 
+/**
+ * Input's size types
+ */
+type InputSizeTypes = 'sm' | 'md' | 'lg';
+
 export interface InputProps {
+
+    /**
+	 * Input sizes
+	 *
+	 * @default 'md'
+	 */
+    size?: InputSizeTypes;
 
     /**
 	 * Name of the icon from the icon map

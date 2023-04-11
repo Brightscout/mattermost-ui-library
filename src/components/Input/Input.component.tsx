@@ -10,6 +10,7 @@ import {
     StyledFieldSet,
     StyledInputContainer,
     StyledIconButton,
+    increaseInputSizeBy,
 } from './Input.styles';
 
 /**
@@ -55,7 +56,7 @@ export const Input = forwardRef<FormControl, InputProps>((props, ref) => {
         searchQuery,
         ...restProps
     } = props;
-    const {readOnly, error, required, value = ''} = restProps;
+    const {readOnly, error, required, value = '', size = 'md'} = restProps;
 
     const inputLabel = `${label}${required ? ' *' : ''}`;
 
@@ -77,10 +78,14 @@ export const Input = forwardRef<FormControl, InputProps>((props, ref) => {
         <StyledInputContainer
             className={`mm-input ${className}`}
             fullWidth={fullWidth}
+            size={size}
         >
-            {iconName && <Icon
-                name={iconName}
-                size={16}/>}
+            {iconName && (
+                <Icon
+                    name={iconName}
+                    size={12 + (2 * increaseInputSizeBy[size])}
+                />
+            )}
             <StyledInput
                 ref={ref}
                 placeholder={inputLabel}
@@ -91,16 +96,18 @@ export const Input = forwardRef<FormControl, InputProps>((props, ref) => {
                     togglePlaceholderValue(event, 'blur')
                 }
                 label={label}
+                size={size}
                 {...restProps}
             />
             {searchQuery && (
                 <StyledIconButton
                     onClick={onClose}
                     bsStyle='primary'
+                    className='clear-input-button'
                 >
                     <Icon
                         name='Close'
-                        size={12}
+                        size={8 + (2 * increaseInputSizeBy[size])}
                         iconColor='#ffffff'
                     />
                 </StyledIconButton>
