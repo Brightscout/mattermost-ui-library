@@ -52,7 +52,7 @@ export type ButtonSizeTypes = 'xs' | 'sm' | 'md' | 'lg';
 /**
  * Type for button properties
  */
-export type ButtonSizeProperties = 'height' | 'fontSize' | 'padding' | 'lineHeight';
+export type ButtonSizeProperties = 'height' | 'fontSize' | 'padding' | 'lineHeight' | 'focusPadding';
 
 /**
  * Type for button color map
@@ -78,22 +78,22 @@ export type ButtonIconSizeMap = Record<ButtonSizeTypes, number>
 export interface StyledButtonProps {
 
     /**
-		 * The variant of the button component
-		 */
+	 * The variant of the button component
+	 */
     variant: VariantType;
 
     /**
-		* Position of the icon
-		*
-		* @default start
-		*/
+	 * Position of the icon
+	 *
+	 * @default start
+	 */
     iconPosition?: IconPositionType;
 
     /**
-		* if `true`, button occupies full width
-		*
-		* @default false
-		*/
+	 * if `true`, button occupies full width
+	 *
+	 * @default false
+	 */
     fullWidth?:boolean;
 
     /**
@@ -130,36 +130,38 @@ export interface StyledButtonProps {
 export interface ButtonProps extends Omit<StyledButtonProps, 'variant'> {
 
     /**
-		 * The variant of the component
-		 *
-		 * @default primary
-		 */
+	 * The variant of the component
+	 *
+	 * @default primary
+	 */
     variant?: VariantType;
 
     /**
-		 * The content of the component
-		 */
+	 * The content of the component
+	 */
     children: React.ReactNode;
 
     /**
-		 * If `true`, the component is disabled
-		 *
-		 * @default false
-		 */
+	 * If `true`, the component is disabled
+	 *
+	 * @default false
+	 */
     disabled?: boolean;
 
     /**
-		 * Name of the icon to use in the component
-		 */
+	 * Name of the icon to use in the component
+	 */
     iconName?: IconType;
 
     /**
-		 * To override or extend the styles applied to the component
-		 */
+	 * To override or extend the styles applied to the component
+	 *
+	 * @default ''
+	 */
     className?: string;
 
     /**
-		 * Perform action on the button click
-		 */
+	 * Perform action on the button click
+	 */
     onClick?: React.MouseEventHandler<HTMLButtonElement>;
 }

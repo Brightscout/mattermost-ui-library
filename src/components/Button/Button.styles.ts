@@ -12,24 +12,28 @@ export const StyledButtonContainer = styled.button<StyledButtonProps>(({variant,
     const increaseButtonSize: ButtonSizeMap = {
         xs: {
             padding: '6px 10px',
+            focusPadding: variant === 'secondary' ? '5px 9px' : '4px 8px',
             fontSize: '10px',
             height: '24px',
             lineHeight: '9px',
         },
         sm: {
             padding: '10px 16px',
+            focusPadding: variant === 'secondary' ? '9px 15px' : '8px 14px',
             fontSize: '12px',
             height: '32px',
             lineHeight: '10px',
         },
         md: {
             padding: '12px 20px',
+            focusPadding: variant === 'secondary' ? '11px 19px' : '10px 18px',
             fontSize: '14px',
             height: '40px',
             lineHeight: '14px',
         },
         lg: {
             padding: '14px 24px',
+            focusPadding: variant === 'secondary' ? '13px 23px' : '12px 22px',
             fontSize: '16px',
             height: '48px',
             lineHeight: '17px',
@@ -149,14 +153,14 @@ export const StyledButtonContainer = styled.button<StyledButtonProps>(({variant,
     };
 
     // button text and border color
-    const getButtonColor = (): string => {
+    const buttonTextColor = ((): string => {
         if (destructive) {
             return colors.error;
         } else if (inverted) {
             return variant === 'primary' ? colors.primary : colors.primaryText;
         }
         return colors.primary;
-    };
+    })();
 
     // focus styles for quaternary variant
     const getQuaternaryButtonFocus = () => {
@@ -193,7 +197,7 @@ export const StyledButtonContainer = styled.button<StyledButtonProps>(({variant,
             return {
                 border: `2px solid ${colors.buttonFocusBorder}`,
                 backgroundColor: getButtonStyle()[variant].default,
-                padding: '10px 18px',
+                padding: increaseButtonSize[size].focusPadding,
             };
         }
     };
@@ -212,9 +216,9 @@ export const StyledButtonContainer = styled.button<StyledButtonProps>(({variant,
         borderRadius: variant === 'text' ? 0 : '4px',
 
         // Styles based on variant
-        border: variant === 'secondary' ? `1px solid ${getButtonColor()}` : 'none',
+        border: variant === 'secondary' ? `1px solid ${buttonTextColor}` : 'none',
         padding: padding(),
-        color: !inverted && variant === 'primary' ? colors.primaryText : getButtonColor(),
+        color: !inverted && variant === 'primary' ? colors.primaryText : buttonTextColor,
         backgroundColor: getButtonStyle()[variant].default,
 
         // Style for button icon
@@ -222,7 +226,7 @@ export const StyledButtonContainer = styled.button<StyledButtonProps>(({variant,
             display: 'inline',
             marginInline: iconPosition === 'start' ? '0 8px' : '8px 0',
             '& path , & rect': {
-                color: !inverted && variant === 'primary' ? colors.primaryText : getButtonColor(),
+                color: !inverted && variant === 'primary' ? colors.primaryText : buttonTextColor,
             },
         },
 
