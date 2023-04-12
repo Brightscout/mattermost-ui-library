@@ -1,7 +1,5 @@
 import React from 'react';
 
-import {Icon} from '@Components/Icon';
-
 import {MenuItemProps} from './MenuItem';
 import {Label, MenuItemWrapper, SecondaryLabel} from './MenuItem.styles';
 
@@ -33,8 +31,18 @@ import {Label, MenuItemWrapper, SecondaryLabel} from './MenuItem.styles';
  * ```ts
  * <MenuItem label='Main Label'
  *           secondaryLabel='Secondary Label'
- *           leadingIcon='Edit'
- *           trailingIcon='Delete'
+ *            leadingElement: <Icon name='Edit' size={16}/>,
+ *              trailingElement: <Icon name='Delete' size={16}/>,
+ * />
+ * ```
+ *
+ * @example destructive usage with trailing and leading icon
+ * ```ts
+ * <MenuItem label='Main Label'
+ *          destructive={true}
+ *           secondaryLabel='Secondary Label'
+ *            leadingElement: <Icon name='Edit' size={16}/>,
+ *              trailingElement: <Icon name='Delete' size={16}/>,
  * />
  * ```
  */
@@ -42,26 +50,24 @@ export const MenuItem = (props: MenuItemProps) => {
     const {
         label,
         secondaryLabel,
-        leadingIcon,
-        trailingIcon,
+        leadingElement,
+        trailingElement,
         secondaryLabelPosition = 'block',
         className = '',
+        disabled = false,
+        destructive = false,
         ...restProps
     } = props;
 
     return (
         <MenuItemWrapper
             tabIndex={0}
-            className={`mm-menuItem ${className}`}
+            className={`mm-menuItem ${className}ss`}
+            disabled={disabled}
+            destructive={destructive}
             {...restProps}
         >
-            {
-                leadingIcon &&
-                    <Icon
-                        name={leadingIcon}
-                        size={16}
-                    />
-            }
+            {leadingElement}
             <Label
                 className='mm-menuItem__label'
                 secondaryLabelPosition={secondaryLabelPosition}
@@ -77,13 +83,7 @@ export const MenuItem = (props: MenuItemProps) => {
                         {secondaryLabel}
                     </SecondaryLabel>
             }
-            {
-                trailingIcon &&
-                    <Icon
-                        name={trailingIcon}
-                        size={16}
-                    />
-            }
+            {trailingElement}
         </MenuItemWrapper>
     );
 };
