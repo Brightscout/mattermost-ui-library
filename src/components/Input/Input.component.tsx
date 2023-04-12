@@ -44,7 +44,6 @@ const DisplayFieldSet = ({value, error, label}: InputProps) => (
  * <Input label='label' iconName='Globe'/>
  * ```
  */
-// eslint-disable-next-line react/display-name
 export const Input = forwardRef<FormControl, InputProps>((props, ref) => {
     const {
         label,
