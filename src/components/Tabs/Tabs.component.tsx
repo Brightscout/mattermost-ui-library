@@ -4,16 +4,14 @@ import {Tab} from 'react-bootstrap';
 import {StyledTabs} from './Tabs.styles';
 import {TabsConfig, TabsProps} from './Tabs';
 
-export const Tabs = (props: TabsProps) => {
-    const {
-        tabsConfig,
-        justified = false,
-        mountOnEnter = true,
-        unmountOnExit = true,
-        stickyHeader = true,
-        className = '',
-    } = props;
-
+export const Tabs = ({
+    tabsConfig,
+    justified = false,
+    mountOnEnter = true,
+    unmountOnExit = true,
+    stickyHeader = true,
+    className = '',
+}: TabsProps) => {
     return (
         <StyledTabs
             stickyHeader={stickyHeader}
@@ -22,14 +20,14 @@ export const Tabs = (props: TabsProps) => {
             unmountOnExit={unmountOnExit}
             className={`mm-tabs ${className}`}
         >
-            {tabsConfig.map((tab: TabsConfig) => (
+            {tabsConfig.map(({key, title, content}: TabsConfig) => (
                 <Tab
-                    key={tab.key as number}
-                    eventKey={tab.key as number}
-                    title={tab.title}
+                    key={key}
+                    eventKey={key}
+                    title={title}
                     tabClassName='nav-item'
                 >
-                    {tab.content}
+                    {content}
                 </Tab>))}
         </StyledTabs>
     );

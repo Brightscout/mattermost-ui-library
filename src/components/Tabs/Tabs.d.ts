@@ -3,9 +3,9 @@ import {TabsProps as BootstrapTabsProps, TabProps} from 'react-bootstrap';
 export interface TabsConfig {
 
     /**
-   * Key to determine each tab uniquely
-   */
-    key: TabProps['eventKey'];
+    * Key to determine each tab uniquely
+    */
+    key: number;
 
     /**
      * Title to be displayed on tab button
@@ -39,6 +39,7 @@ export interface TabsProps extends BootstrapTabsProps {
 
     /**
      * To override or extend the styles applied to the component
+     * @default ''
      */
     className?: string;
 }

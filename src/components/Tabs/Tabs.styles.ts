@@ -7,7 +7,7 @@ export const StyledTabs = styled(Tabs).withConfig({
     shouldForwardProp: (prop) => prop !== 'stickyHeader' as keyof BootstrapTabProps,
 })<{stickyHeader: boolean}>(({stickyHeader}) => ({
 
-    '.nav-tabs.nav-justified>li>a': {
+    '.nav-tabs.nav-justified > li > a': {
         marginBottom: 0,
         borderColor: 'transparent',
     },
@@ -29,10 +29,10 @@ export const StyledTabs = styled(Tabs).withConfig({
         fontWeight: '500',
         backgroundColor: 'transparent',
 
-        ' > a': {
+        a: {
             color: colors.centerChannel,
 
-            ':hover,:focus': {
+            ':hover, :focus': {
                 color: colors.primary,
                 backgroundColor: 'transparent',
                 borderColor: 'transparent',
@@ -42,11 +42,11 @@ export const StyledTabs = styled(Tabs).withConfig({
         '&.active': {
             borderBottom: `2px solid ${colors.primary}`,
 
-            ' > a': {
+            a: {
                 color: colors.centerChannel,
                 borderColor: 'transparent',
 
-                ':hover,:focus': {
+                ':hover, :focus': {
                     backgroundColor: 'transparent',
                     borderColor: 'transparent',
                 },
