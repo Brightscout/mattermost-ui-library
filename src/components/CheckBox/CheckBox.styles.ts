@@ -8,7 +8,7 @@ import {CheckboxSizeTypes} from './CheckBox';
  * Styled container to hold the checkbox and label for component
  */
 export const CheckboxContainer = styled.div<{size: CheckboxSizeTypes}>(({size}) => {
-    const increaseCheckboxSizeBy = {
+    const increaseCheckboxSizeBy: Record<CheckboxSizeTypes, number> = {
         sm: 0,
         md: 2,
         lg: 4,
@@ -95,14 +95,14 @@ export const InputContainer = styled.div({
         },
     },
 
-    // styles for checkbox input on disabled state
+    // styles for checkbox input in disabled state
     '& .mm-checkbox-input[disabled]': {
         backgroundColor: 'unset',
         pointerEvents: 'none',
         cursor: 'default',
     },
 
-    // styles for checkbox input on checked state
+    // styles for checkbox input in checked state
     '& .mm-checkbox-input:checked': {
         borderColor: colors.primary,
     },
@@ -138,7 +138,7 @@ export const InputContainer = styled.div({
         backgroundColor: colors.centerChannel_48,
     },
 
-    // Styles of input checkbox active on checked state
+    // Styles of input checkbox active in checked state
     '& .mm-checkbox-input:checked ~ .mm-checkbox-active': {
         transform: 'scale(1)',
     },

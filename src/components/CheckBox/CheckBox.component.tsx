@@ -3,8 +3,9 @@ import React from 'react';
 import {Icon} from '@Components/Icon';
 
 import {extendClassname} from '@Utils';
+import {Constants} from '@Constants';
 
-import {CheckBoxProps} from './CheckBox';
+import {CheckBoxProps, CheckboxSizeTypes} from './CheckBox';
 import {CheckboxContainer, InputContainer} from './CheckBox.styles';
 
 /**
@@ -17,9 +18,8 @@ import {CheckboxContainer, InputContainer} from './CheckBox.styles';
  * ```
  */
 export const Checkbox = (props: CheckBoxProps) => {
-    const {className = '', id, label, error, disabled, size = 'md', ...restProps} = props;
-
-    const increaseCheckboxIconSizeBy = {
+    const {className = '', id, label, error, disabled, size = Constants.CHECKBOX_SIZE.MEDIUM, ...restProps} = props;
+    const increaseCheckboxIconSizeBy: Record<CheckboxSizeTypes, number> = {
         sm: 10,
         md: 12,
         lg: 16,
