@@ -76,6 +76,7 @@ export const List = forwardRef<HTMLUListElement, ListPropType>(
                         })}
                         secondaryLabelPosition={secondaryLabelPosition}
                         secondaryLabel={secondaryLabelPosition ? option.secondaryLabel : ''}
+                        labelElement={option.labelElement}
                     />
                 ))
             )}

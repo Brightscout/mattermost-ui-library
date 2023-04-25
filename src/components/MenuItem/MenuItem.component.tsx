@@ -46,6 +46,7 @@ export const MenuItem = (props: MenuItemProps) => {
         trailingIcon,
         secondaryLabelPosition = 'block',
         className = '',
+        labelElement,
         ...restProps
     } = props;
 
@@ -62,6 +63,7 @@ export const MenuItem = (props: MenuItemProps) => {
                         size={16}
                     />
             }
+            {labelElement}
             <Label
                 className='mm-menuItem__label'
                 secondaryLabelPosition={secondaryLabelPosition}

@@ -47,4 +47,9 @@ export interface MenuItemProps {
 	 * To override or extend the styles applied to the component
 	 */
     className?: string;
+
+    /**
+     * Element to show before label
+     */
+    labelElement?: JSX.Element;
 }
