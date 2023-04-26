@@ -3,17 +3,15 @@ import React, {useRef, useEffect} from 'react';
 import {OverlayProps} from './Overlay';
 import {OverlayContainer, StyledPopover, EventPassContainer} from './Overlay.styles';
 
-export const Overlay = (props: OverlayProps) => {
-    const {
-        show,
-        popoverBody,
-        children,
-        placement = 'top',
-        elevation = false,
-        className = '',
-        setShow,
-    } = props;
-
+export const Overlay = ({
+    show,
+    popoverBody,
+    children,
+    placement = 'top',
+    elevation = false,
+    className = '',
+    setShow,
+}: OverlayProps) => {
     const EventPassContainerRef = useRef<HTMLDivElement>(null);
 
     /**
@@ -32,11 +30,7 @@ export const Overlay = (props: OverlayProps) => {
         };
     }, []);
 
-    const handleClick = () => {
-        if (setShow) {
-            setShow((prev) => !prev);
-        }
-    };
+    const handleClick = () => setShow && setShow((prev) => !prev);
 
     return (
         <OverlayContainer>

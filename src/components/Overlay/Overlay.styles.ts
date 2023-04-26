@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 import Colors from '@Styles/colorsForJs.module.scss';
 
-import {placementType} from './Overlay';
+import {PlacementType} from './Overlay';
 
 // Styles for Overlay container
 export const OverlayContainer = styled.div({
@@ -10,14 +10,8 @@ export const OverlayContainer = styled.div({
 });
 
 // Returns placement styles for the overlay around the trigger
-const getPlacement = (placement: placementType) => {
+const getPlacement = (placement: PlacementType) => {
     switch (placement) {
-    case 'top': return {
-        bottom: '100%',
-        right: '50%',
-        transform: 'translateX(50%)',
-        marginBottom: 4,
-    };
     case 'bottom': return {
         top: '100%',
         right: '50%',
@@ -52,12 +46,19 @@ const getPlacement = (placement: placementType) => {
         marginTop: 4,
     };
     default:
-        return {};
+        return {
+            bottom: '100%',
+            right: '50%',
+            transform: 'translateX(50%)',
+            marginBottom: 4,
+        };
     }
 };
 
 // Styles for the pop over
-export const StyledPopover = styled.div<{ elevation?: boolean; placement: placementType; show: boolean }>(
+export const StyledPopover = styled('div').withConfig({
+    shouldForwardProp: (prop) => !['elevation', 'show'].includes(prop.toString()),
+})<{ elevation?: boolean; placement: PlacementType; show: boolean }>(
     ({elevation, placement, show}) => ({
 
         opacity: show ? 1 : 0,

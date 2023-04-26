@@ -3,7 +3,7 @@ import React, {ReactNode} from 'react';
 /**
  * Types for position
  */
-type placementType =
+type PlacementType =
     | 'top'
     | 'right'
     | 'bottom'
@@ -24,9 +24,9 @@ export interface OverlayProps {
     /**
      * Placement of the tooltip with respect to the wrapped component
      *
-     * @default `auto`
+     * @default top
      */
-    placement?: placementType;
+    placement?: PlacementType;
 
     /**
      * Elevation for the popover
@@ -42,6 +42,7 @@ export interface OverlayProps {
 
     /**
      * To override or extend the styles applied to the component
+     * @default ''
      */
     className?: string;
 
