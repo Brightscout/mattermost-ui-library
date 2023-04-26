@@ -1,5 +1,11 @@
-import React, {MutableRefObject, useCallback, useEffect, useRef, useState} from 'react';
-import _, {debounce} from 'lodash';
+import React, {
+    MutableRefObject,
+    useCallback,
+    useEffect,
+    useRef,
+    useState,
+} from 'react';
+import {debounce} from 'lodash';
 
 import {Input} from '@Components/Input';
 import {List} from '@Components/List';
@@ -138,11 +144,22 @@ export const AutoComplete = (props: AutoCompleteProps) => {
 	 * calls the `getOptionAsync` function to get the new list according to the searchQuery
 	 * after the delay of 200ms.
 	 */
+
+    /**
+     * Disabling the eslint rule as it is causing a lint error when we're not passing any dependency in the dependency array
+     * The dependency array is not expected to have any item
+     */
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     const getOptionsDelayed = useCallback(
-        debounce((query: string, callback: (options: ListItemType[]) => void) => {
+        debounce((query: string, callback: (availableOptions: ListItemType[]) => void) => {
             setOptions([]);
             setOpen(false);
-            getOptionsAsync(items, query).then(callback);
+
+            /**
+             * The catch block is used to catch any javascript error
+             * TODO: Update the logic to report the javascript error to the user
+             * */
+            getOptionsAsync(items, query).then(callback).catch(() => '');
         }, Constants.FETCH_FUNCTION_DELAY),
         [],
     );
@@ -152,9 +169,9 @@ export const AutoComplete = (props: AutoCompleteProps) => {
     useEffect(() => {
         setIsLoading(true);
 
-        getOptionsDelayed(searchQuery, (options: ListItemType[]) => {
-            setOptions(options);
-            setOpen(Boolean(options.length && searchQuery));
+        getOptionsDelayed(searchQuery, (availableOptions: ListItemType[]) => {
+            setOptions(availableOptions);
+            setOpen(Boolean(availableOptions.length && searchQuery));
             setIsLoading(false);
         });
     }, [searchQuery, getOptionsDelayed]);

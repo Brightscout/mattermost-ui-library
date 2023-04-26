@@ -94,9 +94,7 @@ FullWidth.args = {
 // AutoComplete with onSelect function
 export const OnItemSelect = AutoCompleteTemplate.bind({});
 OnItemSelect.args = {
-    onSelect: (event, option) => {
-        console.log('on selecting items =>', event, option);
-    },
+    onSelect: () => '',
     items: [
         {label: 'koko 1', value: 'Value 1'},
         {label: 'asd 2', value: 'Value 2'},

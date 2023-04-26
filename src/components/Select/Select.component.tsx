@@ -113,7 +113,7 @@ export const Select = (props: SelectProps) => {
 	 */
     const onKeyDown: React.KeyboardEventHandler<HTMLInputElement> = (event) => {
         if (event.key === 'Enter') {
-            const option = options[active];
+            const option = options[active] as ListItemType;
             setValue(option.label ?? option.value);
             setSelectedIndex(active);
             inputRef.current.blur();
@@ -186,7 +186,7 @@ export const Select = (props: SelectProps) => {
                 setActive(selectedIndex);
             }
         }
-    }, [isOpen]);
+    }, [isOpen, selectedIndex, value]);
 
     return (
         <Wrapper>

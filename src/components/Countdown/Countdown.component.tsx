@@ -1,4 +1,4 @@
-import React, {useState, useRef, useEffect} from 'react';
+import React, {useState, useRef, useEffect, useCallback} from 'react';
 
 import {CountdownProps} from './Countdown';
 import {CountdownWrapper, TimeLabel, Timer, TimeLabelWrapper} from './Countdown.styles';
@@ -37,16 +37,14 @@ export const Countdown = (props: CountdownProps) => {
     } = props;
 
     // Check if full time is shown or not
-    const showingFullTime = () => {
-        return (showDays || showHours || showMinutes || showSeconds);
-    };
+    const showingFullTime = useCallback(() => (showDays || showHours || showMinutes || showSeconds), [showDays, showHours, showMinutes, showSeconds]);
 
     // Make time string
-    const getTimeString = () => {
+    const getTimeString = useCallback(() => {
         const timerProps = [!showDays, !showHours, !showMinutes, !showSeconds].filter((value) => !value);
         const timerString = timerProps.join(' : ').replaceAll('false', '00');
         return timerString;
-    };
+    }, [showDays, showHours, showMinutes, showSeconds]);
 
     // We need ref in this, because we are dealing
     // with JS setInterval to keep track of it and
@@ -70,7 +68,7 @@ export const Countdown = (props: CountdownProps) => {
     };
 
     // Update time every second
-    const startTimer = (e: Date) => {
+    const startTimer = useCallback((e: Date) => {
         const {total, hours, minutes, seconds, days} =
                     getTimeRemaining(e);
 
@@ -98,9 +96,9 @@ export const Countdown = (props: CountdownProps) => {
                 onFinished();
             }
         }
-    };
+    }, [onFinished, showDays, showHours, showMinutes, showSeconds, showingFullTime]);
 
-    const clearTimer = (e: Date) => {
+    const clearTimer = useCallback((e: Date) => {
         // reset initial time
         if (showingFullTime()) {
             setTimer(getTimeString());
@@ -119,12 +117,12 @@ export const Countdown = (props: CountdownProps) => {
         }, 1000);
 
         Ref.current = id;
-    };
+    }, [getTimeString, showingFullTime, startTimer]);
 
     // start the timer when component mounts
     useEffect(() => {
         clearTimer(new Date(endTime));
-    }, [showDays, showHours, showMinutes, showSeconds]);
+    }, [showDays, showHours, showMinutes, showSeconds, endTime, clearTimer]);
 
     return (
         <CountdownWrapper className={`mm-countdown ${className}`}>

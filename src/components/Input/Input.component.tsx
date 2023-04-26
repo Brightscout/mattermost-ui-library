@@ -26,7 +26,7 @@ const DisplayFieldSet = ({value, error, label}: InputProps) => (
             'visible_label-border': Boolean(value),
             input_error: Boolean(error),
         })}`}
-        error={Boolean(error)}
+        error={error}
     >
         <legend className={extendClassname({visible_label: Boolean(value && label)})}>
             {label}

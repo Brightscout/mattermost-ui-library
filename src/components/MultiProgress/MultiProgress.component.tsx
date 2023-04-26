@@ -34,7 +34,7 @@ export const MultiProgress = (props: MultiProgressBarProps) => {
             <ProgressBar className={`mm-multiProgress ${className}`}>
                 {progressBarConfig.map((bar: ProgressBarProps, index: number) => (
                     <ProgressBar
-                        key={index}
+                        key={index.toString() + bar.color}
                         now={getBarFraction(bar.value)}
                         style={{
                             backgroundColor: bar.color,
