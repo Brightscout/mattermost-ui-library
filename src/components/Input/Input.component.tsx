@@ -5,6 +5,8 @@ import {extendClassname} from '@Utils';
 
 import {InputErrorMessage} from 'commonStyledComponents/InputErrorMessage/InputErrorMessage.styles';
 
+import colors from '@Styles/colorsForJs.module.scss';
+
 import {InputProps} from './Input';
 import {
     StyledInput,
@@ -26,7 +28,7 @@ const DisplayFieldSet = ({value, error, label}: InputProps) => (
         })}`}
         error={error}
     >
-        <legend className={extendClassname({visible_label: Boolean(value)})}>
+        <legend className={extendClassname({visible_label: Boolean(value && label)})}>
             {label}
         </legend>
     </StyledFieldSet>
@@ -47,12 +49,16 @@ const DisplayFieldSet = ({value, error, label}: InputProps) => (
  */
 export const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
     const {
-        label,
+        label = '',
         iconName,
         className = '',
         fullWidth,
         onClose,
         searchQuery,
+        onInputFocus,
+        disableResize = false,
+        removeCloseButton = false,
+        component = 'input',
         ...restProps
     } = props;
     const {readOnly, error, required, value = ''} = restProps;
@@ -73,35 +79,50 @@ export const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
         }
     };
 
+    /**
+     * Handle focus event on input element
+     */
+    const handleOnInputFocus = (event: React.ChangeEvent<HTMLInputElement>) => {
+        if (onInputFocus) {
+            onInputFocus();
+        }
+        togglePlaceholderValue(event, 'focus');
+    };
+
+    /**
+     * Handle blur event on input element
+     */
+    const handleOnInputBlur = (event: React.ChangeEvent<HTMLInputElement>) => {
+        togglePlaceholderValue(event, 'blur');
+    };
+
     return (
         <div>
             <StyledInputContainer
                 className={`mm-input ${className}`}
                 fullWidth={fullWidth}
             >
-                { iconName && (
+                {iconName && (
                     <Icon
                         name={iconName}
                         size={16}
                     />
                 )}
                 <StyledInput
+                    as={component}
+                    className={extendClassname({disableResize})}
                     ref={ref}
                     placeholder={inputLabel}
-                    onFocus={(event: React.ChangeEvent<HTMLInputElement>) =>
-                        togglePlaceholderValue(event, 'focus')
-                    }
-                    onBlur={(event: React.ChangeEvent<HTMLInputElement>) =>
-                        togglePlaceholderValue(event, 'blur')
-                    }
+                    onFocus={handleOnInputFocus}
+                    onBlur={handleOnInputBlur}
                     {...restProps}
                 />
-                {searchQuery && (
+                {(searchQuery && !removeCloseButton) && (
                     <StyledIconButton onClick={onClose}>
                         <Icon
                             name='Close'
-                            size={12}
-                            iconColor='#ffffff'
+                            size={14}
+                            iconColor={colors.white}
                         />
                     </StyledIconButton>
                 )}
@@ -111,7 +132,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
                     error={error}
                 />
             </StyledInputContainer>
-            {error && <InputErrorMessage>{error}</InputErrorMessage>}
+            {Boolean(error) && <InputErrorMessage>{error}</InputErrorMessage>}
         </div>
     );
 });

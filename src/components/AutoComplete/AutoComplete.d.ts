@@ -1,11 +1,16 @@
-import {IconType} from '@Components/Icon';
+import React from 'react';
 
-export interface AutoCompleteProps {
+import {IconType} from '@Components/Icon';
+import {InputProps} from '@Components/Input/Input';
+
+export interface AutoCompleteProps
+    extends Pick<InputProps, 'component' | 'disableResize' | 'rows' | 'removeCloseButton'> {
 
     /**
 	 * Label for the component
+	 * @default ''
 	 */
-    label: string;
+    label?: string;
 
     /**
 	 * If `true`, the component is focused during the first mount
@@ -56,4 +61,26 @@ export interface AutoCompleteProps {
         event: React.MouseEvent<HTMLLIElement, MouseEvent>,
         option: ListItemType
     ) => void;
+
+    /**
+	 * Value of the input component, required for a controlled component.
+	 */
+    value?: string;
+
+    /**
+	 * Handler that's called when there is a change in the value of the input field.
+	 * Required for a controlled component.
+	 * @param value - changed value
+	 */
+    onChange?: (value: string) => void;
+
+    /**
+	 * Pass in ref object for the input component.
+	 */
+    inputRef?: React.MutableRefObject<unknown>;
+
+    /**
+     * Function used to handle onKeyPress functionality of input
+     */
+    onKeyDown?: React.KeyboardEventHandler<unknown>;
 }

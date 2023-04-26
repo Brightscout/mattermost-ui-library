@@ -93,8 +93,9 @@ SelectWithMoreThan10Options.args = {
 /* eslint-disable no-console */
 export const FunctionTrigger = SelectTemplate.bind({});
 FunctionTrigger.args = {
-    onSelectOptionHandler(e) {
+    onSelectOptionHandler(e, value) {
         console.dir(e);
+        console.log(value);
     },
 };
 

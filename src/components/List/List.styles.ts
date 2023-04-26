@@ -8,7 +8,7 @@ export const Options = styled.ul<{open: boolean}>(({open}) => {
         position: 'absolute',
         width: '100%',
         left: 0,
-        background: 'white',
+        background: colors.centerChannelBg,
         top: 44,
         zIndex: 99,
         listStyle: 'none',

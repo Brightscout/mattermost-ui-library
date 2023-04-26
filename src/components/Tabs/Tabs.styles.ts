@@ -11,7 +11,7 @@ export const StyledTabs = styled(BootstrapTabs).withConfig({
     ...(stickyHeader && {
         position: stickyHeader ? 'sticky' : 'initial',
         top: 0,
-        background: colors.white,
+        background: 'transparent',
     }),
 
     '& .nav-link': {

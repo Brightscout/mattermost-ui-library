@@ -11,8 +11,9 @@ export interface InputProps {
 
     /**
 	 * Label for the input field
+	 * @default ''
 	 */
-    label: string;
+    label?: string;
 
     /**
 	 * If `true`, the input element will be disabled
@@ -102,4 +103,33 @@ export interface InputProps {
 	 * Handler that's called when there is a change in the value of the input field
 	 */
     onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
+
+    /**
+	 * Handler for handling input focus event
+	 */
+    onInputFocus?: () => void;
+
+    /**
+	 * The underlying HTML element to use when rendering the FormControl.
+	 * @default 'input'
+	 */
+    component?: 'input' | 'textarea';
+
+    /**
+	 * If `true`, the resize option in the text area will be removed.
+	 * @default false
+	 */
+    disableResize?: boolean;
+
+    /**
+	 * The number of rows in the textarea.
+	 * @default 2
+	 */
+    rows?: number;
+
+    /**
+	 * If `true`, the close button will be removed.
+	 * @default false
+	 */
+    removeCloseButton?: boolean;
 }
