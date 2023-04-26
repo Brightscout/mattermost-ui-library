@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import Form from 'react-bootstrap/Form';
+import {FormControl} from 'react-bootstrap';
 
 import Colors from '@Styles/colorsForJs.module.scss';
 
@@ -33,7 +33,7 @@ export const TextAreaContainer = styled.div({
     },
 });
 
-export const StyledTextArea = styled(Form.Control)({
+export const StyledTextArea = styled(FormControl)({
     display: 'block',
     width: '100%',
     padding: '10px 8px',

@@ -1,3 +1,4 @@
+// TODO: Update and fix the issues
 import React from 'react';
 import {Form} from 'react-bootstrap';
 
@@ -29,7 +30,7 @@ export const Switch = (props: SwitchProps) => {
             id={id}
             fullWidth={fullWidth}
         >
-            <Form.Check.Input
+            {/* <Form.Check.Input
                 className='mm-switch_input'
                 isInvalid={error}
                 {...restProps}
@@ -39,7 +40,7 @@ export const Switch = (props: SwitchProps) => {
                 <Form.Check.Label className='mm-switch_subLabel'>
                     {subLabel}
                 </Form.Check.Label>
-            </div>
+            </div> */}
         </StyledSwitch>
     );
 };

@@ -1,5 +1,6 @@
+// TODO: Update and fix the issues
 import React from 'react';
-import Tab from 'react-bootstrap/Tab';
+import Tab from 'react-bootstrap/lib/Tab';
 
 import {StyledTabs} from './Tabs.styles';
 import {TabsProps} from './Tabs';
@@ -13,29 +14,33 @@ export const Tabs = (props: TabsProps) => {
         justify = true,
         mountOnEnter = true,
         unmountOnExit = true,
-        defaultActiveKey,
+
+        // defaultActiveKey,
         stickyHeader = true,
         ...restProps
     } = props;
 
     return (
         <StyledTabs
-            stickyHeader={stickyHeader}
-            fill={fill}
-            justify={justify}
+
+            // stickyHeader={stickyHeader}
+            // fill={fill}
+            // justify={justify}
             mountOnEnter={mountOnEnter}
             unmountOnExit={unmountOnExit}
-            defaultActiveKey={defaultActiveKey}
+
+            // defaultActiveKey={defaultActiveKey}
             {...restProps}
         >
-            {tabsConfig.map((tab) => (
+            {/* {tabsConfig.map((tab) => (
                 <Tab
-                    key={tab.key}
-                    eventKey={tab.key}
+
+                    // key={tab.key}
+                    // eventKey={tab.key}
                     title={tab.title}
                 >
                     {tab.content}
-                </Tab>))}
+                </Tab>))} */}
         </StyledTabs>
     );
 };

@@ -1,4 +1,4 @@
-import Form from 'react-bootstrap/Form';
+import {Checkbox} from 'react-bootstrap';
 import styled from 'styled-components';
 
 import colors from '@Styles/colorsForJs.module.scss';
@@ -8,7 +8,7 @@ import {StyledSwitchContainerProps} from './Switch';
 /**
  * Styled container to hold the switch and label for component
  */
-export const StyledSwitch = styled(Form.Check)<StyledSwitchContainerProps>(({fullWidth}) => ({
+export const StyledSwitch = styled(Checkbox)<StyledSwitchContainerProps>(({fullWidth}) => ({
     padding: 0,
     margin: 0,
     display: 'flex',
