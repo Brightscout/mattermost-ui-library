@@ -1,6 +1,6 @@
 {
   "name": "@brightscout/mattermost-ui-library",
-  "version": "2.0.9",
+  "version": "2.1.0",
   "author": {
     "name": "Brightscout, Inc."
   },
@@ -10,14 +10,18 @@
   ],
   "dependencies": {},
   "scripts": {
-    "build": "rm -rf build && webpack --config webpack.config.js && tsc --emitDeclarationOnly --outDir build",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "lint": "tsc --noEmit && eslint src/**/*.ts{,x} --cache",
-    "fix": "eslint src/**/*.ts{,x} --fix --cache",
-    "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook",
-    "generate-icon-map": "node scripts/generateIconMap.js",
-    "chromatic": "npx chromatic --exit-once-uploaded --project-token=$npm_config_projectToken"
+    "build": "rm -rf build && tsc && npm run copy-assets && npm run copy-dts && npm run build:scss && tsc-alias",
+	"build:storybook": "build-storybook",
+	"chromatic": "npx chromatic --exit-once-uploaded --project-token=$npm_config_projectToken",
+	"copy-assets": "copyfiles -u 1 \"src/assets/**/*.svg\" build",
+	"copy-dts": "copyfiles -u 2 src/**/**/*.d.ts -e src/types/**/*.d.ts build/components",
+	"build:scss": "copyfiles -u 1 src/**/*.scss build",
+	"generate-icon-map": "node scripts/generateIconMap.js",
+	"lint": "tsc --noEmit && eslint src/**/*.ts{,x} --cache",
+	"lint:fix": "eslint src/**/*.ts{,x} --fix --cache",
+	"prepublishOnly": "npm run build",
+	"storybook": "start-storybook -p 6006",
+	"test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
     "@babel/core": "~7.16.7",
