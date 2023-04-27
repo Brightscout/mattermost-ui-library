@@ -100,7 +100,6 @@ export const Input = forwardRef<FormControl, InputProps>((props, ref) => {
                     <Icon
                         name='Close'
                         size={12}
-                        iconColor='#ffffff'
                     />
                 </StyledIconButton>
             )}
