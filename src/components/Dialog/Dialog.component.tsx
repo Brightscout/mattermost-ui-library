@@ -25,7 +25,7 @@ import {
  *  onCloseHandler={() => {}}
  *  onSubmitHandler={() => {}}
  *  title="Dialog Header"
- *  primaryActionText="Submit"
+ *  primaryButtonText="Submit"
  *  />
  * ```
  *
@@ -35,7 +35,7 @@ import {
  *  onCloseHandler={()=>{}}
  *  onSubmitHandler={()=>{}}
  *  title="Dialog Header"
- *  primaryActionText="Submit"
+ *  primaryButtonText="Submit"
  *  description="Dialog Description"
  * />
  * ```
@@ -46,7 +46,7 @@ import {
  *  onCloseHandler={()=>{}}
  *  onSubmitHandler={()=>{}}
  *  title="Dialog Header"
- *  primaryActionText="Submit"
+ *  primaryButtonText="Submit"
  * >
  * <OtherComponent />
  * </Dialog>
@@ -57,8 +57,8 @@ export const Dialog = (props: DialogProps) => {
         children,
         title,
         description,
-        primaryActionText,
-        secondaryActionText,
+        primaryButtonText,
+        secondaryButtonText,
         onCloseHandler,
         onSubmitHandler,
         className = '',
@@ -92,9 +92,9 @@ export const Dialog = (props: DialogProps) => {
                             destructiveBtnSecondary: destructive,
                         })}`}
                     >
-                        {secondaryActionText ?? 'Close'}
+                        {secondaryButtonText ?? 'Close'}
                     </Button>
-                    {(onSubmitHandler && primaryActionText) && (
+                    {(onSubmitHandler && primaryButtonText) && (
                         <Button
                             variant='primary'
                             className={`${extendClassname({
@@ -102,7 +102,7 @@ export const Dialog = (props: DialogProps) => {
                             })}`}
                             onClick={onSubmitHandler}
                         >
-                            {primaryActionText ?? 'Submit'}
+                            {primaryButtonText ?? 'Submit'}
                         </Button>
                     )}
                 </DialogActions>

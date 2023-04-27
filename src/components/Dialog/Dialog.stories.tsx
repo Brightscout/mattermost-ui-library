@@ -30,7 +30,7 @@ export const Default = DialogTemplate.bind({});
 export const WithDescriptionWithPrimaryAction = DialogTemplate.bind({});
 WithDescriptionWithPrimaryAction.args = {
     description: 'Are you sure you want to subscribe this subscription ?',
-    primaryActionText: 'Submit',
+    primaryButtonText: 'Submit',
 };
 
 // Dialog with description and destructive primary action
@@ -38,7 +38,7 @@ export const WithDescriptionWithDestructivePrimaryAction = DialogTemplate.bind({
 WithDescriptionWithDestructivePrimaryAction.args = {
     description: 'Are you sure you want to delete this subscription ?',
     destructive: true,
-    primaryActionText: 'Delete',
+    primaryButtonText: 'Delete',
 };
 
 // Dialog with description and destructive secondary action only
@@ -53,7 +53,7 @@ WithDescriptionAndWithDestructiveSecondaryActionOnly.args = {
 export const WithCustomJsxAsContent = DialogTemplate.bind({});
 WithCustomJsxAsContent.args = {
     children: <LinearProgress/>,
-    primaryActionText: 'Delete',
+    primaryButtonText: 'Delete',
     destructive: true,
 };
 
