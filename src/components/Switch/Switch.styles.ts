@@ -118,7 +118,7 @@ export const InputWrapper = styled.div<{size: SwitchSizeTypes}>(({size = 'md'}) 
 
         },
 
-        // Style for switch when disabled
+        // Style for disabled switch
         '& .mm-switch-input[disabled]': {
             borderColor: 'transparent',
             backgroundColor: colors.centerChannel_24,
@@ -129,7 +129,7 @@ export const InputWrapper = styled.div<{size: SwitchSizeTypes}>(({size = 'md'}) 
             opacity: '32%',
         },
 
-        // Style for switch when checked
+        // Style for checked switch
         '& .mm-switch-input:checked': {
             border: `2px solid ${colors.primary}`,
             backgroundColor: colors.primary,
