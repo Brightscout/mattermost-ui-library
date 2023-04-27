@@ -5,12 +5,12 @@ export interface CommonProps {
     /**
 	 * Primary action button text
 	 */
-    primaryActionText?: string;
+    primaryButtonText?: string;
 
     /**
 	 * Secondary action button text
 	 */
-    secondaryActionText?: string;
+    secondaryButtonText?: string;
 
     /**
 	 * Destructive state of the button,

@@ -44,8 +44,8 @@ WithDescriptionWithDestructivePrimaryAction.args = {
 // Dialog with description and destructive secondary action only
 export const WithDescriptionAndWithDestructiveSecondaryActionOnly = DialogTemplate.bind({});
 WithDescriptionAndWithDestructiveSecondaryActionOnly.args = {
-    title: 'Unable to delete subscription',
-    description: 'The subscription could not be deleted because of some error',
+    title: 'Error occurred',
+    description: 'Something went wrong',
     destructive: true,
 };
 
