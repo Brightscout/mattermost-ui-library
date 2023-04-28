@@ -62,6 +62,7 @@ export const Dialog = (props: DialogProps) => {
         onSubmitHandler,
         className = '',
         destructive = false,
+        closeButtonText,
         ...restProps
     } = props;
 
@@ -92,7 +93,7 @@ export const Dialog = (props: DialogProps) => {
                             destructiveBtnSecondary: destructive,
                         })}`}
                     >
-                        {'Cancel'}
+                        {closeButtonText ?? 'Cancel'}
                     </Button>
                     {(primaryActionText || destructive) && (
                         <Button

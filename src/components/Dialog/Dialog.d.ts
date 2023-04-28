@@ -42,6 +42,11 @@ export interface CommonProps {
 	 * To override or extend the styles applied to the component
 	 */
     className?: string;
+
+    /**
+	 * Text for the close button
+	 */
+    closeButtonText?: string;
 }
 
 /**
