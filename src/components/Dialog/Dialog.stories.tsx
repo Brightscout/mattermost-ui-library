@@ -1,7 +1,7 @@
 import React from 'react';
 import {Story, Meta} from '@storybook/react';
 
-import {LinearProgress} from '@Components/LinearProgress';
+import {LinearProgress} from '../LinearProgress';
 
 import {Dialog} from './Dialog.component';
 import {DialogProps} from './Dialog';
@@ -30,7 +30,7 @@ export const Default = DialogTemplate.bind({});
 export const WithDescriptionWithPrimaryAction = DialogTemplate.bind({});
 WithDescriptionWithPrimaryAction.args = {
     description: 'Are you sure you want to subscribe this subscription ?',
-    primaryActionText: 'Submit',
+    primaryButtonText: 'Submit',
 };
 
 // Dialog with description and destructive primary action
@@ -38,13 +38,22 @@ export const WithDescriptionWithDestructivePrimaryAction = DialogTemplate.bind({
 WithDescriptionWithDestructivePrimaryAction.args = {
     description: 'Are you sure you want to delete this subscription ?',
     destructive: true,
+    primaryButtonText: 'Delete',
+};
+
+// Dialog with description and destructive secondary action only
+export const WithDescriptionAndWithDestructiveSecondaryActionOnly = DialogTemplate.bind({});
+WithDescriptionAndWithDestructiveSecondaryActionOnly.args = {
+    title: 'Error occurred',
+    description: 'Something went wrong',
+    destructive: true,
 };
 
 // Dialog with custom jsx as content
 export const WithCustomJsxAsContent = DialogTemplate.bind({});
 WithCustomJsxAsContent.args = {
     children: <LinearProgress/>,
-    primaryActionText: 'Delete',
+    primaryButtonText: 'Delete',
     destructive: true,
 };
 
