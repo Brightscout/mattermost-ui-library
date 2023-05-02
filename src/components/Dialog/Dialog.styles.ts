@@ -5,9 +5,24 @@ import Colors from '@Styles/colorsForJs.module.scss';
 
 // Styles for dialog wrapper
 export const DialogWrapper = styled(Modal)({
+    '& .modal-dialog': {
+        display: 'flex',
+        alignItems: 'center',
+        minHeight: 'calc(100% - 20px)',
+    },
+
     '& .modal-content': {
         border: `1px solid ${Colors.centerChannel_8}`,
         borderRadius: '8px',
+        width: '100%',
+    },
+
+    '@media (min-width: 576px)': {
+        '& .modal-dialog': {
+            margin: '30px auto',
+            minHeight: 'calc(100% - 60px)',
+            maxWidth: '500px',
+        },
     },
 });
 
@@ -33,6 +48,7 @@ export const DialogTitle = styled.h2({
     overflow: 'hidden',
     textOverflow: 'ellipsis',
     whiteSpace: 'nowrap',
+    marginTop: 0,
 });
 
 // Styles for dialog description
