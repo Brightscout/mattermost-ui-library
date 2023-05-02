@@ -47,7 +47,6 @@ const DisplayFieldSet = ({value, error, label, borderLess}: InputProps) => (
  * <Input label='label' iconName='Globe'/>
  * ```
  */
-// eslint-disable-next-line react/display-name
 export const Input = forwardRef<FormControl, InputProps>((props, ref) => {
     const {
         label,
@@ -111,7 +110,6 @@ export const Input = forwardRef<FormControl, InputProps>((props, ref) => {
                     <Icon
                         name='Close'
                         size={8 + (2 * increaseInputSizeBy[size])}
-                        iconColor='#ffffff'
                     />
                 </StyledIconButton>
             )}

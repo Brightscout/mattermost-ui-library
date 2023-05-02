@@ -148,7 +148,9 @@ export const StyledInputContainer = styled.div<{fullWidth?: boolean; size?: Inpu
 }));
 
 // Style for Input Component
-export const StyledInput = styled(FormControl)<InputProps>(({error, size = 'md'}) => ({
+export const StyledInput = styled(FormControl).withConfig({
+    shouldForwardProp: (prop) => prop.toString() !== 'error',
+})<InputProps>(({error, size = 'md'}) => ({
     display: 'block',
     fontSize: 12 + increaseInputSizeBy[size as InputSizeTypes],
     padding: `${8 + increaseInputSizeBy[size as InputSizeTypes]}px 8px`,
@@ -185,6 +187,11 @@ export const StyledInput = styled(FormControl)<InputProps>(({error, size = 'md'}
     '&.form-control[readonly]': {
         background: colors.centerChannelBg,
     },
+
+    // Styles for placeholder in error state
+    '::placeholder': {
+        color: error ? colors.error : colors.centerChannel_64,
+    },
 }));
 
 // Style for close icon button
@@ -196,6 +203,12 @@ export const StyledIconButton = styled(Button)({
     '&.btn.btn-primary': {
         '&, &:hover, &:active, &:focus': {
             background: colors.centerChannel_64,
+        },
+    },
+
+    '.mm-icon': {
+        svg: {
+            color: colors.white,
         },
     },
 });
