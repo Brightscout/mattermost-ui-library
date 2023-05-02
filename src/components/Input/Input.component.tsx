@@ -10,6 +10,7 @@ import {
     StyledFieldSet,
     StyledInputContainer,
     StyledIconButton,
+    increaseInputSizeBy,
 } from './Input.styles';
 
 /**
@@ -17,13 +18,15 @@ import {
  *
  * Displays fieldset for input component
  */
-const DisplayFieldSet = ({value, error, label}: InputProps) => (
+const DisplayFieldSet = ({value, error, label, borderLess}: InputProps) => (
     <StyledFieldSet
         className={`input_label ${extendClassname({
             'visible_label-border': Boolean(value),
             input_error: Boolean(error),
+            input_borderless: Boolean(borderLess),
         })}`}
         error={error}
+        borderLess={borderLess}
     >
         <legend className={extendClassname({visible_label: Boolean(value)})}>
             {label}
@@ -52,9 +55,10 @@ export const Input = forwardRef<FormControl, InputProps>((props, ref) => {
         fullWidth,
         onClose,
         searchQuery,
+        borderLess = false,
         ...restProps
     } = props;
-    const {readOnly, error, required, value = ''} = restProps;
+    const {readOnly, error, required, value = '', size = 'md'} = restProps;
 
     const inputLabel = `${label}${required ? ' *' : ''}`;
 
@@ -76,10 +80,14 @@ export const Input = forwardRef<FormControl, InputProps>((props, ref) => {
         <StyledInputContainer
             className={`mm-input ${className}`}
             fullWidth={fullWidth}
+            size={size}
         >
-            {iconName && <Icon
-                name={iconName}
-                size={16}/>}
+            {iconName && (
+                <Icon
+                    name={iconName}
+                    size={12 + (2 * increaseInputSizeBy[size])}
+                />
+            )}
             <StyledInput
                 ref={ref}
                 placeholder={inputLabel}
@@ -90,16 +98,18 @@ export const Input = forwardRef<FormControl, InputProps>((props, ref) => {
                     togglePlaceholderValue(event, 'blur')
                 }
                 label={label}
+                size={size}
                 {...restProps}
             />
             {searchQuery && (
                 <StyledIconButton
                     onClick={onClose}
                     bsStyle='primary'
+                    className='clear-input-button'
                 >
                     <Icon
                         name='Close'
-                        size={12}
+                        size={8 + (2 * increaseInputSizeBy[size])}
                     />
                 </StyledIconButton>
             )}
@@ -107,6 +117,7 @@ export const Input = forwardRef<FormControl, InputProps>((props, ref) => {
                 value={value}
                 label={inputLabel}
                 error={error}
+                borderLess={borderLess}
             />
         </StyledInputContainer>
     );
