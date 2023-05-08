@@ -1,4 +1,6 @@
-import React, {useRef, useEffect} from 'react';
+import React, {useRef} from 'react';
+
+import useOutsideClick from '@Hooks/useClickOutside';
 
 import {OverlayProps} from './Overlay';
 import {OverlayContainer, StyledPopover, EventPassContainer} from './Overlay.styles';
@@ -15,20 +17,15 @@ export const Overlay = ({
     const EventPassContainerRef = useRef<HTMLDivElement>(null);
 
     /**
-	 * Function which closes the popover on clicking anywhere outside the popover wrapper
-	 * @param {MouseEvent} e - gets the element on which the onClick event is acted upon
+	 * This closes the popover on clicking anywhere outside the popover wrapper
+     * @param ref - the ref of the wrapper
+     * @param handler - the outside click handler
 	 */
-    const onPopoverCloseHandler = (e: MouseEvent) =>
-        e.target !== EventPassContainerRef.current && setShow?.(false);
-
-    // On clicking anywhere other than the wrapped component the pop-over closes
-    useEffect(() => {
-        document.body.addEventListener('click', onPopoverCloseHandler);
-
-        return () => {
-            document.body.removeEventListener('click', onPopoverCloseHandler);
-        };
-    }, []);
+    useOutsideClick(EventPassContainerRef, () => {
+        if (setShow) {
+            setShow(false);
+        }
+    });
 
     const handleClick = () => setShow && setShow((prev) => !prev);
 
