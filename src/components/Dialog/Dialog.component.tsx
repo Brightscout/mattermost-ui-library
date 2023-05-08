@@ -25,7 +25,7 @@ import {
  *  onCloseHandler={() => {}}
  *  onSubmitHandler={() => {}}
  *  title="Dialog Header"
- *  primaryActionText="Submit"
+ *  primaryButtonText="Submit"
  *  />
  * ```
  *
@@ -35,7 +35,7 @@ import {
  *  onCloseHandler={()=>{}}
  *  onSubmitHandler={()=>{}}
  *  title="Dialog Header"
- *  primaryActionText="Submit"
+ *  primaryButtonText="Submit"
  *  description="Dialog Description"
  * />
  * ```
@@ -46,7 +46,7 @@ import {
  *  onCloseHandler={()=>{}}
  *  onSubmitHandler={()=>{}}
  *  title="Dialog Header"
- *  primaryActionText="Submit"
+ *  primaryButtonText="Submit"
  * >
  * <OtherComponent />
  * </Dialog>
@@ -57,7 +57,8 @@ export const Dialog = (props: DialogProps) => {
         children,
         title,
         description,
-        primaryActionText,
+        primaryButtonText,
+        secondaryButtonText,
         onCloseHandler,
         onSubmitHandler,
         className = '',
@@ -68,7 +69,6 @@ export const Dialog = (props: DialogProps) => {
     return (
         <DialogWrapper
             onHide={onCloseHandler}
-            centered={true}
             className={`mm-dialog ${className}`}
             {...restProps}
         >
@@ -92,9 +92,9 @@ export const Dialog = (props: DialogProps) => {
                             destructiveBtnSecondary: destructive,
                         })}`}
                     >
-                        {'Cancel'}
+                        {secondaryButtonText ?? 'Close'}
                     </Button>
-                    {(primaryActionText || destructive) && (
+                    {(onSubmitHandler && primaryButtonText) && (
                         <Button
                             variant='primary'
                             className={`${extendClassname({
@@ -102,7 +102,7 @@ export const Dialog = (props: DialogProps) => {
                             })}`}
                             onClick={onSubmitHandler}
                         >
-                            {primaryActionText || (destructive && 'Delete')}
+                            {primaryButtonText ?? 'Submit'}
                         </Button>
                     )}
                 </DialogActions>
