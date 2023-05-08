@@ -55,7 +55,7 @@ export type ButtonSizeTypes = 'xs' | 'sm' | 'md' | 'lg';
 export type ButtonSizeProperties = 'height' | 'fontSize' | 'padding' | 'lineHeight' | 'focusPadding';
 
 /**
- * Type for button color map
+ * Type for button size map
  */
 export type ButtonSizeMap = Record<ButtonSizeTypes, Record<ButtonSizeProperties, string>>;
 
