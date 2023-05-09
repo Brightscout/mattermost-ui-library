@@ -37,28 +37,91 @@ export type ButtonState = 'default' | 'hover' | 'active' | 'disabled';
 export type ButtonColorMap = Record<VariantType, Record<ButtonState, string>>;
 
 /**
+ * Button's size types
+ *
+ * `xs` - Button height = 24
+ *
+ * `sm` - Button height = 32
+ *
+ * `md` - Button height = 40
+ *
+ * `lg` - Button height = 48
+ */
+export type ButtonSizeTypes = 'xs' | 'sm' | 'md' | 'lg';
+
+/**
+ * Type for button properties
+ */
+export type ButtonSizeProperties = 'height' | 'fontSize' | 'padding' | 'lineHeight' | 'focusPadding';
+
+/**
+ * Type for button size map
+ */
+export type ButtonSizeMap = Record<ButtonSizeTypes, Record<ButtonSizeProperties, string>>;
+
+/**
+ * Button icon's size types
+ *
+ * `xs` - Icon Size = 10
+ *
+ * `sm` - Icon Size = 12
+ *
+ * `md` - Icon Size = 16
+ *
+ * `lg` - Icon Size = 20
+ */
+export type ButtonIconSizeMap = Record<ButtonSizeTypes, number>
+
+/**
  * Interface for styled button component
  */
 export interface StyledButtonProps {
 
     /**
-		 * The variant of the button component
-		 */
+	 * The variant of the button component
+	 */
     variant: VariantType;
 
     /**
-		* Position of the icon
-		*
-		* @default start
-		*/
+	 * Position of the icon
+	 *
+	 * @default start
+	 */
     iconPosition?: IconPositionType;
 
     /**
-		* if `true`, button occupies full width
-		*
-		* @default false
-		*/
+	 * if `true`, button occupies full width
+	 *
+	 * @default false
+	 */
     fullWidth?:boolean;
+
+    /**
+	 * Button sizes
+	 *
+	 * @default 'md'
+	 */
+    size?: ButtonSizeTypes;
+
+    /**
+	 * The inverted style of button
+	 *
+	 * @default false
+	 */
+    inverted?: boolean;
+
+    /**
+	 * The destructive style of button
+	 *
+	 * @default false
+	 */
+    destructive?: boolean;
+
+    /**
+	 * The width of the button
+	 * @default fit-content
+	 */
+    width?: string;
 }
 
 /**
@@ -67,36 +130,38 @@ export interface StyledButtonProps {
 export interface ButtonProps extends Omit<StyledButtonProps, 'variant'> {
 
     /**
-		 * The variant of the component
-		 *
-		 * @default primary
-		 */
+	 * The variant of the component
+	 *
+	 * @default primary
+	 */
     variant?: VariantType;
 
     /**
-		 * The content of the component
-		 */
+	 * The content of the component
+	 */
     children: React.ReactNode;
 
     /**
-		 * If `true`, the component is disabled
-		 *
-		 * @default false
-		 */
+	 * If `true`, the component is disabled
+	 *
+	 * @default false
+	 */
     disabled?: boolean;
 
     /**
-		 * Name of the icon to use in the component
-		 */
+	 * Name of the icon to use in the component
+	 */
     iconName?: IconType;
 
     /**
-		 * To override or extend the styles applied to the component
-		 */
+	 * To override or extend the styles applied to the component
+	 *
+	 * @default ''
+	 */
     className?: string;
 
     /**
-		 * Perform action on the button click
-		 */
+	 * Perform action on the button click
+	 */
     onClick?: React.MouseEventHandler<HTMLButtonElement>;
 }
