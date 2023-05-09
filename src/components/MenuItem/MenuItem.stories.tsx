@@ -3,6 +3,8 @@ import {Story, Meta} from '@storybook/react';
 
 import {MenuItem} from './MenuItem.component';
 import {MenuItemProps} from './MenuItem';
+import {Icon} from '../Icon';
+import {Tag} from '../Tag';
 
 export default {
     title: 'Component/MenuItem',
@@ -23,18 +25,44 @@ MenuItemWithSecondaryLabel.args = {
     secondaryLabel: '@Secondary Label',
 };
 
-export const MenuItemWithLeadingIconAndInlineSecondaryLabel = MenuItemTemplate.bind({});
-MenuItemWithLeadingIconAndInlineSecondaryLabel.args = {
+export const MenuItemWithLeadingElement = MenuItemTemplate.bind({});
+MenuItemWithLeadingElement.args = {
+    label: 'Main Label',
+    leadingElement: <Icon name='User' size={24}/>,
+};
+
+export const MenuItemWithTrailingElement = MenuItemTemplate.bind({});
+MenuItemWithTrailingElement.args = {
+    label: 'Main Label',
+    trailingElement: <Tag type='shortcut' text='16'/>,
+};
+
+export const MenuItemWithLeadingElementAndInlineSecondaryLabel = MenuItemTemplate.bind({});
+MenuItemWithLeadingElementAndInlineSecondaryLabel.args = {
     label: 'Main Label',
     secondaryLabel: '@Secondary label',
     secondaryLabelPosition: 'inline',
-    leadingIcon: 'Edit',
+    leadingElement: <Icon name='Edit' size={16}/>,
 };
 
-export const MenuItemWithLeadingAndTrailingIcon = MenuItemTemplate.bind({});
-MenuItemWithLeadingAndTrailingIcon.args = {
+export const MenuItemWithLeadingAndTrailingElement = MenuItemTemplate.bind({});
+MenuItemWithLeadingAndTrailingElement.args = {
     label: 'Main Label',
     secondaryLabel: '@Secondary Label',
-    leadingIcon: 'Edit',
-    trailingIcon: 'Delete',
+    leadingElement: <Icon name='Edit' size={16}/>,
+    trailingElement: <Icon name='Delete' size={16}/>,
+};
+
+export const DisabledMenuItemWithLeadingElement = MenuItemTemplate.bind({});
+DisabledMenuItemWithLeadingElement.args = {
+    label: 'Main Label',
+    leadingElement: <Icon name='User' size={24}/>,
+    disabled: true
+};
+
+export const DestructiveMenuItemWithLeadingElement = MenuItemTemplate.bind({});
+DestructiveMenuItemWithLeadingElement.args = {
+    label: 'Main Label',
+    leadingElement: <Icon name='User' size={24}/>,
+    destructive: true
 };

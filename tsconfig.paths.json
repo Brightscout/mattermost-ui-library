@@ -9,7 +9,8 @@
       "@Utils": ["utils"],
       "@Utils/*": ["utils/*"],
       "@Styles/*": ["styles/*"],
-      "@Assets/*": ["assets/*"]
+      "@Assets/*": ["assets/*"],
+      "@Hooks/*": ["hooks/*"]
     }
   }
 }
