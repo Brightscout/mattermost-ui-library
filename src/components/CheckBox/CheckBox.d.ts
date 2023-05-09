@@ -35,7 +35,7 @@ export interface CheckBoxProps extends StyledCheckBoxProps{
     label: string;
 
     /**
-     * The sizes of the checkbox
+     * The size of the checkbox
      */
     size?: CheckboxSizeTypes;
 

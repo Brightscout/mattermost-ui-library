@@ -18,8 +18,8 @@ import {CheckboxContainer, InputContainer} from './CheckBox.styles';
  * ```
  */
 export const Checkbox = (props: CheckBoxProps) => {
-    const {className = '', id, label, error, disabled, size = Constants.CHECKBOX_SIZE.MEDIUM, ...restProps} = props;
-    const increaseCheckboxIconSizeBy: Record<CheckboxSizeTypes, number> = {
+    const {className = '', id, label, error, disabled, size = Constants.CheckBoxSize.MEDIUM, ...restProps} = props;
+    const checkboxIconSizeMap: Record<CheckboxSizeTypes, number> = {
         sm: 10,
         md: 12,
         lg: 16,
@@ -44,7 +44,7 @@ export const Checkbox = (props: CheckBoxProps) => {
                 <span className='mm-checkbox-active'>
                     <Icon
                         name='CheckBold'
-                        size={increaseCheckboxIconSizeBy[size]}
+                        size={checkboxIconSizeMap[size]}
                     />
                 </span>
             </InputContainer>
