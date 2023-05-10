@@ -89,3 +89,20 @@ FullWidthInput.args = {
     iconName: 'Globe',
     fullWidth: true,
 };
+
+// Borderless input
+export const BorderlessInput = InputTemplate.bind({});
+BorderlessInput.args = {
+    label: 'Label',
+    iconName: 'Globe',
+    borderLess: true,
+};
+
+// Borderless input with error
+export const BorderlessInputWithError = InputTemplate.bind({});
+BorderlessInputWithError.args = {
+    label: 'Label',
+    iconName: 'Globe',
+    borderLess: true,
+    error: true,
+};
