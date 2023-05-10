@@ -1,34 +1,56 @@
 import styled from 'styled-components';
-import {TabProps, Tabs as BootstrapTabs} from 'react-bootstrap';
+import {TabProps as BootstrapTabProps, Tabs} from 'react-bootstrap';
 
 import colors from '@Styles/colorsForJs.module.scss';
 
-export const StyledTabs = styled(BootstrapTabs).withConfig({
-    shouldForwardProp: (prop) => prop !== 'stickyHeader' as keyof TabProps,
+export const StyledTabs = styled(Tabs).withConfig({
+    shouldForwardProp: (prop) => prop !== 'stickyHeader' as keyof BootstrapTabProps,
 })<{stickyHeader: boolean}>(({stickyHeader}) => ({
-    borderBottom: `2px solid ${colors.tabsHeaderBorder}`,
-    marginBottom: '24px',
-    ...(stickyHeader && {
-        position: stickyHeader ? 'sticky' : 'initial',
-        top: 0,
-        background: colors.white,
-    }),
 
-    '& .nav-link': {
+    '.nav-tabs.nav-justified > li > a': {
+        marginBottom: 0,
+        borderColor: 'transparent',
+    },
+
+    '& .nav-tabs': {
+        borderBottom: `2px solid ${colors.tabsHeaderBorder}`,
+        marginBottom: '24px',
+
+        ...(stickyHeader && {
+            position: stickyHeader ? 'sticky' : 'initial',
+            top: 0,
+            background: colors.centerChannelBg,
+        }),
+    },
+
+    '& .nav-item': {
         marginBottom: '-2px',
         lineHeight: '20px',
         fontWeight: '500',
-        color: colors.centerChannel,
+        backgroundColor: 'transparent',
 
-        '&:hover,:focus': {
-            borderColor: 'transparent',
+        a: {
+            color: colors.centerChannel,
+
+            ':hover, :focus': {
+                color: colors.primary,
+                backgroundColor: 'transparent',
+                borderColor: 'transparent',
+            },
         },
 
         '&.active': {
-            backgroundColor: 'transparent',
-            color: colors.centerChannel,
-            borderColor: 'transparent',
             borderBottom: `2px solid ${colors.primary}`,
+
+            a: {
+                color: colors.centerChannel,
+                borderColor: 'transparent',
+
+                ':hover, :focus': {
+                    backgroundColor: 'transparent',
+                    borderColor: 'transparent',
+                },
+            },
         },
     },
-})) as typeof BootstrapTabs;
+}));
