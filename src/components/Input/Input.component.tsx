@@ -1,4 +1,5 @@
 import React, {forwardRef} from 'react';
+import {FormControl} from 'react-bootstrap';
 
 import {Icon} from '@Components/Icon';
 import {extendClassname} from '@Utils';
@@ -9,6 +10,7 @@ import {
     StyledFieldSet,
     StyledInputContainer,
     StyledIconButton,
+    increaseInputSizeBy,
 } from './Input.styles';
 
 /**
@@ -16,13 +18,15 @@ import {
  *
  * Displays fieldset for input component
  */
-const DisplayFieldSet = ({value, error, label}: InputProps) => (
+const DisplayFieldSet = ({value, error, label, borderLess}: InputProps) => (
     <StyledFieldSet
         className={`input_label ${extendClassname({
             'visible_label-border': Boolean(value),
             input_error: Boolean(error),
+            input_borderless: Boolean(borderLess),
         })}`}
         error={error}
+        borderLess={borderLess}
     >
         <legend className={extendClassname({visible_label: Boolean(value)})}>
             {label}
@@ -43,7 +47,7 @@ const DisplayFieldSet = ({value, error, label}: InputProps) => (
  * <Input label='label' iconName='Globe'/>
  * ```
  */
-export const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
+export const Input = forwardRef<FormControl, InputProps>((props, ref) => {
     const {
         label,
         iconName,
@@ -51,9 +55,10 @@ export const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
         fullWidth,
         onClose,
         searchQuery,
+        borderLess = false,
         ...restProps
     } = props;
-    const {readOnly, error, required, value = ''} = restProps;
+    const {readOnly, error, required, value = '', size = 'md'} = restProps;
 
     const inputLabel = `${label}${required ? ' *' : ''}`;
 
@@ -63,7 +68,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
 	 * @param type - focus, blur
 	 */
     const togglePlaceholderValue = (
-        event: React.ChangeEvent<HTMLInputElement>,
+        event: React.FocusEvent<FormControl & HTMLInputElement>,
         type: string,
     ) => {
         if (!readOnly) {
@@ -75,27 +80,36 @@ export const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
         <StyledInputContainer
             className={`mm-input ${className}`}
             fullWidth={fullWidth}
+            size={size}
         >
-            {iconName && <Icon
-                name={iconName}
-                size={16}/>}
+            {iconName && (
+                <Icon
+                    name={iconName}
+                    size={12 + (2 * increaseInputSizeBy[size])}
+                />
+            )}
             <StyledInput
                 ref={ref}
                 placeholder={inputLabel}
-                onFocus={(event: React.ChangeEvent<HTMLInputElement>) =>
+                onFocus={(event: React.FocusEvent<FormControl & HTMLInputElement>) =>
                     togglePlaceholderValue(event, 'focus')
                 }
-                onBlur={(event: React.ChangeEvent<HTMLInputElement>) =>
+                onBlur={(event: React.FocusEvent<FormControl & HTMLInputElement>) =>
                     togglePlaceholderValue(event, 'blur')
                 }
+                label={label}
+                size={size}
                 {...restProps}
             />
             {searchQuery && (
-                <StyledIconButton onClick={onClose}>
+                <StyledIconButton
+                    onClick={onClose}
+                    bsStyle='primary'
+                    className='clear-input-button'
+                >
                     <Icon
                         name='Close'
-                        size={12}
-                        iconColor='#ffffff'
+                        size={8 + (2 * increaseInputSizeBy[size])}
                     />
                 </StyledIconButton>
             )}
@@ -103,6 +117,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
                 value={value}
                 label={inputLabel}
                 error={error}
+                borderLess={borderLess}
             />
         </StyledInputContainer>
     );

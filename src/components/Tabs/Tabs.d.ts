@@ -1,11 +1,11 @@
-import {TabsProps as BootstrapTabProps, TabProps} from 'react-bootstrap';
+import {TabsProps as BootstrapTabsProps, TabProps} from 'react-bootstrap';
 
 export interface TabsConfig {
 
     /**
-   * Key to determine each tab uniquely
-   */
-    key: TabProps['eventKey'];
+    * Key to determine each tab uniquely
+    */
+    key: number;
 
     /**
      * Title to be displayed on tab button
@@ -18,7 +18,7 @@ export interface TabsConfig {
     content: TabProps['children'];
 }
 
-export interface TabsProps extends BootstrapTabProps {
+export interface TabsProps extends BootstrapTabsProps {
 
     /**
      * Configuration for rendering tabs
@@ -26,20 +26,20 @@ export interface TabsProps extends BootstrapTabProps {
     tabsConfig: TabsConfig[];
 
     /**
-     * Have all tabs proportionately fill all available widths.
-     * @default false
-     */
-    fill?: boolean;
-
-    /**
      * Have all tabs evenly fill all available widths
      * @default true
      */
-    justify?: boolean;
+    justified?: boolean;
 
     /**
      * Flag to make tabs header sticky
      * @default true
      */
     stickyHeader?: boolean;
+
+    /**
+     * To override or extend the styles applied to the component
+     * @default ''
+     */
+    className?: string;
 }
