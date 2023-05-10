@@ -1,4 +1,15 @@
 /**
+ * Checkbox's size types
+ *
+ * `sm` - checkbox size = 12
+ *
+ * `md` - checkbox size = 16
+ *
+ * `lg` - checkbox size = 20
+ */
+type CheckboxSizeTypes = 'sm' | 'md' | 'lg';
+
+/**
  * Interface for CheckBox Component
  */
 export interface CheckBoxProps extends StyledCheckBoxProps{
@@ -22,6 +33,11 @@ export interface CheckBoxProps extends StyledCheckBoxProps{
      * The label for the checkbox
      */
     label: string;
+
+    /**
+     * The size of the checkbox
+     */
+    size?: CheckboxSizeTypes;
 
     /**
      * If `true`, checkbox is disabled
