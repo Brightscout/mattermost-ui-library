@@ -10,6 +10,9 @@
   primary_16: var(--button-bg-16);
   primary_32: var(--button-bg-32);
   primaryText:var(--button-color);
+  primaryText_8:var(--button-color-08);
+  primaryText_12:var(--button-color-12);
+  primaryText_16:var(--button-color-16);
   centerChannelBg: var(--center-channel-bg);
   centerChannel: var(--center-channel-color);
   centerChannelRgb: var(--center-channel-color-rgb);
@@ -24,6 +27,8 @@
   centerChannel_4: var(--center-channel-color-04);
   error: var(--error-text);
   error_8: var(--error-text-08);
+  error_12: var(--error-text-12);
+  error_16: var(--error-text-16);
   success: var(--online-indicator);
   mentionHighlightBg: var(--mention-highlight-bg);
   mentionHighlightLink: var(--mention-highlight-link);
@@ -45,4 +50,5 @@
   elevation2: var(--elevation-2);
   elevation1: var(--elevation-1);
   noDataIcon:var(--no-data-icon);
+  error_4:rgba(var(--error-text-color-rgb),0.04);
 }

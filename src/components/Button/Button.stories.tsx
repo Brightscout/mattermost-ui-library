@@ -38,6 +38,21 @@ TextButton.args = {
     variant: 'text',
 };
 
+// destructive button
+export const DestructiveButton = ButtonTemplate.bind({});
+DestructiveButton.args = {
+    variant: 'primary',
+    destructive: true,
+};
+
+// inverted button
+export const InvertedButton = ButtonTemplate.bind({});
+InvertedButton.parameters = {backgrounds: {default: 'dark'}};
+InvertedButton.args = {
+    variant: 'primary',
+    inverted: true,
+};
+
 // Button with icon
 export const IconButton = ButtonTemplate.bind({});
 IconButton.args = {
