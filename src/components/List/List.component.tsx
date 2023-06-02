@@ -59,7 +59,7 @@ export const List = forwardRef<HTMLUListElement, ListPropType>(
             {loading ? (
                 <MenuItem label={'Loading ...'}/>
             ) : (
-                listItems.map((option, index) => (
+                listItems.slice(0, 20).map((option, index) => (
                     <MenuItem
                         key={option.value}
                         className={extendClassname({
