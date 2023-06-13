@@ -146,4 +146,14 @@ Deploys the storybook to chromatic
 
 ---
 
+## 7. Publish as the NPM package
+You can follow the below steps:
+- Upgrade the `version` in the [package.json](package.json) file.
+- Run command `npm login` on the CLI inside the root folder of this project and login using your NPM credentials.
+  ![image](https://github.com/Brightscout/mm-ui-library/assets/72438220/ae655d14-b9d5-49ff-955f-2ac69cd7751d)
+
+- Run command `npm publish` to create a new build and publish it.
+
+**Note:** To publish as the NPM package make sure you are a part of [Brightscout](https://www.npmjs.com/org/brightscout) organization on the [NPM](https://www.npmjs.com).
+
 Made with &#9829; by [Brightscout](https://www.brightscout.com)
