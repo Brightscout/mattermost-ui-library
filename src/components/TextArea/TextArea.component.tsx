@@ -6,7 +6,6 @@ import {TextAreaProps} from './TextArea';
 import {
     Label,
     StyledFieldSet,
-    StyledTextArea,
     TextAreaContainer,
 } from './TextArea.styles';
 
@@ -50,10 +49,10 @@ export const TextArea = (props: TextAreaProps) => {
                 'textarea-error': Boolean(error),
             })}`}
         >
-            <StyledTextArea
-                as='textarea'
+            {/* <StyledTextArea
+                // as='textarea'
                 {...restProps}
-            />
+            /> */}
             <Label
                 className={`textarea-label ${extendClassname({
                     'label-visible': Boolean(value),

@@ -11,7 +11,6 @@ import {MenuItem} from '@Components/MenuItem';
 import {Modal} from '@Components/Modal';
 import {NoData} from '@Components/NoData';
 import {Overlay} from '@Components/Overlay';
-import {Popover} from '@Components/Popover';
 import {Radio} from '@Components/Radio';
 import {Select} from '@Components/Select';
 import {Skeleton} from '@Components/Skeleton';
@@ -35,7 +34,6 @@ export {
     Modal,
     NoData,
     Overlay,
-    Popover,
     Radio,
     Select,
     Skeleton,

@@ -203,7 +203,6 @@ export const AutoComplete = (props: AutoCompleteProps) => {
             className={`mm-autocomplete ${className}`}
         >
             <Input
-                ref={ref}
                 fullWidth={fullWidth}
                 searchQuery={searchQuery}
                 onKeyDown={onKeyDown}
@@ -216,8 +215,12 @@ export const AutoComplete = (props: AutoCompleteProps) => {
                     setSearchValue('');
                 }}
                 onChange={(e) => {
-                    setSearchQuery(e.target.value);
-                    setSearchValue(e.target.value);
+                    setSearchQuery(
+                        (e as unknown as React.ChangeEvent<HTMLInputElement>).target.value,
+                    );
+                    setSearchValue(
+                        (e as unknown as React.ChangeEvent<HTMLInputElement>).target.value,
+                    );
                 }}
                 {...restProps}
             />

@@ -56,9 +56,10 @@ export const Input = forwardRef<FormControl, InputProps>((props, ref) => {
         onClose,
         searchQuery,
         borderLess = false,
+        size = 'md',
         ...restProps
     } = props;
-    const {readOnly, error, required, value = '', size = 'md'} = restProps;
+    const {readOnly, error, required, value = ''} = restProps;
 
     const inputLabel = `${label}${required ? ' *' : ''}`;
 
@@ -98,7 +99,6 @@ export const Input = forwardRef<FormControl, InputProps>((props, ref) => {
                     togglePlaceholderValue(event, 'blur')
                 }
                 label={label}
-                size={size}
                 {...restProps}
             />
             {searchQuery && (

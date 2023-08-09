@@ -16,7 +16,7 @@ function useOutsideClick(ref: React.RefObject<HTMLElement>, handleOnClickOutside
             // Unbind the event listener on clean up
             document.removeEventListener('mousedown', handleClickOutside);
         };
-    }, [ref]);
+    }, [ref, handleOnClickOutside]);
 }
 
 export default useOutsideClick;

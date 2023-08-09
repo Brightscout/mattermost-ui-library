@@ -1,6 +1,7 @@
 import React, {forwardRef} from 'react';
 
 import {MenuItem} from '@Components/MenuItem';
+import {Icon} from '@Components/Icon';
 import {extendClassname} from '@Utils';
 
 import {ListPropType} from './List';
@@ -68,7 +69,14 @@ export const List = forwardRef<HTMLUListElement, ListPropType>(
                         })}
                         onClick={(event) => handleItemClick(event, option, index)}
                         label={option.label ?? option.value}
-                        leadingIcon={option.icon}
+                        {...(option.icon && {
+                            leadingElement: (
+                                <Icon
+                                    name={option.icon}
+                                    size={16}
+                                />
+                            ),
+                        })}
                         {...((option.label ?? option.value) === value &&
 							!isAutocomplete && {
                             trailingIcon: 'Check',
