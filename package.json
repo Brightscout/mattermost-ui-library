@@ -15,7 +15,7 @@
 		"chromatic": "npx chromatic --exit-once-uploaded --project-token=$npm_config_projectToken",
 		"copy-assets": "copyfiles -u 1 \"src/assets/**/*.svg\" build",
 		"copy-dts": "copyfiles -u 2 src/**/**/*.d.ts -e src/types/**/*.d.ts build/components",
-		"build:scss": "copyfiles -u 1 src/**/*.scss build",
+		"build:scss": "copyfiles -u 2 src/styles/**/*.scss build/styles && copyfiles -u 2 src/styles/*.scss build/styles",
 		"generate-icon-map": "node scripts/generateIconMap.js",
 		"lint": "tsc --noEmit && eslint src/**/*.ts{,x} --cache",
 		"lint:fix": "eslint src/**/*.ts{,x} --fix --cache",
