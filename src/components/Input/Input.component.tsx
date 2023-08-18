@@ -1,5 +1,5 @@
 import React, {forwardRef} from 'react';
-import {FormControl} from 'react-bootstrap';
+import {FormControl, FormControlProps} from 'react-bootstrap';
 
 import {Icon} from '@Components/Icon';
 import {extendClassname} from '@Utils';
@@ -47,7 +47,7 @@ const DisplayFieldSet = ({value, error, label, borderLess}: InputProps) => (
  * <Input label='label' iconName='Globe'/>
  * ```
  */
-export const Input = forwardRef<FormControl, InputProps>((props, ref) => {
+export const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
     const {
         label,
         iconName,
@@ -56,9 +56,9 @@ export const Input = forwardRef<FormControl, InputProps>((props, ref) => {
         onClose,
         searchQuery,
         borderLess = false,
-        ...restProps
+        ...inputProps
     } = props;
-    const {readOnly, error, required, value = '', size = 'md'} = restProps;
+    const {readOnly, error, required, value = '', size = 'md'} = inputProps;
 
     const inputLabel = `${label}${required ? ' *' : ''}`;
 
@@ -89,7 +89,7 @@ export const Input = forwardRef<FormControl, InputProps>((props, ref) => {
                 />
             )}
             <StyledInput
-                ref={ref}
+                {...(!!ref && {inputRef: ref as FormControlProps['inputRef']})}
                 placeholder={inputLabel}
                 onFocus={(event: React.FocusEvent<FormControl & HTMLInputElement>) =>
                     togglePlaceholderValue(event, 'focus')
@@ -98,8 +98,7 @@ export const Input = forwardRef<FormControl, InputProps>((props, ref) => {
                     togglePlaceholderValue(event, 'blur')
                 }
                 label={label}
-                size={size}
-                {...restProps}
+                {...inputProps}
             />
             {searchQuery && (
                 <StyledIconButton

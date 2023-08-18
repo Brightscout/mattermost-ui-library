@@ -192,7 +192,7 @@ export const StyledInput = styled(FormControl).withConfig({
     '::placeholder': {
         color: error ? colors.error : colors.centerChannel_64,
     },
-}));
+})) as React.FC<InputProps>;
 
 // Style for close icon button
 export const StyledIconButton = styled(Button)({

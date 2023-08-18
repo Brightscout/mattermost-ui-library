@@ -39,7 +39,7 @@ const DisplayFieldSet = ({value, error, label}: TextAreaProps) => {
  * ```
  */
 export const TextArea = (props: TextAreaProps) => {
-    const {error, label, required, className = '', ...restProps} = props;
+    const {error, label, required, className = '', rows = 3, ...restProps} = props;
     const {value = ''} = restProps;
 
     const textAreaLabel = `${label}${required ? ' *' : ''}`;
@@ -47,17 +47,17 @@ export const TextArea = (props: TextAreaProps) => {
     return (
         <TextAreaContainer
             className={`mm-textarea ${className} ${extendClassname({
-                'textarea-error': Boolean(error),
+                'textarea--error': Boolean(error),
             })}`}
         >
             <StyledTextArea
-                as='textarea'
+                rows={rows}
+                componentClass="textarea"
                 {...restProps}
             />
             <Label
                 className={`textarea-label ${extendClassname({
-                    'label-visible': Boolean(value),
-                    'label-error': Boolean(error),
+                    'label--value-present': Boolean(value),
                 })}`}
             >
                 {textAreaLabel}

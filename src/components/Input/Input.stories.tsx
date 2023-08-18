@@ -17,10 +17,17 @@ Default.args = {
     label: 'Label',
 };
 
+// Large size Default
+export const LargeSize = InputTemplate.bind({});
+LargeSize.args = {
+    ...Default.args,
+    size: 'lg'
+};
+
 // Input with leading Icon
 export const InputWithIcon = InputTemplate.bind({});
 InputWithIcon.args = {
-    label: 'Icon-Label',
+    label: 'Label',
     iconName: 'Globe',
 };
 
@@ -35,8 +42,7 @@ InputWithType.args = {
 // Input with value
 export const InputWithValue = InputTemplate.bind({});
 InputWithValue.args = {
-    label: 'Label',
-    iconName: 'Globe',
+    ...InputWithIcon.args,
     value: 'input value',
 };
 
@@ -60,16 +66,14 @@ RequiredInput.args = {
 // Input with auto focus
 export const InputWithAutoFocus = InputTemplate.bind({});
 InputWithAutoFocus.args = {
-    label: 'Label',
-    iconName: 'Globe',
+    ...InputWithIcon.args,
     autoFocus: true,
 };
 
 // Disabled Input
 export const DisabledInput = InputTemplate.bind({});
 DisabledInput.args = {
-    label: 'Label',
-    iconName: 'Globe',
+    ...InputWithIcon.args,
     value: 'input value',
     disabled: true,
 };
@@ -77,32 +81,27 @@ DisabledInput.args = {
 // Error Input
 export const ErrorInput = InputTemplate.bind({});
 ErrorInput.args = {
-    label: 'Label',
-    iconName: 'Globe',
+    ...InputWithIcon.args,
     error: true,
 };
 
 // Input with full width
 export const FullWidthInput = InputTemplate.bind({});
 FullWidthInput.args = {
-    label: 'Label',
-    iconName: 'Globe',
+    ...InputWithIcon.args,
     fullWidth: true,
 };
 
 // Borderless input
 export const BorderlessInput = InputTemplate.bind({});
 BorderlessInput.args = {
-    label: 'Label',
-    iconName: 'Globe',
+    ...InputWithIcon.args,
     borderLess: true,
 };
 
 // Borderless input with error
 export const BorderlessInputWithError = InputTemplate.bind({});
 BorderlessInputWithError.args = {
-    label: 'Label',
-    iconName: 'Globe',
-    borderLess: true,
+    ...BorderlessInput.args,
     error: true,
 };

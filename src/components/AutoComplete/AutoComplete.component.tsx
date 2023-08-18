@@ -216,8 +216,10 @@ export const AutoComplete = (props: AutoCompleteProps) => {
                     setSearchValue('');
                 }}
                 onChange={(e) => {
-                    setSearchQuery(e.target.value);
-                    setSearchValue(e.target.value);
+                    const value = (e.target as HTMLInputElement).value
+
+                    setSearchQuery(value);
+                    setSearchValue(value);
                 }}
                 {...restProps}
             />

@@ -1,4 +1,4 @@
-import {Button, FormControl} from 'react-bootstrap';
+import {Button, FormControlProps} from 'react-bootstrap';
 
 import {IconType} from '@Components/Icon';
 
@@ -7,7 +7,7 @@ import {IconType} from '@Components/Icon';
  */
 type InputSizeTypes = 'sm' | 'md' | 'lg';
 
-export interface InputProps {
+export interface InputProps extends Omit<FormControlProps, 'inputRef' | 'bsSize' | 'ref'> {
 
     /**
 	 * If 'true', the input will have a transparent border
@@ -73,13 +73,6 @@ export interface InputProps {
 	 * To override or extend the styles applied to the component
 	 */
     className?: string;
-
-    /**
-	 * Type of the input element
-	 *
-	 * @default 'text'
-	 */
-    type?: string;
 
     /**
 	 * If `true`, prevents the user from changing the value of the field
