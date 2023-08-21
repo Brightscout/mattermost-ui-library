@@ -197,7 +197,7 @@ export const StyledInput = styled(FormControl).withConfig({
 // Style for close icon button
 export const StyledIconButton = styled(Button)({
     borderRadius: '50%',
-    padding: 2,
+    padding: 0,
     borderWidth: 0,
 
     '&.btn.btn-primary': {

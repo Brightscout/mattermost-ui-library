@@ -7,7 +7,7 @@ import React from 'react';
  *
  * `block` - below the main label
  */
-export type SecondaryLabelPositionType = 'inline' | 'block';
+export type SecondaryLabelPositionType = 'inline' | 'block' | null;
 
 export interface MenuItemProps {
 
@@ -69,4 +69,9 @@ export interface MenuItemProps {
 	 * To override or extend the styles applied to the component
 	 */
     className?: string;
+
+    /**
+     * Element to show before the label
+     */
+    showBeforeLabelElement?: JSX.Element;
 }

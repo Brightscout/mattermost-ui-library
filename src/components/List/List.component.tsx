@@ -48,6 +48,7 @@ export const List = forwardRef<HTMLUListElement, ListPropType>(
             loading,
             isAutocomplete,
             activeItem = 0,
+            secondaryLabelPosition = null,
         },
         ref,
     ) => (
@@ -74,9 +75,14 @@ export const List = forwardRef<HTMLUListElement, ListPropType>(
 							!isAutocomplete && {
                             trailingIcon: 'Check',
                         })}
+                        secondaryLabelPosition={secondaryLabelPosition}
+                        secondaryLabel={secondaryLabelPosition ? option.secondaryLabel : ''}
+                        showBeforeLabelElement={option.showBeforeLabelElement}
                     />
                 ))
             )}
         </Options>
     ),
 );
+
+List.displayName = "List";

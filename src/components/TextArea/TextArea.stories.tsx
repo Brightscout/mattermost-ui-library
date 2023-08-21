@@ -37,7 +37,7 @@ export const Default = TextAreaTemplate.bind({});
 // Error state
 export const ErrorState = TextAreaTemplate.bind({});
 ErrorState.args = {
-    error: true,
+    error: 'Error Message',
 };
 
 // Readonly state
