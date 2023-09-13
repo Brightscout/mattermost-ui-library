@@ -64,7 +64,7 @@ AutoFocus.args = {
     autoFocus: true,
 };
 
-// Custom umber of rows to occupy
+// Custom number of rows to occupy
 export const CustomRows = TextAreaTemplate.bind({});
 CustomRows.args = {
     rows: 10,

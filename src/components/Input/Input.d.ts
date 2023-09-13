@@ -47,7 +47,8 @@ export interface InputProps
 	autoFocus?: boolean;
 
 	/**
-	 * If `true`, the input will indicate an error
+	 * If error message string is passed in this prop,
+	 * the input will indicate an error
 	 *
 	 * @default ''
 	 */

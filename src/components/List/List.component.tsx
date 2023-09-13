@@ -5,7 +5,7 @@ import {extendClassname} from '@Utils';
 
 import {ListPropType} from './List';
 import {Options} from './List.styles';
-import { Icon } from '@Components/Icon';
+import {Icon} from '@Components/Icon';
 
 /**
  * List Component

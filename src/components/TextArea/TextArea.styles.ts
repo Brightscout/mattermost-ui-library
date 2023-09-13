@@ -59,7 +59,7 @@ export const StyledTextArea = styled(FormControl)({
 });
 
 /**
- * Value for 
+ * Label styles in focussed state
  */
 const LABEL_STYLES_WHEN_FOCUSSED = { 
     fontSize: 10,

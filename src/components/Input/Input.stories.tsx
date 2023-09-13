@@ -17,7 +17,7 @@ Default.args = {
     label: 'Label',
 };
 
-// Large size Default
+// Largest variant of input
 export const LargeSize = InputTemplate.bind({});
 LargeSize.args = {
     ...Default.args,
