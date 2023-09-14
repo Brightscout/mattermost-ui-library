@@ -192,12 +192,12 @@ export const StyledInput = styled(FormControl).withConfig({
     '::placeholder': {
         color: error ? colors.error : colors.centerChannel_64,
     },
-}));
+})) as React.FC<InputProps>;
 
 // Style for close icon button
 export const StyledIconButton = styled(Button)({
     borderRadius: '50%',
-    padding: 2,
+    padding: 0,
     borderWidth: 0,
 
     '&.btn.btn-primary': {

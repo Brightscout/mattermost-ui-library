@@ -25,7 +25,7 @@ import {Hint, Text, StyledTooltip} from './Tooltip.styles';
  * ```
  */
 export const Tooltip = (props: TooltipProps) => {
-    const {children, placement, iconName, text, hint} = props;
+    const {children, placement = 'auto', iconName, text, hint} = props;
 
     const tooltip = (
         <StyledTooltip

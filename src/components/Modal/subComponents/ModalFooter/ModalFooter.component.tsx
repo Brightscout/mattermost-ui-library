@@ -23,6 +23,7 @@ export const ModalFooter = (props: ModalFooterProps) => {
         onSubmitHandler,
         primaryActionText,
         secondaryActionText,
+        isPrimaryButtonDisabled = false
     } = props;
     return (
         <ModalFooterWrapper className='mm-modalFooter'>
@@ -35,6 +36,7 @@ export const ModalFooter = (props: ModalFooterProps) => {
             <Button
                 variant='primary'
                 onClick={onSubmitHandler}
+                disabled={isPrimaryButtonDisabled}
             >
                 {primaryActionText || 'Submit'}
             </Button>

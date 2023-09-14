@@ -76,6 +76,7 @@ export const Label = styled.span<{
 }>(({secondaryLabelPosition}) => {
     return {
         fontSize: 14,
+        minWidth: '48px',
         gridColumnStart: secondaryLabelPosition === 'block' ? 3 : 2,
     };
 });
@@ -86,7 +87,7 @@ export const SecondaryLabel = styled.span<{
 }>(({secondaryLabelPosition}) => {
     return {
         fontSize: 12,
-        color: colors.menuSecondaryText,
+        color: colors.centerChannel_64,
         gridColumnStart: 3,
         gridRowStart: secondaryLabelPosition === 'block' ? 2 : 'unset',
     };

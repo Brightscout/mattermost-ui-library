@@ -1,11 +1,16 @@
-import {IconType} from '@Components/Icon';
+import React from 'react';
 
-export interface AutoCompleteProps {
+import {IconType} from '@Components/Icon';
+import { InputProps } from '@Components/Input/Input';
+
+export interface AutoCompleteProps
+    extends Pick<InputProps, 'component' | 'disableResize' | 'rows' | 'removeCloseButton' | 'value' | 'onKeyDown'> {
 
     /**
 	 * Label for the component
+	 * @default ''
 	 */
-    label: string;
+    label?: string;
 
     /**
 	 * If `true`, the component is focused during the first mount
@@ -53,7 +58,7 @@ export interface AutoCompleteProps {
 	 * @param option - Option which the user have selected
 	 */
     onSelect: (
-        event: React.MouseEvent<HTMLLIElement, MouseEvent>,
+        event: React.MouseEvent<HTMLLIElement, MouseEvent> | React.KeyboardEvent<HTMLElement>,
         option: ListItemType
     ) => void;
 }

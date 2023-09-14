@@ -19,12 +19,10 @@ export default {
         popoverBody: <>
             <MenuItem
                 onClick={() => ''}
-                leadingIcon='Edit'
                 label='option 1'
             />
             <MenuItem
                 onClick={() => ''}
-                leadingIcon='Delete'
                 label='option 2'
             />
         </>,

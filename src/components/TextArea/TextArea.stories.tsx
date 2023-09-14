@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {Story, Meta} from '@storybook/react';
 
 import {TextArea} from './TextArea.component';
@@ -17,7 +17,19 @@ export default {
     },
 } as Meta<TextAreaProps>;
 
-const TextAreaTemplate:Story<TextAreaProps> = (args) => <TextArea {...args}/>;
+const TextAreaTemplate: Story<Omit<TextAreaProps, 'value' | 'onChange'>> = (args) => {
+    const [value, setValue] = useState('')
+
+    return (
+        <TextArea 
+            {...args}
+            value={value} 
+            onChange={(event) => {
+                setValue(event.target.value)
+            }} 
+        />
+    )
+};
 
 // Default
 export const Default = TextAreaTemplate.bind({});
@@ -25,7 +37,7 @@ export const Default = TextAreaTemplate.bind({});
 // Error state
 export const ErrorState = TextAreaTemplate.bind({});
 ErrorState.args = {
-    error: true,
+    error: 'Error Message',
 };
 
 // Readonly state
@@ -50,4 +62,10 @@ RequiredState.args = {
 export const AutoFocus = TextAreaTemplate.bind({});
 AutoFocus.args = {
     autoFocus: true,
+};
+
+// Custom number of rows to occupy
+export const CustomRows = TextAreaTemplate.bind({});
+CustomRows.args = {
+    rows: 10,
 };

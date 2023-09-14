@@ -37,6 +37,7 @@ export const Modal = (props: ModalProps) => {
         secondaryActionText,
         className = '',
         backdrop = 'static',
+        isPrimaryButtonDisabled = false,
     } = props;
 
     return (
@@ -57,6 +58,7 @@ export const Modal = (props: ModalProps) => {
                 onSubmitHandler={onSubmitHandler}
                 primaryActionText={primaryActionText}
                 secondaryActionText={secondaryActionText}
+                isPrimaryButtonDisabled={isPrimaryButtonDisabled}
             />
         </ModalWrapper>
     );
