@@ -3,6 +3,7 @@
 import {ReactComponent as ArrowDown} from '@Assets/icons/arrow_down.svg';
 import {ReactComponent as ArrowLeft} from '@Assets/icons/arrow_left.svg';
 import {ReactComponent as Check} from '@Assets/icons/check.svg';
+import {ReactComponent as CheckBold} from '@Assets/icons/check_bold.svg';
 import {ReactComponent as Close} from '@Assets/icons/close.svg';
 import {ReactComponent as Delete} from '@Assets/icons/delete.svg';
 import {ReactComponent as Edit} from '@Assets/icons/edit.svg';
@@ -21,16 +22,17 @@ export default {
     ArrowDown,
     ArrowLeft,
     Check,
+    CheckBold,
     Close,
     Delete,
     Edit,
     Globe,
     Lock,
-    MagnifyingGlass,
     MenuDots,
     NoSubscription,
-    Pin,
     Spinner,
+    MagnifyingGlass,
+    Pin,
     TextBars,
     Unlink,
     User,

@@ -32,5 +32,6 @@
 		"src/setupTests.ts",
 		"src/reportWebVitals.ts",
 		"src/components/**/*.test.tsx",
+		"src/components/**/*.stories.tsx"
 	]
 }

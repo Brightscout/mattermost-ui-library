@@ -1,56 +1,49 @@
 import styled from 'styled-components';
-import {TabProps as BootstrapTabProps, Tabs} from 'react-bootstrap';
+import { TabProps as BootstrapTabProps, Tabs } from 'react-bootstrap';
 
 import colors from '@Styles/colorsForJs.module.scss';
 
 export const StyledTabs = styled(Tabs).withConfig({
-    shouldForwardProp: (prop) => prop !== 'stickyHeader' as keyof BootstrapTabProps,
-})<{stickyHeader: boolean}>(({stickyHeader}) => ({
+	shouldForwardProp: (prop) =>
+		prop !== ('stickyHeader' as keyof BootstrapTabProps),
+})<{ stickyHeader: boolean }>(({ stickyHeader }) => ({
+	borderBottom: `2px solid ${colors.tabsHeaderBorder}`,
+	marginBottom: '24px',
 
-    '.nav-tabs.nav-justified > li > a': {
-        marginBottom: 0,
-        borderColor: 'transparent',
-    },
+	...(stickyHeader && {
+		position: stickyHeader ? 'sticky' : 'initial',
+		top: 0,
+		background: 'transparent',
+	}),
 
-    '& .nav-tabs': {
-        borderBottom: `2px solid ${colors.tabsHeaderBorder}`,
-        marginBottom: '24px',
+	'& .nav-link': {
+		marginBottom: '-2px',
+		lineHeight: '20px',
+		fontWeight: '500',
+		backgroundColor: 'transparent',
 
-        ...(stickyHeader && {
-            position: stickyHeader ? 'sticky' : 'initial',
-            top: 0,
-            background: colors.centerChannelBg,
-        }),
-    },
+		a: {
+			color: colors.centerChannel,
 
-    '& .nav-item': {
-        marginBottom: '-2px',
-        lineHeight: '20px',
-        fontWeight: '500',
-        backgroundColor: 'transparent',
+			':hover, :focus': {
+				color: colors.primary,
+				backgroundColor: 'transparent',
+				borderColor: 'transparent',
+			},
+		},
 
-        a: {
-            color: colors.centerChannel,
+		'&.active': {
+			borderBottom: `2px solid ${colors.primary}`,
 
-            ':hover, :focus': {
-                color: colors.primary,
-                backgroundColor: 'transparent',
-                borderColor: 'transparent',
-            },
-        },
+			a: {
+				color: colors.centerChannel,
+				borderColor: 'transparent',
 
-        '&.active': {
-            borderBottom: `2px solid ${colors.primary}`,
-
-            a: {
-                color: colors.centerChannel,
-                borderColor: 'transparent',
-
-                ':hover, :focus': {
-                    backgroundColor: 'transparent',
-                    borderColor: 'transparent',
-                },
-            },
-        },
-    },
+				':hover, :focus': {
+					backgroundColor: 'transparent',
+					borderColor: 'transparent',
+				},
+			},
+		},
+	},
 }));

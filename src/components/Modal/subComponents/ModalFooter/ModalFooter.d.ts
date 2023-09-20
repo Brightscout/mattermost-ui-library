@@ -23,4 +23,11 @@ export interface ModalFooterProps {
 	 * @default `Close`
 	 */
     secondaryActionText?: string;
+
+	/**
+	 * Determines if the primary action button on the modal should be enabled/disabled.
+	 *
+	 * @default false
+	 */
+	isPrimaryButtonDisabled?: boolean;
 }

@@ -5,6 +5,7 @@ import {extendClassname} from '@Utils';
 
 import {ListPropType} from './List';
 import {Options} from './List.styles';
+import {Icon} from '@Components/Icon';
 
 /**
  * List Component
@@ -47,6 +48,7 @@ export const List = forwardRef<HTMLUListElement, ListPropType>(
             loading,
             isAutocomplete,
             activeItem = 0,
+            secondaryLabelPosition = null,
         },
         ref,
     ) => (
@@ -68,14 +70,19 @@ export const List = forwardRef<HTMLUListElement, ListPropType>(
                         })}
                         onClick={(event) => handleItemClick(event, option, index)}
                         label={option.label ?? option.value}
-                        leadingIcon={option.icon}
+                        leadingElement={option.icon && <Icon name={option.icon} />}
                         {...((option.label ?? option.value) === value &&
 							!isAutocomplete && {
                             trailingIcon: 'Check',
                         })}
+                        secondaryLabelPosition={secondaryLabelPosition}
+                        secondaryLabel={secondaryLabelPosition ? option.secondaryLabel : ''}
+                        showBeforeLabelElement={option.showBeforeLabelElement}
                     />
                 ))
             )}
         </Options>
     ),
 );
+
+List.displayName = "List";

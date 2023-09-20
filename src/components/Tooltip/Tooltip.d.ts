@@ -21,8 +21,10 @@ export interface TooltipProps extends Pick<OverlayTriggerProps, 'children'> {
 
     /**
 	 * Placement of the tooltip with respect to the wrapped component
+     * 
+     * @default 'auto'
 	 */
-    placement: placementType;
+    placement?: placementType;
 
     /**
 	 * Text to be displayed in the tooltip

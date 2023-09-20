@@ -1,4 +1,5 @@
 import {IconType} from '@Components/Icon';
+import {SecondaryLabelPositionType} from '@Components/MenuItem/MenuItem';
 
 /**
  * List item type
@@ -16,9 +17,19 @@ export type ListItemType = {
     value: string;
 
     /**
+     * Secondary label for the list item
+     */
+    secondaryLabel?: string;
+
+    /**
 	 * Icon Name for the list item
 	 */
     icon?: Exclude<IconType, 'Spinner'>;
+
+    /**
+     * Element to show before the label
+     */
+    showBeforeLabelElement?: JSX.Element;
 };
 
 /**
@@ -55,6 +66,11 @@ export interface ListPropType {
 	 * The index of active menu item
 	 */
     activeItem?: number;
+
+    /**
+     * Position of the secondary label
+     */
+    secondaryLabelPosition?: SecondaryLabelPositionType;
 
     /**
 	 * The handler called when any List item is selected
