@@ -4,14 +4,16 @@ import { IconType } from '@Components/Icon';
 import { InputProps } from '@Components/Input/Input';
 
 export interface AutoCompleteProps
-	extends Pick<
-		InputProps,
-		| 'component'
-		| 'disableResize'
-		| 'rows'
-		| 'removeCloseButton'
-		| 'value'
-		| 'onKeyDown'
+	extends Partial<
+		Pick<
+			InputProps,
+			| 'component'
+			| 'disableResize'
+			| 'rows'
+			| 'removeCloseButton'
+			| 'value'
+			| 'onKeyDown'
+		>
 	> {
 	/**
 	 * Label for the component

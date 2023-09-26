@@ -114,11 +114,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
 					{...inputProps}
 				/>
 				{searchQuery && (
-					<StyledIconButton
-						onClick={onClose}
-						bsStyle="primary"
-						className="clear-input-button"
-					>
+					<StyledIconButton onClick={onClose} className="clear-input-button">
 						<Icon name="Close" size={8 + 2 * increaseInputSizeBy[size]} />
 					</StyledIconButton>
 				)}
