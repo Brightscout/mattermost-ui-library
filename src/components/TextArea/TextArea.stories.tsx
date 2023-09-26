@@ -1,34 +1,36 @@
 import React, { useState } from 'react';
-import {Story, Meta} from '@storybook/react';
+import { Story, Meta } from '@storybook/react';
 
-import {TextArea} from './TextArea.component';
-import {TextAreaProps} from './TextArea';
+import { TextArea } from './TextArea.component';
+import { TextAreaProps } from './TextArea';
 
 export default {
-    title: 'Component/TextArea',
-    component: TextArea,
-    args: {
-        label: 'Address',
-    },
-    argTypes: {
-        value: {
-            control: 'text',
-        },
-    },
+	title: 'Component/TextArea',
+	component: TextArea,
+	args: {
+		label: 'Address',
+	},
+	argTypes: {
+		value: {
+			control: 'text',
+		},
+	},
 } as Meta<TextAreaProps>;
 
-const TextAreaTemplate: Story<Omit<TextAreaProps, 'value' | 'onChange'>> = (args) => {
-    const [value, setValue] = useState('')
+const TextAreaTemplate: Story<Omit<TextAreaProps, 'value' | 'onChange'>> = (
+	args
+) => {
+	const [value, setValue] = useState('');
 
-    return (
-        <TextArea 
-            {...args}
-            value={value} 
-            onChange={(event) => {
-                setValue(event.target.value)
-            }} 
-        />
-    )
+	return (
+		<TextArea
+			{...args}
+			value={value}
+			onChange={(event) => {
+				setValue(event.target.value);
+			}}
+		/>
+	);
 };
 
 // Default
@@ -37,35 +39,35 @@ export const Default = TextAreaTemplate.bind({});
 // Error state
 export const ErrorState = TextAreaTemplate.bind({});
 ErrorState.args = {
-    error: 'Error Message',
+	error: 'Error Message',
 };
 
 // Readonly state
 export const ReadOnlyState = TextAreaTemplate.bind({});
 ReadOnlyState.args = {
-    readOnly: true,
+	readOnly: true,
 };
 
 // Disabled state
 export const DisabledState = TextAreaTemplate.bind({});
 DisabledState.args = {
-    disabled: true,
+	disabled: true,
 };
 
 // Required state
 export const RequiredState = TextAreaTemplate.bind({});
 RequiredState.args = {
-    required: true,
+	required: true,
 };
 
 // Autofocus on first mount
 export const AutoFocus = TextAreaTemplate.bind({});
 AutoFocus.args = {
-    autoFocus: true,
+	autoFocus: true,
 };
 
 // Custom number of rows to occupy
 export const CustomRows = TextAreaTemplate.bind({});
 CustomRows.args = {
-    rows: 10,
+	rows: 10,
 };

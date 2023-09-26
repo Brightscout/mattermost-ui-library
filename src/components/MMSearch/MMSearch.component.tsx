@@ -196,6 +196,7 @@ export const MMSearch = (props: MMSearchProps) => {
 	 * @param {React.ChangeEvent<HTMLInputElement>} e - gets the value of input field
 	 */
 	const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+		console.log(e.target.value);
 		setIsOpen(true);
 		setSearchQuery(e.target.value);
 		setSearchValue(e.target.value);
