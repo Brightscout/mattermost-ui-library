@@ -1,7 +1,7 @@
 import React from 'react';
 
-import {MenuItemProps} from './MenuItem';
-import {Label, MenuItemWrapper, SecondaryLabel} from './MenuItem.styles';
+import { MenuItemProps } from './MenuItem';
+import { Label, MenuItemWrapper, SecondaryLabel } from './MenuItem.styles';
 
 /**
  * MenuItem Component
@@ -47,43 +47,44 @@ import {Label, MenuItemWrapper, SecondaryLabel} from './MenuItem.styles';
  * ```
  */
 export const MenuItem = (props: MenuItemProps) => {
-    const {
-        label,
-        secondaryLabel,
-        leadingElement,
-        trailingElement,
-        secondaryLabelPosition = 'block',
-        className = '',
-        disabled = false,
-        destructive = false,
-        ...restProps
-    } = props;
+	const {
+		label,
+		secondaryLabel,
+		leadingElement,
+		trailingElement,
+		secondaryLabelPosition = 'block',
+		className = '',
+		disabled = false,
+		destructive = false,
+		showBeforeLabelElement,
+		...restProps
+	} = props;
 
-    return (
-        <MenuItemWrapper
-            tabIndex={0}
-            className={`mm-menuItem ${className}ss`}
-            disabled={disabled}
-            destructive={destructive}
-            {...restProps}
-        >
-            {leadingElement}
-            <Label
-                className='mm-menuItem__label'
-                secondaryLabelPosition={secondaryLabelPosition}
-            >
-                {label}
-            </Label>
-            {
-                secondaryLabel &&
-                    <SecondaryLabel
-                        className='mm-menuItem__secondary-label'
-                        secondaryLabelPosition={secondaryLabelPosition}
-                    >
-                        {secondaryLabel}
-                    </SecondaryLabel>
-            }
-            {trailingElement}
-        </MenuItemWrapper>
-    );
+	return (
+		<MenuItemWrapper
+			tabIndex={0}
+			className={`mm-menuItem ${className}ss`}
+			disabled={disabled}
+			destructive={destructive}
+			{...restProps}
+		>
+			{leadingElement}
+			{showBeforeLabelElement}
+			<Label
+				className="mm-menuItem__label"
+				secondaryLabelPosition={secondaryLabelPosition}
+			>
+				{label}
+			</Label>
+			{secondaryLabel && (
+				<SecondaryLabel
+					className="mm-menuItem__secondary-label"
+					secondaryLabelPosition={secondaryLabelPosition}
+				>
+					{secondaryLabel}
+				</SecondaryLabel>
+			)}
+			{trailingElement}
+		</MenuItemWrapper>
+	);
 };

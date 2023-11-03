@@ -42,7 +42,7 @@ const DisplayFieldSet = ({ value, error, label }: TextAreaProps) => {
  */
 export const TextArea = (props: TextAreaProps) => {
 	const {
-		error,
+		error = '',
 		label,
 		required,
 		className = '',

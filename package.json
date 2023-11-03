@@ -8,7 +8,6 @@
 	"files": [
 		"build"
 	],
-	"dependencies": {},
 	"scripts": {
 		"build": "rm -rf build && tsc && npm run copy-assets && npm run copy-dts && npm run build:scss && tsc-alias",
 		"build:storybook": "build-storybook",
