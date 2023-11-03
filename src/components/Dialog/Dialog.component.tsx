@@ -99,7 +99,7 @@ export const Dialog = (props: DialogProps) => {
 							})}`}
 							onClick={onSubmitHandler}
 						>
-							{primaryButtonText ?? 'Submit'}
+							{primaryButtonText || (destructive && 'Delete')}
 						</Button>
 					)}
 				</DialogActions>

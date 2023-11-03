@@ -8,6 +8,8 @@ import React, {
 } from 'react';
 import { debounce } from 'lodash';
 
+import { FormControl } from 'react-bootstrap';
+
 import { Input } from '@Components/Input';
 import { List } from '@Components/List';
 import { ListItemType } from '@Components/List/List';
@@ -15,7 +17,6 @@ import { Constants } from '@Constants';
 
 import { AutoCompleteProps } from './AutoComplete';
 import { AutoCompleteWrapper } from './AutoComplete.styles';
-import { FormControl } from 'react-bootstrap';
 
 /**
  * An asynchronous function to search a query in the given list
