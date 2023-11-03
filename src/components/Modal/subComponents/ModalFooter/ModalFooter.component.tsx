@@ -19,7 +19,7 @@ import {ModalFooterWrapper} from './ModalFooter.styles';
  */
 export const ModalFooter = (props: ModalFooterProps) => {
     const {
-        onCloseHandler,
+        onFooterCloseHandler,
         onSubmitHandler,
         primaryActionText,
         secondaryActionText,
@@ -27,12 +27,14 @@ export const ModalFooter = (props: ModalFooterProps) => {
     } = props;
     return (
         <ModalFooterWrapper className='mm-modalFooter'>
-            <Button
-                variant='tertiary'
-                onClick={onCloseHandler}
-            >
-                {secondaryActionText || 'Close'}
-            </Button>
+            {secondaryActionText && (
+                <Button
+                    variant='tertiary'
+                    onClick={onFooterCloseHandler}
+                >
+                    {secondaryActionText}
+                </Button>
+            )}
             <Button
                 variant='primary'
                 onClick={onSubmitHandler}

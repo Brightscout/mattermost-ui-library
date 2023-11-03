@@ -7,6 +7,7 @@ import {Dialog} from '@Components/Dialog';
 import {Icon} from '@Components/Icon';
 import {Input} from '@Components/Input';
 import {LinearProgress} from '@Components/LinearProgress';
+import {ListItemType} from '@Components/List';
 import {MenuItem} from '@Components/MenuItem';
 import {Modal} from '@Components/Modal';
 import {NoData} from '@Components/NoData';
@@ -52,3 +53,5 @@ export {
     MMSearch,
     PostCard,
 };
+
+export type {ListItemType};

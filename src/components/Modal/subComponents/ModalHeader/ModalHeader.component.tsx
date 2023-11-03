@@ -24,14 +24,14 @@ import {
  * ```
  */
 export const ModalHeader = (props: ModalHeaderProps) => {
-    const {title, subtitle, onCloseHandler} = props;
+    const {title, subtitle, onHeaderCloseHandler} = props;
     return (
         <ModalHeaderWrapper className='mm-modalHeader'>
             <ModalHeaderRow>
                 <ModalHeaderTitle className='mm-modalHeaderTitle'>
                     {title}
                 </ModalHeaderTitle>
-                <IconButton onClick={onCloseHandler}>
+                <IconButton onClick={onHeaderCloseHandler}>
                     <Icon
                         name='Close'
                         size={20}

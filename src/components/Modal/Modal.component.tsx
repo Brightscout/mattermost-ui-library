@@ -29,7 +29,8 @@ export const Modal = (props: ModalProps) => {
     const {
         children,
         show,
-        onCloseHandler,
+        onFooterCloseHandler,
+        onHeaderCloseHandler,
         title,
         subtitle,
         onSubmitHandler,
@@ -42,7 +43,7 @@ export const Modal = (props: ModalProps) => {
 
     return (
         <ModalWrapper
-            onHide={onCloseHandler}
+            onHide={onHeaderCloseHandler}
             show={show}
             backdrop={backdrop}
             className={`mm-modal ${className}`}
@@ -50,11 +51,11 @@ export const Modal = (props: ModalProps) => {
             <ModalHeader
                 title={title}
                 subtitle={subtitle}
-                onCloseHandler={onCloseHandler}
+                onHeaderCloseHandler={onHeaderCloseHandler}
             />
             <ModalBody>{children}</ModalBody>
             <ModalFooter
-                onCloseHandler={onCloseHandler}
+                onFooterCloseHandler={onFooterCloseHandler}
                 onSubmitHandler={onSubmitHandler}
                 primaryActionText={primaryActionText}
                 secondaryActionText={secondaryActionText}
