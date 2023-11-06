@@ -3,7 +3,7 @@ import React from 'react';
 import {ModalFooterProps} from './subComponents/ModalFooter/ModalFooter';
 import {ModalHeaderProps} from './subComponents/ModalHeader/ModalHeader';
 
-export interface ModalProps extends ModalHeaderProps, ModalFooterProps {
+export type ModalProps = ModalHeaderProps & ModalFooterProps & {
 
     /**
      * The content of the modal
