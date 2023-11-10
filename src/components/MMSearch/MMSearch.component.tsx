@@ -71,6 +71,7 @@ export const MMSearch = (props: MMSearchProps) => {
 		onClearInput,
 		onKeyPress,
 		inputRef,
+		disabled = false,
 		...restProps
 	} = props;
 
@@ -236,6 +237,7 @@ export const MMSearch = (props: MMSearchProps) => {
 			className={`mm-autocomplete ${className}`}
 		>
 			<Input
+				disabled={disabled}
 				ref={handleSetRef}
 				fullWidth={fullWidth}
 				searchQuery={searchQuery}

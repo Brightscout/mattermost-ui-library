@@ -107,4 +107,9 @@ export interface MMSearchProps extends Pick<InputProps, 'component' | 'disableRe
 	 * Pass in ref object for the input component.
 	 */
     inputRef?: React.MutableRefObject<unknown>;
+
+    /**
+     * If `true`, the input component is disabled
+     */
+    disabled?: boolean;
 }
