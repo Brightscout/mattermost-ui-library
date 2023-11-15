@@ -1,9 +1,9 @@
 import React from 'react';
 
-import type {ModalFooterProps} from './subComponents/ModalFooter';
-import type {ModalHeaderProps} from './subComponents/ModalHeader';
+import {ModalFooterProps} from './subComponents/ModalFooter';
+import {ModalHeaderProps} from './subComponents/ModalHeader';
 
-export type ModalProps = ModalHeaderProps & ModalFooterProps & {
+export interface ModalProps extends ModalHeaderProps, ModalFooterProps {
 
     /**
      * The content of the modal
