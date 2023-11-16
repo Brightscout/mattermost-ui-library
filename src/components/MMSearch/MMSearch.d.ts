@@ -3,7 +3,7 @@ import {InputProps} from '@Components/Input/Input';
 import {ListItemType} from '@Components/List/List';
 import {SecondaryLabelPositionType} from '@Components/MenuItem/MenuItem';
 
-export interface MMSearchProps extends Pick<InputProps, 'component' | 'disableResize' | 'rows' | 'removeCloseButton'> {
+export interface MMSearchProps extends Pick<InputProps, 'component' | 'disableResize' | 'rows' | 'removeCloseButton' | 'error'> {
 
     /**
      * Label for the component

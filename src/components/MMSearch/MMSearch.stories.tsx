@@ -66,3 +66,9 @@ FullWidth.args = {
         {label: 'xcs 12', value: 'Value 12'},
     ],
 };
+
+export const WithError = MMSearchTemplate.bind({});
+WithError.args = {
+    fullWidth: true,
+    error:'Field is mandatory'
+}
