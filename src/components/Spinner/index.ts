@@ -1,2 +1,2 @@
 export {Spinner} from './Spinner.component';
-export type {SpinnerContainerProps, SpinnerProps} from './Spinner';
+export type {SpinnerProps} from './Spinner';
