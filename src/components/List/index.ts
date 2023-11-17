@@ -1,2 +1,2 @@
 export {List} from './List.component';
-export type {ListItemType} from './List';
+export type {ListItemType, ListPropType} from './List';

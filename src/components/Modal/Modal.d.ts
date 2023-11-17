@@ -1,7 +1,7 @@
 import React from 'react';
 
-import {ModalFooterProps} from './subComponents/ModalFooter/ModalFooter';
-import {ModalHeaderProps} from './subComponents/ModalHeader/ModalHeader';
+import type {ModalFooterProps} from './subComponents/ModalFooter';
+import type {ModalHeaderProps} from './subComponents/ModalHeader';
 
 export type ModalProps = ModalHeaderProps & ModalFooterProps & {
 

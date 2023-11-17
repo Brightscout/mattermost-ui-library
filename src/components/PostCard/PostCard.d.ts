@@ -1,6 +1,6 @@
 import {ReactNode} from 'react';
 
-import {PostHeaderProps} from './subComponents/PostHeader/PostHeader';
+import type {PostHeaderProps} from './subComponents/PostHeader';
 
 export type PostCardProps = {
 
@@ -13,10 +13,4 @@ export type PostCardProps = {
 	 * Message or mattermost rendered component to be rendered in the post card.
 	 */
     postMessage: string | ReactNode;
-} & Pick<
-PostHeaderProps,
-| 'floatingMenuComponents'
-| 'authorName'
-| 'botBadgeComponent'
-| 'timeStampComponent'
->;
+} & PostHeaderProps;
