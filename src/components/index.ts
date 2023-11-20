@@ -41,7 +41,7 @@ export type {OverlayProps} from './Overlay';
 export type {RadioProps} from './Radio';
 export type {SelectProps} from './Select';
 export type {CircularSkeleton, RectangularSkeleton, SkeletonProps} from './Skeleton';
-export type {SpinnerProps, SpinnerContainerProps} from './Spinner';
+export type {SpinnerProps} from './Spinner';
 export type {SwitchProps} from './Switch';
 export type {TabsProps} from './Tabs';
 export type {TextAreaProps} from './TextArea';
