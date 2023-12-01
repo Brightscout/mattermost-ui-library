@@ -206,6 +206,9 @@ export const StyledIconButton = styled(Button)({
 	borderRadius: '50%',
 	padding: 0,
 	borderWidth: 0,
+	display: 'flex',
+	justifyContent: 'center',
+	alignItems: 'center',
 
 	'&.btn.btn-primary': {
 		'&, &:hover, &:active, &:focus': {
