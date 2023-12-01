@@ -70,5 +70,5 @@ FullWidth.args = {
 export const WithError = MMSearchTemplate.bind({});
 WithError.args = {
     fullWidth: true,
-    error:'Field is mandatory'
+    error: 'Field is mandatory'
 }
