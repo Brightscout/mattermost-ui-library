@@ -13,7 +13,7 @@ export const DialogWrapper = styled(Modal)({
 
     '& .modal-content': {
         border: `1px solid ${Colors.centerChannel_8}`,
-        borderRadius: '8px',
+        borderRadius: '12px',
         width: '100%',
     },
 
@@ -30,14 +30,13 @@ export const DialogWrapper = styled(Modal)({
 export const DialogHeader = styled.div({
     display: 'flex',
     alignItems: 'center',
-    justifyContent: 'flex-end',
-    padding: '18px',
+    justifyContent: 'space-between',
+    padding: '24px 32px',
 });
 
 // Styles for dialog content
 export const DialogContent = styled.div({
-    padding: '0 18px',
-    textAlign: 'center',
+    padding: '0 32px',
     color: Colors.centerChannel,
 });
 
@@ -45,20 +44,23 @@ export const DialogContent = styled.div({
 export const DialogTitle = styled.h2({
     fontWeight: 600,
     fontSize: '22px',
+    lineHeight: '28px',
     overflow: 'hidden',
     textOverflow: 'ellipsis',
     whiteSpace: 'nowrap',
-    marginTop: 0,
+    marginBlock: 0,
 });
 
 // Styles for dialog description
-export const DialogDescription = styled.p({});
+export const DialogDescription = styled.p({
+    margin:0
+});
 
 // Styles for dialog actions
 export const DialogActions = styled.div({
-    marginTop: '16px',
+    padding: '24px 0',
     display: 'flex',
-    justifyContent: 'center',
+    justifyContent: 'flex-end',
     gap: '10px',
 
     // If `destructive` is true, the primary button turns to error state
@@ -77,7 +79,7 @@ export const DialogActions = styled.div({
 
 // Styles for dialog footer
 export const DialogFooter = styled.div({
-    padding: '18px',
+    padding: '0',
 });
 
 // Styles for icon button
