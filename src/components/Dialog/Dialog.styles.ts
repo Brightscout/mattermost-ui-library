@@ -27,12 +27,12 @@ export const DialogWrapper = styled(Modal)({
 });
 
 // Styles for dialog header
-export const DialogHeader = styled.div({
+export const DialogHeader = styled.div<{showTitle? : boolean}>(({showTitle}) => ({
     display: 'flex',
     alignItems: 'center',
-    justifyContent: 'space-between',
+    justifyContent: showTitle ? 'space-between' : 'flex-end',
     padding: '24px 32px',
-});
+}));
 
 // Styles for dialog content
 export const DialogContent = styled.div({
@@ -79,7 +79,7 @@ export const DialogActions = styled.div({
 
 // Styles for dialog footer
 export const DialogFooter = styled.div({
-    padding: '0',
+    padding: 0,
 });
 
 // Styles for icon button

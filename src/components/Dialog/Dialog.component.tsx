@@ -1,4 +1,4 @@
-	import React from 'react';
+import React from 'react';
 
 import { Icon } from '@Components/Icon';
 import { Button } from '@Components/Button';
@@ -72,9 +72,7 @@ export const Dialog = (props: DialogProps) => {
 			className={`mm-dialog ${className}`}
 			{...restProps}
 		>
-			<DialogHeader style={{
-				...(!title && {justifyContent: 'flex-end'})
-			}}>
+			<DialogHeader showTitle={!!title}>
 			{title && <DialogTitle>{title}</DialogTitle>}
 				<IconButton onClick={onCloseHandler} >
 					<Icon name="Close" size={20} />
