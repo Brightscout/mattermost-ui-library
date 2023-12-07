@@ -72,13 +72,13 @@ export const Dialog = (props: DialogProps) => {
 			className={`mm-dialog ${className}`}
 			{...restProps}
 		>
-			<DialogHeader>
-				<IconButton onClick={onCloseHandler}>
+			<DialogHeader showTitle={!!title}>
+			{title && <DialogTitle>{title}</DialogTitle>}
+				<IconButton onClick={onCloseHandler} >
 					<Icon name="Close" size={20} />
 				</IconButton>
 			</DialogHeader>
 			<DialogContent>
-				{title && <DialogTitle>{title}</DialogTitle>}
 				{description && <DialogDescription>{description}</DialogDescription>}
 				{children}
 				<DialogActions>
