@@ -184,7 +184,7 @@ export const StyledButtonContainer = styled.button<StyledButtonProps>(({variant,
             return {backgroundColor: getQuaternaryButtonFocus()};
         case 'text':
             return {
-                border: `2px solid ${colors.buttonFocusBorder}`,
+                // border: `2px solid ${colors.buttonFocusBorder}`,
                 backgroundColor: getButtonStyle[variant].default,
                 padding: '2px',
             };

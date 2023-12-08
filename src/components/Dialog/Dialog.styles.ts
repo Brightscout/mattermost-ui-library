@@ -70,11 +70,11 @@ export const DialogActions = styled.div({
     },
 
     // If `destructive` is true, the secondary button turns to error state
-    '& .destructiveBtnSecondary': {
-        color: Colors.error,
-        backgroundColor: Colors.error_8,
-        borderColor: Colors.error,
-    },
+    // '& .destructiveBtnSecondary': {
+    //     color: Colors.error,
+    //     backgroundColor: Colors.error_8,
+    //     borderColor: Colors.error,
+    // },
 });
 
 // Styles for dialog footer
