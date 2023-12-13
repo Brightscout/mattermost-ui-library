@@ -132,14 +132,15 @@ export const StyledFieldSet = styled.fieldset<{
 export const StyledInputContainer = styled.div<{
 	fullWidth?: boolean;
 	size?: InputSizeTypes;
-}>(({ fullWidth, size = 'md' }) => ({
+	disabled?: boolean;
+}>(({ fullWidth, size = 'md', disabled = false }) => ({
 	position: 'relative',
 	width: fullWidth ? 'auto' : 'fit-content',
 	display: 'flex',
 	alignItems: 'center',
 	paddingInline: '12px',
 	height: 32 + 4 * increaseInputSizeBy[size],
-	backgroundColor: colors.centerChannelBg,
+	backgroundColor: disabled ? colors.centerChannel_4 : colors.centerChannelBg,
 
 	'.clear-input-button': {
 		height: 12 + 2 * increaseInputSizeBy[size],
@@ -178,7 +179,7 @@ export const StyledInput = styled(FormControl).withConfig({
 
 	// Style for input on disable
 	'&:disabled': {
-		background: 'transparent',
+		background: 'transparent !important',
 	},
 
 	// Style for input on focus
@@ -209,16 +210,22 @@ export const StyledIconButton = styled(Button)({
 	display: 'flex',
 	justifyContent: 'center',
 	alignItems: 'center',
+	backgroundColor: colors.centerChannel_48,
+	position: 'absolute',
+	right: '12px',
 
-	'&.btn.btn-primary': {
-		'&, &:hover, &:active, &:focus': {
+
+	'&.btn': {
+		'&:hover, &:active, &:focus': {
 			background: colors.centerChannel_64,
+			outline: 'none'
 		},
 	},
 
 	'.mm-icon': {
-		svg: {
+		'& path, & rect': {
 			color: colors.white,
+			strokeOpacity: 'unset',
 		},
 	},
 });

@@ -66,7 +66,7 @@ export const List = forwardRef<HTMLUListElement, ListPropType>(
 						})}
 						onClick={(event) => handleItemClick(event, option, index)}
 						label={option.label ?? option.value}
-						leadingElement={option.icon && <Icon name={option.icon} />}
+						leadingElement={option.icon && typeof option.icon === 'string' ? <Icon size={16} name={option.icon} /> : option.icon}
 						{...((option.label ?? option.value) === value &&
 							!isAutocomplete && {
 								trailingIcon: 'Check',
