@@ -65,6 +65,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
 		component = 'input',
 		size = 'md',
 		borderLess,
+		disabled = false,
 		...inputProps
 	} = props;
 	const { readOnly, error, required, value = '' } = inputProps;
@@ -91,6 +92,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
 				className={`mm-input ${className}`}
 				fullWidth={fullWidth}
 				size={size}
+				disabled={disabled}
 			>
 				{iconName && (
 					<Icon name={iconName} size={12 + 2 * increaseInputSizeBy[size]} />
@@ -111,6 +113,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
 						)
 					}
 					label={label}
+					disabled={disabled}
 					{...inputProps}
 				/>
 				{searchQuery && (

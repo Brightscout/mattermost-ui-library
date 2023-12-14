@@ -24,7 +24,7 @@ export type ListItemType = {
     /**
 	 * Icon Name for the list item
 	 */
-    icon?: Exclude<IconType, 'Spinner'>;
+    icon?: Exclude<IconType, 'Spinner'> | JSX.Element;
 
     /**
      * Element to show before the label
