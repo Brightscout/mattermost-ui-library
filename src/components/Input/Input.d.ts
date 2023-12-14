@@ -146,3 +146,26 @@ export interface InputProps
 	 */
 	removeCloseButton?: boolean;
 }
+
+export interface StyledInputContainerProp {
+	/**
+	 * If `true`, the input will take up the full width of it's container.
+	 *
+	 * @default false
+	 */
+	fullWidth?: boolean;
+
+	/**
+	 * Input sizes
+	 *
+	 * @default 'md'
+	 */
+	size?: InputSizeTypes;
+
+	/**
+	 * If `true`, the input element will be disabled
+	 *
+	 * @default false
+	 */
+	disabled?: boolean;
+}

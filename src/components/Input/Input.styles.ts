@@ -3,7 +3,7 @@ import { Button, FormControl } from 'react-bootstrap';
 
 import colors from '@Styles/colorsForJs.module.scss';
 
-import { InputProps, InputSizeTypes } from './Input';
+import { InputProps, InputSizeTypes, StyledInputContainerProp } from './Input';
 
 // Input size map
 export const increaseInputSizeBy = {
@@ -129,11 +129,7 @@ export const StyledFieldSet = styled.fieldset<{
 });
 
 // Style for Input Container
-export const StyledInputContainer = styled.div<{
-	fullWidth?: boolean;
-	size?: InputSizeTypes;
-	disabled?: boolean;
-}>(({ fullWidth, size = 'md', disabled = false }) => ({
+export const StyledInputContainer = styled.div<StyledInputContainerProp>(({ fullWidth, size = 'md', disabled = false }) => ({
 	position: 'relative',
 	width: fullWidth ? 'auto' : 'fit-content',
 	display: 'flex',
