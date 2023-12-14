@@ -1,3 +1,6 @@
+import type { FormEventHandler } from 'react';
+import type { FormControl } from 'react-bootstrap';
+
 export interface TextAreaProps {
 
     /**
@@ -7,8 +10,6 @@ export interface TextAreaProps {
 
     /**
 	 * Number of rows for the textarea
-	 *
-	 * @default 3
 	 */
     rows?: number;
 
@@ -70,5 +71,5 @@ export interface TextAreaProps {
     /**
 	 * Handler called when there is a change in the value of the textarea
 	 */
-    onChange?: (event: React.ChangeEvent<HTMLTextAreaElement>) => void;
+    onChange?: (event: React.ChangeEvent<HTMLInputElement & FormControl>) => void;
 }

@@ -1,7 +1,25 @@
 /**
+ * Switch's size types
+ *
+ * `sm` - switch size = 16, label size = 12
+ *
+ * `md` - switch size = 20, label size = 14
+ *
+ * `lg` - switch size = 24, label size = 16
+ */
+type SwitchSizeTypes = 'sm' | 'md' | 'lg';
+
+/**
  * Interface for Styled Switch Container
  */
 export interface StyledSwitchContainerProps {
+
+    /**
+	   * Switch sizes
+	   *
+	   * @default 'md'
+	   */
+    size?: SwitchSizeTypes;
 
     /**
 		* If `true`, toggle switch occupies full width of it's container

@@ -3,7 +3,7 @@ import {InputProps} from '@Components/Input/Input';
 import {ListItemType} from '@Components/List/List';
 import {SecondaryLabelPositionType} from '@Components/MenuItem/MenuItem';
 
-export interface MMSearchProps extends Pick<InputProps, 'component' | 'disableResize' | 'rows' | 'removeCloseButton'> {
+export interface MMSearchProps extends Pick<InputProps, 'component' | 'disableResize' | 'rows' | 'removeCloseButton' | 'error'> {
 
     /**
      * Label for the component
@@ -107,4 +107,9 @@ export interface MMSearchProps extends Pick<InputProps, 'component' | 'disableRe
 	 * Pass in ref object for the input component.
 	 */
     inputRef?: React.MutableRefObject<unknown>;
+
+    /**
+     * If `true`, the input component is disabled
+     */
+    disabled?: boolean;
 }

@@ -5,7 +5,12 @@ export interface CommonProps {
     /**
 	 * Primary action button text
 	 */
-    primaryActionText?: string;
+    primaryButtonText?: string;
+
+    /**
+	 * Secondary action button text
+	 */
+    secondaryButtonText?: string;
 
     /**
 	 * Destructive state of the button,
@@ -42,11 +47,6 @@ export interface CommonProps {
 	 * To override or extend the styles applied to the component
 	 */
     className?: string;
-
-    /**
-	 * Text for the close button
-	 */
-    closeButtonText?: string;
 }
 
 /**

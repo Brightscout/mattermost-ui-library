@@ -1,6 +1,5 @@
 import React from 'react';
 import {OverlayTrigger} from 'react-bootstrap';
-import {OverlayInjectedProps} from 'react-bootstrap/esm/Overlay';
 
 import {Icon} from '@Components/Icon';
 
@@ -26,12 +25,11 @@ import {Hint, Text, StyledTooltip} from './Tooltip.styles';
  * ```
  */
 export const Tooltip = (props: TooltipProps) => {
-    const {children, placement, iconName, text, hint} = props;
+    const {children, placement = 'auto', iconName, text, hint} = props;
 
-    const renderTooltip = (overlayProps: OverlayInjectedProps) => (
+    const tooltip = (
         <StyledTooltip
             id='tooltip'
-            {...overlayProps}
         >
             <Text>
                 {iconName &&
@@ -47,11 +45,9 @@ export const Tooltip = (props: TooltipProps) => {
 
     return (
         <OverlayTrigger
-            key={placement}
             placement={placement}
-            flip={true}
             delay={400}
-            overlay={renderTooltip}
+            overlay={tooltip}
         >
             {children}
         </OverlayTrigger>

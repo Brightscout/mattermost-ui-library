@@ -5,24 +5,38 @@ import Colors from '@Styles/colorsForJs.module.scss';
 
 // Styles for dialog wrapper
 export const DialogWrapper = styled(Modal)({
+    '& .modal-dialog': {
+        display: 'flex',
+        alignItems: 'center',
+        minHeight: 'calc(100% - 20px)',
+    },
+
     '& .modal-content': {
         border: `1px solid ${Colors.centerChannel_8}`,
-        borderRadius: '8px',
+        borderRadius: '12px',
+        width: '100%',
+    },
+
+    '@media (min-width: 576px)': {
+        '& .modal-dialog': {
+            margin: '30px auto',
+            minHeight: 'calc(100% - 60px)',
+            maxWidth: '514px',
+        },
     },
 });
 
 // Styles for dialog header
-export const DialogHeader = styled.div({
+export const DialogHeader = styled.div<{showTitle? : boolean}>(({showTitle}) => ({
     display: 'flex',
     alignItems: 'center',
-    justifyContent: 'flex-end',
-    padding: '18px',
-});
+    justifyContent: showTitle ? 'space-between' : 'flex-end',
+    padding: '24px 32px',
+}));
 
 // Styles for dialog content
 export const DialogContent = styled.div({
-    padding: '0 18px',
-    textAlign: 'center',
+    padding: '0 32px',
     color: Colors.centerChannel,
 });
 
@@ -30,19 +44,23 @@ export const DialogContent = styled.div({
 export const DialogTitle = styled.h2({
     fontWeight: 600,
     fontSize: '22px',
+    lineHeight: '28px',
     overflow: 'hidden',
     textOverflow: 'ellipsis',
     whiteSpace: 'nowrap',
+    marginBlock: 0,
 });
 
 // Styles for dialog description
-export const DialogDescription = styled.p({});
+export const DialogDescription = styled.p({
+    margin:0
+});
 
 // Styles for dialog actions
 export const DialogActions = styled.div({
-    marginTop: '16px',
+    padding: '24px 0',
     display: 'flex',
-    justifyContent: 'center',
+    justifyContent: 'flex-end',
     gap: '10px',
 
     // If `destructive` is true, the primary button turns to error state
@@ -50,18 +68,11 @@ export const DialogActions = styled.div({
         backgroundColor: Colors.error,
         borderColor: Colors.error,
     },
-
-    // If `destructive` is true, the secondary button turns to error state
-    '& .destructiveBtnSecondary': {
-        color: Colors.error,
-        backgroundColor: Colors.error_8,
-        borderColor: Colors.error,
-    },
 });
 
 // Styles for dialog footer
 export const DialogFooter = styled.div({
-    padding: '18px',
+    padding: 0,
 });
 
 // Styles for icon button

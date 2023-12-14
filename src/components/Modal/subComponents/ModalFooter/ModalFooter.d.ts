@@ -3,7 +3,7 @@ export interface ModalFooterProps {
     /**
 	 * Callback for the close button
 	 */
-    onCloseHandler: () => void;
+    onFooterCloseHandler: () => void;
 
     /**
 	 * Callback for the primary button

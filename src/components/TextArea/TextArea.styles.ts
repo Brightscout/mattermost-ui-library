@@ -1,14 +1,13 @@
 import styled from 'styled-components';
-import Form from 'react-bootstrap/Form';
+import {FormControl} from 'react-bootstrap';
 
 import Colors from '@Styles/colorsForJs.module.scss';
 
 export const TextAreaContainer = styled.div({
     position: 'relative',
-    lineHeight: '16px',
 
     // Error state
-    '&.textarea-error': {
+    '&.textarea--error': {
 
         // Styles for label and label on focus
         'textarea:focus + label, label': {
@@ -33,7 +32,7 @@ export const TextAreaContainer = styled.div({
     },
 });
 
-export const StyledTextArea = styled(Form.Control)({
+export const StyledTextArea = styled(FormControl)({
     display: 'block',
     width: '100%',
     padding: '10px 8px',
@@ -59,6 +58,14 @@ export const StyledTextArea = styled(Form.Control)({
     },
 });
 
+/**
+ * Label styles in focussed state
+ */
+const LABEL_STYLES_WHEN_FOCUSSED = { 
+    fontSize: 10,
+    transform: 'translate(3px,-18.5px)'
+}
+
 export const Label = styled.label({
     position: 'absolute',
     pointerEvents: 'none',
@@ -72,17 +79,11 @@ export const Label = styled.label({
     // Styles for label on focus state
     '.mm-textarea textarea:focus + &': {
         color: Colors.primary,
-
-        fontSize: 10,
-        transform: 'translate(6px,-18.5px)',
+        ...LABEL_STYLES_WHEN_FOCUSSED
     },
 
     // Styles for label when value is present
-    '&.label-visible': {
-        fontSize: 10,
-        transform: 'translate(6px,-18.5px)',
-
-    },
+    '&.label--value-present': LABEL_STYLES_WHEN_FOCUSSED
 });
 
 export const StyledFieldSet = styled.fieldset<{label?:string}>(({label}) => {

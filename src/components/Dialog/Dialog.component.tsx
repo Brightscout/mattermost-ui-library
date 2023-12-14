@@ -1,19 +1,19 @@
 import React from 'react';
 
-import {Icon} from '@Components/Icon';
-import {Button} from '@Components/Button';
-import {extendClassname} from '@Utils';
+import { Icon } from '@Components/Icon';
+import { Button } from '@Components/Button';
+import { extendClassname } from '@Utils';
 
-import {DialogProps} from './Dialog';
+import { DialogProps } from './Dialog';
 import {
-    DialogActions,
-    DialogContent,
-    DialogDescription,
-    DialogFooter,
-    DialogHeader,
-    DialogTitle,
-    DialogWrapper,
-    IconButton,
+	DialogActions,
+	DialogContent,
+	DialogDescription,
+	DialogFooter,
+	DialogHeader,
+	DialogTitle,
+	DialogWrapper,
+	IconButton,
 } from './Dialog.styles';
 
 /**
@@ -25,7 +25,7 @@ import {
  *  onCloseHandler={() => {}}
  *  onSubmitHandler={() => {}}
  *  title="Dialog Header"
- *  primaryActionText="Submit"
+ *  primaryButtonText="Submit"
  *  />
  * ```
  *
@@ -35,7 +35,7 @@ import {
  *  onCloseHandler={()=>{}}
  *  onSubmitHandler={()=>{}}
  *  title="Dialog Header"
- *  primaryActionText="Submit"
+ *  primaryButtonText="Submit"
  *  description="Dialog Description"
  * />
  * ```
@@ -46,69 +46,65 @@ import {
  *  onCloseHandler={()=>{}}
  *  onSubmitHandler={()=>{}}
  *  title="Dialog Header"
- *  primaryActionText="Submit"
+ *  primaryButtonText="Submit"
  * >
  * <OtherComponent />
  * </Dialog>
  * ```
  */
 export const Dialog = (props: DialogProps) => {
-    const {
-        children,
-        title,
-        description,
-        primaryActionText,
-        onCloseHandler,
-        onSubmitHandler,
-        className = '',
-        destructive = false,
-        closeButtonText,
-        ...restProps
-    } = props;
+	const {
+		children,
+		title,
+		description,
+		primaryButtonText,
+		secondaryButtonText,
+		onCloseHandler,
+		onSubmitHandler,
+		className = '',
+		destructive = false,
+		...restProps
+	} = props;
 
-    return (
-        <DialogWrapper
-            onHide={onCloseHandler}
-            centered={true}
-            className={`mm-dialog ${className}`}
-            {...restProps}
-        >
-            <DialogHeader>
-                <IconButton onClick={onCloseHandler}>
-                    <Icon
-                        name='Close'
-                        size={20}
-                    />
-                </IconButton>
-            </DialogHeader>
-            <DialogContent>
-                {title && <DialogTitle>{title}</DialogTitle>}
-                {description && <DialogDescription>{description}</DialogDescription>}
-                {children}
-                <DialogActions>
-                    <Button
-                        variant='tertiary'
-                        onClick={onCloseHandler}
-                        className={`${extendClassname({
-                            destructiveBtnSecondary: destructive,
-                        })}`}
-                    >
-                        {closeButtonText ?? 'Cancel'}
-                    </Button>
-                    {(primaryActionText || destructive) && (
-                        <Button
-                            variant='primary'
-                            className={`${extendClassname({
-                                destructiveBtnPrimary: destructive,
-                            })}`}
-                            onClick={onSubmitHandler}
-                        >
-                            {primaryActionText || (destructive && 'Delete')}
-                        </Button>
-                    )}
-                </DialogActions>
-            </DialogContent>
-            <DialogFooter/>
-        </DialogWrapper>
-    );
+	return (
+		<DialogWrapper
+			onHide={onCloseHandler}
+			className={`mm-dialog ${className}`}
+			{...restProps}
+		>
+			<DialogHeader showTitle={!!title}>
+			{title && <DialogTitle>{title}</DialogTitle>}
+				<IconButton onClick={onCloseHandler} >
+					<Icon name="Close" size={20} />
+				</IconButton>
+			</DialogHeader>
+			<DialogContent>
+				{description && <DialogDescription>{description}</DialogDescription>}
+				{children}
+				<DialogActions>
+					<Button
+						variant="tertiary"
+						onClick={onCloseHandler}
+						className={`${extendClassname({
+							destructiveBtnSecondary: destructive,
+						})}`}
+					>
+						{secondaryButtonText ?? 'Close'}
+					</Button>
+					{onSubmitHandler && primaryButtonText && (
+						<Button
+							variant="primary"
+							className={`${extendClassname({
+								destructiveBtnPrimary: destructive,
+							})}`}
+							onClick={onSubmitHandler}
+						>
+							{primaryButtonText || (destructive && 'Delete')}
+						</Button>
+					)}
+				</DialogActions>
+			</DialogContent>
+			<DialogFooter />
+		</DialogWrapper>
+	);
 };

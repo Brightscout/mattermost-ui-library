@@ -4,7 +4,7 @@ import colors from '@Styles/colorsForJs.module.scss';
 
 import {SecondaryLabelPositionType} from './MenuItem';
 
-export const MenuItemWrapper = styled.li(() => {
+export const MenuItemWrapper = styled.li<{disabled?: boolean; destructive?: boolean}>(({disabled = false, destructive = false}) => {
     return {
         display: 'grid',
         alignItems: 'center',
@@ -26,17 +26,47 @@ export const MenuItemWrapper = styled.li(() => {
         },
 
         '&:hover': {
-            background: colors.centerChannel_8,
+            background: destructive ? colors.error : colors.centerChannel_8,
+            cursor: 'pointer',
+
+            ...(destructive && {
+                '.mm-menuItem__label, .mm-menuItem__secondary-label': {
+                    color: colors.primaryText,
+                },
+
+                '.mm-icon': {
+                    '& svg path': {
+                        color: colors.primaryText,
+                    },
+                },
+            }),
         },
 
         '&:active, &.active': {
-            background: colors.primary_8,
+            background: destructive ? colors.error : colors.primary_8,
         },
 
         '&:focus': {
             outline: 'none',
-            border: `2px solid ${colors.buttonFocusBorder}`,
+            border: `2px solid ${destructive ? colors.error : colors.buttonFocusBorder}`,
         },
+
+        ...(disabled && {
+            pointerEvents: 'none',
+            opacity: '35%',
+        }),
+
+        ...(destructive && !disabled && {
+            '.mm-menuItem__label, .mm-menuItem__secondary-label': {
+                color: colors.error,
+            },
+
+            '.mm-icon': {
+                '& svg path': {
+                    color: colors.error,
+                },
+            },
+        }),
     };
 });
 

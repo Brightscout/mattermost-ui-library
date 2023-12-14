@@ -1,7 +1,7 @@
 import React from 'react';
 
-import {ModalFooterProps} from './subComponents/ModalFooter/ModalFooter';
-import {ModalHeaderProps} from './subComponents/ModalHeader/ModalHeader';
+import {ModalFooterProps} from './subComponents/ModalFooter';
+import {ModalHeaderProps} from './subComponents/ModalHeader';
 
 export interface ModalProps extends ModalHeaderProps, ModalFooterProps {
 

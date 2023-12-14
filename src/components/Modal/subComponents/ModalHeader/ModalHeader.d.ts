@@ -13,5 +13,5 @@ export interface ModalHeaderProps {
     /**
      * Callback to be triggered on clicking the close icon button
      */
-    onCloseHandler: () => void;
+    onHeaderCloseHandler: () => void;
 }

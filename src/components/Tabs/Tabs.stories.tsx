@@ -15,6 +15,8 @@ export const Default = TabsTemplate.bind({});
 
 export const WithoutStickyHeader = TabsTemplate.bind({});
 
+export const WithJustified = TabsTemplate.bind({});
+
 const tabsConfig: TabsConfig[] = [
     {
         key: 1,
@@ -30,6 +32,11 @@ const tabsConfig: TabsConfig[] = [
 
 Default.args = {
     tabsConfig,
+};
+
+WithJustified.args = {
+    ...Default.args,
+    justified: true,
 };
 
 WithoutStickyHeader.args = {

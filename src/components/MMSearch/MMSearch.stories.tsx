@@ -1,6 +1,8 @@
 import React from 'react';
 import {Story, Meta} from '@storybook/react';
 
+import {Icon} from '../Icon'
+
 import {MMSearchProps} from './MMSearch';
 
 import {MMSearch} from './index';
@@ -66,3 +68,22 @@ FullWidth.args = {
         {label: 'xcs 12', value: 'Value 12'},
     ],
 };
+
+export const WithError = MMSearchTemplate.bind({});
+WithError.args = {
+    fullWidth: true,
+    error: 'Field is mandatory'
+}
+
+export const WithIconInItems = MMSearchTemplate.bind({});
+WithIconInItems.args = {
+    fullWidth: true,
+    secondaryLabelPosition: 'inline',
+    openOptions: true,
+    searchValue: 'Test',
+    items: [
+        {label: 'koko 1', value: 'Value 1', icon: <Icon size={16} name='Lock' />, secondaryLabel: 'Value 1'},
+        {label: 'koko 2', value: 'Value 2', icon: 'Pin', secondaryLabel: 'Value 2'},
+        {label: 'koko 3', value: 'Value 3', icon: 'Pin', secondaryLabel: 'Value 3'},
+    ],
+}

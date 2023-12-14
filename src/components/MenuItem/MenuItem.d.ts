@@ -1,7 +1,5 @@
 import React from 'react';
 
-import {IconType} from '@Components/Icon';
-
 /**
  * Types of position for the secondary label
  *
@@ -29,19 +27,43 @@ export interface MenuItemProps {
     secondaryLabelPosition?: SecondaryLabelPositionType;
 
     /**
-	 * Leading icon in the menu item
+	 * Leading element in the menu item
 	 */
-    leadingIcon?: Exclude<IconType, 'Spinner'>;
+    leadingElement?: JSX.Element;
 
     /**
-	 * Trailing icon in the menu item
+	 * Trailing element in the menu item
 	 */
-    trailingIcon?: Exclude<IconType, 'Spinner'>;
+    trailingElement?: JSX.Element;
+
+    /**
+     * If 'true', the component is disabled
+     *
+     * @default false
+     */
+    disabled?: boolean;
+
+    /**
+     * if 'true', the component will have destructive styles
+     *
+     * @default false
+     */
+    destructive?: boolean;
 
     /**
 	 * Callback to be triggered on clicking the Menu Item
 	 */
     onClick?: (event: React.MouseEvent<HTMLLIElement, MouseEvent>) => void;
+
+    /**
+	 * Callback to be triggered when mouse is entering the Menu Item
+	 */
+    onMouseEnter?: (event: React.MouseEvent<HTMLLIElement, MouseEvent>) => void;
+
+    /**
+	 * Callback to be triggered when mouse is leaving the Menu Item
+	 */
+    onMouseLeave?: (event: React.MouseEvent<HTMLLIElement, MouseEvent>) => void;
 
     /**
 	 * To override or extend the styles applied to the component
